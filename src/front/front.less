@@ -1,0 +1,1238 @@
+@mobile: ~"only screen and (max-width: 767px)";
+// The account column is often narrow beside the My Account menu, so layout follows it.
+@narrow: ~"(max-width: 620px)";
+
+// Every colour and the corner radius come from Configuration > Appearance, printed as an
+// inline :root block after this file; these are the defaults it overrides.
+:root {
+	--ddwcpp-primary: #0256ff;
+	--ddwcpp-primary-text: #ffffff;
+	--ddwcpp-card: #ffffff;
+	--ddwcpp-border: #e8eaee;
+	--ddwcpp-text: #111827;
+	--ddwcpp-muted: #6b7280;
+	--ddwcpp-icon-bg: #f2f5ff;
+	--ddwcpp-th-bg: #f7f8fa;
+	--ddwcpp-th-text: #111827;
+	--ddwcpp-success: #01cc44;
+	--ddwcpp-error: #ff4800;
+	--ddwcpp-radius: 12px;
+
+	// Derived, so a store changing one colour keeps everything in tune.
+	--ddwcpp-track: color-mix(in srgb, var(--ddwcpp-text) 7%, transparent);
+	--ddwcpp-shadow: 0 1px 2px color-mix(in srgb, var(--ddwcpp-text) 4%, transparent), 0 4px 16px -6px color-mix(in srgb, var(--ddwcpp-text) 8%, transparent);
+	--ddwcpp-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+	// The brand mark reads the framework tokens, which only exist in the admin.
+	--ddfw-primary-color: var(--ddwcpp-primary);
+	--ddfw-tab-background-color: var(--ddwcpp-icon-bg);
+}
+
+@keyframes ddwcpp-in {
+	from {
+		opacity: 0;
+		transform: translateY(6px);
+	}
+}
+
+@keyframes ddwcpp-grow {
+	from {
+		width: 0;
+	}
+}
+
+.ddwcpp-positive {
+	color: var(--ddwcpp-success);
+}
+
+.ddwcpp-negative {
+	color: var(--ddwcpp-error);
+}
+
+.ddwcpp-positive,
+.ddwcpp-negative,
+.ddwcpp-amount {
+	font-weight: 600;
+	font-variant-numeric: tabular-nums;
+	white-space: nowrap;
+}
+
+.ddwcpp-muted {
+	margin: 0;
+	color: var(--ddwcpp-muted);
+	font-size: 14px;
+}
+
+.ddwcpp-icon {
+	flex: none;
+}
+
+.ddwcpp-eyebrow {
+	display: block;
+	white-space: nowrap;
+	color: var(--ddwcpp-muted);
+	font-size: 13px;
+	font-weight: 500;
+	letter-spacing: 0.01em;
+}
+
+.ddwcpp-figure {
+	display: block;
+	color: var(--ddwcpp-text);
+	font-size: clamp(32px, 4.4vw, 44px);
+	font-weight: 650;
+	line-height: 1.08;
+	letter-spacing: -0.03em;
+	font-variant-numeric: tabular-nums;
+}
+
+.ddwcpp-account {
+	container-type: inline-size;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	color: var(--ddwcpp-text);
+	transition: opacity 0.2s var(--ddwcpp-ease);
+
+	> * {
+		animation: ddwcpp-in 0.32s var(--ddwcpp-ease) both;
+	}
+
+	&.is-loading {
+		opacity: 0.5;
+		pointer-events: none;
+	}
+
+	h2,
+	h3 {
+		margin: 0;
+		color: var(--ddwcpp-text);
+		font-weight: 600;
+		letter-spacing: -0.01em;
+	}
+
+	h3 {
+		font-size: 17px;
+	}
+
+	a:not(.button):not(.ddwcpp-nav-item):not(.ddwcpp-plan-card) {
+		color: var(--ddwcpp-primary);
+		text-decoration: none;
+	}
+
+	.button {
+		border-radius: calc(var(--ddwcpp-radius) * 0.7);
+		transition: transform 0.15s var(--ddwcpp-ease), filter 0.15s;
+
+		&:active {
+			transform: scale(0.98);
+		}
+	}
+
+	.button.alt,
+	.ddwcpp-pay-next .button {
+		background: var(--ddwcpp-primary);
+		border-color: var(--ddwcpp-primary);
+		color: var(--ddwcpp-primary-text);
+
+		&:hover {
+			filter: brightness(1.08);
+		}
+	}
+
+	form {
+		margin: 0;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.ddwcpp-account > *,
+	.ddwcpp-meter-used {
+		animation: none;
+	}
+}
+
+.ddwcpp-cell-meta {
+	display: block;
+	margin-top: 2px;
+	color: var(--ddwcpp-muted);
+	font-size: 13px;
+	font-weight: 400;
+}
+
+// Navigation. Segmented by default, like an iOS switcher; underline and pills as options.
+.ddwcpp-nav {
+	display: flex;
+	gap: 4px;
+	overflow-x: auto;
+	scrollbar-width: none;
+}
+
+.ddwcpp-nav-item {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 7px 14px;
+	color: var(--ddwcpp-muted);
+	font-size: 14px;
+	font-weight: 500;
+	white-space: nowrap;
+	text-decoration: none;
+	transition: color 0.15s, background-color 0.2s, box-shadow 0.2s;
+
+	&:hover,
+	&:focus {
+		color: var(--ddwcpp-text);
+	}
+
+	&.is-active {
+		color: var(--ddwcpp-text);
+		font-weight: 600;
+	}
+}
+
+.ddwcpp-nav-count {
+	min-width: 18px;
+	padding: 0 5px;
+	border-radius: 9px;
+	background: var(--ddwcpp-primary);
+	color: var(--ddwcpp-primary-text);
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 18px;
+	text-align: center;
+}
+
+.ddwcpp-tabs-segmented .ddwcpp-nav {
+	align-self: flex-start;
+	box-sizing: border-box;
+	max-width: 100%;
+	padding: 3px;
+	border-radius: calc(var(--ddwcpp-radius) * 0.85);
+	background: var(--ddwcpp-track);
+
+	.ddwcpp-nav-item {
+		padding: 6px 16px;
+		border-radius: calc(var(--ddwcpp-radius) * 0.85 - 3px);
+
+		&.is-active {
+			background: var(--ddwcpp-card);
+			box-shadow: var(--ddwcpp-shadow);
+		}
+	}
+}
+
+// Overdue banner.
+.ddwcpp-alert {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	padding: 14px 16px;
+	border-radius: var(--ddwcpp-radius);
+	background: color-mix(in srgb, var(--ddwcpp-error) 8%, transparent);
+	color: var(--ddwcpp-error);
+
+	p {
+		margin: 0;
+		color: var(--ddwcpp-text);
+	}
+
+	strong {
+		color: var(--ddwcpp-error);
+	}
+}
+
+// Hero: the balance and the next payment side by side.
+.ddwcpp-hero {
+	display: grid;
+	grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+	gap: 16px;
+}
+
+@container @narrow {
+	.ddwcpp-hero {
+		grid-template-columns: 1fr;
+	}
+
+	.ddwcpp-balance,
+	.ddwcpp-next {
+		padding: 22px;
+	}
+}
+
+.ddwcpp-next,
+.ddwcpp-list,
+.ddwcpp-plan-card,
+.ddwcpp-empty {
+	border: 1px solid var(--ddwcpp-border);
+	border-radius: var(--ddwcpp-radius);
+	background: var(--ddwcpp-card);
+	box-shadow: var(--ddwcpp-shadow);
+}
+
+.ddwcpp-balance {
+	border: 1px solid var(--ddwcpp-border);
+	border-radius: var(--ddwcpp-radius);
+	background: var(--ddwcpp-card);
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	padding: 28px;
+
+	@media @mobile {
+		padding: 22px;
+	}
+}
+
+.ddwcpp-meter {
+	height: 8px;
+	margin: 18px 0 4px;
+	overflow: hidden;
+	border-radius: 999px;
+	background: var(--ddwcpp-track);
+}
+
+.ddwcpp-meter-used {
+	display: block;
+	width: var(--ddwcpp-used, 0%);
+	min-width: 0;
+	height: 100%;
+	border-radius: inherit;
+	background: var(--ddwcpp-primary);
+	animation: ddwcpp-grow 0.9s var(--ddwcpp-ease) 0.1s both;
+}
+
+.ddwcpp-legend {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px 32px;
+	margin: 12px 0 0;
+
+	div {
+		margin: 0;
+	}
+
+	dt {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		color: var(--ddwcpp-muted);
+		font-size: 13px;
+		font-weight: 400;
+	}
+
+	dd {
+		margin: 2px 0 0;
+		font-weight: 600;
+		font-variant-numeric: tabular-nums;
+	}
+
+	&-owed dt::before,
+	&-free dt::before {
+		content: "";
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		background: var(--ddwcpp-primary);
+	}
+
+	&-free dt::before {
+		background: var(--ddwcpp-track);
+		box-shadow: inset 0 0 0 1px var(--ddwcpp-border);
+	}
+
+	@media @mobile {
+		gap: 8px 20px;
+	}
+}
+
+// Next payment tile: tinted, the countdown up top, the action at the bottom.
+.ddwcpp-next {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	padding: 24px;
+	border-color: transparent;
+	background: var(--ddwcpp-icon-bg);
+	box-shadow: none;
+
+	.ddwcpp-figure {
+		font-size: clamp(28px, 3.4vw, 34px);
+	}
+
+	.ddwcpp-pay-next {
+		margin-top: auto;
+		padding-top: 14px;
+
+		.button {
+			width: 100%;
+			text-align: center;
+		}
+	}
+
+	> .button {
+		align-self: flex-start;
+		margin-top: auto;
+	}
+
+	&.is-overdue {
+		background: color-mix(in srgb, var(--ddwcpp-error) 8%, transparent);
+
+		.ddwcpp-eyebrow,
+		.ddwcpp-countdown {
+			color: var(--ddwcpp-error);
+		}
+
+		.ddwcpp-pay-next .button {
+			background: var(--ddwcpp-error);
+			border-color: var(--ddwcpp-error);
+		}
+	}
+
+	&.is-clear {
+		border-color: var(--ddwcpp-border);
+		background: var(--ddwcpp-card);
+
+		.ddwcpp-icon {
+			margin-bottom: 4px;
+			color: var(--ddwcpp-success);
+		}
+	}
+}
+
+.ddwcpp-next-top {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	gap: 8px;
+}
+
+.ddwcpp-next-title {
+	font-size: 20px;
+	font-weight: 600;
+	letter-spacing: -0.01em;
+}
+
+.ddwcpp-countdown {
+	padding: 1px 8px;
+	border-radius: 6px;
+	background: var(--ddwcpp-card);
+	color: var(--ddwcpp-primary);
+	font-size: 12px;
+	font-weight: 500;
+	white-space: nowrap;
+
+	b {
+		font-weight: 700;
+	}
+}
+
+.ddwcpp-section {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.ddwcpp-section-head,
+.ddwcpp-back {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 12px;
+	font-size: 14px;
+}
+
+// Lists with calendar date tiles.
+.ddwcpp-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	&-item {
+		display: grid;
+		grid-template-columns: auto 1fr auto;
+		align-items: center;
+		gap: 14px;
+		margin: 0;
+		padding: 14px 18px;
+
+		& + & {
+			border-top: 1px solid var(--ddwcpp-border);
+		}
+	}
+
+	&-body strong {
+		font-weight: 600;
+	}
+
+	&-end {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		gap: 4px;
+	}
+}
+
+.ddwcpp-date-tile {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 44px;
+	height: 44px;
+	border-radius: calc(var(--ddwcpp-radius) * 0.75);
+	background: var(--ddwcpp-icon-bg);
+	line-height: 1.05;
+
+	small {
+		color: var(--ddwcpp-primary);
+		font-size: 10px;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+
+	b {
+		font-size: 17px;
+		font-weight: 650;
+		font-variant-numeric: tabular-nums;
+	}
+}
+
+// Plan cards: one per order, a segment per installment.
+.ddwcpp-plan-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: 16px;
+}
+
+.ddwcpp-account .ddwcpp-plan-card {
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+	padding: 20px;
+	color: var(--ddwcpp-text);
+	text-decoration: none;
+	transition: border-color 0.2s;
+
+	&[href]:hover {
+		border-color: color-mix(in srgb, var(--ddwcpp-primary) 35%, var(--ddwcpp-border));
+	}
+
+	&-head,
+	&-foot {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 12px;
+	}
+
+	&-foot {
+		align-items: flex-end;
+
+		.ddwcpp-amount {
+			font-size: 20px;
+			letter-spacing: -0.01em;
+		}
+	}
+
+	&-next {
+		display: inline-flex;
+		align-items: center;
+		gap: 2px;
+		color: var(--ddwcpp-muted);
+		font-size: 13px;
+		text-align: right;
+	}
+}
+
+.ddwcpp-segments {
+	display: flex;
+	gap: 4px;
+
+	i {
+		flex: 1;
+		height: 6px;
+		border-radius: 3px;
+		background: var(--ddwcpp-track);
+
+		&.is-paid {
+			background: var(--ddwcpp-success);
+		}
+
+		&.is-next {
+			background: var(--ddwcpp-primary);
+		}
+
+		&.is-overdue {
+			background: var(--ddwcpp-error);
+		}
+
+		&.is-cancelled {
+			background: repeating-linear-gradient(-45deg, var(--ddwcpp-track) 0 3px, transparent 3px 6px);
+		}
+	}
+}
+
+// History table: a bordered card, a tinted header row, hairlines between rows. Flat, no shadow.
+.ddwcpp-table-wrapper {
+	overflow: hidden;
+	border: 1px solid var(--ddwcpp-border);
+	border-radius: var(--ddwcpp-radius);
+	background: var(--ddwcpp-card);
+}
+
+.ddwcpp-account table.ddwcpp-table {
+	width: 100%;
+	margin: 0;
+	border: 0;
+	border-collapse: collapse;
+	border-radius: 0;
+
+	th,
+	td {
+		padding: 14px 18px;
+		border: 0;
+		text-align: left;
+		vertical-align: middle;
+	}
+
+	thead th {
+		background: var(--ddwcpp-th-bg);
+		color: var(--ddwcpp-th-text);
+		font-size: 13px;
+		font-weight: 600;
+	}
+
+	tbody tr + tr td {
+		border-top: 1px solid var(--ddwcpp-border);
+	}
+
+	th:last-child,
+	td:last-child {
+		text-align: right;
+	}
+
+	.ddwcpp-table-empty {
+		padding: 32px;
+		color: var(--ddwcpp-muted);
+		text-align: center;
+	}
+
+	@media @mobile {
+		thead {
+			display: none;
+		}
+
+		tbody tr {
+			display: block;
+			padding: 6px 0;
+		}
+
+		tbody tr + tr {
+			border-top: 1px solid var(--ddwcpp-border);
+		}
+
+		tbody tr + tr td {
+			border-top: 0;
+		}
+
+		td {
+			display: flex;
+			justify-content: space-between;
+			gap: 12px;
+			padding: 6px 16px;
+			text-align: right;
+
+			&::before {
+				content: attr(data-title);
+				color: var(--ddwcpp-muted);
+				font-weight: 500;
+				text-align: left;
+			}
+		}
+	}
+}
+
+.ddwcpp-pay-note {
+	display: block;
+	margin-top: 8px;
+	color: var(--ddwcpp-muted);
+	font-size: 13px;
+}
+
+// Status badges: the DevDiggers shape, 6px corners.
+.ddwcpp-badge {
+	display: inline-block;
+	padding: 2px 10px;
+	border-radius: 6px;
+	background: #f1f5f9;
+	color: #475569;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 1.5;
+	white-space: nowrap;
+
+	// Deeper text on a pale tint, the LoyaltyX badge pair, still following the store colour.
+	&-paid {
+		background: color-mix(in srgb, var(--ddwcpp-success) 8%, #fff);
+		color: color-mix(in srgb, var(--ddwcpp-success) 62%, #000);
+	}
+
+	&-overdue {
+		background: color-mix(in srgb, var(--ddwcpp-error) 7%, #fff);
+		color: color-mix(in srgb, var(--ddwcpp-error) 88%, #000);
+	}
+
+	&-due_soon,
+	&-pending {
+		background: var(--ddwcpp-icon-bg);
+		color: var(--ddwcpp-primary);
+	}
+
+	&-cancelled {
+		background: var(--ddwcpp-track);
+		color: var(--ddwcpp-muted);
+	}
+}
+
+// Schedule timeline, used on order pages and the plan detail.
+.ddwcpp-schedule {
+	margin: 24px 0;
+	padding: 20px;
+	border: 1px solid var(--ddwcpp-border);
+	border-radius: var(--ddwcpp-radius);
+	background: var(--ddwcpp-card);
+	color: var(--ddwcpp-text);
+
+	&-head {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 12px;
+		margin-bottom: 12px;
+	}
+
+	&-title {
+		margin: 0;
+		font-size: 18px;
+	}
+
+	&-plan {
+		padding: 2px 10px;
+		border-radius: 6px;
+		background: var(--ddwcpp-icon-bg);
+		color: var(--ddwcpp-primary);
+		font-size: 13px;
+		font-weight: 600;
+		white-space: nowrap;
+	}
+
+	.ddwcpp-segments {
+		margin-top: 4px;
+	}
+
+	.ddwcpp-progress-label {
+		margin: 10px 0 0;
+		color: var(--ddwcpp-muted);
+		font-size: 14px;
+	}
+
+	.ddwcpp-pay-next {
+		margin-top: 16px;
+
+		.button {
+			background: var(--ddwcpp-primary);
+			border-color: var(--ddwcpp-primary);
+			color: var(--ddwcpp-primary-text);
+		}
+	}
+}
+
+.ddwcpp-account .ddwcpp-schedule {
+	margin: 0;
+}
+
+.ddwcpp-timeline {
+	position: relative;
+	margin: 12px 0 0 !important;
+	padding: 0 !important;
+	border-top: 1px solid var(--ddwcpp-border);
+	list-style: none;
+
+	&-item {
+		position: relative;
+		display: grid;
+		grid-template-columns: 16px 1fr auto auto;
+		align-items: center;
+		gap: 14px;
+		padding: 12px 0;
+
+		&:not(:last-child)::after {
+			content: "";
+			position: absolute;
+			top: calc(50% + 10px);
+			bottom: calc(-50% + 10px);
+			left: 7px;
+			width: 2px;
+			background: var(--ddwcpp-border);
+		}
+	}
+
+	&-dot {
+		position: relative;
+		z-index: 1;
+		width: 16px;
+		height: 16px;
+		border: 2px solid var(--ddwcpp-border);
+		border-radius: 50%;
+		background: var(--ddwcpp-card);
+		box-sizing: border-box;
+	}
+
+	&-paid &-dot {
+		border-color: var(--ddwcpp-success);
+		background: var(--ddwcpp-success);
+	}
+
+	&-due_soon &-dot {
+		border-color: var(--ddwcpp-primary);
+	}
+
+	&-overdue &-dot {
+		border-color: var(--ddwcpp-error);
+		background: var(--ddwcpp-error);
+	}
+
+	&-body {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&-label {
+		font-weight: 600;
+	}
+
+	&-date {
+		color: var(--ddwcpp-muted);
+		font-size: 13px;
+	}
+
+	&-amount {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		font-weight: 600;
+		white-space: nowrap;
+		font-variant-numeric: tabular-nums;
+
+		small {
+			color: var(--ddwcpp-error);
+			font-weight: 400;
+		}
+	}
+
+	@media @mobile {
+		&-item {
+			grid-template-columns: 16px 1fr auto;
+		}
+
+		.ddwcpp-badge {
+			display: none;
+		}
+	}
+}
+
+// Onboarding for customers who have not applied yet: one card, status at the bottom.
+.ddwcpp-onboard {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	padding: 24px;
+	border: 1px solid var(--ddwcpp-border);
+	border-radius: var(--ddwcpp-radius);
+	background: var(--ddwcpp-card);
+}
+
+.ddwcpp-onboard-head {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+
+	h2 {
+		margin: 0 0 2px;
+		font-size: 22px;
+		letter-spacing: -0.01em;
+	}
+
+	p {
+		margin: 0;
+		color: var(--ddwcpp-muted);
+	}
+}
+
+.ddwcpp-welcome-mark {
+	display: inline-flex;
+	flex: none;
+	// The glyph sits low in its viewBox, so nudge it up to line up with the text block.
+	margin-top: -4px;
+
+	// Drop the mark's backing circle here, the card already frames it.
+	svg > circle:first-child {
+		fill: none;
+	}
+}
+
+.ddwcpp-benefits {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 10px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	li {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		margin: 0;
+		padding: 14px;
+		border-radius: calc(var(--ddwcpp-radius) * 0.75);
+		background: var(--ddwcpp-bg, rgba(0, 0, 0, 0.025));
+		font-size: 14px;
+		line-height: 1.4;
+		color: var(--ddwcpp-text);
+	}
+
+	.ddwcpp-icon {
+		color: var(--ddwcpp-primary);
+	}
+
+	@media @mobile {
+		grid-template-columns: 1fr;
+
+		li {
+			flex-direction: row;
+			align-items: center;
+		}
+	}
+}
+
+.ddwcpp-chips {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 6px;
+}
+
+.ddwcpp-chips-label {
+	margin-right: 4px;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: var(--ddwcpp-muted);
+}
+
+.ddwcpp-chip {
+	padding: 3px 10px;
+	border: 1px solid var(--ddwcpp-border);
+	border-radius: 999px;
+	color: var(--ddwcpp-text);
+	font-size: 13px;
+	font-weight: 500;
+}
+
+.ddwcpp-onboard-status {
+	--ddwcpp-tone: var(--ddwcpp-primary);
+	display: flex;
+	gap: 12px;
+	align-items: flex-start;
+	padding-top: 20px;
+	border-top: 1px solid var(--ddwcpp-border);
+
+	&.is-good {
+		--ddwcpp-tone: #15803d;
+	}
+
+	&.is-wait {
+		--ddwcpp-tone: #b45309;
+	}
+
+	&.is-bad {
+		--ddwcpp-tone: #e02e2a;
+	}
+
+	h3 {
+		margin: 0 0 4px;
+		font-size: 17px;
+	}
+
+	p {
+		margin: 0;
+		color: var(--ddwcpp-muted);
+	}
+
+	form {
+		margin-top: 14px;
+	}
+}
+
+.ddwcpp-onboard-status-icon {
+	display: inline-flex;
+	flex: none;
+	align-items: center;
+	justify-content: center;
+	padding-top: 1px;
+	color: var(--ddwcpp-tone);
+
+	.ddwcpp-icon {
+		width: 24px;
+		height: 24px;
+	}
+
+	&:empty {
+		display: none;
+	}
+}
+
+.ddwcpp-onboard-status-body {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	min-width: 0;
+}
+
+.ddwcpp-empty {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 10px;
+	padding: 20px 24px;
+	border: 1px solid var(--ddwcpp-border);
+	border-radius: var(--ddwcpp-radius);
+	background: var(--ddwcpp-card);
+
+	p {
+		margin: 0;
+	}
+}
+
+.ddwcpp-empty {
+	align-items: center;
+	padding: 40px 24px;
+	text-align: center;
+}
+
+// Checkout.
+.ddwcpp-checkout-credit {
+	margin-top: 6px;
+	font-weight: 600;
+}
+
+.ddwcpp-plan-options {
+	display: grid;
+	gap: 8px;
+	margin: 12px 0 0;
+	padding: 0;
+	border: 0;
+
+	legend {
+		margin-bottom: 6px;
+		padding: 0;
+		font-weight: 600;
+	}
+}
+
+.ddwcpp-plan-option {
+	display: flex;
+	gap: 12px;
+	align-items: flex-start;
+	padding: 12px 14px;
+	border: 1px solid var(--ddwcpp-border);
+	border-radius: 10px;
+	background: #fff;
+	cursor: pointer;
+
+	&:has( input:checked ) {
+		border-color: var(--ddwcpp-primary);
+		box-shadow: 0 0 0 1px var(--ddwcpp-primary);
+	}
+
+	input {
+		margin-top: 4px;
+	}
+
+	&-body {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+	}
+
+	&-title {
+		font-weight: 600;
+	}
+
+	&-meta {
+		color: var(--ddwcpp-muted);
+		font-size: 0.85em;
+	}
+}
+
+// Installment message.
+.ddwcpp-message {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+	margin: 0 0 16px;
+	font-size: 0.95em;
+	line-height: 1.4;
+
+	&-mark {
+		display: inline-flex;
+
+		svg {
+			width: 24px;
+			height: 24px;
+		}
+	}
+
+	&-more {
+		padding: 0 !important;
+		border: 0 !important;
+		background: none !important;
+		color: var(--ddwcpp-primary) !important;
+		font-size: inherit !important;
+		font-weight: 600;
+		text-decoration: underline;
+		cursor: pointer;
+	}
+
+	&-compact {
+		margin: 4px 0 8px;
+		font-size: 0.8em;
+
+		.ddwcpp-message-mark,
+		.ddwcpp-message-more {
+			display: none;
+		}
+	}
+}
+
+.ddwcpp-cart-message td {
+	padding-top: 12px !important;
+
+	.ddwcpp-message {
+		margin: 0;
+	}
+}
+
+// Explainer dialog.
+.ddwcpp-dialog {
+	width: ~"min(460px, calc(100vw - 32px))";
+	padding: 0;
+	border: 0;
+	border-radius: 18px;
+	box-shadow: 0 24px 60px rgba( 0, 0, 0, 0.25 );
+
+	&::backdrop {
+		background: rgba( 15, 23, 42, 0.5 );
+	}
+
+	&-inner {
+		position: relative;
+		padding: 28px;
+	}
+
+	&-close {
+		position: absolute;
+		top: 12px;
+		right: 12px;
+		width: 32px;
+		height: 32px;
+		padding: 0 !important;
+		border: 0 !important;
+		border-radius: 50% !important;
+		background: rgba( 0, 0, 0, 0.06 ) !important;
+		color: inherit !important;
+		font-size: 20px !important;
+		line-height: 1 !important;
+		cursor: pointer;
+	}
+
+	&-mark svg,
+	&-mark img {
+		display: block;
+		width: 48px;
+		height: 48px;
+		object-fit: contain;
+	}
+
+	h2 {
+		margin: 12px 0 16px;
+	}
+
+	h3 {
+		margin: 20px 0 8px;
+		font-size: 1em;
+	}
+
+	&-steps {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		counter-reset: ddwcpp-step;
+
+		li {
+			display: flex;
+			align-items: baseline;
+			gap: 12px;
+			margin: 0 0 12px;
+			line-height: 1.5;
+			counter-increment: ddwcpp-step;
+
+			// Baseline aligned, so the number sits on the first line at any theme font size.
+			&::before {
+				content: counter( ddwcpp-step );
+				flex: none;
+				width: 24px;
+				height: 24px;
+				border-radius: 50%;
+				background: var(--ddwcpp-icon-bg);
+				color: var(--ddwcpp-primary);
+				font-size: 13px;
+				font-weight: 700;
+				line-height: 24px;
+				text-align: center;
+			}
+		}
+	}
+
+	&-plans {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		li {
+			display: flex;
+			justify-content: space-between;
+			gap: 12px;
+			padding: 8px 0;
+			border-top: 1px solid var(--ddwcpp-border);
+
+			span {
+				color: var(--ddwcpp-muted);
+				font-size: 0.9em;
+				text-align: right;
+			}
+		}
+	}
+
+	&-note {
+		margin: 16px 0 0;
+		color: var(--ddwcpp-muted);
+		font-size: 0.85em;
+	}
+}

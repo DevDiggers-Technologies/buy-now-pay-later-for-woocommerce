@@ -1,0 +1,245 @@
+// Framework tokens, so status colours match every DevDiggers plugin.
+@positive: var(--ddfw-success-color, #01cc44);
+@positive-bg: var(--ddfw-success-background-color, #f0fdf4);
+@negative: var(--ddfw-error-color, #ff4800);
+@negative-bg: var(--ddfw-error-background-color, rgba(255, 72, 0, 0.07));
+@warning: #b45309;
+@primary: #0256ff;
+
+.ddwcpp-positive {
+	color: @positive;
+}
+
+.ddwcpp-positive,
+.ddwcpp-negative {
+	font-weight: 600;
+}
+
+.ddwcpp-negative,
+.ddwcpp-overdue {
+	color: @negative;
+}
+
+.ddwcpp-overdue {
+	font-weight: 600;
+}
+
+// Status badges, the same shape as the other DevDiggers plugins.
+.ddwcpp-status {
+	display: inline-block;
+	padding: 2px 10px;
+	border-radius: 6px;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 1.5;
+	white-space: nowrap;
+	background: #f1f5f9;
+	color: #475569;
+
+	// Same pair as LoyaltyX and AR.
+	&-active,
+	&-eligible,
+	&-paid,
+	&-credit {
+		background: #f0fdf4;
+		color: #15803d;
+	}
+
+	&-inactive,
+	&-rejected,
+	&-overdue,
+	&-debit {
+		background: rgba(224, 46, 42, 0.07);
+		color: #e02e2a;
+	}
+
+	&-pending {
+		background: #fffbeb;
+		color: @warning;
+	}
+}
+
+.ddwcpp-customer {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+
+	img {
+		border-radius: 50%;
+		flex-shrink: 0;
+	}
+
+	span {
+		display: block;
+		color: #64748b;
+		font-size: 12px;
+		word-break: break-all;
+	}
+}
+
+.ddwcpp-flash {
+	margin-left: 6px;
+	font-size: 12px;
+	font-weight: 500;
+}
+
+.ddwcpp-transactions-filters {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	align-items: center;
+
+	input[type="date"] {
+		min-height: 30px;
+	}
+
+	.select2-container {
+		min-width: 220px;
+	}
+}
+
+.wp-list-table {
+	.column-customer {
+		width: 24%;
+	}
+
+	.column-status,
+	.column-type {
+		width: 120px;
+	}
+
+	.column-id {
+		width: 80px;
+	}
+}
+
+.ddwcpp-transaction-details-table {
+	max-width: 720px;
+	margin-top: 16px;
+
+	th {
+		width: 180px;
+		font-weight: 600;
+	}
+}
+
+.ddwcpp-dialog {
+	width: ~"min(460px, 92vw)";
+	padding: 24px;
+	border: 0;
+	border-radius: 12px;
+	box-shadow: 0 20px 50px rgba( 15, 23, 42, 0.25 );
+
+	&::backdrop {
+		background: rgba( 15, 23, 42, 0.45 );
+	}
+
+	h2 {
+		margin-top: 0;
+	}
+
+	p > label[for] {
+		display: block;
+		margin-bottom: 4px;
+		font-weight: 500;
+	}
+
+	.regular-text {
+		width: 100%;
+	}
+
+	// Plain checkbox inside the dialog, not the framework toggle.
+	input[type="checkbox"] {
+		position: static;
+		display: inline-block;
+		width: 16px;
+		height: 16px;
+		margin: 0 6px 0 0;
+		opacity: 1;
+		appearance: auto;
+		vertical-align: -3px;
+	}
+
+	.ddwcpp-dialog-customer {
+		margin-top: -6px;
+		color: #64748b;
+	}
+
+	.ddwcpp-dialog-actions {
+		display: flex;
+		justify-content: flex-end;
+		gap: 8px;
+		margin-top: 20px;
+	}
+}
+
+// The framework stretches list items; keep the status views on one line.
+.subsubsub {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px 0;
+	float: none;
+	margin-bottom: 8px;
+
+	// WordPress prints a "|" text node between views; hide it, keep the links.
+	li {
+		display: inline-flex;
+		align-items: center;
+		width: auto;
+		white-space: nowrap;
+		font-size: 0;
+
+		a {
+			font-size: 13px;
+		}
+	}
+}
+
+.wp-list-table .column-actions .button {
+	min-height: 28px;
+	padding: 0 10px;
+	font-size: 12px;
+	line-height: 26px;
+}
+
+.wp-list-table .column-note {
+	width: 18%;
+}
+
+.ddwcpp-muted {
+	color: #64748b;
+}
+
+.ddwcpp-avatar {
+	float: left;
+	margin-right: 10px;
+	border-radius: 50%;
+}
+
+.ddwcpp-tablenav-total {
+	line-height: 30px;
+}
+
+.wp-list-table {
+	.column-actions {
+		width: 190px;
+		white-space: nowrap;
+	}
+
+	.column-amount,
+	.column-due_date {
+		width: 140px;
+	}
+}
+
+.ddwcpp-adjust-due[hidden] {
+	display: none;
+}
+
+// Disabled Pro actions next to a PRO tag.
+.ddwcpp-locked-action {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 4px;
+}
