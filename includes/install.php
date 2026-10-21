@@ -138,16 +138,24 @@ if ( ! class_exists( 'DDWCPP_Install' ) ) {
 		public static function ddwcpp_create_product() {
 			$product_id = absint( get_option( '_ddwcpp_dues_product_id' ) );
 
-			if ( $product_id && 'product' === get_post_type( $product_id ) ) {
-				return $product_id;
+			if ( ! $product_id || 'product' !== get_post_type( $product_id ) ) {
+				// A store coming from Pro may already have it.
+				$existing   = get_page_by_path( 'ddwcpp-postpaid-dues', OBJECT, 'product' );
+				$product_id = $existing ? $existing->ID : 0;
 			}
 
-			// A store coming from Pro may already have it.
-			$existing = get_page_by_path( 'ddwcpp-postpaid-dues', OBJECT, 'product' );
+			if ( $product_id ) {
+				// Older stores named it "PostPaid Dues"; bring it in line with the plugin name.
+				$product = wc_get_product( $product_id );
+				$name    = esc_html__( 'Pay Later Dues', 'buy-now-pay-later-for-woocommerce' );
 
-			if ( $existing ) {
-				update_option( '_ddwcpp_dues_product_id', $existing->ID );
-				return $existing->ID;
+				if ( $product && $name !== $product->get_name() ) {
+					$product->set_name( $name );
+					$product->save();
+				}
+
+				update_option( '_ddwcpp_dues_product_id', $product_id );
+				return $product_id;
 			}
 
 			$product = new WC_Product_Simple();

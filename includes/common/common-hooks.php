@@ -41,6 +41,10 @@ if ( ! class_exists( 'DDWCPP_Common_Hooks' ) ) {
 			add_action( 'woocommerce_checkout_create_order_line_item', [ $this, 'ddwcpp_save_dues_amount_on_item' ], 10, 3 );
 			add_filter( 'woocommerce_hidden_order_itemmeta', [ $this, 'ddwcpp_hide_order_item_meta' ] );
 
+			// The dues product always shows the plugin icon, never a media library image.
+			add_filter( 'woocommerce_product_get_image', [ $this, 'ddwcpp_dues_product_image' ], 10, 2 );
+			add_filter( 'woocommerce_store_api_cart_item_images', [ $this, 'ddwcpp_dues_cart_item_images' ], 10, 2 );
+
 			add_action( \DDWCPP_Install::CRON_HOOK, [ $this, 'ddwcpp_process_payment_terms' ] );
 			add_action( 'ddwcpp_installment_paid', [ $this, 'ddwcpp_on_installment_paid' ] );
 

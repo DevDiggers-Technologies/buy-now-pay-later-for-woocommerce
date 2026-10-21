@@ -261,7 +261,6 @@
 }
 
 .ddwcpp-next,
-.ddwcpp-list,
 .ddwcpp-plan-card,
 .ddwcpp-empty {
 	border: 1px solid var(--ddwcpp-border);
@@ -443,19 +442,25 @@
 	font-size: 14px;
 }
 
-// Lists with calendar date tiles.
-.ddwcpp-list {
+// Lists with calendar date tiles. Scoped so theme ul/li indents cannot shift the rows.
+.ddwcpp-account ul.ddwcpp-list {
 	margin: 0;
 	padding: 0;
+	border: 1px solid var(--ddwcpp-border);
+	border-radius: var(--ddwcpp-radius);
+	background: var(--ddwcpp-card);
 	list-style: none;
+}
 
+.ddwcpp-list {
 	&-item {
 		display: grid;
 		grid-template-columns: auto 1fr auto;
 		align-items: center;
 		gap: 14px;
-		margin: 0;
-		padding: 14px 18px;
+		margin: 0 !important;
+		padding: 14px 18px !important;
+		list-style: none;
 
 		& + & {
 			border-top: 1px solid var(--ddwcpp-border);

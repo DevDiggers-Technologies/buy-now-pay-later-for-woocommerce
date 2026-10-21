@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Buy Now Pay Later for WooCommerce 1.0.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/buy-now-pay-later-for-woocommerce\n"
-"POT-Creation-Date: 2026-10-21 10:40:31+00:00\n"
+"POT-Creation-Date: 2026-10-21 11:01:20+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -566,7 +566,7 @@ msgid ""
 "who gets credit, choose your payment plans and set up reminders."
 msgstr ""
 
-#: includes/admin/setup-wizard.php:112 includes/common/common-functions.php:394
+#: includes/admin/setup-wizard.php:112 includes/common/common-functions.php:445
 #: templates/admin/configuration/configuration-template.php:111
 #: templates/admin/configuration/configuration-template.php:420
 #: templates/admin/configuration/configuration-template.php:544
@@ -769,7 +769,7 @@ msgstr ""
 msgid "Increase dues (debit the customer)"
 msgstr ""
 
-#: includes/admin-dashboard.php:314 includes/common/common-functions.php:436
+#: includes/admin-dashboard.php:314 includes/common/common-functions.php:487
 #: templates/admin/installments/installments-list-template.php:160
 #: templates/admin/transactions/transaction-view-template.php:42
 #: templates/admin/transactions/transactions-list-template.php:143
@@ -934,73 +934,73 @@ msgstr ""
 msgid "No fees"
 msgstr ""
 
-#: includes/common/common-functions.php:171
+#: includes/common/common-functions.php:222
 msgid "Pay Later dues repayment."
 msgstr ""
 
-#: includes/common/common-functions.php:176
+#: includes/common/common-functions.php:227
 msgid "Pay Later dues credited to the customer."
 msgstr ""
 
-#: includes/common/common-functions.php:216
+#: includes/common/common-functions.php:267
 msgid "Credit restored after the order was cancelled."
 msgstr ""
 
-#: includes/common/common-functions.php:218
+#: includes/common/common-functions.php:269
 msgid "order cancelled"
 msgstr ""
 
-#: includes/common/common-functions.php:223
+#: includes/common/common-functions.php:274
 #. translators: %s: amount.
 msgid "Pay Later credit of %s restored to the customer."
 msgstr ""
 
-#: includes/common/common-functions.php:306
+#: includes/common/common-functions.php:357
 #. translators: %1$d: payment number, %2$d: number of payments, %3$s: order
 #. number.
 msgid "payment %1$d of %2$d for order #%3$s"
 msgstr ""
 
-#: includes/common/common-functions.php:311
+#: includes/common/common-functions.php:362
 #. translators: %s: order number.
 msgid "the payment for order #%s"
 msgstr ""
 
-#: includes/common/common-functions.php:314
+#: includes/common/common-functions.php:365
 msgid "your Pay Later payment"
 msgstr ""
 
-#: includes/common/common-functions.php:332
+#: includes/common/common-functions.php:383
 msgid "First Pay Later installment received."
 msgstr ""
 
-#: includes/common/common-functions.php:344
+#: includes/common/common-functions.php:395
 msgid "Pay Later payment plan completed. Every installment is paid."
 msgstr ""
 
-#: includes/common/common-functions.php:357
-#: includes/common/common-functions.php:390
+#: includes/common/common-functions.php:408
+#: includes/common/common-functions.php:441
 msgid "Pay Later Account"
 msgstr ""
 
-#: includes/common/common-functions.php:398
+#: includes/common/common-functions.php:449
 msgid "Credit limit"
 msgstr ""
 
-#: includes/common/common-functions.php:402
+#: includes/common/common-functions.php:453
 msgid "Available credit"
 msgstr ""
 
-#: includes/common/common-functions.php:406
+#: includes/common/common-functions.php:457
 #: templates/front/myaccount/postpaid-template.php:234
 msgid "Owed"
 msgstr ""
 
-#: includes/common/common-functions.php:424
+#: includes/common/common-functions.php:475
 msgid "Pay Later Transactions"
 msgstr ""
 
-#: includes/common/common-functions.php:428
+#: includes/common/common-functions.php:479
 #: templates/admin/transactions/transaction-view-template.php:39
 #: templates/admin/transactions/transactions-list-template.php:146
 #: templates/front/myaccount/postpaid-template.php:612
@@ -1008,14 +1008,14 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: includes/common/common-functions.php:432
+#: includes/common/common-functions.php:483
 #: templates/admin/transactions/transaction-view-template.php:40
 #: templates/admin/transactions/transactions-list-template.php:141
 #: templates/admin/transactions/transactions-list-template.php:294
 msgid "Type"
 msgstr ""
 
-#: includes/common/common-functions.php:440
+#: includes/common/common-functions.php:491
 #: templates/admin/transactions/transaction-view-template.php:48
 #: templates/admin/transactions/transactions-list-template.php:144
 #: templates/front/myaccount/postpaid-template.php:614
@@ -1023,7 +1023,7 @@ msgstr ""
 msgid "Order"
 msgstr ""
 
-#: includes/common/common-functions.php:444
+#: includes/common/common-functions.php:495
 #: templates/admin/transactions/transaction-view-template.php:62
 #: templates/admin/transactions/transactions-list-template.php:145
 msgid "Note"
@@ -1227,7 +1227,7 @@ msgstr ""
 msgid "Not Applied"
 msgstr ""
 
-#: includes/install.php:154
+#: includes/install.php:150 includes/install.php:162
 msgid "Pay Later Dues"
 msgstr ""
 

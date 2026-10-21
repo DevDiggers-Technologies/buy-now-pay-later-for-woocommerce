@@ -131,6 +131,57 @@ if ( ! class_exists( 'DDWCPP_Common_Functions' ) ) {
 		}
 
 		/**
+		 * Plugin icon URL for the dues product.
+		 *
+		 * @return string
+		 */
+		protected function ddwcpp_dues_image_url() {
+			return DDWCPP_PLUGIN_URL . 'assets/images/pay-later-dues.png';
+		}
+
+		/**
+		 * Show the plugin icon for the dues product wherever WooCommerce prints a product image.
+		 *
+		 * @param string     $image   Image HTML.
+		 * @param WC_Product $product Product.
+		 * @return string
+		 */
+		public function ddwcpp_dues_product_image( $image, $product ) {
+			if ( $product->get_id() !== ddwcpp_get_dues_product_id() ) {
+				return $image;
+			}
+
+			return '<img src="' . esc_url( $this->ddwcpp_dues_image_url() ) . '" alt="' . esc_attr( $product->get_name() ) . '" class="woocommerce-placeholder wp-post-image" width="300" height="300" />';
+		}
+
+		/**
+		 * Same icon in the Cart and Checkout blocks.
+		 *
+		 * @param array $images    Store API images.
+		 * @param array $cart_item Cart item.
+		 * @return array
+		 */
+		public function ddwcpp_dues_cart_item_images( $images, $cart_item ) {
+			if ( empty( $cart_item['product_id'] ) || (int) $cart_item['product_id'] !== ddwcpp_get_dues_product_id() ) {
+				return $images;
+			}
+
+			$url = $this->ddwcpp_dues_image_url();
+
+			return [
+				(object) [
+					'id'        => 0,
+					'src'       => $url,
+					'thumbnail' => $url,
+					'srcset'    => '',
+					'sizes'     => '',
+					'name'      => $cart_item['data']->get_name(),
+					'alt'       => $cart_item['data']->get_name(),
+				],
+			];
+		}
+
+		/**
 		 * Credit a customer once their dues repayment order is paid.
 		 *
 		 * @param int $order_id Order ID.
