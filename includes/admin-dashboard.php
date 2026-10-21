@@ -288,7 +288,7 @@ if ( ! class_exists( 'DDWCPP_Admin_Dashboard' ) ) {
 							esc_html__( 'Your own payment terms: Net 15, Net 45, Net 60 or any number of days', 'buy-now-pay-later-for-woocommerce' ),
 							esc_html__( 'Plan fees, fixed or a percentage, shown before the customer chooses', 'buy-now-pay-later-for-woocommerce' ),
 							esc_html__( 'Minimum and maximum order amount per plan', 'buy-now-pay-later-for-woocommerce' ),
-							esc_html__( 'Rename plans, reorder them and choose which one the product page advertises', 'buy-now-pay-later-for-woocommerce' ),
+							esc_html__( 'Rename plans, switch them on and off, and choose which one the product page advertises', 'buy-now-pay-later-for-woocommerce' ),
 						],
 					]
 				)

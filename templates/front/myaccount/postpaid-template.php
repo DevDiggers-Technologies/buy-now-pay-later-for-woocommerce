@@ -84,10 +84,23 @@ if ( ! class_exists( 'DDWCPP_Postpaid_Template' ) ) {
 			?>
 			<div class="ddwcpp-account ddwcpp-tabs-segmented">
 				<?php
-				if ( ! $active ) {
+				// A customer who still owes keeps the section, whatever happened to their approval, so they can pay.
+				if ( ! $active && $account['dues'] <= 0 ) {
 					$this->ddwcpp_render_status_panel( $account );
 					echo '</div>';
 					return;
+				}
+
+				if ( ! $active ) {
+					?>
+					<div class="ddwcpp-alert" role="alert">
+						<?php $this->ddwcpp_print_icon( 'alert' ); ?>
+						<p>
+							<strong><?php esc_html_e( 'Pay Later is not available for new orders.', 'buy-now-pay-later-for-woocommerce' ); ?></strong>
+							<?php esc_html_e( 'You can still pay what you owe here.', 'buy-now-pay-later-for-woocommerce' ); ?>
+						</p>
+					</div>
+					<?php
 				}
 
 				$this->ddwcpp_render_tabs( $section, $user_id );

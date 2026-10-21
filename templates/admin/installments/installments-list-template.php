@@ -274,13 +274,20 @@ if ( ! class_exists( 'DDWCPP_Installments_List_Template' ) ) {
 			$html      = esc_html( date_i18n( wc_date_format(), $timestamp ) );
 
 			if ( 'pending' === $item['status'] ) {
-				$html .= '<br /><small class="' . ( $timestamp < $now ? 'ddwcpp-overdue' : 'ddwcpp-muted' ) . '">' . esc_html(
-					$timestamp < $now
-						/* translators: %s: time span, e.g. "3 days". */
-						? sprintf( __( '%s late', 'buy-now-pay-later-for-woocommerce' ), human_time_diff( $timestamp, $now ) )
-						/* translators: %s: time span, e.g. "3 days". */
-						: sprintf( __( 'in %s', 'buy-now-pay-later-for-woocommerce' ), human_time_diff( $now, $timestamp ) )
-				) . '</small>';
+				// Calendar days, as My Account counts them, so the store and the customer see the same number.
+				$days = (int) round( ( strtotime( substr( $item['due_date'], 0, 10 ) ) - strtotime( current_time( 'Y-m-d' ) ) ) / DAY_IN_SECONDS );
+
+				if ( 0 === $days ) {
+					$label = __( 'Due today', 'buy-now-pay-later-for-woocommerce' );
+				} elseif ( $days < 0 ) {
+					/* translators: %s: number of days. */
+					$label = sprintf( _n( '%s day late', '%s days late', abs( $days ), 'buy-now-pay-later-for-woocommerce' ), number_format_i18n( abs( $days ) ) );
+				} else {
+					/* translators: %s: number of days. */
+					$label = sprintf( _n( 'in %s day', 'in %s days', $days, 'buy-now-pay-later-for-woocommerce' ), number_format_i18n( $days ) );
+				}
+
+				$html .= '<br /><small class="' . ( $timestamp < $now ? 'ddwcpp-overdue' : 'ddwcpp-muted' ) . '">' . esc_html( $label ) . '</small>';
 			}
 
 			return $html;

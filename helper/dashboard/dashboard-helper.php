@@ -219,9 +219,10 @@ if ( ! class_exists( 'DDWCPP_Dashboard_Helper' ) ) {
 					$totals['used']                       += $amount;
 					$totals['orders']                     += (int) $row['total_count'];
 					$totals['used_by_date'][ $row['day'] ] = $amount;
-				} elseif ( 'cleared_dues' === $row['reference'] ) {
-					$totals['repaid']                       += $amount;
-					$totals['repaid_by_date'][ $row['day'] ] = $amount;
+				} elseif ( in_array( $row['reference'], [ 'cleared_dues', 'manual_payment' ], true ) ) {
+					// Payments through the store and payments the store recorded by hand are both money received.
+					$totals['repaid'] += $amount;
+					$totals['repaid_by_date'][ $row['day'] ] = ( isset( $totals['repaid_by_date'][ $row['day'] ] ) ? $totals['repaid_by_date'][ $row['day'] ] : 0 ) + $amount;
 				}
 			}
 

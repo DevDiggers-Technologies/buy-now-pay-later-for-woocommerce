@@ -99,7 +99,13 @@ if ( ! class_exists( 'DDWCPP_Common_Functions' ) ) {
 		public function ddwcpp_add_endpoints() {
 			add_rewrite_endpoint( DDWCPP_POSTPAID_ENDPOINT, EP_ROOT | EP_PAGES );
 
-			if ( get_transient( 'ddwcpp_flush_rewrite_rules' ) ) {
+			// The flag alone misses an activation or update that never reached this site's front end within
+			// its minute (WP-CLI, a network activation, a quiet subsite), and the section then 404s for good.
+			// So the saved rules are checked too, which costs one lookup in an already loaded option.
+			$rules   = get_option( 'rewrite_rules' );
+			$missing = is_array( $rules ) && ! preg_grep( '#(^|/)' . preg_quote( DDWCPP_POSTPAID_ENDPOINT, '#' ) . '\\(#', array_keys( $rules ) );
+
+			if ( $missing || get_transient( 'ddwcpp_flush_rewrite_rules' ) ) {
 				delete_transient( 'ddwcpp_flush_rewrite_rules' );
 				flush_rewrite_rules();
 			}

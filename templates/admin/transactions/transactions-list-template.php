@@ -287,7 +287,7 @@ if ( ! class_exists( 'DDWCPP_Transactions_List_Template' ) ) {
 				return;
 			}
 
-			$references = [ 'order_debit', 'cleared_dues', 'order_refund', 'order_cancelled', 'manual_credit', 'manual_debit' ];
+			$references = [ 'order_debit', 'cleared_dues', 'manual_payment', 'order_refund', 'order_cancelled', 'manual_credit', 'manual_debit' ];
 			$customer   = $this->filters['user_id'] ? get_userdata( $this->filters['user_id'] ) : null;
 			?>
 			<div class="alignleft actions ddwcpp-transactions-filters">

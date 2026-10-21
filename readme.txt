@@ -25,7 +25,7 @@ The credit is yours. There is no third party lender, no API key, no account to s
 
 = Quick links =
 
-* [Pro Demo](https://demo.devdiggers.com/woocommerce-buy-now-pay-later/)
+* [Pro Demo](https://demo.devdiggers.com/woocommerce-postpaid/)
 * [Documentation](https://docs.devdiggers.com/woocommerce-postpaid/)
 * [Support](https://wordpress.org/support/plugin/buy-now-pay-later-for-woocommerce/)
 * [Upgrade to Pro](https://devdiggers.com/product/woocommerce-buy-now-pay-later/)
@@ -108,7 +108,7 @@ Customers get their own page under My Account, with tabs that switch without rel
 
 [Buy Now Pay Later for WooCommerce Pro](https://devdiggers.com/product/woocommerce-buy-now-pay-later/) adds the controls stores ask for once credit sales take off. You can see every Pro setting in the free plugin, marked with a PRO tag.
 
-* **Plan builder**: create, rename and reorder plans with their own order amount limits
+* **Plan builder**: create and rename plans with their own number of payments, schedule, fee and order amount limits
 * **Unlimited payment plans**: 3, 6 or 12 monthly payments, weekly schedules, up to 60 installments
 * **Your own payment terms**: Net 15, Net 45, Net 60 or any number of days
 * **Credit limits per customer**: give wholesale and trusted buyers a bigger line, edited inline on the Customers screen
@@ -120,7 +120,7 @@ Customers get their own page under My Account, with tabs that switch without rel
 * **Excluded products and categories**: keep gift cards or low margin items cash only
 * **Message controls**: show the installment price to approved customers only, pick which plan it advertises, and rewrite the Learn more explainer with your logo
 * **Appearance**: credit card style balance, tab styles, corners, eleven brand colors and your own labels
-* **Bulk actions and CSV export** for customers, installments and transactions, and one click payment reminders
+* **Bulk actions** for customers and installments, **CSV export** of installments and transactions, and one click payment reminders
 
 == Installation ==
 
@@ -160,7 +160,7 @@ They get an overdue email with a link to pay. If you turn on Pause Credit they c
 
 = Can customers pay off everything at once? =
 
-Yes. Paying installments in order settles them oldest first, and paying the full dues clears every open installment. Paying a custom partial amount is a Pro feature.
+Customers pay their installments one at a time, oldest first, from the Pay Later section in My Account. Paying any amount at once, up to the full balance, is a Pro feature.
 
 = What happens when I refund a Pay Later order? =
 
@@ -191,7 +191,36 @@ Yes. The free plugin reads the same customers, balances, installments and transa
 
 == External services ==
 
-This plugin does not connect to any external service. Applications, balances, installments and transactions are stored in your own WordPress database, and no data leaves your site.
+The plugin itself sends no data to any outside service. Applications, balances, installments and transactions are stored in your WordPress database, and emails go out through the WooCommerce mailer. It contains no licence checks, no update checks and no telemetry.
+
+**1. Gravatar (avatar images)**
+
+* What it is: Gravatar, the avatar service operated by Automattic, used through WordPress core's `get_avatar_url()`.
+* What it is used for: Showing the administrator's and customers' avatars on the plugin dashboard and list screens. This is standard WordPress behaviour.
+* When data is sent: When those admin screens are viewed and avatars are enabled under **Settings > Discussion**. Turning avatars off there stops the requests.
+* What data is sent: A hash of each shown user's email address inside the image URL, plus the usual request data of the browser such as IP address and user agent.
+* Terms of Service: https://automattic.com/terms/
+* Privacy Policy: https://automattic.com/privacy/
+
+The bundled DevDiggers framework, which draws the admin screens, connects to the two services below. Both run only inside the WordPress admin.
+
+**2. DevDiggers extensions directory**
+
+* What it is: A read only API on devdiggers.com that returns the public list of DevDiggers extensions.
+* What it is used for: Showing available DevDiggers extensions on the Extensions admin page.
+* When data is sent: Only when a logged in administrator opens the Extensions admin page. The response is cached for 24 hours.
+* What data is sent: A standard outbound HTTP request only, meaning your server's IP address and a plugin user agent string. No personal data and no store data are sent. The page also loads each listed extension's image from devdiggers.com in the administrator's browser.
+* Endpoint: https://devdiggers.com/wp-json/ddwcs/v1/plugins
+
+**3. Newsletter subscription (optional)**
+
+* What it is: A contact and newsletter endpoint on devdiggers.com.
+* What it is used for: Adding your email address to the DevDiggers newsletter, only if you choose to subscribe.
+* When data is sent: Only when an administrator submits the optional newsletter form in the plugin dashboard. Nothing is sent automatically.
+* What data is sent: The email address you enter and your site URL.
+* Endpoint: https://devdiggers.com/?fluentcrm=1&route=contact
+
+The DevDiggers services are provided by DevDiggers. By using them you agree to the DevDiggers Terms and Conditions (https://devdiggers.com/terms-and-conditions/) and Privacy Policy (https://devdiggers.com/privacy-policy/).
 
 == Source code and build tools ==
 

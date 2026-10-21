@@ -63,13 +63,25 @@ if ( ! class_exists( 'DDWCPP_Front_Functions' ) ) {
 		}
 
 		/**
+		 * Whether the current customer owes anything. They keep the Pay Later section and its repayment
+		 * form even when they can no longer use Pay Later, for example after a role change or a rejection.
+		 *
+		 * @return bool
+		 */
+		protected function ddwcpp_user_owes() {
+			$user_id = get_current_user_id();
+
+			return $user_id && $this->users_helper->ddwcpp_get_dues( $user_id ) > 0;
+		}
+
+		/**
 		 * Add PostPaid Menu in my account page function
 		 *
 		 * @param array $items Menu items.
 		 * @return array
 		 */
 		public function ddwcpp_add_woocommerce_menu( $items ) {
-			if ( ! $this->ddwcpp_user_has_access() ) {
+			if ( ! $this->ddwcpp_user_has_access() && ! $this->ddwcpp_user_owes() ) {
 				return $items;
 			}
 
@@ -104,8 +116,20 @@ if ( ! class_exists( 'DDWCPP_Front_Functions' ) ) {
 		 * @return array
 		 */
 		public function ddwcpp_hide_sidebar_on_endpoint( $sidebars_widgets ) {
-			if ( ! is_admin() && empty( $this->ddwcpp_configuration['sidebar_widgets'] ) && did_action( 'wp' ) && is_wc_endpoint_url( DDWCPP_POSTPAID_ENDPOINT ) ) {
-				return [ false ];
+			if ( is_admin() || ! empty( $this->ddwcpp_configuration['sidebar_widgets'] ) || ! did_action( 'wp' ) || ! is_wc_endpoint_url( DDWCPP_POSTPAID_ENDPOINT ) ) {
+				return $sidebars_widgets;
+			}
+
+			global $wp_registered_sidebars;
+
+			// Only the sidebars: a theme's footer and header widget areas belong to the whole site.
+			// Ponytail: matched by the area's id and name, which is how themes label them.
+			foreach ( array_keys( $sidebars_widgets ) as $id ) {
+				$name = isset( $wp_registered_sidebars[ $id ]['name'] ) ? $wp_registered_sidebars[ $id ]['name'] : '';
+
+				if ( 'wp_inactive_widgets' !== $id && ! preg_match( '/footer|header|bottom|top-?bar/i', $id . ' ' . $name ) ) {
+					$sidebars_widgets[ $id ] = [];
+				}
 			}
 
 			return $sidebars_widgets;
@@ -129,7 +153,7 @@ if ( ! class_exists( 'DDWCPP_Front_Functions' ) ) {
 		 * @return void
 		 */
 		public function ddwcpp_add_postpaid_content_on_my_account_page( $value = '' ) {
-			if ( ! $this->ddwcpp_user_has_access() ) {
+			if ( ! $this->ddwcpp_user_has_access() && ! $this->ddwcpp_user_owes() ) {
 				wc_print_notice( esc_html__( 'Pay Later is not available for your account.', 'buy-now-pay-later-for-woocommerce' ), 'notice' );
 				return;
 			}
@@ -304,7 +328,14 @@ if ( ! class_exists( 'DDWCPP_Front_Functions' ) ) {
 			$product = $atts['product_id'] ? wc_get_product( absint( $atts['product_id'] ) ) : ( isset( $GLOBALS['product'] ) && $GLOBALS['product'] instanceof \WC_Product ? $GLOBALS['product'] : null );
 			$amount  = (float) $atts['amount'] ? (float) $atts['amount'] : ( $product ? (float) wc_get_price_to_display( $product ) : 0 );
 
-			return $this->ddwcpp_get_message_html( $amount, $product ? $product->get_id() : 0 );
+			$html = $this->ddwcpp_get_message_html( $amount, $product ? $product->get_id() : 0 );
+
+			// A page builder or template can print the shortcode where the page check above cannot see it.
+			if ( $html && ! wp_style_is( 'ddwcpp-front-style' ) ) {
+				$this->ddwcpp_front_scripts( true );
+			}
+
+			return $html;
 		}
 
 		/**
@@ -362,11 +393,14 @@ if ( ! class_exists( 'DDWCPP_Front_Functions' ) ) {
 		/**
 		 * Front scripts enqueue function
 		 *
+		 * @param bool $force Load the installment message assets on any page.
 		 * @return void
 		 */
-		public function ddwcpp_front_scripts() {
+		public function ddwcpp_front_scripts( $force = false ) {
 			$account  = is_account_page();
-			$messages = ! empty( $this->ddwcpp_configuration['message_enabled'] ) && ( is_woocommerce() || is_cart() || is_front_page() );
+			$post     = get_post();
+			// The shortcode can sit on any page, so a page that holds it loads the styles in the head too.
+			$messages = ! empty( $this->ddwcpp_configuration['message_enabled'] ) && ( $force || is_woocommerce() || is_cart() || is_front_page() || ( is_singular() && $post && has_shortcode( $post->post_content, 'ddwcpp_installments_message' ) ) );
 
 			if ( $account || $messages || is_checkout() ) {
 				wp_enqueue_style( 'ddwcpp-front-style', DDWCPP_PLUGIN_URL . 'assets/css/front.css', [], filemtime( DDWCPP_PLUGIN_FILE . 'assets/css/front.css' ) );
@@ -400,7 +434,7 @@ if ( ! class_exists( 'DDWCPP_Front_Functions' ) ) {
 		public function ddwcpp_handle_form_submissions() {
 			$user_id = get_current_user_id();
 
-			if ( ! $user_id || empty( $_POST['ddwcpp_action'] ) || ! $this->ddwcpp_user_has_access() ) {
+			if ( ! $user_id || empty( $_POST['ddwcpp_action'] ) || ( ! $this->ddwcpp_user_has_access() && ! $this->ddwcpp_user_owes() ) ) {
 				return;
 			}
 

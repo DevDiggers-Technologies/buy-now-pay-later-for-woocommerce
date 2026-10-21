@@ -759,6 +759,23 @@
 	margin: 0;
 }
 
+// The order screen shows the schedule in a 280px side box, so it takes the phone layout there.
+#ddwcpp-order-schedule {
+	.ddwcpp-schedule {
+		margin: 0;
+		padding: 12px;
+	}
+
+	.ddwcpp-timeline-item {
+		grid-template-columns: 16px 1fr auto;
+		gap: 10px;
+	}
+
+	.ddwcpp-badge {
+		display: none;
+	}
+}
+
 .ddwcpp-timeline {
 	position: relative;
 	margin: 12px 0 0 !important;

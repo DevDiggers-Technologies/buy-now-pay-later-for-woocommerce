@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Buy Now Pay Later for WooCommerce 1.0.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/buy-now-pay-later-for-woocommerce\n"
-"POT-Creation-Date: 2026-10-21 11:07:14+00:00\n"
+"POT-Creation-Date: 2026-10-21 14:33:46+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -78,7 +78,7 @@ msgstr ""
 #: templates/admin/dashboard/dashboard-template.php:246
 #: templates/admin/dashboard/dashboard-template.php:302
 #: templates/admin/installments/installments-list-template.php:76
-#: templates/front/myaccount/postpaid-template.php:291
+#: templates/front/myaccount/postpaid-template.php:304
 msgid "Overdue"
 msgstr ""
 
@@ -513,7 +513,7 @@ msgid "Set the credit limit and how customers are approved."
 msgstr ""
 
 #: includes/admin/setup-wizard.php:61 includes/admin-dashboard.php:89
-#: templates/front/myaccount/postpaid-template.php:515
+#: templates/front/myaccount/postpaid-template.php:528
 msgid "Plans"
 msgstr ""
 
@@ -566,7 +566,7 @@ msgid ""
 "who gets credit, choose your payment plans and set up reminders."
 msgstr ""
 
-#: includes/admin/setup-wizard.php:112 includes/common/common-functions.php:445
+#: includes/admin/setup-wizard.php:112 includes/common/common-functions.php:451
 #: templates/admin/configuration/configuration-template.php:111
 #: templates/admin/configuration/configuration-template.php:420
 #: templates/admin/configuration/configuration-template.php:544
@@ -754,7 +754,9 @@ msgid "Minimum and maximum order amount per plan"
 msgstr ""
 
 #: includes/admin-dashboard.php:291
-msgid "Rename plans, reorder them and choose which one the product page advertises"
+msgid ""
+"Rename plans, switch them on and off, and choose which one the product page "
+"advertises"
 msgstr ""
 
 #: includes/admin-dashboard.php:307
@@ -769,12 +771,12 @@ msgstr ""
 msgid "Increase dues (debit the customer)"
 msgstr ""
 
-#: includes/admin-dashboard.php:314 includes/common/common-functions.php:487
+#: includes/admin-dashboard.php:314 includes/common/common-functions.php:493
 #: templates/admin/installments/installments-list-template.php:160
 #: templates/admin/transactions/transaction-view-template.php:42
 #: templates/admin/transactions/transactions-list-template.php:143
-#: templates/front/myaccount/postpaid-template.php:615
-#: templates/front/myaccount/postpaid-template.php:641
+#: templates/front/myaccount/postpaid-template.php:628
+#: templates/front/myaccount/postpaid-template.php:654
 msgid "Amount"
 msgstr ""
 
@@ -934,96 +936,96 @@ msgstr ""
 msgid "No fees"
 msgstr ""
 
-#: includes/common/common-functions.php:222
+#: includes/common/common-functions.php:228
 msgid "Pay Later dues repayment."
 msgstr ""
 
-#: includes/common/common-functions.php:227
+#: includes/common/common-functions.php:233
 msgid "Pay Later dues credited to the customer."
 msgstr ""
 
-#: includes/common/common-functions.php:267
+#: includes/common/common-functions.php:273
 msgid "Credit restored after the order was cancelled."
 msgstr ""
 
-#: includes/common/common-functions.php:269
+#: includes/common/common-functions.php:275
 msgid "order cancelled"
 msgstr ""
 
-#: includes/common/common-functions.php:274
+#: includes/common/common-functions.php:280
 #. translators: %s: amount.
 msgid "Pay Later credit of %s restored to the customer."
 msgstr ""
 
-#: includes/common/common-functions.php:357
+#: includes/common/common-functions.php:363
 #. translators: %1$d: payment number, %2$d: number of payments, %3$s: order
 #. number.
 msgid "payment %1$d of %2$d for order #%3$s"
 msgstr ""
 
-#: includes/common/common-functions.php:362
+#: includes/common/common-functions.php:368
 #. translators: %s: order number.
 msgid "the payment for order #%s"
 msgstr ""
 
-#: includes/common/common-functions.php:365
+#: includes/common/common-functions.php:371
 msgid "your Pay Later payment"
 msgstr ""
 
-#: includes/common/common-functions.php:383
+#: includes/common/common-functions.php:389
 msgid "First Pay Later installment received."
 msgstr ""
 
-#: includes/common/common-functions.php:395
+#: includes/common/common-functions.php:401
 msgid "Pay Later payment plan completed. Every installment is paid."
 msgstr ""
 
-#: includes/common/common-functions.php:408
-#: includes/common/common-functions.php:441
+#: includes/common/common-functions.php:414
+#: includes/common/common-functions.php:447
 msgid "Pay Later Account"
 msgstr ""
 
-#: includes/common/common-functions.php:449
+#: includes/common/common-functions.php:455
 msgid "Credit limit"
 msgstr ""
 
-#: includes/common/common-functions.php:453
+#: includes/common/common-functions.php:459
 msgid "Available credit"
 msgstr ""
 
-#: includes/common/common-functions.php:457
-#: templates/front/myaccount/postpaid-template.php:234
+#: includes/common/common-functions.php:463
+#: templates/front/myaccount/postpaid-template.php:247
 msgid "Owed"
 msgstr ""
 
-#: includes/common/common-functions.php:475
+#: includes/common/common-functions.php:481
 msgid "Pay Later Transactions"
 msgstr ""
 
-#: includes/common/common-functions.php:479
+#: includes/common/common-functions.php:485
 #: templates/admin/transactions/transaction-view-template.php:39
 #: templates/admin/transactions/transactions-list-template.php:146
-#: templates/front/myaccount/postpaid-template.php:612
-#: templates/front/myaccount/postpaid-template.php:627
+#: templates/front/myaccount/postpaid-template.php:625
+#: templates/front/myaccount/postpaid-template.php:640
 msgid "Date"
 msgstr ""
 
-#: includes/common/common-functions.php:483
+#: includes/common/common-functions.php:489
 #: templates/admin/transactions/transaction-view-template.php:40
 #: templates/admin/transactions/transactions-list-template.php:141
 #: templates/admin/transactions/transactions-list-template.php:294
 msgid "Type"
 msgstr ""
 
-#: includes/common/common-functions.php:491
+#: includes/common/common-functions.php:497
 #: templates/admin/transactions/transaction-view-template.php:48
 #: templates/admin/transactions/transactions-list-template.php:144
-#: templates/front/myaccount/postpaid-template.php:614
-#: templates/front/myaccount/postpaid-template.php:634
+#: templates/front/myaccount/postpaid-template.php:627
+#: templates/front/myaccount/postpaid-template.php:647
 msgid "Order"
 msgstr ""
 
-#: includes/common/common-functions.php:495
+#: includes/common/common-functions.php:501
 #: templates/admin/transactions/transaction-view-template.php:62
 #: templates/admin/transactions/transactions-list-template.php:145
 msgid "Note"
@@ -1047,59 +1049,59 @@ msgstr ""
 msgid "Pay Later account update"
 msgstr ""
 
-#: includes/front/front-functions.php:133
+#: includes/front/front-functions.php:157
 msgid "Pay Later is not available for your account."
 msgstr ""
 
-#: includes/front/front-functions.php:148
+#: includes/front/front-functions.php:172
 msgid "Invalid transaction."
 msgstr ""
 
-#: includes/front/front-functions.php:235
+#: includes/front/front-functions.php:259
 msgid "Learn more"
 msgstr ""
 
-#: includes/front/front-functions.php:322
+#: includes/front/front-functions.php:353
 msgid "Buy now, pay later"
 msgstr ""
 
-#: includes/front/front-functions.php:323
+#: includes/front/front-functions.php:354
 msgid "Approval and credit limits apply."
 msgstr ""
 
-#: includes/front/front-functions.php:327
+#: includes/front/front-functions.php:358
 msgid "Close"
 msgstr ""
 
-#: includes/front/front-functions.php:336
+#: includes/front/front-functions.php:367
 msgid "Ways to pay"
 msgstr ""
 
-#: includes/front/front-functions.php:351
+#: includes/front/front-functions.php:382
 msgid "See your Pay Later account"
 msgstr ""
 
-#: includes/front/front-functions.php:353
+#: includes/front/front-functions.php:384
 msgid "Log in or create an account to apply"
 msgstr ""
 
-#: includes/front/front-functions.php:408
+#: includes/front/front-functions.php:442
 msgid "Your session expired. Please try again."
 msgstr ""
 
-#: includes/front/front-functions.php:441
+#: includes/front/front-functions.php:475
 msgid "Pay Later is active. You can now choose it at checkout."
 msgstr ""
 
-#: includes/front/front-functions.php:449
+#: includes/front/front-functions.php:483
 msgid "Your application was sent. We will email you once it has been reviewed."
 msgstr ""
 
-#: includes/front/front-functions.php:464
+#: includes/front/front-functions.php:498
 msgid "You have no dues to pay."
 msgstr ""
 
-#: includes/front/front-functions.php:540
+#: includes/front/front-functions.php:574
 msgid ""
 "Your cart holds a Pay Later repayment. Complete or remove it before adding "
 "products."
@@ -1257,8 +1259,8 @@ msgstr ""
 #: templates/admin/transactions/transaction-view-template.php:41
 #: templates/admin/transactions/transactions-list-template.php:142
 #: templates/admin/transactions/transactions-list-template.php:300
-#: templates/front/myaccount/postpaid-template.php:613
-#: templates/front/myaccount/postpaid-template.php:628
+#: templates/front/myaccount/postpaid-template.php:626
+#: templates/front/myaccount/postpaid-template.php:641
 msgid "Description"
 msgstr ""
 
@@ -1377,7 +1379,7 @@ msgid "Configure the Pay Later payment method"
 msgstr ""
 
 #: templates/admin/configuration/configuration-template.php:129
-#: templates/front/myaccount/postpaid-template.php:154
+#: templates/front/myaccount/postpaid-template.php:167
 msgid "Payment Plans"
 msgstr ""
 
@@ -1842,13 +1844,13 @@ msgid ""
 msgstr ""
 
 #: templates/admin/customers/customers-list-template.php:227
-#: templates/admin/installments/installments-list-template.php:382
+#: templates/admin/installments/installments-list-template.php:389
 #: templates/admin/transactions/transactions-list-template.php:116
 msgid "No matches"
 msgstr ""
 
 #: templates/admin/customers/customers-list-template.php:228
-#: templates/admin/installments/installments-list-template.php:383
+#: templates/admin/installments/installments-list-template.php:390
 #: templates/admin/transactions/transactions-list-template.php:117
 msgid ""
 "Nothing matches this search or these filters. Try different terms or reset "
@@ -1864,7 +1866,7 @@ msgid "Customer"
 msgstr ""
 
 #: templates/admin/customers/customers-list-template.php:253
-#: templates/front/myaccount/postpaid-template.php:238
+#: templates/front/myaccount/postpaid-template.php:251
 msgid "Available"
 msgstr ""
 
@@ -1912,7 +1914,7 @@ msgstr ""
 
 #: templates/admin/customers/customers-list-template.php:404
 #: templates/admin/dashboard/dashboard-template.php:307
-#: templates/front/myaccount/postpaid-template.php:314
+#: templates/front/myaccount/postpaid-template.php:327
 #: templates/front/plan-schedule-template.php:147
 #. translators: %s: due date.
 #. translators: %s: date.
@@ -2098,7 +2100,7 @@ msgid "Due Date"
 msgstr ""
 
 #: templates/admin/installments/installments-list-template.php:223
-#: templates/front/myaccount/postpaid-template.php:354
+#: templates/front/myaccount/postpaid-template.php:367
 #: templates/front/plan-schedule-template.php:137
 #: templates/front/plan-schedule-template.php:267
 #. translators: %1$d: payment number, %2$d: number of payments.
@@ -2122,44 +2124,56 @@ msgstr ""
 msgid "Paid %s"
 msgstr ""
 
-#: templates/admin/installments/installments-list-template.php:280
-#. translators: %s: time span, e.g. "3 days".
-msgid "%s late"
+#: templates/admin/installments/installments-list-template.php:281
+msgid "Due today"
 msgstr ""
 
-#: templates/admin/installments/installments-list-template.php:282
-#. translators: %s: time span, e.g. "3 days".
-msgid "in %s"
-msgstr ""
+#: templates/admin/installments/installments-list-template.php:284
+#: templates/front/myaccount/postpaid-template.php:310
+#. translators: %s: number of days.
+#. translators: %s: number of days late.
+msgid "%s day late"
+msgid_plural "%s days late"
+msgstr[0] ""
+msgstr[1] ""
 
-#: templates/admin/installments/installments-list-template.php:330
+#: templates/admin/installments/installments-list-template.php:287
+#: templates/front/myaccount/postpaid-template.php:315
+#. translators: %s: number of days.
+#. translators: %s: number of days left.
+msgid "in %s day"
+msgid_plural "in %s days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/admin/installments/installments-list-template.php:337
 msgid ""
 "Record this payment as received? Use it for payments made outside the "
 "store, such as a bank transfer."
 msgstr ""
 
-#: templates/admin/installments/installments-list-template.php:330
+#: templates/admin/installments/installments-list-template.php:337
 msgid "Mark paid"
 msgstr ""
 
-#: templates/admin/installments/installments-list-template.php:331
+#: templates/admin/installments/installments-list-template.php:338
 msgid "Remind"
 msgstr ""
 
-#: templates/admin/installments/installments-list-template.php:350
+#: templates/admin/installments/installments-list-template.php:357
 #. translators: %s: amount.
 msgid "Outstanding in this view: %s"
 msgstr ""
 
-#: templates/admin/installments/installments-list-template.php:362
+#: templates/admin/installments/installments-list-template.php:369
 msgid "Show all customers"
 msgstr ""
 
-#: templates/admin/installments/installments-list-template.php:373
+#: templates/admin/installments/installments-list-template.php:380
 msgid "Nothing here"
 msgstr ""
 
-#: templates/admin/installments/installments-list-template.php:374
+#: templates/admin/installments/installments-list-template.php:381
 msgid ""
 "Installments appear once customers check out with Pay Later. Each payment "
 "of a plan is listed with its due date, so you can see what is coming in and "
@@ -2230,233 +2244,227 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:153
+#: templates/front/myaccount/postpaid-template.php:99
+msgid "Pay Later is not available for new orders."
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:100
+msgid "You can still pay what you owe here."
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:166
 msgid "Overview"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:155
+#: templates/front/myaccount/postpaid-template.php:168
 msgid "History"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:158
+#: templates/front/myaccount/postpaid-template.php:171
 msgid "Pay Later sections"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:189
+#: templates/front/myaccount/postpaid-template.php:202
 msgid "A payment is overdue."
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:190
+#: templates/front/myaccount/postpaid-template.php:203
 msgid "Pay Later is paused until it is paid."
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:190
+#: templates/front/myaccount/postpaid-template.php:203
 msgid "Please pay it as soon as you can."
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:208
+#: templates/front/myaccount/postpaid-template.php:221
 msgid "Coming up"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:209
+#: templates/front/myaccount/postpaid-template.php:222
 msgid "All plans"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:226
+#: templates/front/myaccount/postpaid-template.php:239
 msgid "Your balance"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:227
+#: templates/front/myaccount/postpaid-template.php:240
 msgid "Available to spend"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:229
+#: templates/front/myaccount/postpaid-template.php:242
 msgid "Spending limit in use"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:242
+#: templates/front/myaccount/postpaid-template.php:255
 msgid "Limit"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:278
 #: templates/front/myaccount/postpaid-template.php:291
+#: templates/front/myaccount/postpaid-template.php:304
 msgid "Next payment"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:279
+#: templates/front/myaccount/postpaid-template.php:292
 msgid "You are all caught up"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:280
+#: templates/front/myaccount/postpaid-template.php:293
 msgid "Choose Pay Later at checkout to split your next order."
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:281
-#: templates/front/myaccount/postpaid-template.php:395
+#: templates/front/myaccount/postpaid-template.php:294
+#: templates/front/myaccount/postpaid-template.php:408
 msgid "Start shopping"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:297
-#. translators: %s: number of days late.
-msgid "%s day late"
-msgid_plural "%s days late"
-msgstr[0] ""
-msgstr[1] ""
-
-#: templates/front/myaccount/postpaid-template.php:299
+#: templates/front/myaccount/postpaid-template.php:312
 msgid "Today"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:302
-#. translators: %s: number of days left.
-msgid "in %s day"
-msgid_plural "in %s days"
-msgstr[0] ""
-msgstr[1] ""
-
-#: templates/front/myaccount/postpaid-template.php:315
+#: templates/front/myaccount/postpaid-template.php:328
 msgid "No due date. Pay whenever you like."
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:393
+#: templates/front/myaccount/postpaid-template.php:406
 msgid "No payment plans yet"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:394
+#: templates/front/myaccount/postpaid-template.php:407
 msgid "Choose Pay Later at checkout and your payment plan will show up here."
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:416
+#: templates/front/myaccount/postpaid-template.php:429
 #. translators: %1$s: order number, %2$s: date.
 msgid "Order #%1$s, %2$s"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:421
+#: templates/front/myaccount/postpaid-template.php:434
 msgid "Completed"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:423
+#: templates/front/myaccount/postpaid-template.php:436
 #: templates/front/plan-schedule-template.php:115
 #. translators: %1$d: payments made, %2$d: payments in total.
 #. translators: %1$d: payments made, %2$d: number of payments.
 msgid "%1$d of %2$d payments made"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:437
+#: templates/front/myaccount/postpaid-template.php:450
 msgid "Left to pay"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:444
+#: templates/front/myaccount/postpaid-template.php:457
 #. translators: %1$s: amount, %2$s: date.
 msgid "Next %1$s on %2$s"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:444
+#: templates/front/myaccount/postpaid-template.php:457
 msgid "any day"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:447
+#: templates/front/myaccount/postpaid-template.php:460
 #. translators: %d: number of payments made before the plan ended.
 msgid "Ended after %d payment"
 msgid_plural "Ended after %d payments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: templates/front/myaccount/postpaid-template.php:450
+#: templates/front/myaccount/postpaid-template.php:463
 #. translators: %d: number of payments.
 msgid "%d payment made"
 msgid_plural "All %d payments made"
 msgstr[0] ""
 msgstr[1] ""
 
-#: templates/front/myaccount/postpaid-template.php:473
+#: templates/front/myaccount/postpaid-template.php:486
 msgid "Payment plan not found."
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:478
+#: templates/front/myaccount/postpaid-template.php:491
 msgid "All payment plans"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:482
+#: templates/front/myaccount/postpaid-template.php:495
 #. translators: %s: order number.
 msgid "View order #%s"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:504
+#: templates/front/myaccount/postpaid-template.php:517
 msgid "Shop now, pay over time"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:505
+#: templates/front/myaccount/postpaid-template.php:518
 msgid "Your own credit line with this store. No bank card, no extra app."
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:509
+#: templates/front/myaccount/postpaid-template.php:522
 msgid "Split purchases into easy installments"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:510
+#: templates/front/myaccount/postpaid-template.php:523
 msgid "No card needed at checkout"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:511
+#: templates/front/myaccount/postpaid-template.php:524
 msgid "Reminders before every due date"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:536
+#: templates/front/myaccount/postpaid-template.php:549
 msgid "You are approved"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:540
+#: templates/front/myaccount/postpaid-template.php:553
 #. translators: %s: credit limit.
 msgid "Activate Pay Later to shop now and pay later, with a credit limit of %s."
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:545
+#: templates/front/myaccount/postpaid-template.php:558
 msgid "Activate Pay Later"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:552
+#: templates/front/myaccount/postpaid-template.php:565
 msgid "Application under review"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:553
+#: templates/front/myaccount/postpaid-template.php:566
 msgid ""
 "We are reviewing your application and will email you once it has been "
 "decided."
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:559
+#: templates/front/myaccount/postpaid-template.php:572
 msgid "Application not approved"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:560
+#: templates/front/myaccount/postpaid-template.php:573
 msgid ""
 "Your Pay Later application was not approved. Contact us if you have any "
 "questions."
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:566
+#: templates/front/myaccount/postpaid-template.php:579
 msgid "Apply in a minute"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:570
+#: templates/front/myaccount/postpaid-template.php:583
 #. translators: %s: credit limit.
 msgid "Get a spending limit of up to %s and pay for your orders in installments."
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:575
+#: templates/front/myaccount/postpaid-template.php:588
 msgid "Apply for Pay Later"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:620
+#: templates/front/myaccount/postpaid-template.php:633
 msgid "No activity yet."
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:652
+#: templates/front/myaccount/postpaid-template.php:665
 msgid "Previous"
 msgstr ""
 
-#: templates/front/myaccount/postpaid-template.php:655
+#: templates/front/myaccount/postpaid-template.php:668
 msgid "Next"
 msgstr ""
 
