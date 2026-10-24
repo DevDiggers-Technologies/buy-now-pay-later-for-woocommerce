@@ -23,3 +23,7 @@ phpcs.xml
 # GitHub readme. readme.txt ships instead.
 README.md
 tests
+Thumbs.db
+__MACOSX
+graphify-out
+.graphifyignore

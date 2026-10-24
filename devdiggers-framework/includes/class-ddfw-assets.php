@@ -111,6 +111,7 @@ if ( ! class_exists( 'DDFW_Assets' ) ) {
 						'moreCharacter'       => esc_html__( 'or more character', 'buy-now-pay-later-for-woocommerce' ),
 						'noResult'            => esc_html__( 'No result Found', 'buy-now-pay-later-for-woocommerce' ),
 						'deleteConfirm'       => esc_html__( 'Are you sure you want to delete?', 'buy-now-pay-later-for-woocommerce' ),
+						'dismiss'             => esc_html__( 'Dismiss', 'buy-now-pay-later-for-woocommerce' ),
 					],
 					'site_url'          => site_url(),
 					'devdiggers_plugin' => $devdiggers_plugin,
