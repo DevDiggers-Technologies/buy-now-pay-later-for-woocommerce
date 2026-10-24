@@ -1,0 +1,2507 @@
+# Copyright (C) 2026 DevDiggers
+# This file is distributed under the GPLv3 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Buy Now Pay Later for WooCommerce 1.0.0\n"
+"Report-Msgid-Bugs-To: "
+"https://wordpress.org/support/plugin/buy-now-pay-later-for-woocommerce\n"
+"POT-Creation-Date: 2026-10-24 14:03:39+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2026-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
+
+#: functions.php:99
+#. translators: %1$s: opening link tag, %2$s: closing link tag
+msgid ""
+"Buy Now Pay Later for WooCommerce is activated but not effective. It "
+"requires %1$sWooCommerce%2$s in order to work."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Buy Now Pay Later for WooCommerce"
+msgstr ""
+
+#: functions.php:139 includes/admin-dashboard.php:74
+msgid "Dashboard"
+msgstr ""
+
+#: functions.php:140 includes/admin-dashboard.php:99
+msgid "Configuration"
+msgstr ""
+
+#: functions.php:141
+msgid "Setup Wizard"
+msgstr ""
+
+#: functions.php:142
+msgid "Upgrade to Pro"
+msgstr ""
+
+#: functions.php:158
+msgid "Support"
+msgstr ""
+
+#: functions.php:159
+msgid "Documentation"
+msgstr ""
+
+#: functions.php:160 includes/admin-dashboard.php:537
+#: templates/admin/dashboard/dashboard-template.php:366
+msgid "Review"
+msgstr ""
+
+#: helper/dashboard/dashboard-helper.php:98
+msgid "Active, nothing owed"
+msgstr ""
+
+#: helper/dashboard/dashboard-helper.php:102
+msgid "Owing, on time"
+msgstr ""
+
+#: helper/dashboard/dashboard-helper.php:106 includes/global-functions.php:141
+#: templates/admin/customers/customers-list-template.php:78
+#: templates/admin/dashboard/dashboard-template.php:246
+#: templates/admin/dashboard/dashboard-template.php:302
+#: templates/admin/installments/installments-list-template.php:76
+#: templates/front/myaccount/postpaid-template.php:304
+msgid "Overdue"
+msgstr ""
+
+#: helper/emails/emails-helper.php:36
+msgid "Thanks,"
+msgstr ""
+
+#: helper/emails/emails-helper.php:37
+msgid "Go to my Pay Later account"
+msgstr ""
+
+#: helper/emails/emails-helper.php:41
+msgid "Payment Plan Confirmation"
+msgstr ""
+
+#: helper/emails/emails-helper.php:42
+msgid ""
+"Sent when a customer checks out with Pay Later, with the full payment "
+"schedule."
+msgstr ""
+
+#: helper/emails/emails-helper.php:45
+msgid "Your payment plan for order #{order_number}"
+msgstr ""
+
+#: helper/emails/emails-helper.php:46
+msgid "Your payment plan is set"
+msgstr ""
+
+#: helper/emails/emails-helper.php:47 helper/emails/emails-helper.php:56
+#: helper/emails/emails-helper.php:65 helper/emails/emails-helper.php:74
+#: helper/emails/emails-helper.php:83 helper/emails/emails-helper.php:92
+#: helper/emails/emails-helper.php:101 helper/emails/emails-helper.php:110
+msgid "Hi {customer_name},"
+msgstr ""
+
+#: helper/emails/emails-helper.php:47
+msgid ""
+"Thank you for order #{order_number}. You are paying {amount} with "
+"{plan_title}: {plan_summary}."
+msgstr ""
+
+#: helper/emails/emails-helper.php:47
+msgid "We will remind you before every payment. You can also pay early at any time."
+msgstr ""
+
+#: helper/emails/emails-helper.php:50
+msgid "Payment Reminder"
+msgstr ""
+
+#: helper/emails/emails-helper.php:51
+msgid "Sent before an installment is due. The timing is set under Reminders & Fees."
+msgstr ""
+
+#: helper/emails/emails-helper.php:54
+msgid "Your payment of {amount} is due on {due_date}"
+msgstr ""
+
+#: helper/emails/emails-helper.php:55
+msgid "Your payment is due soon"
+msgstr ""
+
+#: helper/emails/emails-helper.php:56
+msgid "Friendly reminder: {payment_label} of {amount} is due on {due_date}."
+msgstr ""
+
+#: helper/emails/emails-helper.php:56 helper/emails/emails-helper.php:65
+msgid "Pay now"
+msgstr ""
+
+#: helper/emails/emails-helper.php:59
+msgid "Overdue Payment"
+msgstr ""
+
+#: helper/emails/emails-helper.php:60
+msgid "Sent once, the day after a missed installment was due."
+msgstr ""
+
+#: helper/emails/emails-helper.php:63
+msgid "Your payment of {amount} is overdue"
+msgstr ""
+
+#: helper/emails/emails-helper.php:64
+msgid "Your payment is overdue"
+msgstr ""
+
+#: helper/emails/emails-helper.php:65
+msgid "{payment_label} of {amount} was due on {due_date} and has not been paid yet."
+msgstr ""
+
+#: helper/emails/emails-helper.php:65
+msgid "Please pay as soon as you can to keep using Pay Later."
+msgstr ""
+
+#: helper/emails/emails-helper.php:68
+msgid "Payment Received"
+msgstr ""
+
+#: helper/emails/emails-helper.php:69
+msgid "Sent when a repayment is paid, or when the store records a payment."
+msgstr ""
+
+#: helper/emails/emails-helper.php:72
+msgid "We received your payment of {amount}"
+msgstr ""
+
+#: helper/emails/emails-helper.php:73
+msgid "Thank you for your payment"
+msgstr ""
+
+#: helper/emails/emails-helper.php:74
+msgid "We received your payment of {amount}. Thank you!"
+msgstr ""
+
+#: helper/emails/emails-helper.php:74
+msgid ""
+"You now owe {amount_owed} and have {available_credit} available to spend. "
+"{next_payment_notice}"
+msgstr ""
+
+#: helper/emails/emails-helper.php:77
+msgid "Refund or Cancellation"
+msgstr ""
+
+#: helper/emails/emails-helper.php:78
+msgid ""
+"Sent when a Pay Later order is refunded or cancelled and the amount comes "
+"off what the customer owes."
+msgstr ""
+
+#: helper/emails/emails-helper.php:81
+msgid "Your Pay Later balance was updated for order #{order_number}"
+msgstr ""
+
+#: helper/emails/emails-helper.php:82
+msgid "Your balance was updated"
+msgstr ""
+
+#: helper/emails/emails-helper.php:83
+msgid ""
+"{amount} for order #{order_number} was returned to your Pay Later credit "
+"({reason})."
+msgstr ""
+
+#: helper/emails/emails-helper.php:83 helper/emails/emails-helper.php:92
+msgid "You now owe {amount_owed} and have {available_credit} available to spend."
+msgstr ""
+
+#: helper/emails/emails-helper.php:86
+msgid "Balance Adjusted by the Store"
+msgstr ""
+
+#: helper/emails/emails-helper.php:87
+msgid "Sent when you add or remove dues by hand and choose to email the customer."
+msgstr ""
+
+#: helper/emails/emails-helper.php:90
+msgid "Your Pay Later balance was adjusted"
+msgstr ""
+
+#: helper/emails/emails-helper.php:91
+msgid "Your balance was adjusted"
+msgstr ""
+
+#: helper/emails/emails-helper.php:92
+msgid "We {adjustment} {amount}: {note}"
+msgstr ""
+
+#: helper/emails/emails-helper.php:95
+msgid "Application Approved"
+msgstr ""
+
+#: helper/emails/emails-helper.php:96
+msgid "Sent when you approve a customer."
+msgstr ""
+
+#: helper/emails/emails-helper.php:99
+msgid "You are approved for Pay Later"
+msgstr ""
+
+#: helper/emails/emails-helper.php:100
+msgid "Welcome to Pay Later"
+msgstr ""
+
+#: helper/emails/emails-helper.php:101
+msgid ""
+"Good news: your Pay Later application is approved with a spending limit of "
+"{credit_limit}."
+msgstr ""
+
+#: helper/emails/emails-helper.php:101
+msgid "Choose Pay Later at checkout to split your next order into easy payments."
+msgstr ""
+
+#: helper/emails/emails-helper.php:104
+msgid "Application Not Approved"
+msgstr ""
+
+#: helper/emails/emails-helper.php:105
+msgid "Sent when you reject a customer."
+msgstr ""
+
+#: helper/emails/emails-helper.php:108
+msgid "An update on your Pay Later application"
+msgstr ""
+
+#: helper/emails/emails-helper.php:109
+msgid "Application update"
+msgstr ""
+
+#: helper/emails/emails-helper.php:110
+msgid ""
+"Thank you for applying for Pay Later. We are not able to approve your "
+"application right now."
+msgstr ""
+
+#: helper/emails/emails-helper.php:110
+msgid "If you have any questions, just reply to this email."
+msgstr ""
+
+#: helper/emails/emails-helper.php:113
+msgid "New Application (Store)"
+msgstr ""
+
+#: helper/emails/emails-helper.php:114
+msgid "Sent to the store when a customer applies for Pay Later."
+msgstr ""
+
+#: helper/emails/emails-helper.php:117
+msgid "New Pay Later application from {customer_name}"
+msgstr ""
+
+#: helper/emails/emails-helper.php:118
+msgid "New Pay Later application"
+msgstr ""
+
+#: helper/emails/emails-helper.php:119
+msgid "{customer_name} ({customer_email}) applied for Pay Later."
+msgstr ""
+
+#: helper/emails/emails-helper.php:119
+msgid "Review applications"
+msgstr ""
+
+#: helper/emails/emails-helper.php:236
+#. translators: %1$s: amount, %2$s: date.
+msgid "Your next payment is %1$s on %2$s."
+msgstr ""
+
+#: helper/plans/plans-helper.php:54
+msgid "Pay in 4"
+msgstr ""
+
+#: helper/plans/plans-helper.php:55
+msgid "Four equal payments, one every two weeks. The first is due at purchase."
+msgstr ""
+
+#: helper/plans/plans-helper.php:63
+msgid "Pay in 30 days"
+msgstr ""
+
+#: helper/plans/plans-helper.php:64
+msgid "Get it now, pay the full amount within 30 days."
+msgstr ""
+
+#: helper/plans/plans-helper.php:174
+#. translators: %d: number of days.
+msgid "every day"
+msgstr ""
+
+#: helper/plans/plans-helper.php:174
+msgid "every %d days"
+msgstr ""
+
+#: helper/plans/plans-helper.php:177
+#. translators: %d: number of weeks.
+msgid "every week"
+msgstr ""
+
+#: helper/plans/plans-helper.php:177
+msgid "every %d weeks"
+msgstr ""
+
+#: helper/plans/plans-helper.php:193
+#. translators: %d: number of days.
+msgid "in %d day"
+msgid_plural "in %d days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: helper/plans/plans-helper.php:196
+#. translators: %d: number of weeks.
+msgid "in %d week"
+msgid_plural "in %d weeks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: helper/plans/plans-helper.php:213
+#. translators: %s: term, e.g. "in 30 days".
+msgid "Pay the full amount %s"
+msgstr ""
+
+#: helper/plans/plans-helper.php:217
+#. translators: %1$d: number of payments, %2$s: interval, e.g. "every 2 weeks".
+msgid "%1$d payments %2$s"
+msgstr ""
+
+#: helper/plans/plans-helper.php:225 includes/blocks/postpaid-blocks.php:113
+#. translators: %1$s: amount, %2$s: term, e.g. "in 30 days".
+msgid "Pay %1$s %2$s"
+msgstr ""
+
+#: helper/plans/plans-helper.php:229 includes/blocks/postpaid-blocks.php:111
+#. translators: %1$d: number of payments, %2$s: amount of each payment, %3$s:
+#. interval, e.g. "every 2 weeks".
+#. translators: %1$d: number of payments, %2$s: amount of each, %3$s: interval.
+msgid "%1$d payments of %2$s %3$s"
+msgstr ""
+
+#: helper/users/users-helper.php:272
+msgid "Log in to pay with Pay Later."
+msgstr ""
+
+#: helper/users/users-helper.php:278
+msgid "Activate Pay Later from your account before using it."
+msgstr ""
+
+#: helper/users/users-helper.php:282
+msgid "Your Pay Later dues are overdue. Clear them to use Pay Later again."
+msgstr ""
+
+#: helper/users/users-helper.php:287
+#. translators: %s: minimum order amount.
+msgid "Pay Later needs an order total of at least %s."
+msgstr ""
+
+#: helper/users/users-helper.php:292
+#. translators: %s: maximum order amount.
+msgid "Pay Later can be used for orders up to %s."
+msgstr ""
+
+#: helper/users/users-helper.php:297
+#. translators: %s: available credit.
+msgid "Your available Pay Later credit is %s, which does not cover this order."
+msgstr ""
+
+#: includes/admin/admin-functions.php:214
+msgid "You are not allowed to manage Pay Later customers."
+msgstr ""
+
+#: includes/admin/admin-functions.php:252
+msgid "You are not allowed to manage Pay Later installments."
+msgstr ""
+
+#: includes/admin/admin-functions.php:277
+#. translators: %1$d: payment number, %2$d: number of payments.
+msgid "Payment %1$d of %2$d recorded by the store."
+msgstr ""
+
+#: includes/admin/admin-functions.php:340
+#: includes/admin/admin-functions.php:367
+msgid "Permission denied."
+msgstr ""
+
+#: includes/admin/admin-functions.php:344
+#: includes/admin/admin-functions.php:371
+msgid "Security check failed!"
+msgstr ""
+
+#: includes/admin/admin-functions.php:382
+msgid "Enter a valid customer and amount."
+msgstr ""
+
+#: includes/admin/admin-functions.php:388
+msgid "Dues reduced by the store."
+msgstr ""
+
+#: includes/admin/admin-functions.php:388
+msgid "Dues added by the store."
+msgstr ""
+
+#: includes/admin/admin-functions.php:398
+msgid "reduced your dues by"
+msgstr ""
+
+#: includes/admin/admin-functions.php:398
+msgid "added to your dues"
+msgstr ""
+
+#: includes/admin/admin-functions.php:403
+msgid "Balance adjusted."
+msgstr ""
+
+#: includes/admin/admin-functions.php:422
+msgid "Pay Later Payment Plan"
+msgstr ""
+
+#: includes/admin/admin-functions.php:427
+msgid "No installments for this order."
+msgstr ""
+
+#: includes/admin/admin-functions.php:441
+msgid "Manage installments"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:45 includes/admin-dashboard.php:61
+#: includes/admin-dashboard.php:65 includes/admin-dashboard.php:66
+#: includes/file-handler.php:82 includes/postpaid.php:68
+msgid "Pay Later"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:46
+msgid ""
+"Welcome to Buy Now Pay Later. A few quick answers and your customers can "
+"buy now and pay later."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:50
+msgid "Welcome"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:54 includes/global-functions.php:118
+msgid "Credit"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:55
+msgid "Who gets credit, and how much"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:56
+msgid "Set the credit limit and how customers are approved."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:61 includes/admin-dashboard.php:89
+#: templates/front/myaccount/postpaid-template.php:528
+msgid "Plans"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:62
+msgid "How customers pay you back"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:63
+msgid ""
+"Pick the plans to offer at checkout. You can rename them and set order "
+"limits on the Plans screen."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:68
+#: templates/admin/configuration/configuration-template.php:324
+msgid "Reminders"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:69
+msgid "Reminders and promotion"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:70
+msgid ""
+"Customers are reminded before every payment. Decide what happens when one "
+"is missed, and whether shoppers see installment prices."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:75
+msgid "Ready!"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:76
+msgid "Pay Later is ready."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:77
+msgid ""
+"Approve your first customers on the Customers screen, then place a test "
+"order with Pay Later and pay the first installment from My Account."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:94
+msgid "Welcome to Pay Later!"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:96
+msgid ""
+"Run your own buy now, pay later program. In the next steps you will decide "
+"who gets credit, choose your payment plans and set up reminders."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:112 includes/common/common-functions.php:451
+#: templates/admin/configuration/configuration-template.php:111
+#: templates/admin/configuration/configuration-template.php:420
+#: templates/admin/configuration/configuration-template.php:544
+#: templates/admin/customers/customers-list-template.php:251
+#: templates/admin/installments/installments-list-template.php:162
+msgid "Status"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:113
+#: templates/admin/configuration/configuration-template.php:112
+msgid "Activate Buy Now Pay Later"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:114
+msgid "Adds the Pay Later section to My Account and the payment method to checkout."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:121
+#: templates/admin/configuration/configuration-template.php:203
+msgid "Default Credit Limit"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:122
+#: templates/admin/configuration/configuration-template.php:204
+msgid "Customers can owe up to this amount at any time."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:133
+#: templates/admin/configuration/configuration-template.php:223
+msgid "Approval Process"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:134
+msgid "How a customer becomes eligible for credit."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:142
+#: templates/admin/configuration/configuration-template.php:254
+msgid "Activate on Approval"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:143
+#: templates/admin/configuration/configuration-template.php:255
+msgid "Start the credit line as soon as a customer is approved"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:144
+msgid "Otherwise the customer activates it from My Account."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:163
+#: templates/admin/configuration/configuration-template.php:330
+msgid "Reminder (days before)"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:164
+msgid ""
+"Email a reminder this many days before each payment is due. Set 0 to skip "
+"reminders."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:175
+#: templates/admin/configuration/configuration-template.php:376
+msgid "Pause Credit"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:176
+#: templates/admin/configuration/configuration-template.php:377
+msgid "Stop overdue customers from using Pay Later until they pay"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:177
+msgid "Overdue customers are always emailed a notice with a link to pay."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:184
+#: templates/admin/configuration/configuration-template.php:414
+msgid "Installment Message"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:185
+msgid "Show \"or 4 payments of $25.00\" on product pages and in the cart"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:186
+msgid "Shoppers see what they would pay per installment before checkout."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:234
+msgid "Choose at least one plan, so customers have a way to pay."
+msgstr ""
+
+#: includes/admin-dashboard.php:79
+msgid "Customers"
+msgstr ""
+
+#: includes/admin-dashboard.php:84 includes/admin-dashboard.php:250
+msgid "Installments"
+msgstr ""
+
+#: includes/admin-dashboard.php:94 includes/admin-dashboard.php:365
+#: templates/admin/customers/customers-list-template.php:332
+msgid "Transactions"
+msgstr ""
+
+#: includes/admin-dashboard.php:103
+msgid "General"
+msgstr ""
+
+#: includes/admin-dashboard.php:108
+msgid "Credit & Approval"
+msgstr ""
+
+#: includes/admin-dashboard.php:113
+msgid "Repayments"
+msgstr ""
+
+#: includes/admin-dashboard.php:118
+msgid "Reminders & Fees"
+msgstr ""
+
+#: includes/admin-dashboard.php:123
+msgid "Messaging"
+msgstr ""
+
+#: includes/admin-dashboard.php:128
+msgid "Appearance"
+msgstr ""
+
+#: includes/admin-dashboard.php:133
+msgid "Emails"
+msgstr ""
+
+#: includes/admin-dashboard.php:170
+msgid "Customers Per Page"
+msgstr ""
+
+#: includes/admin-dashboard.php:181
+msgid "Installments Per Page"
+msgstr ""
+
+#: includes/admin-dashboard.php:192
+msgid "Transactions Per Page"
+msgstr ""
+
+#: includes/admin-dashboard.php:219
+#: templates/admin/customers/customers-list-template.php:75
+msgid "Pay Later Customers"
+msgstr ""
+
+#: includes/admin-dashboard.php:232
+msgid "Search Customers"
+msgstr ""
+
+#: includes/admin-dashboard.php:266
+msgid "Search by order"
+msgstr ""
+
+#: includes/admin-dashboard.php:284
+msgid "Build the payment plans your customers ask for"
+msgstr ""
+
+#: includes/admin-dashboard.php:285
+msgid ""
+"Create your own plans with their own schedules, terms, fees and order "
+"limits, and offer exactly the terms that fit your store and your margins. "
+"Pay in 4 and Pay in 30 days are switched on or off under Configuration > "
+"General."
+msgstr ""
+
+#: includes/admin-dashboard.php:287
+msgid "Unlimited plans: 3, 6 or 12 monthly payments, weekly or custom schedules"
+msgstr ""
+
+#: includes/admin-dashboard.php:288
+msgid "Your own payment terms: Net 15, Net 45, Net 60 or any number of days"
+msgstr ""
+
+#: includes/admin-dashboard.php:289
+msgid "Plan fees, fixed or a percentage, shown before the customer chooses"
+msgstr ""
+
+#: includes/admin-dashboard.php:290
+msgid "Minimum and maximum order amount per plan"
+msgstr ""
+
+#: includes/admin-dashboard.php:291
+msgid ""
+"Rename plans, switch them on and off, and choose which one the product page "
+"advertises"
+msgstr ""
+
+#: includes/admin-dashboard.php:307
+msgid "Adjust Pay Later balance"
+msgstr ""
+
+#: includes/admin-dashboard.php:310
+msgid "Reduce dues (credit the customer)"
+msgstr ""
+
+#: includes/admin-dashboard.php:311
+msgid "Increase dues (debit the customer)"
+msgstr ""
+
+#: includes/admin-dashboard.php:314 includes/common/common-functions.php:493
+#: templates/admin/installments/installments-list-template.php:160
+#: templates/admin/transactions/transaction-view-template.php:42
+#: templates/admin/transactions/transactions-list-template.php:143
+#: templates/front/myaccount/postpaid-template.php:628
+#: templates/front/myaccount/postpaid-template.php:654
+msgid "Amount"
+msgstr ""
+
+#: includes/admin-dashboard.php:318
+msgid "Note (shown to the customer)"
+msgstr ""
+
+#: includes/admin-dashboard.php:322
+msgid "Due in (days)"
+msgstr ""
+
+#: includes/admin-dashboard.php:324
+msgid "Only for added dues. 0 means no due date."
+msgstr ""
+
+#: includes/admin-dashboard.php:327
+msgid "Email the customer"
+msgstr ""
+
+#: includes/admin-dashboard.php:330
+msgid "Cancel"
+msgstr ""
+
+#: includes/admin-dashboard.php:331
+msgid "Save adjustment"
+msgstr ""
+
+#: includes/admin-dashboard.php:355
+msgid "Invalid transaction ID."
+msgstr ""
+
+#: includes/admin-dashboard.php:373
+msgid "Search Transactions"
+msgstr ""
+
+#: includes/admin-dashboard.php:396
+#. translators: %1$d: number of customers, %2$s: status.
+msgid "%1$d customer moved to %2$s."
+msgid_plural "%1$d customers moved to %2$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/admin-dashboard.php:399
+msgid "That item could not be found."
+msgstr ""
+
+#: includes/admin-dashboard.php:402
+msgid "Nothing was updated."
+msgstr ""
+
+#: includes/admin-dashboard.php:406
+#. translators: %d: number of installments.
+msgid "%d payment recorded."
+msgid_plural "%d payments recorded."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/admin-dashboard.php:409
+msgid "Invalid nonce. Security check failed!"
+msgstr ""
+
+#: includes/admin-dashboard.php:437
+msgid "Let customers pay what suits them, and earn on credit"
+msgstr ""
+
+#: includes/admin-dashboard.php:438
+msgid ""
+"Customers already pay installment by installment. Pro adds flexible "
+"repayments and interest, so slower payers cover the cost of the credit you "
+"give."
+msgstr ""
+
+#: includes/admin-dashboard.php:440
+msgid "Partial payments: customers pay any amount toward their dues"
+msgstr ""
+
+#: includes/admin-dashboard.php:441
+msgid "Minimum repayment amount you control"
+msgstr ""
+
+#: includes/admin-dashboard.php:442
+msgid "Interest on repayments, fixed or a percentage, shown before they pay"
+msgstr ""
+
+#: includes/admin-dashboard.php:460
+msgid "Make the customer area look like your store"
+msgstr ""
+
+#: includes/admin-dashboard.php:461
+msgid ""
+"The My Account section ships with a clean default design. Pro lets you "
+"match it to your brand without touching code."
+msgstr ""
+
+#: includes/admin-dashboard.php:463
+msgid "Credit card style balance or balance panel"
+msgstr ""
+
+#: includes/admin-dashboard.php:464
+msgid "Segmented, underline or pill tabs, sharp, soft or round corners"
+msgstr ""
+
+#: includes/admin-dashboard.php:465
+msgid "Eleven brand colors and your own tab labels"
+msgstr ""
+
+#: includes/admin-dashboard.php:466
+msgid "Toggle icons, the credit usage bar and upcoming payments"
+msgstr ""
+
+#: includes/admin-dashboard.php:481
+msgid "Export CSV"
+msgstr ""
+
+#: includes/admin-dashboard.php:516
+msgid "Please enter"
+msgstr ""
+
+#: includes/admin-dashboard.php:517
+msgid "or more characters"
+msgstr ""
+
+#: includes/admin-dashboard.php:518
+msgid "No results found"
+msgstr ""
+
+#: includes/admin-dashboard.php:519
+msgid "Enter an amount greater than zero."
+msgstr ""
+
+#: includes/admin-dashboard.php:520
+msgid "Something went wrong. Please try again."
+msgstr ""
+
+#: includes/admin-dashboard.php:540
+#. translators: %s: star rating link.
+msgid ""
+"If Buy Now Pay Later for WooCommerce is working well for you, please leave "
+"us a %s rating. It really helps."
+msgstr ""
+
+#: includes/blocks/postpaid-blocks.php:103 includes/postpaid.php:113
+msgid "Buy Now, Pay Later"
+msgstr ""
+
+#: includes/blocks/postpaid-blocks.php:109 includes/postpaid.php:325
+msgid "Choose how to pay"
+msgstr ""
+
+#: includes/blocks/postpaid-blocks.php:115 includes/postpaid.php:341
+#. translators: %s: amount.
+#. translators: %s: first payment amount.
+msgid "%s due today"
+msgstr ""
+
+#: includes/blocks/postpaid-blocks.php:116 includes/postpaid.php:348
+msgid "No fees"
+msgstr ""
+
+#: includes/common/common-functions.php:228
+msgid "Pay Later dues repayment."
+msgstr ""
+
+#: includes/common/common-functions.php:233
+msgid "Pay Later dues credited to the customer."
+msgstr ""
+
+#: includes/common/common-functions.php:273
+msgid "Credit restored after the order was cancelled."
+msgstr ""
+
+#: includes/common/common-functions.php:275
+msgid "order cancelled"
+msgstr ""
+
+#: includes/common/common-functions.php:280
+#. translators: %s: amount.
+msgid "Pay Later credit of %s restored to the customer."
+msgstr ""
+
+#: includes/common/common-functions.php:363
+#. translators: %1$d: payment number, %2$d: number of payments, %3$s: order
+#. number.
+msgid "payment %1$d of %2$d for order #%3$s"
+msgstr ""
+
+#: includes/common/common-functions.php:368
+#. translators: %s: order number.
+msgid "the payment for order #%s"
+msgstr ""
+
+#: includes/common/common-functions.php:371
+msgid "your Pay Later payment"
+msgstr ""
+
+#: includes/common/common-functions.php:389
+msgid "First Pay Later installment received."
+msgstr ""
+
+#: includes/common/common-functions.php:401
+msgid "Pay Later payment plan completed. Every installment is paid."
+msgstr ""
+
+#: includes/common/common-functions.php:414
+#: includes/common/common-functions.php:447
+msgid "Pay Later Account"
+msgstr ""
+
+#: includes/common/common-functions.php:455
+msgid "Credit limit"
+msgstr ""
+
+#: includes/common/common-functions.php:459
+msgid "Available credit"
+msgstr ""
+
+#: includes/common/common-functions.php:463
+#: templates/front/myaccount/postpaid-template.php:247
+msgid "Owed"
+msgstr ""
+
+#: includes/common/common-functions.php:481
+msgid "Pay Later Transactions"
+msgstr ""
+
+#: includes/common/common-functions.php:485
+#: templates/admin/transactions/transaction-view-template.php:39
+#: templates/admin/transactions/transactions-list-template.php:146
+#: templates/front/myaccount/postpaid-template.php:625
+#: templates/front/myaccount/postpaid-template.php:640
+msgid "Date"
+msgstr ""
+
+#: includes/common/common-functions.php:489
+#: templates/admin/transactions/transaction-view-template.php:40
+#: templates/admin/transactions/transactions-list-template.php:141
+#: templates/admin/transactions/transactions-list-template.php:294
+msgid "Type"
+msgstr ""
+
+#: includes/common/common-functions.php:497
+#: templates/admin/transactions/transaction-view-template.php:48
+#: templates/admin/transactions/transactions-list-template.php:144
+#: templates/front/myaccount/postpaid-template.php:627
+#: templates/front/myaccount/postpaid-template.php:647
+msgid "Order"
+msgstr ""
+
+#: includes/common/common-functions.php:501
+#: templates/admin/transactions/transaction-view-template.php:62
+#: templates/admin/transactions/transactions-list-template.php:145
+msgid "Note"
+msgstr ""
+
+#: includes/email-notification-handler.php:56
+msgid "Pay Later Notification"
+msgstr ""
+
+#: includes/email-notification-handler.php:57
+msgid ""
+"Sent for Pay Later purchases, repayments, refunds, application updates, "
+"payment reminders and overdue notices."
+msgstr ""
+
+#: includes/email-notification-handler.php:74
+msgid "[{site_title}] Pay Later account update"
+msgstr ""
+
+#: includes/email-notification-handler.php:83
+msgid "Pay Later account update"
+msgstr ""
+
+#: includes/front/front-functions.php:157
+msgid "Pay Later is not available for your account."
+msgstr ""
+
+#: includes/front/front-functions.php:172
+msgid "Invalid transaction."
+msgstr ""
+
+#: includes/front/front-functions.php:259
+msgid "Learn more"
+msgstr ""
+
+#: includes/front/front-functions.php:353
+msgid "Buy now, pay later"
+msgstr ""
+
+#: includes/front/front-functions.php:354
+msgid "Approval and credit limits apply."
+msgstr ""
+
+#: includes/front/front-functions.php:358
+msgid "Close"
+msgstr ""
+
+#: includes/front/front-functions.php:367
+msgid "Ways to pay"
+msgstr ""
+
+#: includes/front/front-functions.php:382
+msgid "See your Pay Later account"
+msgstr ""
+
+#: includes/front/front-functions.php:384
+msgid "Log in or create an account to apply"
+msgstr ""
+
+#: includes/front/front-functions.php:442
+msgid "Your session expired. Please try again."
+msgstr ""
+
+#: includes/front/front-functions.php:475
+msgid "Pay Later is active. You can now choose it at checkout."
+msgstr ""
+
+#: includes/front/front-functions.php:483
+msgid "Your application was sent. We will email you once it has been reviewed."
+msgstr ""
+
+#: includes/front/front-functions.php:498
+msgid "You have no dues to pay."
+msgstr ""
+
+#: includes/front/front-functions.php:574
+msgid ""
+"Your cart holds a Pay Later repayment. Complete or remove it before adding "
+"products."
+msgstr ""
+
+#: includes/global-functions.php:60
+msgid "or buy now and pay {amount} {interval}"
+msgstr ""
+
+#: includes/global-functions.php:60
+msgid "or {count} payments of {amount} {interval}"
+msgstr ""
+
+#: includes/global-functions.php:72
+msgid "Choose Pay Later at checkout and pick the plan that suits you."
+msgstr ""
+
+#: includes/global-functions.php:73
+msgid "Get your order. No card or bank details needed today."
+msgstr ""
+
+#: includes/global-functions.php:74
+msgid "Pay each installment from your account. We remind you before every due date."
+msgstr ""
+
+#: includes/global-functions.php:87
+msgid "Administrator approves without a document"
+msgstr ""
+
+#: includes/global-functions.php:88
+msgid "No verification, every customer is eligible"
+msgstr ""
+
+#: includes/global-functions.php:101
+msgid "Product page, under the price"
+msgstr ""
+
+#: includes/global-functions.php:102
+msgid "Shop and category pages"
+msgstr ""
+
+#: includes/global-functions.php:103
+msgid "Cart, under the total"
+msgstr ""
+
+#: includes/global-functions.php:119
+msgid "Debit"
+msgstr ""
+
+#: includes/global-functions.php:121
+msgid "Order Purchase"
+msgstr ""
+
+#: includes/global-functions.php:122
+msgid "Order Refund"
+msgstr ""
+
+#: includes/global-functions.php:123
+msgid "Order Cancelled"
+msgstr ""
+
+#: includes/global-functions.php:124
+msgid "Dues Repayment"
+msgstr ""
+
+#: includes/global-functions.php:125
+msgid "Manual Credit"
+msgstr ""
+
+#: includes/global-functions.php:126
+msgid "Manual Debit"
+msgstr ""
+
+#: includes/global-functions.php:127
+#: templates/admin/configuration/configuration-template.php:400
+msgid "Late Fee"
+msgstr ""
+
+#: includes/global-functions.php:128
+msgid "Plan Fee"
+msgstr ""
+
+#: includes/global-functions.php:129
+msgid "Payment Recorded"
+msgstr ""
+
+#: includes/global-functions.php:131
+#: templates/admin/installments/installments-list-template.php:77
+msgid "Paid"
+msgstr ""
+
+#: includes/global-functions.php:132
+#: templates/admin/customers/customers-list-template.php:77
+msgid "Active"
+msgstr ""
+
+#: includes/global-functions.php:133
+#: templates/admin/installments/installments-list-template.php:78
+msgid "Cancelled"
+msgstr ""
+
+#: includes/global-functions.php:134
+#: templates/admin/installments/installments-list-template.php:74
+msgid "Upcoming"
+msgstr ""
+
+#: includes/global-functions.php:135
+msgid "Due Soon"
+msgstr ""
+
+#: includes/global-functions.php:137
+msgid "Pending"
+msgstr ""
+
+#: includes/global-functions.php:138
+msgid "Approved"
+msgstr ""
+
+#: includes/global-functions.php:139
+#: templates/admin/customers/customers-list-template.php:79
+msgid "Rejected"
+msgstr ""
+
+#: includes/global-functions.php:140
+msgid "Not Applied"
+msgstr ""
+
+#: includes/install.php:150 includes/install.php:162
+msgid "Pay Later Dues"
+msgstr ""
+
+#: includes/postpaid.php:69
+msgid ""
+"Let approved customers buy now and pay later in installments or on payment "
+"terms, on a store credit line you control."
+msgstr ""
+
+#: includes/postpaid.php:104
+msgid "Enable/Disable"
+msgstr ""
+
+#: includes/postpaid.php:105
+msgid "Enable Pay Later"
+msgstr ""
+
+#: includes/postpaid.php:110
+msgid "Title"
+msgstr ""
+
+#: includes/postpaid.php:112
+msgid "Payment method title that the customer will see on your checkout."
+msgstr ""
+
+#: includes/postpaid.php:117
+#: templates/admin/transactions/transaction-view-template.php:41
+#: templates/admin/transactions/transactions-list-template.php:142
+#: templates/admin/transactions/transactions-list-template.php:300
+#: templates/front/myaccount/postpaid-template.php:626
+#: templates/front/myaccount/postpaid-template.php:641
+msgid "Description"
+msgstr ""
+
+#: includes/postpaid.php:119
+msgid "Payment method description that the customer will see on your website."
+msgstr ""
+
+#: includes/postpaid.php:120
+msgid ""
+"Choose a payment plan and pay over time from your account. No card needed "
+"today."
+msgstr ""
+
+#: includes/postpaid.php:124
+msgid "Instructions"
+msgstr ""
+
+#: includes/postpaid.php:126
+msgid "Instructions that will be added to the thank you page and emails."
+msgstr ""
+
+#: includes/postpaid.php:127
+msgid ""
+"Your order was placed with Pay Later. Your payment schedule is below, and "
+"you can pay any installment early from your account."
+msgstr ""
+
+#: includes/postpaid.php:131
+msgid "Enable for shipping methods"
+msgstr ""
+
+#: includes/postpaid.php:135
+msgid ""
+"If Pay Later is only available for certain methods, set it up here. Leave "
+"blank to enable for all methods."
+msgstr ""
+
+#: includes/postpaid.php:139
+msgid "Select shipping methods"
+msgstr ""
+
+#: includes/postpaid.php:143
+msgid "Accept for virtual orders"
+msgstr ""
+
+#: includes/postpaid.php:144
+msgid "Accept Pay Later if the order is virtual"
+msgstr ""
+
+#: includes/postpaid.php:344
+#. translators: %s: first due date.
+msgid "First payment %s"
+msgstr ""
+
+#: includes/postpaid.php:387 includes/postpaid.php:426
+msgid "Choose one of the Pay Later payment plans to continue."
+msgstr ""
+
+#: includes/postpaid.php:408
+#. translators: %s: available credit.
+msgid "Available credit: %s"
+msgstr ""
+
+#: includes/postpaid.php:444
+#. translators: %s: plan title.
+msgid "Order paid with Pay Later, %s."
+msgstr ""
+
+#: includes/postpaid.php:467
+#. translators: %1$s: plan title, %2$s: plan summary.
+msgid "Paid with Pay Later: %1$s, %2$s."
+msgstr ""
+
+#: includes/postpaid.php:472
+msgid "Awaiting the first Pay Later installment."
+msgstr ""
+
+#: includes/postpaid.php:500
+msgid "This order cannot be refunded to Pay Later credit."
+msgstr ""
+
+#: includes/postpaid.php:510
+msgid "Refund returned to Pay Later credit."
+msgstr ""
+
+#: includes/postpaid.php:512
+msgid "refund"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:105
+msgid "Plugin Status"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:106
+msgid "Turn the Pay Later credit program on or off for the whole store."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:113
+msgid ""
+"Shows the Pay Later section in My Account and the Pay Later payment method "
+"at checkout. Balances and history are kept when it is off."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:120
+msgid "Payment Method"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:121
+msgid ""
+"Title, description, thank you page instructions and shipping method limits "
+"are set on the WooCommerce payment method screen."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:123
+msgid "Configure the Pay Later payment method"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:129
+#: templates/front/myaccount/postpaid-template.php:167
+msgid "Payment Plans"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:130
+msgid ""
+"The plans customers can pick at checkout. Customers only see plans their "
+"credit covers."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:136
+msgid "Customer Experience"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:137
+msgid "How Pay Later appears to your customers."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:142
+msgid "My Account Menu Title"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:143
+msgid ""
+"Name of the Pay Later section in My Account, for example \"Store Credit\" "
+"or \"Pay Later\"."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:150
+msgid "My Account Endpoint"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:151
+msgid ""
+"The address of the Pay Later section, e.g. \"pay-later\" for "
+"/my-account/pay-later/. Lowercase letters, numbers and hyphens. Links "
+"update automatically."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:158
+msgid "Sidebar Widgets"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:159
+msgid "Show theme sidebar widgets on the Pay Later section"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:160
+msgid ""
+"Most stores hide them so customers can focus on their payments and the "
+"layout has room to breathe."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:167
+msgid "Available Credit at Checkout"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:168
+msgid "Show available credit under the payment method"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:169
+msgid ""
+"Customers see how much credit they have left, and the payment term, before "
+"they choose Pay Later."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:178
+msgid "Orders"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:179
+msgid "What happens to credit when a Pay Later order does not go through."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:184
+msgid "Restore Credit"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:185
+msgid "Return the credit when a Pay Later order is cancelled or fails"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:186
+msgid ""
+"Refunds always return to credit. This covers orders that are cancelled "
+"instead of refunded."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:197
+#: templates/admin/customers/customers-list-template.php:252
+msgid "Credit Limit"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:198
+msgid ""
+"The credit every customer starts with when their credit line is activated. "
+"A different limit per customer is a Pro feature."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:217
+msgid "Verification"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:218
+msgid "Decide who gets credit and how they are approved."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:224
+msgid ""
+"Review each application yourself, or let every logged in customer activate "
+"credit straight away."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:233
+msgid "Document Upload"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:234
+msgid "Ask for an ID, business licence or other document when customers apply"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:235
+msgid ""
+"Files are kept in a private, access checked folder and shown on the "
+"Customers screen."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:244
+msgid "Reverification"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:245
+msgid "Let customers upload a new document after a rejection"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:246
+msgid "Only applies when a document is required."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:256
+msgid "Otherwise the customer activates it themselves from My Account."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:264
+msgid "Allowed User Roles"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:265
+msgid ""
+"Only these roles see Pay Later, for example wholesale or B2B customers. "
+"Leave empty to allow every role."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:269
+msgid "All roles"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:278
+msgid "Order Amount"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:279
+msgid "Limit Pay Later to orders inside a range. Leave a field empty for no limit."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:284
+msgid "Minimum Order Amount"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:285
+msgid "Pay Later is hidden at checkout for smaller orders. 0 for no minimum."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:293
+msgid "Maximum Order Amount"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:294
+msgid ""
+"Pay Later is hidden at checkout for larger orders, even when the customer "
+"has the credit. 0 for no maximum."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:304
+msgid "Excluded Products"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:305
+msgid ""
+"Keep pay later off products you only sell for cash up front, such as gift "
+"cards or deposits."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:310
+msgid "Choose which products can be bought on credit"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:311
+msgid ""
+"Protect low margin and high risk items. Excluded products hide the "
+"installment message and the payment method."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:313
+msgid "Exclude single products"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:314
+msgid "Exclude whole categories"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:315
+msgid "Any cart holding an excluded product pays another way"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:325
+msgid ""
+"Every installment gets one reminder before it is due and one notice the day "
+"after it is missed, each with a link to pay."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:331
+msgid ""
+"Email a reminder this many days before each due date. Set 0 to skip "
+"reminders."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:343
+msgid "Grace Period (days)"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:344
+msgid ""
+"Days after the due date before a payment counts as overdue, the late fee is "
+"charged and credit is paused. Set 0 to act the day after."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:356
+msgid "Other Charges Due In (days)"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:357
+msgid ""
+"Due date for amounts you add by hand on the Customers screen. Set 0 for no "
+"due date."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:370
+msgid "Missed Payments"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:371
+msgid "What happens once a payment is overdue."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:378
+msgid "The checkout tells them why pay later is not available."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:386
+msgid "Late Fee Type"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:387
+msgid "A fixed amount, or a percentage of the missed payment."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:390
+msgid "Fixed amount"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:391
+msgid "Percentage of the amount"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:401
+msgid "Added once to each missed payment. 0 for no late fee."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:415
+msgid ""
+"Show shoppers what a product costs per installment before they reach "
+"checkout, for example \"or 4 payments of $25.00 every 2 weeks\". A Learn "
+"more link explains how Pay Later works."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:421
+msgid "Show the installment message"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:422
+msgid "Stores that advertise pay over time options usually see bigger orders."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:429
+msgid "Show On"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:430
+msgid "Use the [ddwcpp_installments_message] shortcode to place it anywhere else."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:440
+msgid "Show To"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:441
+msgid ""
+"Showing it to everyone invites new customers to apply. Approved customers "
+"only keeps it private."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:444
+msgid "Everyone, guests included"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:445
+msgid "Approved customers only"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:454
+msgid "Plan to Advertise"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:455
+msgid "Automatic picks the plan with the most installments that fits the price."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:457
+msgid "Automatic"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:464
+msgid "Message Text"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:465
+msgid ""
+"For plans with several payments. Placeholders: {count} payments, {amount} "
+"each payment, {interval} e.g. \"every 2 weeks\", {plan} plan title, {total} "
+"total."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:472
+msgid "Single Payment Text"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:473
+msgid ""
+"For plans paid in one go, like Pay in 30 days. {amount} is the full amount "
+"and {interval} reads e.g. \"in 30 days\"."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:482
+msgid "Learn More Dialog"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:483
+msgid ""
+"The explainer that opens from the Learn more link next to the installment "
+"message."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:488
+msgid "Explain pay later in your own words"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:489
+msgid ""
+"The dialog ships with clear default steps. Pro lets you rewrite it and add "
+"your logo, so shoppers trust it and apply."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:491
+msgid "Your own logo or icon"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:492
+msgid "Custom title, steps and small print"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:493
+msgid "Choose who sees the message and which plan it shows"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:515
+msgid "Email Design"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:516
+msgid ""
+"Every email uses your WooCommerce email header, footer, colors and sender. "
+"Switch each one on or off and edit its wording below."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:521
+msgid "WooCommerce Emails"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:522
+msgid "Sender name, address, logo and colors."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:524
+msgid "Open email settings"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:545
+msgid "Send this email"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:546
+msgid "Sent to the store admin email address."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:546
+msgid "Sent to the customer."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:553
+msgid "Subject"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:554
+msgid "The subject line in the inbox."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:561
+msgid "Heading"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:562
+msgid "The title at the top of the email."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:569
+msgid "Message"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:575
+#. translators: %s: list of placeholders.
+msgid "Available placeholders: %s"
+msgstr ""
+
+#: templates/admin/customers/customers-list-template.php:76
+msgid "Pending Review"
+msgstr ""
+
+#: templates/admin/customers/customers-list-template.php:80
+msgid "All Users"
+msgstr ""
+
+#: templates/admin/customers/customers-list-template.php:218
+msgid "No customers yet"
+msgstr ""
+
+#: templates/admin/customers/customers-list-template.php:219
+msgid ""
+"Customers appear here once they apply for Pay Later or activate it from My "
+"Account. Approve them, set their limits and adjust balances from this "
+"screen."
+msgstr ""
+
+#: templates/admin/customers/customers-list-template.php:227
+#: templates/admin/installments/installments-list-template.php:389
+#: templates/admin/transactions/transactions-list-template.php:116
+msgid "No matches"
+msgstr ""
+
+#: templates/admin/customers/customers-list-template.php:228
+#: templates/admin/installments/installments-list-template.php:390
+#: templates/admin/transactions/transactions-list-template.php:117
+msgid ""
+"Nothing matches this search or these filters. Try different terms or reset "
+"the filters."
+msgstr ""
+
+#: templates/admin/customers/customers-list-template.php:250
+#: templates/admin/installments/installments-list-template.php:158
+#: templates/admin/transactions/transaction-view-template.php:52
+#: templates/admin/transactions/transactions-list-template.php:140
+#: templates/admin/transactions/transactions-list-template.php:308
+msgid "Customer"
+msgstr ""
+
+#: templates/admin/customers/customers-list-template.php:253
+#: templates/front/myaccount/postpaid-template.php:251
+msgid "Available"
+msgstr ""
+
+#: templates/admin/customers/customers-list-template.php:254
+msgid "Dues"
+msgstr ""
+
+#: templates/admin/customers/customers-list-template.php:255
+#: templates/admin/installments/installments-list-template.php:163
+msgid "Actions"
+msgstr ""
+
+#: templates/admin/customers/customers-list-template.php:316
+msgid "Approve"
+msgstr ""
+
+#: templates/admin/customers/customers-list-template.php:317
+msgid "Reject"
+msgstr ""
+
+#: templates/admin/customers/customers-list-template.php:318
+msgid "Mark Pending"
+msgstr ""
+
+#: templates/admin/customers/customers-list-template.php:333
+msgid "Profile"
+msgstr ""
+
+#: templates/admin/customers/customers-list-template.php:356
+msgid "Credit active"
+msgstr ""
+
+#: templates/admin/customers/customers-list-template.php:357
+msgid "Not activated yet"
+msgstr ""
+
+#: templates/admin/customers/customers-list-template.php:374
+msgid "Edit"
+msgstr ""
+
+#: templates/admin/customers/customers-list-template.php:404
+#. translators: %s: due date.
+msgid "Overdue since %s"
+msgstr ""
+
+#: templates/admin/customers/customers-list-template.php:404
+#: templates/admin/dashboard/dashboard-template.php:307
+#: templates/front/myaccount/postpaid-template.php:327
+#: templates/front/plan-schedule-template.php:147
+#. translators: %s: due date.
+#. translators: %s: date.
+msgid "Due %s"
+msgstr ""
+
+#: templates/admin/customers/customers-list-template.php:422
+msgid "Adjust Balance"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:45
+#. translators: %s: configuration link.
+msgid "Pay Later is turned off, so customers cannot use it. %s"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:45
+msgid "Turn it on"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:85
+#. translators: %s: current user display name.
+msgid "Welcome back, %s!"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:86
+msgid ""
+"Credit issued, installments coming due and payments coming in across your "
+"Pay Later customers."
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:90
+msgid "Outstanding Dues"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:96
+msgid "Available Credit"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:101
+#: templates/admin/dashboard/dashboard-template.php:144
+msgid "Credit Used"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:102
+msgid "Repayments Received"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:104
+msgid "Repayment Rate"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:112
+msgid "Active Customers"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:117
+msgid "Due in Next 7 Days"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:119
+#: templates/admin/dashboard/dashboard-template.php:126
+#. translators: %1$s: amount, %2$s: number of payments.
+msgid "%1$s (%2$s)"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:124
+msgid "Overdue Payments"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:134
+msgid "Credit Used vs Repaid"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:149
+msgid "Repaid"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:154
+msgid "No credit activity yet"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:155
+msgid "The trend appears once customers pay with Pay Later or clear their dues."
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:160
+msgid "Orders by Plan"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:167
+msgid "No plan orders in this period"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:168
+msgid ""
+"See which payment plans your customers prefer once they check out with Pay "
+"Later."
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:173
+msgid "Customer Health"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:179
+msgid "No active customers yet"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:180
+msgid "Approve applications on the Customers screen to start a credit line."
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:186
+msgid "Upcoming Payments"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:190
+msgid "Top Outstanding Balances"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:194
+msgid "Applications Awaiting Review"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:198
+msgid "Recent Transactions"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:227
+msgid "No payments are scheduled."
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:242
+#: templates/admin/installments/installments-list-template.php:198
+msgid "Deleted customer"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:250
+#: templates/admin/installments/installments-list-template.php:269
+#: templates/front/plan-schedule-template.php:149
+msgid "No due date"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:258
+msgid "View all installments"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:271
+msgid "Nobody owes anything right now."
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:310
+#. translators: %s: credit limit.
+msgid "Limit %s"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:331
+msgid "No applications waiting."
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:350
+#. translators: %s: time since the application.
+msgid "%s ago"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:382
+msgid "No transactions yet."
+msgstr ""
+
+#: templates/admin/installments/installments-list-template.php:75
+msgid "Due in 7 Days"
+msgstr ""
+
+#: templates/admin/installments/installments-list-template.php:79
+msgid "All"
+msgstr ""
+
+#: templates/admin/installments/installments-list-template.php:159
+msgid "Plan"
+msgstr ""
+
+#: templates/admin/installments/installments-list-template.php:161
+msgid "Due Date"
+msgstr ""
+
+#: templates/admin/installments/installments-list-template.php:223
+#: templates/front/myaccount/postpaid-template.php:367
+#: templates/front/plan-schedule-template.php:137
+#: templates/front/plan-schedule-template.php:267
+#. translators: %1$d: payment number, %2$d: number of payments.
+msgid "Payment %1$d of %2$d"
+msgstr ""
+
+#: templates/admin/installments/installments-list-template.php:245
+#: templates/front/plan-schedule-template.php:160
+#. translators: %s: late fee.
+msgid "incl. %s late fee"
+msgstr ""
+
+#: templates/admin/installments/installments-list-template.php:250
+#. translators: %s: amount still owed.
+msgid "%s left"
+msgstr ""
+
+#: templates/admin/installments/installments-list-template.php:265
+#: templates/front/plan-schedule-template.php:144
+#. translators: %s: date.
+msgid "Paid %s"
+msgstr ""
+
+#: templates/admin/installments/installments-list-template.php:281
+msgid "Due today"
+msgstr ""
+
+#: templates/admin/installments/installments-list-template.php:284
+#: templates/front/myaccount/postpaid-template.php:310
+#. translators: %s: number of days.
+#. translators: %s: number of days late.
+msgid "%s day late"
+msgid_plural "%s days late"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/admin/installments/installments-list-template.php:287
+#: templates/front/myaccount/postpaid-template.php:315
+#. translators: %s: number of days.
+#. translators: %s: number of days left.
+msgid "in %s day"
+msgid_plural "in %s days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/admin/installments/installments-list-template.php:337
+msgid ""
+"Record this payment as received? Use it for payments made outside the "
+"store, such as a bank transfer."
+msgstr ""
+
+#: templates/admin/installments/installments-list-template.php:337
+msgid "Mark paid"
+msgstr ""
+
+#: templates/admin/installments/installments-list-template.php:338
+msgid "Remind"
+msgstr ""
+
+#: templates/admin/installments/installments-list-template.php:357
+#. translators: %s: amount.
+msgid "Outstanding in this view: %s"
+msgstr ""
+
+#: templates/admin/installments/installments-list-template.php:369
+msgid "Show all customers"
+msgstr ""
+
+#: templates/admin/installments/installments-list-template.php:380
+msgid "Nothing here"
+msgstr ""
+
+#: templates/admin/installments/installments-list-template.php:381
+msgid ""
+"Installments appear once customers check out with Pay Later. Each payment "
+"of a plan is listed with its due date, so you can see what is coming in and "
+"chase what is late."
+msgstr ""
+
+#: templates/admin/transactions/transaction-view-template.php:38
+msgid "Transaction"
+msgstr ""
+
+#: templates/admin/transactions/transaction-view-template.php:66
+msgid "Transaction Details"
+msgstr ""
+
+#: templates/admin/transactions/transaction-view-template.php:67
+msgid "Back to Transactions"
+msgstr ""
+
+#: templates/admin/transactions/transaction-view-template.php:72
+msgid "Back"
+msgstr ""
+
+#: templates/admin/transactions/transactions-list-template.php:107
+msgid "No transactions yet"
+msgstr ""
+
+#: templates/admin/transactions/transactions-list-template.php:108
+msgid ""
+"Every Pay Later purchase, repayment, refund and manual adjustment is logged "
+"here, so you always know why a balance changed."
+msgstr ""
+
+#: templates/admin/transactions/transactions-list-template.php:139
+msgid "ID"
+msgstr ""
+
+#: templates/admin/transactions/transactions-list-template.php:190
+msgid "View"
+msgstr ""
+
+#: templates/admin/transactions/transactions-list-template.php:294
+#: templates/admin/transactions/transactions-list-template.php:295
+msgid "All types"
+msgstr ""
+
+#: templates/admin/transactions/transactions-list-template.php:300
+#: templates/admin/transactions/transactions-list-template.php:301
+msgid "All descriptions"
+msgstr ""
+
+#: templates/admin/transactions/transactions-list-template.php:306
+msgid "From date"
+msgstr ""
+
+#: templates/admin/transactions/transactions-list-template.php:307
+msgid "To date"
+msgstr ""
+
+#: templates/admin/transactions/transactions-list-template.php:308
+msgid "Any customer"
+msgstr ""
+
+#: templates/admin/transactions/transactions-list-template.php:313
+msgid "Filter"
+msgstr ""
+
+#: templates/admin/transactions/transactions-list-template.php:315
+msgid "Reset"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:99
+msgid "Pay Later is not available for new orders."
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:100
+msgid "You can still pay what you owe here."
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:166
+msgid "Overview"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:168
+msgid "History"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:171
+msgid "Pay Later sections"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:202
+msgid "A payment is overdue."
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:203
+msgid "Pay Later is paused until it is paid."
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:203
+msgid "Please pay it as soon as you can."
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:221
+msgid "Coming up"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:222
+msgid "All plans"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:239
+msgid "Your balance"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:240
+msgid "Available to spend"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:242
+msgid "Spending limit in use"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:255
+msgid "Limit"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:291
+#: templates/front/myaccount/postpaid-template.php:304
+msgid "Next payment"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:292
+msgid "You are all caught up"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:293
+msgid "Choose Pay Later at checkout to split your next order."
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:294
+#: templates/front/myaccount/postpaid-template.php:408
+msgid "Start shopping"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:312
+msgid "Today"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:328
+msgid "No due date. Pay whenever you like."
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:406
+msgid "No payment plans yet"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:407
+msgid "Choose Pay Later at checkout and your payment plan will show up here."
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:429
+#. translators: %1$s: order number, %2$s: date.
+msgid "Order #%1$s, %2$s"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:434
+msgid "Completed"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:436
+#: templates/front/plan-schedule-template.php:115
+#. translators: %1$d: payments made, %2$d: payments in total.
+#. translators: %1$d: payments made, %2$d: number of payments.
+msgid "%1$d of %2$d payments made"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:450
+msgid "Left to pay"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:457
+#. translators: %1$s: amount, %2$s: date.
+msgid "Next %1$s on %2$s"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:457
+msgid "any day"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:460
+#. translators: %d: number of payments made before the plan ended.
+msgid "Ended after %d payment"
+msgid_plural "Ended after %d payments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/front/myaccount/postpaid-template.php:463
+#. translators: %d: number of payments.
+msgid "%d payment made"
+msgid_plural "All %d payments made"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/front/myaccount/postpaid-template.php:486
+msgid "Payment plan not found."
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:491
+msgid "All payment plans"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:495
+#. translators: %s: order number.
+msgid "View order #%s"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:517
+msgid "Shop now, pay over time"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:518
+msgid "Your own credit line with this store. No bank card, no extra app."
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:522
+msgid "Split purchases into easy installments"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:523
+msgid "No card needed at checkout"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:524
+msgid "Reminders before every due date"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:549
+msgid "You are approved"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:553
+#. translators: %s: credit limit.
+msgid "Activate Pay Later to shop now and pay later, with a credit limit of %s."
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:558
+msgid "Activate Pay Later"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:565
+msgid "Application under review"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:566
+msgid ""
+"We are reviewing your application and will email you once it has been "
+"decided."
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:572
+msgid "Application not approved"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:573
+msgid ""
+"Your Pay Later application was not approved. Contact us if you have any "
+"questions."
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:579
+msgid "Apply in a minute"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:583
+#. translators: %s: credit limit.
+msgid "Get a spending limit of up to %s and pay for your orders in installments."
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:588
+msgid "Apply for Pay Later"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:633
+msgid "No activity yet."
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:665
+msgid "Previous"
+msgstr ""
+
+#: templates/front/myaccount/postpaid-template.php:668
+msgid "Next"
+msgstr ""
+
+#: templates/front/plan-schedule-template.php:91
+msgid "Payment schedule"
+msgstr ""
+
+#: templates/front/plan-schedule-template.php:112
+#. translators: %1$d: payments made, %2$d: payments the plan had.
+msgid "Ended after %1$d of %2$d payments. The rest was cancelled with the order."
+msgstr ""
+
+#: templates/front/plan-schedule-template.php:206
+#. translators: %s: amount.
+msgid "Pay %s now"
+msgstr ""
+
+#: templates/front/plan-schedule-template.php:218
+#. translators: %s: amount still owed on earlier installments.
+msgid "Includes %s still owed on earlier payments."
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://devdiggers.com/product/woocommerce-buy-now-pay-later/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Run your own buy now, pay later program. Offer Pay in 4 and pay in 30 days "
+"on a store credit line you control, show installment pricing on product "
+"pages, approve customers and collect every payment with automatic reminders."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "DevDiggers"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://devdiggers.com/"
+msgstr ""

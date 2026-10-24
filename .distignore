@@ -1,0 +1,29 @@
+# Files that do not belong in the WordPress.org zip.
+.distignore
+.git
+.gitignore
+.claude
+build
+bin
+node_modules
+src
+package.json
+webpack.config.js
+babel.config.js
+composer.json
+composer.lock
+Gruntfile.js
+package-lock.json
+phpcs.xml
+*.tar.gz
+*.zip
+.DS_Store
+**/.DS_Store
+
+# GitHub readme. readme.txt ships instead.
+README.md
+tests
+Thumbs.db
+__MACOSX
+graphify-out
+.graphifyignore
