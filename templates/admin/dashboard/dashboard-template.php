@@ -61,11 +61,23 @@ if ( ! class_exists( 'DDWCPP_Dashboard_Template' ) ) {
 			return [
 				'title'       => $title,
 				'value'       => $money ? wc_price( $stat['value'] ) : $stat['value'],
+				'previous'    => $money ? wc_price( $stat['previous'] ) : number_format_i18n( $stat['previous'] ),
 				'change'      => $stat['change'],
+				'note'        => $this->ddwcpp_no_change_note( $stat ),
 				'is_positive' => $stat['is_positive'],
 				'value_type'  => $money ? 'html' : 'number',
 				'icon'        => DDFW_SVG::get_svg_icon( $icon, true ),
 			];
+		}
+
+		/**
+		 * Note for a figure that did not move, which the change line would leave empty.
+		 *
+		 * @param array $stat Summary from the helper.
+		 * @return string
+		 */
+		protected function ddwcpp_no_change_note( $stat ) {
+			return 0.0 === $stat['change'] ? esc_html__( 'No change vs previous period', 'buy-now-pay-later-for-woocommerce' ) : '';
 		}
 
 		/**
@@ -82,8 +94,9 @@ if ( ! class_exists( 'DDWCPP_Dashboard_Template' ) ) {
 					'columns'       => 4,
 					'header'        => [
 						/* translators: %s: current user display name. */
-						'welcome'  => esc_html__( 'Welcome back, %s!', 'buy-now-pay-later-for-woocommerce' ),
-						'subtitle' => esc_html__( 'Credit issued, installments coming due and payments coming in across your Pay Later customers.', 'buy-now-pay-later-for-woocommerce' ),
+						'welcome'    => esc_html__( 'Welcome back, %s!', 'buy-now-pay-later-for-woocommerce' ),
+						'subtitle'   => esc_html__( 'Credit issued, installments coming due and payments coming in across your Pay Later customers.', 'buy-now-pay-later-for-woocommerce' ),
+						'date_range' => $this->data['date_range'],
 					],
 					'summary_cards' => [
 						[
@@ -91,19 +104,23 @@ if ( ! class_exists( 'DDWCPP_Dashboard_Template' ) ) {
 							'value'      => wc_price( $summary['outstanding'] ),
 							'value_type' => 'html',
 							'icon'       => DDFW_SVG::get_svg_icon( 'outstanding', true ),
+							'note'       => esc_html__( 'Owed right now, from any date', 'buy-now-pay-later-for-woocommerce' ),
 						],
 						[
 							'title'      => esc_html__( 'Available Credit', 'buy-now-pay-later-for-woocommerce' ),
 							'value'      => wc_price( $summary['available'] ),
 							'value_type' => 'html',
 							'icon'       => DDFW_SVG::get_svg_icon( 'credit', true ),
+							'note'       => esc_html__( 'Unused credit, right now', 'buy-now-pay-later-for-woocommerce' ),
 						],
 						$this->ddwcpp_card( esc_html__( 'Credit Used', 'buy-now-pay-later-for-woocommerce' ), $summary['used'], 'used' ),
 						$this->ddwcpp_card( esc_html__( 'Repayments Received', 'buy-now-pay-later-for-woocommerce' ), $summary['repaid'], 'repaid' ),
 						[
 							'title'       => esc_html__( 'Repayment Rate', 'buy-now-pay-later-for-woocommerce' ),
-							'value'       => round( $summary['repayment_rate']['value'], 1 ) . '%',
+							'value'       => wc_format_localized_decimal( round( $summary['repayment_rate']['value'], 1 ) ) . '%',
+							'previous'    => wc_format_localized_decimal( round( $summary['repayment_rate']['previous'], 1 ) ) . '%',
 							'change'      => $summary['repayment_rate']['change'],
+							'note'        => $this->ddwcpp_no_change_note( $summary['repayment_rate'] ),
 							'is_positive' => $summary['repayment_rate']['is_positive'],
 							'value_type'  => 'text',
 							'icon'        => DDFW_SVG::get_svg_icon( 'repayment', true ),
@@ -112,20 +129,23 @@ if ( ! class_exists( 'DDWCPP_Dashboard_Template' ) ) {
 							'title' => esc_html__( 'Active Customers', 'buy-now-pay-later-for-woocommerce' ),
 							'value' => $summary['active'],
 							'icon'  => DDFW_SVG::get_svg_icon( 'customers', true ),
+							'note'  => esc_html__( 'With a credit line, right now', 'buy-now-pay-later-for-woocommerce' ),
 						],
 						[
 							'title'      => esc_html__( 'Due in Next 7 Days', 'buy-now-pay-later-for-woocommerce' ),
-							/* translators: %1$s: amount, %2$s: number of payments. */
-							'value'      => sprintf( esc_html__( '%1$s (%2$s)', 'buy-now-pay-later-for-woocommerce' ), wc_price( $summary['due_soon'] ), number_format_i18n( $summary['due_soon_count'] ) ),
+							'value'      => wc_price( $summary['due_soon'] ),
 							'value_type' => 'html',
 							'icon'       => DDFW_SVG::get_svg_icon( 'installments', true ),
+							/* translators: %s: number of payments. */
+							'note'       => sprintf( esc_html( _n( '%s payment coming due', '%s payments coming due', $summary['due_soon_count'], 'buy-now-pay-later-for-woocommerce' ) ), number_format_i18n( $summary['due_soon_count'] ) ),
 						],
 						[
 							'title'      => esc_html__( 'Overdue Payments', 'buy-now-pay-later-for-woocommerce' ),
-							/* translators: %1$s: amount, %2$s: number of payments. */
-							'value'      => sprintf( esc_html__( '%1$s (%2$s)', 'buy-now-pay-later-for-woocommerce' ), wc_price( $summary['late_amount'] ), number_format_i18n( $summary['late_count'] ) ),
+							'value'      => wc_price( $summary['late_amount'] ),
 							'value_type' => 'html',
 							'icon'       => DDFW_SVG::get_svg_icon( 'overdue', true ),
+							/* translators: %s: number of payments. */
+							'note'       => sprintf( esc_html( _n( '%s payment past due, from any date', '%s payments past due, from any date', $summary['late_count'], 'buy-now-pay-later-for-woocommerce' ) ), number_format_i18n( $summary['late_count'] ) ),
 						],
 					],
 					'charts'        => [
@@ -204,59 +224,47 @@ if ( ! class_exists( 'DDWCPP_Dashboard_Template' ) ) {
 		}
 
 		/**
-		 * Empty widget message.
-		 *
-		 * @param string $message Message.
-		 * @return void
-		 */
-		protected function ddwcpp_render_no_data( $message ) {
-			?>
-			<div class="ddfw-dash-no-data"><?php echo esc_html( $message ); ?></div>
-			<?php
-		}
-
-		/**
 		 * Next payments due across all customers.
 		 *
 		 * @return void
 		 */
 		public function ddwcpp_render_upcoming() {
-			$rows = $this->data['tables']['upcoming'];
+			$now   = current_time( 'mysql' );
+			$items = [];
 
-			if ( empty( $rows ) ) {
-				$this->ddwcpp_render_no_data( esc_html__( 'No payments are scheduled.', 'buy-now-pay-later-for-woocommerce' ) );
-				return;
+			foreach ( $this->data['tables']['upcoming'] as $row ) {
+				$user    = get_userdata( $row['user_id'] );
+				$late    = $row['due_date'] && $row['due_date'] < $now;
+				$meta    = array_filter(
+					[
+						$late ? __( 'Overdue', 'buy-now-pay-later-for-woocommerce' ) : '',
+						$row['plan_title'],
+						$row['due_date'] ? date_i18n( wc_date_format(), strtotime( $row['due_date'] ) ) : __( 'No due date', 'buy-now-pay-later-for-woocommerce' ),
+					]
+				);
+				$items[] = [
+					'url'         => $user ? ddwcpp_get_dashboard_url(
+						[
+							'menu'        => 'installments',
+							'customer-id' => $user->ID,
+						]
+					) : '',
+					'title'       => $user ? $user->display_name : __( 'Deleted customer', 'buy-now-pay-later-for-woocommerce' ),
+					'meta'        => implode( ' · ', $meta ),
+					'image'       => get_avatar_url( $row['user_id'], [ 'size' => 72 ] ),
+					'shape'       => 'round',
+					'value'       => wc_price( \DDWCPostPaid\Helper\Installments\DDWCPP_Installments_Helper::ddwcpp_get_remaining( $row ) ),
+					'value_class' => $late ? 'negative' : '',
+				];
 			}
 
-			$now = current_time( 'mysql' );
-			?>
-			<div class="ddfw-dash-list">
-				<?php
-				foreach ( $rows as $row ) :
-					$user = get_userdata( $row['user_id'] );
-					$late = $row['due_date'] && $row['due_date'] < $now;
-					?>
-					<div class="ddfw-dash-list-item">
-						<div class="ddfw-dash-list-avatar"><?php echo get_avatar( $row['user_id'], 32 ); ?></div>
-						<div class="ddfw-dash-list-info">
-							<div class="ddfw-dash-list-title"><strong><?php echo esc_html( $user ? $user->display_name : __( 'Deleted customer', 'buy-now-pay-later-for-woocommerce' ) ); ?></strong></div>
-							<div class="ddfw-dash-list-meta">
-								<?php
-								if ( $late ) {
-									echo '<span class="ddwcpp-overdue">' . esc_html__( 'Overdue', 'buy-now-pay-later-for-woocommerce' ) . '</span> &bull; ';
-								}
+			DDFW_Dashboard::render_list( $items, __( 'No payments are scheduled.', 'buy-now-pay-later-for-woocommerce' ) );
 
-								echo esc_html( $row['plan_title'] ) . ' &bull; ';
-								echo $row['due_date'] ? esc_html( date_i18n( wc_date_format(), strtotime( $row['due_date'] ) ) ) : esc_html__( 'No due date', 'buy-now-pay-later-for-woocommerce' );
-								?>
-							</div>
-						</div>
-						<div class="ddfw-dash-list-value<?php echo $late ? ' negative' : ''; ?>"><?php echo wp_kses_post( wc_price( \DDWCPostPaid\Helper\Installments\DDWCPP_Installments_Helper::ddwcpp_get_remaining( $row ) ) ); ?></div>
-					</div>
-				<?php endforeach; ?>
-			</div>
-			<p class="ddfw-dash-list-footer"><a href="<?php echo esc_url( ddwcpp_get_dashboard_url( [ 'menu' => 'installments' ] ) ); ?>"><?php esc_html_e( 'View all installments', 'buy-now-pay-later-for-woocommerce' ); ?></a></p>
-			<?php
+			if ( $items ) {
+				?>
+				<p class="ddfw-dash-list-footer"><a href="<?php echo esc_url( ddwcpp_get_dashboard_url( [ 'menu' => 'installments' ] ) ); ?>"><?php esc_html_e( 'View all installments', 'buy-now-pay-later-for-woocommerce' ); ?></a></p>
+				<?php
+			}
 		}
 
 		/**
@@ -265,58 +273,34 @@ if ( ! class_exists( 'DDWCPP_Dashboard_Template' ) ) {
 		 * @return void
 		 */
 		public function ddwcpp_render_top_debtors() {
-			$debtors = $this->data['tables']['top_debtors'];
+			$items = [];
 
-			if ( empty( $debtors ) ) {
-				$this->ddwcpp_render_no_data( esc_html__( 'Nobody owes anything right now.', 'buy-now-pay-later-for-woocommerce' ) );
-				return;
+			foreach ( $this->data['tables']['top_debtors'] as $debtor ) {
+				$user = get_userdata( $debtor['user_id'] );
+
+				if ( ! $user ) {
+					continue;
+				}
+
+				/* translators: %s: due date. */
+				$when    = $debtor['due_date'] ? sprintf( __( 'Due %s', 'buy-now-pay-later-for-woocommerce' ), date_i18n( wc_date_format(), strtotime( $debtor['due_date'] ) ) ) : sprintf( /* translators: %s: credit limit. */ __( 'Limit %s', 'buy-now-pay-later-for-woocommerce' ), wp_strip_all_tags( wc_price( $debtor['limit'] ) ) );
+				$items[] = [
+					'url'         => ddwcpp_get_dashboard_url(
+						[
+							'menu'        => 'transactions',
+							'customer-id' => $user->ID,
+						]
+					),
+					'title'       => $user->display_name,
+					'meta'        => ( $debtor['overdue'] ? __( 'Overdue', 'buy-now-pay-later-for-woocommerce' ) . ' · ' : '' ) . $when,
+					'image'       => get_avatar_url( $user->ID, [ 'size' => 72 ] ),
+					'shape'       => 'round',
+					'value'       => wc_price( $debtor['dues'] ),
+					'value_class' => 'negative',
+				];
 			}
-			?>
-			<div class="ddfw-dash-list">
-				<?php
-				foreach ( $debtors as $debtor ) :
-					$user = get_userdata( $debtor['user_id'] );
 
-					if ( ! $user ) {
-						continue;
-					}
-					?>
-					<div class="ddfw-dash-list-item">
-						<div class="ddfw-dash-list-avatar"><?php echo get_avatar( $user->ID, 32 ); ?></div>
-						<div class="ddfw-dash-list-info">
-							<div class="ddfw-dash-list-title"><strong><a href="
-							<?php
-							echo esc_url(
-								ddwcpp_get_dashboard_url(
-									[
-										'menu'        => 'transactions',
-										'customer-id' => $user->ID,
-									]
-								)
-							);
-							?>
-																				"><?php echo esc_html( $user->display_name ); ?></a></strong></div>
-							<div class="ddfw-dash-list-meta">
-								<?php
-								if ( $debtor['overdue'] ) {
-									echo '<span class="ddwcpp-overdue">' . esc_html__( 'Overdue', 'buy-now-pay-later-for-woocommerce' ) . '</span> &bull; ';
-								}
-
-								if ( $debtor['due_date'] ) {
-									/* translators: %s: due date. */
-									printf( esc_html__( 'Due %s', 'buy-now-pay-later-for-woocommerce' ), esc_html( date_i18n( wc_date_format(), strtotime( $debtor['due_date'] ) ) ) );
-								} else {
-									/* translators: %s: credit limit. */
-									printf( esc_html__( 'Limit %s', 'buy-now-pay-later-for-woocommerce' ), wp_kses_post( wc_price( $debtor['limit'] ) ) );
-								}
-								?>
-							</div>
-						</div>
-						<div class="ddfw-dash-list-value negative"><?php echo wp_kses_post( wc_price( $debtor['dues'] ) ); ?></div>
-					</div>
-				<?php endforeach; ?>
-			</div>
-			<?php
+			DDFW_Dashboard::render_list( $items, __( 'Nobody owes anything right now.', 'buy-now-pay-later-for-woocommerce' ) );
 		}
 
 		/**
@@ -325,49 +309,28 @@ if ( ! class_exists( 'DDWCPP_Dashboard_Template' ) ) {
 		 * @return void
 		 */
 		public function ddwcpp_render_applications() {
-			$users = $this->data['tables']['applications'];
+			$items = [];
 
-			if ( empty( $users ) ) {
-				$this->ddwcpp_render_no_data( esc_html__( 'No applications waiting.', 'buy-now-pay-later-for-woocommerce' ) );
-				return;
+			foreach ( $this->data['tables']['applications'] as $user ) {
+				$applied = get_user_meta( $user->ID, '_ddwcpp_applied_on', true );
+				$items[] = [
+					'title' => $user->display_name,
+					/* translators: %s: time since the application. */
+					'meta'  => $user->user_email . ( $applied ? ' · ' . sprintf( __( '%s ago', 'buy-now-pay-later-for-woocommerce' ), human_time_diff( strtotime( $applied ), current_time( 'timestamp' ) ) ) : '' ), // phpcs:ignore WordPress.DateTime.CurrentTimeTimestamp.Requested -- Compared with a site time value.
+					'image' => get_avatar_url( $user->ID, [ 'size' => 72 ] ),
+					'shape' => 'round',
+					'value' => '<a class="button button-small" href="' . esc_url(
+						ddwcpp_get_dashboard_url(
+							[
+								'menu'   => 'customers',
+								'status' => 'pending',
+							]
+						)
+					) . '">' . esc_html__( 'Review', 'buy-now-pay-later-for-woocommerce' ) . '</a>',
+				];
 			}
-			?>
-			<div class="ddfw-dash-list">
-				<?php
-				foreach ( $users as $user ) :
-					$applied = get_user_meta( $user->ID, '_ddwcpp_applied_on', true );
-					?>
-					<div class="ddfw-dash-list-item">
-						<div class="ddfw-dash-list-avatar"><?php echo get_avatar( $user->ID, 32 ); ?></div>
-						<div class="ddfw-dash-list-info">
-							<div class="ddfw-dash-list-title"><strong><?php echo esc_html( $user->display_name ); ?></strong></div>
-							<div class="ddfw-dash-list-meta">
-								<?php
-								echo esc_html( $user->user_email );
 
-								if ( $applied ) {
-									/* translators: %s: time since the application. */
-									echo ' &bull; ' . esc_html( sprintf( __( '%s ago', 'buy-now-pay-later-for-woocommerce' ), human_time_diff( strtotime( $applied ), current_time( 'timestamp' ) ) ) ); // phpcs:ignore WordPress.DateTime.CurrentTimeTimestamp.Requested -- Compared with a site time value.
-								}
-								?>
-							</div>
-						</div>
-						<div class="ddfw-dash-list-value"><a class="button button-small" href="
-						<?php
-						echo esc_url(
-							ddwcpp_get_dashboard_url(
-								[
-									'menu'   => 'customers',
-									'status' => 'pending',
-								]
-							)
-						);
-						?>
-																								"><?php esc_html_e( 'Review', 'buy-now-pay-later-for-woocommerce' ); ?></a></div>
-					</div>
-				<?php endforeach; ?>
-			</div>
-			<?php
+			DDFW_Dashboard::render_list( $items, __( 'No applications waiting.', 'buy-now-pay-later-for-woocommerce' ) );
 		}
 
 		/**
@@ -376,46 +339,29 @@ if ( ! class_exists( 'DDWCPP_Dashboard_Template' ) ) {
 		 * @return void
 		 */
 		public function ddwcpp_render_recent_transactions() {
-			$transactions = $this->data['tables']['recent'];
+			$items = [];
 
-			if ( empty( $transactions ) ) {
-				$this->ddwcpp_render_no_data( esc_html__( 'No transactions yet.', 'buy-now-pay-later-for-woocommerce' ) );
-				return;
+			foreach ( $this->data['tables']['recent'] as $transaction ) {
+				$user    = get_userdata( $transaction['user_id'] );
+				$credit  = 'credit' === $transaction['type'];
+				$items[] = [
+					'url'         => ddwcpp_get_dashboard_url(
+						[
+							'menu'           => 'transactions',
+							'action'         => 'view',
+							'transaction_id' => $transaction['id'],
+						]
+					),
+					'title'       => $user ? $user->display_name : '#' . $transaction['user_id'],
+					'meta'        => ddwcpp_get_translation( $transaction['reference'] ) . ' · ' . date_i18n( wc_date_format(), strtotime( $transaction['date'] ) ),
+					'image'       => get_avatar_url( $transaction['user_id'], [ 'size' => 72 ] ),
+					'shape'       => 'round',
+					'value'       => ( $credit ? '+' : '&minus;' ) . wc_price( $transaction['amount'] ),
+					'value_class' => $credit ? 'positive' : 'negative',
+				];
 			}
-			?>
-			<div class="ddfw-dash-list">
-				<?php
-				foreach ( $transactions as $transaction ) :
-					$user = get_userdata( $transaction['user_id'] );
-					?>
-					<div class="ddfw-dash-list-item">
-						<div class="ddfw-dash-list-info">
-							<div class="ddfw-dash-list-title">
-								<strong><a href="
-								<?php
-								echo esc_url(
-									ddwcpp_get_dashboard_url(
-										[
-											'menu'   => 'transactions',
-											'action' => 'view',
-											'transaction_id' => $transaction['id'],
-										]
-									)
-								);
-								?>
-													"><?php echo esc_html( $user ? $user->display_name : '#' . $transaction['user_id'] ); ?></a></strong>
-							</div>
-							<div class="ddfw-dash-list-meta">
-								<?php echo esc_html( ddwcpp_get_translation( $transaction['reference'] ) ); ?> &bull; <?php echo esc_html( date_i18n( wc_date_format(), strtotime( $transaction['date'] ) ) ); ?>
-							</div>
-						</div>
-						<div class="ddfw-dash-list-value <?php echo 'credit' === $transaction['type'] ? 'positive' : 'negative'; ?>">
-							<?php echo ( 'credit' === $transaction['type'] ? '+' : '&minus;' ) . wp_kses_post( wc_price( $transaction['amount'] ) ); ?>
-						</div>
-					</div>
-				<?php endforeach; ?>
-			</div>
-			<?php
+
+			DDFW_Dashboard::render_list( $items, __( 'No transactions yet.', 'buy-now-pay-later-for-woocommerce' ) );
 		}
 	}
 }

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Buy Now Pay Later for WooCommerce 1.0.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/buy-now-pay-later-for-woocommerce\n"
-"POT-Creation-Date: 2026-10-24 14:51:57+00:00\n"
+"POT-Creation-Date: 2026-10-28 10:26:47+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -61,7 +61,7 @@ msgid "Documentation"
 msgstr ""
 
 #: functions.php:160 includes/admin-dashboard.php:537
-#: templates/admin/dashboard/dashboard-template.php:366
+#: templates/admin/dashboard/dashboard-template.php:329
 msgid "Review"
 msgstr ""
 
@@ -75,8 +75,8 @@ msgstr ""
 
 #: helper/dashboard/dashboard-helper.php:106 includes/global-functions.php:141
 #: templates/admin/customers/customers-list-template.php:78
-#: templates/admin/dashboard/dashboard-template.php:246
-#: templates/admin/dashboard/dashboard-template.php:302
+#: templates/admin/dashboard/dashboard-template.php:240
+#: templates/admin/dashboard/dashboard-template.php:295
 #: templates/admin/installments/installments-list-template.php:76
 #: templates/front/myaccount/postpaid-template.php:304
 msgid "Overdue"
@@ -568,8 +568,8 @@ msgstr ""
 
 #: includes/admin/setup-wizard.php:112 includes/common/common-functions.php:451
 #: templates/admin/configuration/configuration-template.php:111
-#: templates/admin/configuration/configuration-template.php:420
-#: templates/admin/configuration/configuration-template.php:544
+#: templates/admin/configuration/configuration-template.php:421
+#: templates/admin/configuration/configuration-template.php:545
 #: templates/admin/customers/customers-list-template.php:251
 #: templates/admin/installments/installments-list-template.php:162
 msgid "Status"
@@ -647,15 +647,16 @@ msgstr ""
 msgid "Installment Message"
 msgstr ""
 
-#: includes/admin/setup-wizard.php:185
-msgid "Show \"or 4 payments of $25.00\" on product pages and in the cart"
+#: includes/admin/setup-wizard.php:186
+#. translators: %s: example installment amount in the store currency.
+msgid "Show \"or 4 payments of %s\" on product pages and in the cart"
 msgstr ""
 
-#: includes/admin/setup-wizard.php:186
+#: includes/admin/setup-wizard.php:187
 msgid "Shoppers see what they would pay per installment before checkout."
 msgstr ""
 
-#: includes/admin/setup-wizard.php:234
+#: includes/admin/setup-wizard.php:235
 msgid "Choose at least one plan, so customers have a way to pay."
 msgstr ""
 
@@ -1659,167 +1660,168 @@ msgstr ""
 msgid "Added once to each missed payment. 0 for no late fee."
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:415
+#: templates/admin/configuration/configuration-template.php:416
+#. translators: %s: example installment amount in the store currency.
 msgid ""
 "Show shoppers what a product costs per installment before they reach "
-"checkout, for example \"or 4 payments of $25.00 every 2 weeks\". A Learn "
-"more link explains how Pay Later works."
-msgstr ""
-
-#: templates/admin/configuration/configuration-template.php:421
-msgid "Show the installment message"
+"checkout, for example \"or 4 payments of %s every 2 weeks\". A Learn more "
+"link explains how Pay Later works."
 msgstr ""
 
 #: templates/admin/configuration/configuration-template.php:422
+msgid "Show the installment message"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:423
 msgid "Stores that advertise pay over time options usually see bigger orders."
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:429
+#: templates/admin/configuration/configuration-template.php:430
 msgid "Show On"
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:430
+#: templates/admin/configuration/configuration-template.php:431
 msgid "Use the [ddwcpp_installments_message] shortcode to place it anywhere else."
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:440
+#: templates/admin/configuration/configuration-template.php:441
 msgid "Show To"
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:441
+#: templates/admin/configuration/configuration-template.php:442
 msgid ""
 "Showing it to everyone invites new customers to apply. Approved customers "
 "only keeps it private."
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:444
+#: templates/admin/configuration/configuration-template.php:445
 msgid "Everyone, guests included"
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:445
+#: templates/admin/configuration/configuration-template.php:446
 msgid "Approved customers only"
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:454
+#: templates/admin/configuration/configuration-template.php:455
 msgid "Plan to Advertise"
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:455
+#: templates/admin/configuration/configuration-template.php:456
 msgid "Automatic picks the plan with the most installments that fits the price."
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:457
+#: templates/admin/configuration/configuration-template.php:458
 msgid "Automatic"
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:464
+#: templates/admin/configuration/configuration-template.php:465
 msgid "Message Text"
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:465
+#: templates/admin/configuration/configuration-template.php:466
 msgid ""
 "For plans with several payments. Placeholders: {count} payments, {amount} "
 "each payment, {interval} e.g. \"every 2 weeks\", {plan} plan title, {total} "
 "total."
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:472
+#: templates/admin/configuration/configuration-template.php:473
 msgid "Single Payment Text"
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:473
+#: templates/admin/configuration/configuration-template.php:474
 msgid ""
 "For plans paid in one go, like Pay in 30 days. {amount} is the full amount "
 "and {interval} reads e.g. \"in 30 days\"."
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:482
+#: templates/admin/configuration/configuration-template.php:483
 msgid "Learn More Dialog"
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:483
+#: templates/admin/configuration/configuration-template.php:484
 msgid ""
 "The explainer that opens from the Learn more link next to the installment "
 "message."
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:488
+#: templates/admin/configuration/configuration-template.php:489
 msgid "Explain pay later in your own words"
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:489
+#: templates/admin/configuration/configuration-template.php:490
 msgid ""
 "The dialog ships with clear default steps. Pro lets you rewrite it and add "
 "your logo, so shoppers trust it and apply."
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:491
+#: templates/admin/configuration/configuration-template.php:492
 msgid "Your own logo or icon"
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:492
+#: templates/admin/configuration/configuration-template.php:493
 msgid "Custom title, steps and small print"
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:493
+#: templates/admin/configuration/configuration-template.php:494
 msgid "Choose who sees the message and which plan it shows"
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:515
+#: templates/admin/configuration/configuration-template.php:516
 msgid "Email Design"
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:516
+#: templates/admin/configuration/configuration-template.php:517
 msgid ""
 "Every email uses your WooCommerce email header, footer, colors and sender. "
 "Switch each one on or off and edit its wording below."
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:521
+#: templates/admin/configuration/configuration-template.php:522
 msgid "WooCommerce Emails"
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:522
+#: templates/admin/configuration/configuration-template.php:523
 msgid "Sender name, address, logo and colors."
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:524
+#: templates/admin/configuration/configuration-template.php:525
 msgid "Open email settings"
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:545
+#: templates/admin/configuration/configuration-template.php:546
 msgid "Send this email"
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:546
+#: templates/admin/configuration/configuration-template.php:547
 msgid "Sent to the store admin email address."
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:546
+#: templates/admin/configuration/configuration-template.php:547
 msgid "Sent to the customer."
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:553
+#: templates/admin/configuration/configuration-template.php:554
 msgid "Subject"
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:554
+#: templates/admin/configuration/configuration-template.php:555
 msgid "The subject line in the inbox."
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:561
+#: templates/admin/configuration/configuration-template.php:562
 msgid "Heading"
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:562
+#: templates/admin/configuration/configuration-template.php:563
 msgid "The title at the top of the email."
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:569
+#: templates/admin/configuration/configuration-template.php:570
 msgid "Message"
 msgstr ""
 
-#: templates/admin/configuration/configuration-template.php:575
+#: templates/admin/configuration/configuration-template.php:576
 #. translators: %s: list of placeholders.
 msgid "Available placeholders: %s"
 msgstr ""
@@ -1913,7 +1915,7 @@ msgid "Overdue since %s"
 msgstr ""
 
 #: templates/admin/customers/customers-list-template.php:404
-#: templates/admin/dashboard/dashboard-template.php:307
+#: templates/admin/dashboard/dashboard-template.php:286
 #: templates/front/myaccount/postpaid-template.php:327
 #: templates/front/plan-schedule-template.php:147
 #. translators: %s: due date.
@@ -1934,152 +1936,176 @@ msgstr ""
 msgid "Turn it on"
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:85
+#: templates/admin/dashboard/dashboard-template.php:80
+msgid "No change vs previous period"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:97
 #. translators: %s: current user display name.
 msgid "Welcome back, %s!"
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:86
+#: templates/admin/dashboard/dashboard-template.php:98
 msgid ""
 "Credit issued, installments coming due and payments coming in across your "
 "Pay Later customers."
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:90
+#: templates/admin/dashboard/dashboard-template.php:103
 msgid "Outstanding Dues"
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:96
+#: templates/admin/dashboard/dashboard-template.php:107
+msgid "Owed right now, from any date"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:110
 msgid "Available Credit"
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:101
-#: templates/admin/dashboard/dashboard-template.php:144
+#: templates/admin/dashboard/dashboard-template.php:114
+msgid "Unused credit, right now"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:116
+#: templates/admin/dashboard/dashboard-template.php:164
 msgid "Credit Used"
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:102
+#: templates/admin/dashboard/dashboard-template.php:117
 msgid "Repayments Received"
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:104
+#: templates/admin/dashboard/dashboard-template.php:119
 msgid "Repayment Rate"
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:112
+#: templates/admin/dashboard/dashboard-template.php:129
 msgid "Active Customers"
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:117
+#: templates/admin/dashboard/dashboard-template.php:132
+msgid "With a credit line, right now"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:135
 msgid "Due in Next 7 Days"
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:119
-#: templates/admin/dashboard/dashboard-template.php:126
-#. translators: %1$s: amount, %2$s: number of payments.
-msgid "%1$s (%2$s)"
-msgstr ""
+#: templates/admin/dashboard/dashboard-template.php:140
+#. translators: %s: number of payments.
+msgid "%s payment coming due"
+msgid_plural "%s payments coming due"
+msgstr[0] ""
+msgstr[1] ""
 
-#: templates/admin/dashboard/dashboard-template.php:124
+#: templates/admin/dashboard/dashboard-template.php:143
 msgid "Overdue Payments"
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:134
+#: templates/admin/dashboard/dashboard-template.php:148
+#. translators: %s: number of payments.
+msgid "%s payment past due, from any date"
+msgid_plural "%s payments past due, from any date"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/admin/dashboard/dashboard-template.php:154
 msgid "Credit Used vs Repaid"
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:149
+#: templates/admin/dashboard/dashboard-template.php:169
 msgid "Repaid"
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:154
+#: templates/admin/dashboard/dashboard-template.php:174
 msgid "No credit activity yet"
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:155
+#: templates/admin/dashboard/dashboard-template.php:175
 msgid "The trend appears once customers pay with Pay Later or clear their dues."
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:160
+#: templates/admin/dashboard/dashboard-template.php:180
 msgid "Orders by Plan"
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:167
+#: templates/admin/dashboard/dashboard-template.php:187
 msgid "No plan orders in this period"
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:168
+#: templates/admin/dashboard/dashboard-template.php:188
 msgid ""
 "See which payment plans your customers prefer once they check out with Pay "
 "Later."
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:173
+#: templates/admin/dashboard/dashboard-template.php:193
 msgid "Customer Health"
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:179
+#: templates/admin/dashboard/dashboard-template.php:199
 msgid "No active customers yet"
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:180
+#: templates/admin/dashboard/dashboard-template.php:200
 msgid "Approve applications on the Customers screen to start a credit line."
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:186
+#: templates/admin/dashboard/dashboard-template.php:206
 msgid "Upcoming Payments"
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:190
+#: templates/admin/dashboard/dashboard-template.php:210
 msgid "Top Outstanding Balances"
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:194
+#: templates/admin/dashboard/dashboard-template.php:214
 msgid "Applications Awaiting Review"
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:198
+#: templates/admin/dashboard/dashboard-template.php:218
 msgid "Recent Transactions"
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:227
-msgid "No payments are scheduled."
-msgstr ""
-
 #: templates/admin/dashboard/dashboard-template.php:242
-#: templates/admin/installments/installments-list-template.php:198
-msgid "Deleted customer"
-msgstr ""
-
-#: templates/admin/dashboard/dashboard-template.php:250
 #: templates/admin/installments/installments-list-template.php:269
 #: templates/front/plan-schedule-template.php:149
 msgid "No due date"
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:258
+#: templates/admin/dashboard/dashboard-template.php:252
+#: templates/admin/installments/installments-list-template.php:198
+msgid "Deleted customer"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:261
+msgid "No payments are scheduled."
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:265
 msgid "View all installments"
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:271
-msgid "Nobody owes anything right now."
-msgstr ""
-
-#: templates/admin/dashboard/dashboard-template.php:310
+#: templates/admin/dashboard/dashboard-template.php:286
 #. translators: %s: credit limit.
 msgid "Limit %s"
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:331
-msgid "No applications waiting."
+#: templates/admin/dashboard/dashboard-template.php:303
+msgid "Nobody owes anything right now."
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:350
+#: templates/admin/dashboard/dashboard-template.php:319
 #. translators: %s: time since the application.
 msgid "%s ago"
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:382
+#: templates/admin/dashboard/dashboard-template.php:333
+msgid "No applications waiting."
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:364
 msgid "No transactions yet."
 msgstr ""
 

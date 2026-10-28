@@ -182,7 +182,8 @@ if ( ! class_exists( 'DDWCPP_Setup_Wizard' ) ) {
 					[
 						'type'           => 'checkbox',
 						'label'          => esc_html__( 'Installment Message', 'buy-now-pay-later-for-woocommerce' ),
-						'checkbox_label' => esc_html__( 'Show "or 4 payments of $25.00" on product pages and in the cart', 'buy-now-pay-later-for-woocommerce' ),
+						/* translators: %s: example installment amount in the store currency. */
+						'checkbox_label' => sprintf( esc_html__( 'Show "or 4 payments of %s" on product pages and in the cart', 'buy-now-pay-later-for-woocommerce' ), html_entity_decode( wp_strip_all_tags( wc_price( 25 ) ) ) ),
 						'description'    => esc_html__( 'Shoppers see what they would pay per installment before checkout.', 'buy-now-pay-later-for-woocommerce' ),
 						'id'             => 'ddwcpp-message-enabled',
 						'name'           => '_ddwcpp_message_enabled',

@@ -161,15 +161,11 @@ if ( ! class_exists( 'DDWCPP_Dashboard_Helper' ) ) {
 			$value    = (float) $value;
 			$previous = (float) $previous;
 
-			if ( $previous <= 0 ) {
-				$change = $value > 0 ? 100 : 0;
-			} else {
-				$change = ( ( $value - $previous ) / $previous ) * 100;
-			}
-
 			return [
 				'value'       => $value,
-				'change'      => round( $change, 1 ),
+				'previous'    => $previous,
+				// Null when the previous period had nothing: the card says so instead of a fake 100%.
+				'change'      => $previous > 0 ? round( ( $value - $previous ) / $previous * 100, 1 ) : null,
 				'is_positive' => $higher_better ? $value >= $previous : $value <= $previous,
 			];
 		}
