@@ -412,7 +412,8 @@ if ( ! class_exists( 'DDWCPP_Configuration_Template' ) ) {
 					[
 						'header' => [
 							'heading'     => esc_html__( 'Installment Message', 'buy-now-pay-later-for-woocommerce' ),
-							'description' => esc_html__( 'Show shoppers what a product costs per installment before they reach checkout, for example "or 4 payments of $25.00 every 2 weeks". A Learn more link explains how Pay Later works.', 'buy-now-pay-later-for-woocommerce' ),
+							/* translators: %s: example installment amount in the store currency. */
+							'description' => sprintf( esc_html__( 'Show shoppers what a product costs per installment before they reach checkout, for example "or 4 payments of %s every 2 weeks". A Learn more link explains how Pay Later works.', 'buy-now-pay-later-for-woocommerce' ), html_entity_decode( wp_strip_all_tags( wc_price( 25 ) ) ) ),
 						],
 						'fields' => [
 							[

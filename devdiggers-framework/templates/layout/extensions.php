@@ -10,10 +10,22 @@
 defined( 'ABSPATH' ) || exit(); // Exit if accessed directly.
 
 // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Template scope variables are local include variables.
+// Nothing is requested from devdiggers.com until an administrator opts in on this page (off by default).
+$remote_allowed = 'yes' === get_option( 'ddfw_extensions_remote_consent', 'no' );
+
+if ( ! $remote_allowed && isset( $_GET['ddfw_load_extensions'] ) ) {
+	$load_nonce = sanitize_text_field( wp_unslash( $_GET['ddfw_load_extensions'] ) );
+
+	if ( wp_verify_nonce( $load_nonce, 'ddfw_load_extensions' ) && ( current_user_can( 'manage_options' ) || current_user_can( 'manage_woocommerce' ) ) ) {
+		update_option( 'ddfw_extensions_remote_consent', 'yes', false );
+		$remote_allowed = true;
+	}
+}
+
 $plugins_api      = DDFW_Plugins_API::instance();
-$website_plugins  = $plugins_api->get_website_plugins();
-$featured_plugins = $plugins_api->get_featured_plugins();
-$plugin_stats     = $plugins_api->get_plugin_statistics();
+$website_plugins  = $remote_allowed ? $plugins_api->get_website_plugins() : [];
+$featured_plugins = $remote_allowed ? $plugins_api->get_featured_plugins() : [];
+$plugin_stats     = $remote_allowed ? $plugins_api->get_plugin_statistics() : [ 'total_plugins' => 0 ];
 
 // Featured extensions are not repeated in the full list.
 $featured_urls = wp_list_pluck( $featured_plugins, 'url' );
@@ -92,6 +104,18 @@ $render_card = function ( $plugin ) {
 			</div>
 		</div>
 
+		<?php if ( ! $remote_allowed ) : ?>
+			<div class="ddfw-dashboard-section">
+				<div class="ddfw-section-header">
+					<h2><?php esc_html_e( 'Load the extensions list', 'buy-now-pay-later-for-woocommerce' ); ?></h2>
+					<p><?php esc_html_e( 'The list of extensions and their images is downloaded from devdiggers.com. Nothing is requested until you click the button below. Your site address and IP are visible to devdiggers.com when the list is loaded.', 'buy-now-pay-later-for-woocommerce' ); ?></p>
+				</div>
+				<p>
+					<a class="ddfw-button ddfw-button-primary" href="<?php echo esc_url( wp_nonce_url( admin_url( 'admin.php?page=devdiggers-extensions' ), 'ddfw_load_extensions', 'ddfw_load_extensions' ) ); ?>"><?php esc_html_e( 'Load extensions from devdiggers.com', 'buy-now-pay-later-for-woocommerce' ); ?></a>
+					<a class="ddfw-button" href="https://devdiggers.com/woocommerce-extensions/" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Browse on devdiggers.com', 'buy-now-pay-later-for-woocommerce' ); ?></a>
+				</p>
+			</div>
+		<?php else : ?>
 		<div class="ddfw-dashboard-stats">
 			<?php foreach ( $stats as $stat ) : ?>
 				<div class="ddfw-stat-card">
@@ -125,6 +149,7 @@ $render_card = function ( $plugin ) {
 					<?php array_map( $render_card, $other_plugins ); ?>
 				</div>
 			</div>
+		<?php endif; ?>
 		<?php endif; ?>
 	</div>
 </div>

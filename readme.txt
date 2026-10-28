@@ -17,7 +17,7 @@ Run your own buy now, pay later program. Offer Pay in 4 and Pay in 30 days on st
 
 == Description ==
 
-Klarna and Afterpay are great until you look at the fees, or a loyal customer gets turned down by someone else's credit check. Plenty of stores already let trusted customers pay later. They just do it with spreadsheets, invoices and reminder emails written by hand.
+Plenty of stores already let trusted customers pay later. They just do it with spreadsheets, invoices and reminder emails written by hand.
 
 **[Buy Now Pay Later for WooCommerce](https://devdiggers.com/product/woocommerce-buy-now-pay-later/)** turns that into a proper checkout option. You approve the customers you trust and give each one a credit limit. They pick **Pay in 4** or **Pay in 30 days** at checkout, and the plugin tracks every installment, sends the reminders and lets them pay from My Account with any payment method you already accept.
 
@@ -134,7 +134,7 @@ To install manually, upload the `buy-now-pay-later-for-woocommerce` folder to `/
 
 == Frequently Asked Questions ==
 
-= Is this a lender like Klarna, Afterpay or Affirm? =
+= Is this a third party lender? =
 
 No. You are the one giving credit, so you decide who gets it and how much. The plugin never sends customer data anywhere and takes no fee from your orders.
 
@@ -208,7 +208,7 @@ The bundled DevDiggers framework, which draws the admin screens, connects to the
 
 * What it is: A read only API on devdiggers.com that returns the public list of DevDiggers extensions.
 * What it is used for: Showing available DevDiggers extensions on the Extensions admin page.
-* When data is sent: Only when a logged in administrator opens the Extensions admin page. The response is cached for 24 hours.
+* When data is sent: Never by default. The Extensions admin page shows a "Load extensions from devdiggers.com" button, and the list is requested only after an administrator clicks it (opt-in). The response is cached for 24 hours.
 * What data is sent: A standard outbound HTTP request only, meaning your server's IP address and a plugin user agent string. No personal data and no store data are sent. The page also loads each listed extension's image from devdiggers.com in the administrator's browser.
 * Endpoint: https://devdiggers.com/wp-json/ddwcs/v1/plugins
 
