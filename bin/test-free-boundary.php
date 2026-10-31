@@ -8,7 +8,7 @@
  *
  *   php bin/test-free-boundary.php
  *
- * @package Buy Now Pay Later for WooCommerce
+ * @package DevDiggers Buy Now Pay Later for WooCommerce
  */
 
 $root   = dirname( __DIR__ ) . '/';

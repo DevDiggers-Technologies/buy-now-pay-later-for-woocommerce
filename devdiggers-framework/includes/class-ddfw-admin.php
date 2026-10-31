@@ -54,10 +54,10 @@ if ( ! class_exists( 'DDFW_Admin' ) ) {
 			$menu_capability = ddfw_get_menu_capability();
 			$parent_slug     = ddfw_get_parent_menu_slug();
 
-			add_menu_page( esc_html__( 'DevDiggers Plugins', 'buy-now-pay-later-for-woocommerce' ), esc_html__( 'DevDiggers Plugins', 'buy-now-pay-later-for-woocommerce' ), $menu_capability, $parent_slug, [ $this, 'ddfw_get_main_dashboard' ], ddfw_get_devdiggers_plugin_menu_icon_src(), 56 );
+			add_menu_page( esc_html__( 'DevDiggers Plugins', 'devdiggers-buy-now-pay-later-for-woocommerce' ), esc_html__( 'DevDiggers Plugins', 'devdiggers-buy-now-pay-later-for-woocommerce' ), $menu_capability, $parent_slug, [ $this, 'ddfw_get_main_dashboard' ], ddfw_get_devdiggers_plugin_menu_icon_src(), 56 );
 
-			add_submenu_page( $parent_slug, esc_html__( 'Dashboard', 'buy-now-pay-later-for-woocommerce' ), esc_html__( 'Dashboard', 'buy-now-pay-later-for-woocommerce' ), $menu_capability, $parent_slug, [ $this, 'ddfw_get_main_dashboard' ] );
-			add_submenu_page( $parent_slug, esc_html__( 'Extensions', 'buy-now-pay-later-for-woocommerce' ), esc_html__( 'Extensions', 'buy-now-pay-later-for-woocommerce' ), $menu_capability, 'devdiggers-extensions', [ $this, 'ddfw_get_extensions_page' ] );
+			add_submenu_page( $parent_slug, esc_html__( 'Dashboard', 'devdiggers-buy-now-pay-later-for-woocommerce' ), esc_html__( 'Dashboard', 'devdiggers-buy-now-pay-later-for-woocommerce' ), $menu_capability, $parent_slug, [ $this, 'ddfw_get_main_dashboard' ] );
+			add_submenu_page( $parent_slug, esc_html__( 'Extensions', 'devdiggers-buy-now-pay-later-for-woocommerce' ), esc_html__( 'Extensions', 'devdiggers-buy-now-pay-later-for-woocommerce' ), $menu_capability, 'devdiggers-extensions', [ $this, 'ddfw_get_extensions_page' ] );
 		}
 
 		/**

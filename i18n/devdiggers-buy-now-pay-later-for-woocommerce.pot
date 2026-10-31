@@ -2,10 +2,11 @@
 # This file is distributed under the GPLv3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Buy Now Pay Later for WooCommerce 1.0.0\n"
+"Project-Id-Version: DevDiggers Buy Now Pay Later for WooCommerce 1.0.0\n"
 "Report-Msgid-Bugs-To: "
-"https://wordpress.org/support/plugin/buy-now-pay-later-for-woocommerce\n"
-"POT-Creation-Date: 2026-10-28 10:26:47+00:00\n"
+"https://wordpress.org/support/plugin/devdiggers-buy-now-pay-later-for-"
+"woocommerce\n"
+"POT-Creation-Date: 2026-10-31 12:54:22+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -28,12 +29,12 @@ msgstr ""
 #: functions.php:99
 #. translators: %1$s: opening link tag, %2$s: closing link tag
 msgid ""
-"Buy Now Pay Later for WooCommerce is activated but not effective. It "
-"requires %1$sWooCommerce%2$s in order to work."
+"DevDiggers Buy Now Pay Later for WooCommerce is activated but not "
+"effective. It requires %1$sWooCommerce%2$s in order to work."
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "Buy Now Pay Later for WooCommerce"
+msgid "DevDiggers Buy Now Pay Later for WooCommerce"
 msgstr ""
 
 #: functions.php:139 includes/admin-dashboard.php:74
@@ -915,8 +916,8 @@ msgstr ""
 #: includes/admin-dashboard.php:540
 #. translators: %s: star rating link.
 msgid ""
-"If Buy Now Pay Later for WooCommerce is working well for you, please leave "
-"us a %s rating. It really helps."
+"If DevDiggers Buy Now Pay Later for WooCommerce is working well for you, "
+"please leave us a %s rating. It really helps."
 msgstr ""
 
 #: includes/blocks/postpaid-blocks.php:103 includes/postpaid.php:113

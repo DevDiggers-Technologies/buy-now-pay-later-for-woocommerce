@@ -104,8 +104,8 @@ if ( ! class_exists( 'DDWCPP_Transactions_List_Template' ) ) {
 		 */
 		public function no_items() {
 			$args = [
-				'title'       => esc_html__( 'No transactions yet', 'buy-now-pay-later-for-woocommerce' ),
-				'description' => esc_html__( 'Every Pay Later purchase, repayment, refund and manual adjustment is logged here, so you always know why a balance changed.', 'buy-now-pay-later-for-woocommerce' ),
+				'title'       => esc_html__( 'No transactions yet', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+				'description' => esc_html__( 'Every Pay Later purchase, repayment, refund and manual adjustment is logged here, so you always know why a balance changed.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 			];
 
 			// A search or filter that matches nothing is not an empty store.
@@ -113,8 +113,8 @@ if ( ! class_exists( 'DDWCPP_Transactions_List_Template' ) ) {
 				// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only list filter.
 				if ( ! empty( $_GET[ $filter ] ) ) {
 					$args = [
-						'title'       => esc_html__( 'No matches', 'buy-now-pay-later-for-woocommerce' ),
-						'description' => esc_html__( 'Nothing matches this search or these filters. Try different terms or reset the filters.', 'buy-now-pay-later-for-woocommerce' ),
+						'title'       => esc_html__( 'No matches', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+						'description' => esc_html__( 'Nothing matches this search or these filters. Try different terms or reset the filters.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					];
 					break;
 				}
@@ -136,14 +136,14 @@ if ( ! class_exists( 'DDWCPP_Transactions_List_Template' ) ) {
 			return apply_filters(
 				'ddwcpp_transactions_list_columns',
 				[
-					'id'        => esc_html__( 'ID', 'buy-now-pay-later-for-woocommerce' ),
-					'customer'  => esc_html__( 'Customer', 'buy-now-pay-later-for-woocommerce' ),
-					'type'      => esc_html__( 'Type', 'buy-now-pay-later-for-woocommerce' ),
-					'reference' => esc_html__( 'Description', 'buy-now-pay-later-for-woocommerce' ),
-					'amount'    => esc_html__( 'Amount', 'buy-now-pay-later-for-woocommerce' ),
-					'order'     => esc_html__( 'Order', 'buy-now-pay-later-for-woocommerce' ),
-					'note'      => esc_html__( 'Note', 'buy-now-pay-later-for-woocommerce' ),
-					'date'      => esc_html__( 'Date', 'buy-now-pay-later-for-woocommerce' ),
+					'id'        => esc_html__( 'ID', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'customer'  => esc_html__( 'Customer', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'type'      => esc_html__( 'Type', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'reference' => esc_html__( 'Description', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'amount'    => esc_html__( 'Amount', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'order'     => esc_html__( 'Order', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'note'      => esc_html__( 'Note', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'date'      => esc_html__( 'Date', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 				]
 			);
 		}
@@ -187,10 +187,10 @@ if ( ! class_exists( 'DDWCPP_Transactions_List_Template' ) ) {
 			);
 
 			$actions = [
-				'view' => '<a href="' . esc_url( $view_url ) . '">' . esc_html__( 'View', 'buy-now-pay-later-for-woocommerce' ) . '</a>',
+				'view' => '<a href="' . esc_url( $view_url ) . '">' . esc_html__( 'View', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</a>',
 			];
 
-			return '<a href="' . esc_url( $view_url ) . '"><strong>#' . absint( $item['id'] ) . '</strong></a>' . $this->row_actions( apply_filters( 'ddwcpp_transactions_list_line_actions', $actions, $item ) );
+			return wp_kses( '<a href="' . esc_url( $view_url ) . '"><strong>#' . absint( $item['id'] ) . '</strong></a>' . $this->row_actions( apply_filters( 'ddwcpp_transactions_list_line_actions', $actions, $item ) ), ddwcpp_get_allowed_html() );
 		}
 
 		/**
@@ -206,7 +206,7 @@ if ( ! class_exists( 'DDWCPP_Transactions_List_Template' ) ) {
 				return '#' . absint( $item['user_id'] );
 			}
 
-			return sprintf(
+			return wp_kses( sprintf(
 				'<div class="ddwcpp-customer">%1$s<div><a href="%2$s"><strong>%3$s</strong></a><span>%4$s</span></div></div>',
 				get_avatar( $user->ID, 28 ),
 				esc_url(
@@ -219,7 +219,7 @@ if ( ! class_exists( 'DDWCPP_Transactions_List_Template' ) ) {
 				),
 				esc_html( $user->display_name ),
 				esc_html( $user->user_email )
-			);
+			), ddwcpp_get_allowed_html() );
 		}
 
 		/**
@@ -241,7 +241,7 @@ if ( ! class_exists( 'DDWCPP_Transactions_List_Template' ) ) {
 		public function column_amount( $item ) {
 			$order = $item['order_id'] ? wc_get_order( $item['order_id'] ) : null;
 
-			return '<span class="' . ( 'credit' === $item['type'] ? 'ddwcpp-positive' : 'ddwcpp-negative' ) . '">' . ( 'credit' === $item['type'] ? '+' : '&minus;' ) . wc_price( $item['amount'], [ 'currency' => $order ? $order->get_currency() : '' ] ) . '</span>';
+			return wp_kses( '<span class="' . ( 'credit' === $item['type'] ? 'ddwcpp-positive' : 'ddwcpp-negative' ) . '">' . ( 'credit' === $item['type'] ? '+' : '&minus;' ) . wc_price( $item['amount'], [ 'currency' => $order ? $order->get_currency() : '' ] ) . '</span>', ddwcpp_get_allowed_html() );
 		}
 
 		/**
@@ -273,7 +273,7 @@ if ( ! class_exists( 'DDWCPP_Transactions_List_Template' ) ) {
 					return esc_html( date_i18n( wc_date_format() . ' ' . wc_time_format(), strtotime( $item['date'] ) ) );
 			}
 
-			return apply_filters( 'ddwcpp_transactions_list_column_' . $column_name, '', $item );
+			return wp_kses( apply_filters( 'ddwcpp_transactions_list_column_' . $column_name, '', $item ), ddwcpp_get_allowed_html() );
 		}
 
 		/**
@@ -291,28 +291,28 @@ if ( ! class_exists( 'DDWCPP_Transactions_List_Template' ) ) {
 			$customer   = $this->filters['user_id'] ? get_userdata( $this->filters['user_id'] ) : null;
 			?>
 			<div class="alignleft actions ddwcpp-transactions-filters">
-				<select name="ddwcpp-transaction-type" data-placeholder="<?php esc_attr_e( 'All types', 'buy-now-pay-later-for-woocommerce' ); ?>" aria-label="<?php esc_attr_e( 'Type', 'buy-now-pay-later-for-woocommerce' ); ?>">
-					<option value=""><?php esc_html_e( 'All types', 'buy-now-pay-later-for-woocommerce' ); ?></option>
+				<select name="ddwcpp-transaction-type" data-placeholder="<?php esc_attr_e( 'All types', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?>" aria-label="<?php esc_attr_e( 'Type', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?>">
+					<option value=""><?php esc_html_e( 'All types', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></option>
 					<?php foreach ( [ 'credit', 'debit' ] as $type ) : ?>
 						<option value="<?php echo esc_attr( $type ); ?>" <?php selected( $this->filters['type'], $type ); ?>><?php echo esc_html( ddwcpp_get_translation( $type ) ); ?></option>
 					<?php endforeach; ?>
 				</select>
-				<select name="ddwcpp-reference" data-placeholder="<?php esc_attr_e( 'All descriptions', 'buy-now-pay-later-for-woocommerce' ); ?>" aria-label="<?php esc_attr_e( 'Description', 'buy-now-pay-later-for-woocommerce' ); ?>">
-					<option value=""><?php esc_html_e( 'All descriptions', 'buy-now-pay-later-for-woocommerce' ); ?></option>
+				<select name="ddwcpp-reference" data-placeholder="<?php esc_attr_e( 'All descriptions', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?>" aria-label="<?php esc_attr_e( 'Description', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?>">
+					<option value=""><?php esc_html_e( 'All descriptions', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></option>
 					<?php foreach ( $references as $reference ) : ?>
 						<option value="<?php echo esc_attr( $reference ); ?>" <?php selected( $this->filters['reference'], $reference ); ?>><?php echo esc_html( ddwcpp_get_translation( $reference ) ); ?></option>
 					<?php endforeach; ?>
 				</select>
-				<input type="date" name="ddwcpp-transaction-from-date" value="<?php echo esc_attr( $this->filters['from'] ); ?>" aria-label="<?php esc_attr_e( 'From date', 'buy-now-pay-later-for-woocommerce' ); ?>" />
-				<input type="date" name="ddwcpp-transaction-to-date" value="<?php echo esc_attr( $this->filters['to'] ); ?>" aria-label="<?php esc_attr_e( 'To date', 'buy-now-pay-later-for-woocommerce' ); ?>" />
-				<select class="ddwcpp-users" name="customer-id" data-placeholder="<?php esc_attr_e( 'Any customer', 'buy-now-pay-later-for-woocommerce' ); ?>" aria-label="<?php esc_attr_e( 'Customer', 'buy-now-pay-later-for-woocommerce' ); ?>">
+				<input type="date" name="ddwcpp-transaction-from-date" value="<?php echo esc_attr( $this->filters['from'] ); ?>" aria-label="<?php esc_attr_e( 'From date', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?>" />
+				<input type="date" name="ddwcpp-transaction-to-date" value="<?php echo esc_attr( $this->filters['to'] ); ?>" aria-label="<?php esc_attr_e( 'To date', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?>" />
+				<select class="ddwcpp-users" name="customer-id" data-placeholder="<?php esc_attr_e( 'Any customer', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?>" aria-label="<?php esc_attr_e( 'Customer', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?>">
 					<?php if ( $customer ) : ?>
 						<option value="<?php echo esc_attr( $customer->ID ); ?>" selected="selected"><?php echo esc_html( '(#' . $customer->ID . ') ' . $customer->user_login . ' <' . $customer->user_email . '>' ); ?></option>
 					<?php endif; ?>
 				</select>
-				<?php submit_button( esc_html__( 'Filter', 'buy-now-pay-later-for-woocommerce' ), '', 'ddwcpp-filter', false ); ?>
+				<?php submit_button( esc_html__( 'Filter', 'devdiggers-buy-now-pay-later-for-woocommerce' ), '', 'ddwcpp-filter', false ); ?>
 				<?php if ( array_filter( $this->filters ) ) : ?>
-					<a href="<?php echo esc_url( ddwcpp_get_dashboard_url( [ 'menu' => 'transactions' ] ) ); ?>" class="button"><?php esc_html_e( 'Reset', 'buy-now-pay-later-for-woocommerce' ); ?></a>
+					<a href="<?php echo esc_url( ddwcpp_get_dashboard_url( [ 'menu' => 'transactions' ] ) ); ?>" class="button"><?php esc_html_e( 'Reset', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></a>
 				<?php endif; ?>
 			</div>
 			<?php

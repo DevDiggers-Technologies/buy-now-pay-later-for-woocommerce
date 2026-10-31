@@ -53,8 +53,8 @@ if ( ! class_exists( 'DDWCPP_Email_Notification_Handler' ) ) {
 		public function __construct() {
 			$this->id             = 'ddwcpp_notification';
 			$this->customer_email = true;
-			$this->title          = esc_html__( 'Pay Later Notification', 'buy-now-pay-later-for-woocommerce' );
-			$this->description    = esc_html__( 'Sent for Pay Later purchases, repayments, refunds, application updates, payment reminders and overdue notices.', 'buy-now-pay-later-for-woocommerce' );
+			$this->title          = esc_html__( 'Pay Later Notification', 'devdiggers-buy-now-pay-later-for-woocommerce' );
+			$this->description    = esc_html__( 'Sent for Pay Later purchases, repayments, refunds, application updates, payment reminders and overdue notices.', 'devdiggers-buy-now-pay-later-for-woocommerce' );
 			$this->template_html  = 'emails/postpaid.php';
 			$this->template_plain = 'emails/plain/postpaid.php';
 			$this->template_base  = DDWCPP_PLUGIN_FILE . 'templates/';
@@ -71,7 +71,7 @@ if ( ! class_exists( 'DDWCPP_Email_Notification_Handler' ) ) {
 		 * @return string
 		 */
 		public function get_default_subject() {
-			return esc_html__( '[{site_title}] Pay Later account update', 'buy-now-pay-later-for-woocommerce' );
+			return esc_html__( '[{site_title}] Pay Later account update', 'devdiggers-buy-now-pay-later-for-woocommerce' );
 		}
 
 		/**
@@ -80,7 +80,7 @@ if ( ! class_exists( 'DDWCPP_Email_Notification_Handler' ) ) {
 		 * @return string
 		 */
 		public function get_default_heading() {
-			return esc_html__( 'Pay Later account update', 'buy-now-pay-later-for-woocommerce' );
+			return esc_html__( 'Pay Later account update', 'devdiggers-buy-now-pay-later-for-woocommerce' );
 		}
 
 		/**

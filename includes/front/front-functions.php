@@ -154,7 +154,7 @@ if ( ! class_exists( 'DDWCPP_Front_Functions' ) ) {
 		 */
 		public function ddwcpp_add_postpaid_content_on_my_account_page( $value = '' ) {
 			if ( ! $this->ddwcpp_user_has_access() && ! $this->ddwcpp_user_owes() ) {
-				wc_print_notice( esc_html__( 'Pay Later is not available for your account.', 'buy-now-pay-later-for-woocommerce' ), 'notice' );
+				wc_print_notice( esc_html__( 'Pay Later is not available for your account.', 'devdiggers-buy-now-pay-later-for-woocommerce' ), 'notice' );
 				return;
 			}
 
@@ -169,7 +169,7 @@ if ( ! class_exists( 'DDWCPP_Front_Functions' ) ) {
 				if ( $transaction && get_current_user_id() === (int) $transaction['user_id'] ) {
 					new DDWCPP_Transaction_View_Template( $transaction );
 				} else {
-					wc_print_notice( esc_html__( 'Invalid transaction.', 'buy-now-pay-later-for-woocommerce' ), 'error' );
+					wc_print_notice( esc_html__( 'Invalid transaction.', 'devdiggers-buy-now-pay-later-for-woocommerce' ), 'error' );
 				}
 
 				return;
@@ -256,7 +256,7 @@ if ( ! class_exists( 'DDWCPP_Front_Functions' ) ) {
 			return '<div class="ddwcpp-message" data-ddwcpp-plan="' . esc_attr( wp_json_encode( $data ) ) . '">'
 				. '<span class="ddwcpp-message-mark" aria-hidden="true">' . ddwcpp_get_brand_mark() . '</span>'
 				. '<span class="ddwcpp-message-text">' . $html . '</span>'
-				. ' <button type="button" class="ddwcpp-message-more">' . esc_html__( 'Learn more', 'buy-now-pay-later-for-woocommerce' ) . '</button>'
+				. ' <button type="button" class="ddwcpp-message-more">' . esc_html__( 'Learn more', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</button>'
 				. '</div>';
 		}
 
@@ -335,7 +335,7 @@ if ( ! class_exists( 'DDWCPP_Front_Functions' ) ) {
 				$this->ddwcpp_front_scripts( true );
 			}
 
-			return $html;
+			return wp_kses( $html, ddwcpp_get_allowed_html() );
 		}
 
 		/**
@@ -350,12 +350,12 @@ if ( ! class_exists( 'DDWCPP_Front_Functions' ) ) {
 
 			$plans = DDWCPP_Plans_Helper::ddwcpp_get_active_plans();
 			$steps = ddwcpp_get_default_dialog_steps();
-			$title = __( 'Buy now, pay later', 'buy-now-pay-later-for-woocommerce' );
-			$note  = __( 'Approval and credit limits apply.', 'buy-now-pay-later-for-woocommerce' );
+			$title = __( 'Buy now, pay later', 'devdiggers-buy-now-pay-later-for-woocommerce' );
+			$note  = __( 'Approval and credit limits apply.', 'devdiggers-buy-now-pay-later-for-woocommerce' );
 			?>
 			<dialog class="ddwcpp-dialog" id="ddwcpp-message-dialog" aria-labelledby="ddwcpp-message-dialog-title">
 				<form method="dialog" class="ddwcpp-dialog-inner">
-					<button type="submit" class="ddwcpp-dialog-close" aria-label="<?php esc_attr_e( 'Close', 'buy-now-pay-later-for-woocommerce' ); ?>">&times;</button>
+					<button type="submit" class="ddwcpp-dialog-close" aria-label="<?php esc_attr_e( 'Close', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?>">&times;</button>
 					<span class="ddwcpp-dialog-mark" aria-hidden="true"><?php echo wp_kses( ddwcpp_get_brand_mark(), ddwcpp_get_allowed_html() ); ?></span>
 					<h2 id="ddwcpp-message-dialog-title"><?php echo esc_html( $title ); ?></h2>
 					<ol class="ddwcpp-dialog-steps">
@@ -364,7 +364,7 @@ if ( ! class_exists( 'DDWCPP_Front_Functions' ) ) {
 						<?php endforeach; ?>
 					</ol>
 					<?php if ( $plans ) : ?>
-						<h3><?php esc_html_e( 'Ways to pay', 'buy-now-pay-later-for-woocommerce' ); ?></h3>
+						<h3><?php esc_html_e( 'Ways to pay', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></h3>
 						<ul class="ddwcpp-dialog-plans">
 							<?php foreach ( $plans as $plan ) : ?>
 								<li>
@@ -379,9 +379,9 @@ if ( ! class_exists( 'DDWCPP_Front_Functions' ) ) {
 						echo esc_html( $note ) . ' ';
 
 						if ( is_user_logged_in() ) {
-							echo '<a href="' . esc_url( ddwcpp_get_account_url() ) . '">' . esc_html__( 'See your Pay Later account', 'buy-now-pay-later-for-woocommerce' ) . '</a>';
+							echo '<a href="' . esc_url( ddwcpp_get_account_url() ) . '">' . esc_html__( 'See your Pay Later account', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</a>';
 						} else {
-							echo '<a href="' . esc_url( wc_get_page_permalink( 'myaccount' ) ) . '">' . esc_html__( 'Log in or create an account to apply', 'buy-now-pay-later-for-woocommerce' ) . '</a>';
+							echo '<a href="' . esc_url( wc_get_page_permalink( 'myaccount' ) ) . '">' . esc_html__( 'Log in or create an account to apply', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</a>';
 						}
 						?>
 					</p>
@@ -439,7 +439,7 @@ if ( ! class_exists( 'DDWCPP_Front_Functions' ) ) {
 			}
 
 			if ( ! isset( $_POST['ddwcpp_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['ddwcpp_nonce'] ) ), 'ddwcpp_front_action' ) ) {
-				wc_add_notice( esc_html__( 'Your session expired. Please try again.', 'buy-now-pay-later-for-woocommerce' ), 'error' );
+				wc_add_notice( esc_html__( 'Your session expired. Please try again.', 'devdiggers-buy-now-pay-later-for-woocommerce' ), 'error' );
 				return;
 			}
 
@@ -472,7 +472,7 @@ if ( ! class_exists( 'DDWCPP_Front_Functions' ) ) {
 		protected function ddwcpp_handle_apply( $user_id, $status ) {
 			if ( 'eligible' === $status ) {
 				$this->users_helper->ddwcpp_allot( $user_id );
-				wc_add_notice( esc_html__( 'Pay Later is active. You can now choose it at checkout.', 'buy-now-pay-later-for-woocommerce' ) );
+				wc_add_notice( esc_html__( 'Pay Later is active. You can now choose it at checkout.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) );
 				return;
 			}
 
@@ -480,7 +480,7 @@ if ( ! class_exists( 'DDWCPP_Front_Functions' ) ) {
 				update_user_meta( $user_id, '_ddwcpp_verification_status', 'pending' );
 				update_user_meta( $user_id, '_ddwcpp_applied_on', current_time( 'mysql' ) );
 				$this->ddwcpp_notify_admin_of_application( $user_id );
-				wc_add_notice( esc_html__( 'Your application was sent. We will email you once it has been reviewed.', 'buy-now-pay-later-for-woocommerce' ) );
+				wc_add_notice( esc_html__( 'Your application was sent. We will email you once it has been reviewed.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) );
 			}
 		}
 
@@ -495,7 +495,7 @@ if ( ! class_exists( 'DDWCPP_Front_Functions' ) ) {
 			$dues = $this->users_helper->ddwcpp_get_dues( $user_id );
 
 			if ( $dues <= 0 ) {
-				wc_add_notice( esc_html__( 'You have no dues to pay.', 'buy-now-pay-later-for-woocommerce' ), 'notice' );
+				wc_add_notice( esc_html__( 'You have no dues to pay.', 'devdiggers-buy-now-pay-later-for-woocommerce' ), 'notice' );
 				return;
 			}
 
@@ -571,7 +571,7 @@ if ( ! class_exists( 'DDWCPP_Front_Functions' ) ) {
 
 			foreach ( WC()->cart->get_cart() as $item ) {
 				if ( (int) $item['product_id'] === $dues_product_id ) {
-					wc_add_notice( esc_html__( 'Your cart holds a Pay Later repayment. Complete or remove it before adding products.', 'buy-now-pay-later-for-woocommerce' ), 'error' );
+					wc_add_notice( esc_html__( 'Your cart holds a Pay Later repayment. Complete or remove it before adding products.', 'devdiggers-buy-now-pay-later-for-woocommerce' ), 'error' );
 					return false;
 				}
 			}

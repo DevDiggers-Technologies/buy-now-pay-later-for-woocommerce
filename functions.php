@@ -1,12 +1,12 @@
 <?php
 /**
- * Plugin Name: Buy Now Pay Later for WooCommerce
+ * Plugin Name: DevDiggers Buy Now Pay Later for WooCommerce
  * Description: Run your own buy now, pay later program. Offer Pay in 4 and pay in 30 days on a store credit line you control, show installment pricing on product pages, approve customers and collect every payment with automatic reminders.
  * Plugin URI: https://devdiggers.com/product/woocommerce-buy-now-pay-later/
  * Author: DevDiggers
  * Author URI: https://devdiggers.com/
  * Version: 1.0.0
- * Text Domain: buy-now-pay-later-for-woocommerce
+ * Text Domain: devdiggers-buy-now-pay-later-for-woocommerce
  * Domain Path: /i18n
  * Requires at least: 6.5
  * Requires PHP: 7.4
@@ -17,10 +17,10 @@
  * License: GPLv3 or later
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  *
- * @package Buy Now Pay Later for WooCommerce
+ * @package DevDiggers Buy Now Pay Later for WooCommerce
  */
 
-// ddwcpp: Buy Now Pay Later for WooCommerce.
+// ddwcpp: DevDiggers Buy Now Pay Later for WooCommerce.
 
 use DDWCPostPaid\Includes\DDWCPP_File_Handler;
 
@@ -34,7 +34,7 @@ defined( 'ABSPATH' ) || exit();
 function ddwcpp_free_define_constants() {
 	defined( 'DDWCPP_PLUGIN_FILE' ) || define( 'DDWCPP_PLUGIN_FILE', plugin_dir_path( __FILE__ ) );
 	defined( 'DDWCPP_PLUGIN_URL' ) || define( 'DDWCPP_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-	defined( 'DDWCPP_PLUGIN_SLUG' ) || define( 'DDWCPP_PLUGIN_SLUG', 'buy-now-pay-later-for-woocommerce' );
+	defined( 'DDWCPP_PLUGIN_SLUG' ) || define( 'DDWCPP_PLUGIN_SLUG', 'devdiggers-buy-now-pay-later-for-woocommerce' );
 	defined( 'DDWCPP_DASHBOARD_PAGE' ) || define( 'DDWCPP_DASHBOARD_PAGE', 'ddwcpp-dashboard' );
 	defined( 'DDWCPP_POSTPAID_ENDPOINT' ) || define( 'DDWCPP_POSTPAID_ENDPOINT', sanitize_title( get_option( '_ddwcpp_my_account_endpoint' ) ) ? sanitize_title( get_option( '_ddwcpp_my_account_endpoint' ) ) : 'pay-later' );
 }
@@ -96,7 +96,7 @@ if ( ! class_exists( 'DDWCPP_Free_Init' ) ) {
 							<p>
 								<?php
 								/* translators: %1$s: opening link tag, %2$s: closing link tag */
-								printf( esc_html__( 'Buy Now Pay Later for WooCommerce is activated but not effective. It requires %1$sWooCommerce%2$s in order to work.', 'buy-now-pay-later-for-woocommerce' ), '<a href="' . esc_url( 'https://wordpress.org/plugins/woocommerce/' ) . '" target="_blank">', '</a>' );
+								printf( esc_html__( 'DevDiggers Buy Now Pay Later for WooCommerce is activated but not effective. It requires %1$sWooCommerce%2$s in order to work.', 'devdiggers-buy-now-pay-later-for-woocommerce' ), '<a href="' . esc_url( 'https://wordpress.org/plugins/woocommerce/' ) . '" target="_blank">', '</a>' );
 								?>
 							</p>
 						</div>
@@ -120,9 +120,9 @@ if ( ! class_exists( 'DDWCPP_Free_Init' ) ) {
 			if ( ( $on_plugin_page || wp_doing_ajax() ) && class_exists( '\DevDiggers\Framework\Includes\DDFW_Review_Notice' ) ) {
 				new \DevDiggers\Framework\Includes\DDFW_Review_Notice(
 					[
-						'plugin_name'   => esc_html__( 'Buy Now Pay Later for WooCommerce', 'buy-now-pay-later-for-woocommerce' ),
+						'plugin_name'   => esc_html__( 'DevDiggers Buy Now Pay Later for WooCommerce', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 						'plugin_prefix' => 'ddwcpp',
-						'review_url'    => 'https://wordpress.org/support/plugin/buy-now-pay-later-for-woocommerce/reviews/#new-post',
+						'review_url'    => 'https://wordpress.org/support/plugin/devdiggers-buy-now-pay-later-for-woocommerce/reviews/#new-post',
 					]
 				);
 			}
@@ -136,10 +136,10 @@ if ( ! class_exists( 'DDWCPP_Free_Init' ) ) {
 		 */
 		public function ddwcpp_plugin_settings_link( $links ) {
 			$action_links = [
-				'dashboard'     => '<a href="' . esc_url( admin_url( 'admin.php?page=' . DDWCPP_DASHBOARD_PAGE ) ) . '">' . esc_html__( 'Dashboard', 'buy-now-pay-later-for-woocommerce' ) . '</a>',
-				'configuration' => '<a href="' . esc_url( admin_url( 'admin.php?page=' . DDWCPP_DASHBOARD_PAGE . '&menu=configuration' ) ) . '">' . esc_html__( 'Configuration', 'buy-now-pay-later-for-woocommerce' ) . '</a>',
-				'setup-wizard'  => '<a href="' . esc_url( admin_url( 'admin.php?page=' . DDWCPP_DASHBOARD_PAGE . '&setup-wizard=true' ) ) . '">' . esc_html__( 'Setup Wizard', 'buy-now-pay-later-for-woocommerce' ) . '</a>',
-				'upgrade'       => '<a href="' . esc_url( 'https://devdiggers.com/product/woocommerce-buy-now-pay-later/' ) . '" style="color: #0256ff; font-weight: bold;" target="_blank">' . esc_html__( 'Upgrade to Pro', 'buy-now-pay-later-for-woocommerce' ) . '</a>',
+				'dashboard'     => '<a href="' . esc_url( admin_url( 'admin.php?page=' . DDWCPP_DASHBOARD_PAGE ) ) . '">' . esc_html__( 'Dashboard', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</a>',
+				'configuration' => '<a href="' . esc_url( admin_url( 'admin.php?page=' . DDWCPP_DASHBOARD_PAGE . '&menu=configuration' ) ) . '">' . esc_html__( 'Configuration', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</a>',
+				'setup-wizard'  => '<a href="' . esc_url( admin_url( 'admin.php?page=' . DDWCPP_DASHBOARD_PAGE . '&setup-wizard=true' ) ) . '">' . esc_html__( 'Setup Wizard', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</a>',
+				'upgrade'       => '<a href="' . esc_url( 'https://devdiggers.com/product/woocommerce-buy-now-pay-later/' ) . '" target="_blank">' . esc_html__( 'Upgrade to Pro', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</a>',
 			];
 
 			return array_merge( $action_links, $links );
@@ -155,9 +155,9 @@ if ( ! class_exists( 'DDWCPP_Free_Init' ) ) {
 		public function ddwcpp_plugin_row_meta( $links, $file ) {
 			if ( plugin_basename( __FILE__ ) === $file ) {
 				$row_meta = [
-					'support'       => '<a href="https://devdiggers.com/contact/" aria-label="' . esc_attr__( 'Support', 'buy-now-pay-later-for-woocommerce' ) . '">' . esc_html__( 'Support', 'buy-now-pay-later-for-woocommerce' ) . '</a>',
-					'documentation' => '<a href="https://docs.devdiggers.com/woocommerce-postpaid/" aria-label="' . esc_attr__( 'Documentation', 'buy-now-pay-later-for-woocommerce' ) . '">' . esc_html__( 'Documentation', 'buy-now-pay-later-for-woocommerce' ) . '</a>',
-					'review'        => '<a href="https://wordpress.org/support/plugin/buy-now-pay-later-for-woocommerce/reviews/#new-post" target="_blank" title="' . esc_attr__( 'Review', 'buy-now-pay-later-for-woocommerce' ) . '" aria-label="' . esc_attr__( 'Review', 'buy-now-pay-later-for-woocommerce' ) . '">' . self::ddwcpp_get_review_stars_svg() . '</a>',
+					'support'       => '<a href="https://devdiggers.com/contact/" aria-label="' . esc_attr__( 'Support', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '">' . esc_html__( 'Support', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</a>',
+					'documentation' => '<a href="https://docs.devdiggers.com/woocommerce-postpaid/" aria-label="' . esc_attr__( 'Documentation', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '">' . esc_html__( 'Documentation', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</a>',
+					'review'        => '<a href="https://wordpress.org/support/plugin/devdiggers-buy-now-pay-later-for-woocommerce/reviews/#new-post" target="_blank" title="' . esc_attr__( 'Review', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '" aria-label="' . esc_attr__( 'Review', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '">' . self::ddwcpp_get_review_stars_svg() . '</a>',
 				];
 
 				$links = array_merge( $links, $row_meta );

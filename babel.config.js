@@ -26,7 +26,7 @@ module.exports = function( api ) {
 					[
 						'@wordpress/babel-plugin-makepot',
 						{
-							output: 'i18n/buy-now-pay-later-for-woocommerce.po',
+							output: 'i18n/devdiggers-buy-now-pay-later-for-woocommerce.po',
 						},
 					],
 				],

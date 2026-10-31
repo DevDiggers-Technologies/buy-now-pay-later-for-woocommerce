@@ -101,7 +101,7 @@ if ( ! class_exists( 'DDFW_Form_Field' ) ) {
 				// Marks the input itself, without the browser's own validation ( a required field hidden
 				// by a toggle would block the form ), so scripts such as the date picker can tell.
 				$args['custom_attributes']['data-required'] = 'true';
-				$required        = '&nbsp;<abbr class="required" title="' . esc_attr__( 'required', 'buy-now-pay-later-for-woocommerce' ) . '">*</abbr>';
+				$required        = '&nbsp;<abbr class="required" title="' . esc_attr__( 'required', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '">*</abbr>';
 			} else {
 				$required = '';
 			}
@@ -175,15 +175,15 @@ if ( ! class_exists( 'DDFW_Form_Field' ) ) {
 					} else {
 						$data_label = ! empty( $args['label'] ) ? 'data-label="' . esc_attr( $args['label'] ) . '"' : '';
 						?>
-						<select id="billing_country" name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $args['id'] ); ?>" class="country_to_state country_select <?php echo esc_attr( $default_input_class ); ?> <?php echo esc_attr( implode( ' ', $args['input_class'] ) ); ?>" <?php echo wp_kses_data( implode( ' ', $custom_attributes ) ); ?> data-placeholder="<?php echo esc_attr( $args['placeholder'] ? $args['placeholder'] : esc_attr__( 'Select a country / region&hellip;', 'buy-now-pay-later-for-woocommerce' ) ); ?>" <?php echo wp_kses_post( $data_label ); ?>>
-							<option value=""><?php esc_html_e( 'Select a country / region&hellip;', 'buy-now-pay-later-for-woocommerce' ); ?></option>
+						<select id="billing_country" name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $args['id'] ); ?>" class="country_to_state country_select <?php echo esc_attr( $default_input_class ); ?> <?php echo esc_attr( implode( ' ', $args['input_class'] ) ); ?>" <?php echo wp_kses_data( implode( ' ', $custom_attributes ) ); ?> data-placeholder="<?php echo esc_attr( $args['placeholder'] ? $args['placeholder'] : esc_attr__( 'Select a country / region&hellip;', 'devdiggers-buy-now-pay-later-for-woocommerce' ) ); ?>" <?php echo wp_kses_post( $data_label ); ?>>
+							<option value=""><?php esc_html_e( 'Select a country / region&hellip;', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></option>
 							<?php foreach ( $countries as $ckey => $cvalue ) : ?>
 								<option value="<?php echo esc_attr( $ckey ); ?>" <?php selected( $value, $ckey ); ?>><?php echo esc_html( $cvalue ); ?></option>
 							<?php endforeach; ?>
 						</select>
 						<noscript>
-							<button type="submit" name="woocommerce_checkout_update_totals" value="<?php esc_attr_e( 'Update country / region', 'buy-now-pay-later-for-woocommerce' ); ?>">
-								<?php esc_html_e( 'Update country / region', 'buy-now-pay-later-for-woocommerce' ); ?>
+							<button type="submit" name="woocommerce_checkout_update_totals" value="<?php esc_attr_e( 'Update country / region', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?>">
+								<?php esc_html_e( 'Update country / region', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?>
 							</button>
 						</noscript>
 						<?php
@@ -256,7 +256,7 @@ if ( ! class_exists( 'DDFW_Form_Field' ) ) {
 							foreach ( $args['options'] as $option_key => $option_text ) {
 								if ( '' === $option_key ) {
 									if ( empty( $args['placeholder'] ) ) {
-										$args['placeholder'] = $option_text ? $option_text : esc_html__( 'Choose an option', 'buy-now-pay-later-for-woocommerce' );
+										$args['placeholder'] = $option_text ? $option_text : esc_html__( 'Choose an option', 'devdiggers-buy-now-pay-later-for-woocommerce' );
 									}
 									$custom_attributes[] = 'data-allow_clear="true"';
 								}
@@ -341,13 +341,13 @@ if ( ! class_exists( 'DDFW_Form_Field' ) ) {
 								</div>
 								<?php // Which image this is: shown from CSS, so it follows plugins that swap the default too. ?>
 								<span class="ddfw-image-upload-text ddfw-image-state">
-									<strong class="is-custom"><?php esc_html_e( 'Your image', 'buy-now-pay-later-for-woocommerce' ); ?></strong>
-									<strong class="is-default"><?php esc_html_e( 'Default image', 'buy-now-pay-later-for-woocommerce' ); ?></strong>
-									<span class="is-default"><?php esc_html_e( 'Replace it with your own', 'buy-now-pay-later-for-woocommerce' ); ?></span>
+									<strong class="is-custom"><?php esc_html_e( 'Your image', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></strong>
+									<strong class="is-default"><?php esc_html_e( 'Default image', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></strong>
+									<span class="is-default"><?php esc_html_e( 'Replace it with your own', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></span>
 								</span>
 								<div class="ddfw-image-actions">
-									<button type="button" class="button ddfw-upload-image-button" data-id="<?php echo esc_attr( $args['id'] ); ?>" <?php echo wp_kses_data( implode( ' ', $custom_attributes ) ); ?>><?php esc_html_e( 'Replace', 'buy-now-pay-later-for-woocommerce' ); ?></button>
-									<button type="button" class="button-link ddfw-remove-image-button <?php echo esc_attr( $args['default_image'] && ! $value ? 'ddfw-hide' : '' ); ?>" data-id="<?php echo esc_attr( $args['id'] ); ?>" <?php echo wp_kses_data( implode( ' ', $custom_attributes ) ); ?>><?php esc_html_e( 'Remove', 'buy-now-pay-later-for-woocommerce' ); ?></button>
+									<button type="button" class="button ddfw-upload-image-button" data-id="<?php echo esc_attr( $args['id'] ); ?>" <?php echo wp_kses_data( implode( ' ', $custom_attributes ) ); ?>><?php esc_html_e( 'Replace', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></button>
+									<button type="button" class="button-link ddfw-remove-image-button <?php echo esc_attr( $args['default_image'] && ! $value ? 'ddfw-hide' : '' ); ?>" data-id="<?php echo esc_attr( $args['id'] ); ?>" <?php echo wp_kses_data( implode( ' ', $custom_attributes ) ); ?>><?php esc_html_e( 'Remove', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></button>
 								</div>
 							</div>
 							<div class="ddfw-image-upload-wrapper <?php echo esc_attr( $value || $args['default_image'] ? 'ddfw-hide' : '' ); ?>">
@@ -355,8 +355,8 @@ if ( ! class_exists( 'DDFW_Form_Field' ) ) {
 								<button type="button" class="ddfw-upload-image-button ddfw-image-dropzone" data-id="<?php echo esc_attr( $args['id'] ); ?>" <?php echo wp_kses_data( implode( ' ', $custom_attributes ) ); ?>>
 									<span class="ddfw-upload-icon-wrapper"><?php echo $image_icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Static markup. ?></span>
 									<span class="ddfw-image-upload-text">
-										<strong><?php esc_html_e( 'Upload image', 'buy-now-pay-later-for-woocommerce' ); ?></strong>
-										<span><?php esc_html_e( 'From your media library', 'buy-now-pay-later-for-woocommerce' ); ?></span>
+										<strong><?php esc_html_e( 'Upload image', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></strong>
+										<span><?php esc_html_e( 'From your media library', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></span>
 									</span>
 								</button>
 								<input type="hidden" name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $args['id'] ); ?>" value="<?php echo esc_attr( $value ); ?>" />
@@ -379,7 +379,7 @@ if ( ! class_exists( 'DDFW_Form_Field' ) ) {
 				case 'products':
 					ob_start();
 					?>
-					<select name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $args['id'] ); ?>" class="<?php echo esc_attr( $default_input_class ); ?> ddfw-products" <?php echo wp_kses_data( implode( ' ', $custom_attributes ) ); ?> data-placeholder="<?php esc_attr_e( 'Search by name', 'buy-now-pay-later-for-woocommerce' ); ?>">
+					<select name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $args['id'] ); ?>" class="<?php echo esc_attr( $default_input_class ); ?> ddfw-products" <?php echo wp_kses_data( implode( ' ', $custom_attributes ) ); ?> data-placeholder="<?php esc_attr_e( 'Search by name', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?>">
 						<?php
 						if ( ! empty( $value ) ) {
 							if ( is_array( $value ) ) {
@@ -409,7 +409,7 @@ if ( ! class_exists( 'DDFW_Form_Field' ) ) {
 				case 'categories':
 					ob_start();
 					?>
-					<select name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $args['id'] ); ?>" class="<?php echo esc_attr( $default_input_class ); ?> ddfw-categories" <?php echo wp_kses_data( implode( ' ', $custom_attributes ) ); ?> data-placeholder="<?php esc_attr_e( 'Search by name', 'buy-now-pay-later-for-woocommerce' ); ?>">
+					<select name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $args['id'] ); ?>" class="<?php echo esc_attr( $default_input_class ); ?> ddfw-categories" <?php echo wp_kses_data( implode( ' ', $custom_attributes ) ); ?> data-placeholder="<?php esc_attr_e( 'Search by name', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?>">
 						<?php
 						if ( ! empty( $value ) ) {
 							if ( is_array( $value ) ) {
@@ -438,7 +438,7 @@ if ( ! class_exists( 'DDFW_Form_Field' ) ) {
 				case 'users':
 					ob_start();
 					?>
-					<select name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $args['id'] ); ?>" class="<?php echo esc_attr( $default_input_class ); ?> ddfw-users" <?php echo wp_kses_data( implode( ' ', $custom_attributes ) ); ?> data-placeholder="<?php esc_attr_e( 'Search Users', 'buy-now-pay-later-for-woocommerce' ); ?>">
+					<select name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $args['id'] ); ?>" class="<?php echo esc_attr( $default_input_class ); ?> ddfw-users" <?php echo wp_kses_data( implode( ' ', $custom_attributes ) ); ?> data-placeholder="<?php esc_attr_e( 'Search Users', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?>">
 						<?php
 						if ( ! empty( $value ) ) {
 							if ( is_array( $value ) ) {
@@ -511,7 +511,7 @@ if ( ! class_exists( 'DDFW_Form_Field' ) ) {
 						class="regular-text"
 						name="<?php echo esc_attr( $args['name'] ); ?>"
 						multiple
-						data-placeholder="<?php esc_attr_e( 'Search by role', 'buy-now-pay-later-for-woocommerce' ); ?>"
+						data-placeholder="<?php esc_attr_e( 'Search by role', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?>"
 					>
 						<?php
 						if ( ! empty( $all_roles ) ) {

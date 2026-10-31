@@ -1,4 +1,4 @@
-=== Buy Now Pay Later for WooCommerce ===
+=== DevDiggers Buy Now Pay Later for WooCommerce ===
 Contributors: devdiggers
 Plugin URI: https://devdiggers.com/product/woocommerce-buy-now-pay-later/
 Author: DevDiggers
@@ -19,7 +19,7 @@ Run your own buy now, pay later program. Offer Pay in 4 and Pay in 30 days on st
 
 Plenty of stores already let trusted customers pay later. They just do it with spreadsheets, invoices and reminder emails written by hand.
 
-**[Buy Now Pay Later for WooCommerce](https://devdiggers.com/product/woocommerce-buy-now-pay-later/)** turns that into a proper checkout option. You approve the customers you trust and give each one a credit limit. They pick **Pay in 4** or **Pay in 30 days** at checkout, and the plugin tracks every installment, sends the reminders and lets them pay from My Account with any payment method you already accept.
+**[DevDiggers Buy Now Pay Later for WooCommerce](https://devdiggers.com/product/woocommerce-buy-now-pay-later/)** turns that into a proper checkout option. You approve the customers you trust and give each one a credit limit. They pick **Pay in 4** or **Pay in 30 days** at checkout, and the plugin tracks every installment, sends the reminders and lets them pay from My Account with any payment method you already accept.
 
 The credit is yours. There is no third party lender, no API key, no account to sign up for and no cut taken from your orders. Everything runs inside WooCommerce on your own server.
 
@@ -27,7 +27,7 @@ The credit is yours. There is no third party lender, no API key, no account to s
 
 * [Pro Demo](https://demo.devdiggers.com/woocommerce-postpaid/)
 * [Documentation](https://docs.devdiggers.com/woocommerce-postpaid/)
-* [Support](https://wordpress.org/support/plugin/buy-now-pay-later-for-woocommerce/)
+* [Support](https://wordpress.org/support/plugin/devdiggers-buy-now-pay-later-for-woocommerce/)
 * [Upgrade to Pro](https://devdiggers.com/product/woocommerce-buy-now-pay-later/)
 
 = How it works =
@@ -106,7 +106,7 @@ Customers get their own page under My Account, with tabs that switch without rel
 
 === Make more from credit with Pro ===
 
-[Buy Now Pay Later for WooCommerce Pro](https://devdiggers.com/product/woocommerce-buy-now-pay-later/) adds the controls stores ask for once credit sales take off. You can see every Pro setting in the free plugin, marked with a PRO tag.
+[DevDiggers Buy Now Pay Later for WooCommerce Pro](https://devdiggers.com/product/woocommerce-buy-now-pay-later/) adds the controls stores ask for once credit sales take off. You can see every Pro setting in the free plugin, marked with a PRO tag.
 
 * **Plan builder**: create and rename plans with their own number of payments, schedule, fee and order amount limits
 * **Unlimited payment plans**: 3, 6 or 12 monthly payments, weekly schedules, up to 60 installments
@@ -124,13 +124,13 @@ Customers get their own page under My Account, with tabs that switch without rel
 
 == Installation ==
 
-1. In your WordPress admin go to Plugins > Add New and search for "Buy Now Pay Later for WooCommerce".
+1. In your WordPress admin go to Plugins > Add New and search for "DevDiggers Buy Now Pay Later for WooCommerce".
 2. Click Install Now, then Activate. WooCommerce must be active.
 3. The setup wizard opens. Turn the program on, set the default credit limit, pick your plans and set the reminder.
 4. Go to WooCommerce > Settings > Payments and make sure the Pay Later method is enabled. You can change its title and description there.
 5. Approve your first customers under DevDiggers Plugins > Pay Later > Customers.
 
-To install manually, upload the `buy-now-pay-later-for-woocommerce` folder to `/wp-content/plugins/` and activate it from the Plugins screen.
+To install manually, upload the `devdiggers-buy-now-pay-later-for-woocommerce` folder to `/wp-content/plugins/` and activate it from the Plugins screen.
 
 == Frequently Asked Questions ==
 
@@ -191,14 +191,14 @@ Yes. The free plugin reads the same customers, balances, installments and transa
 
 == External services ==
 
-The plugin itself sends no data to any outside service. Applications, balances, installments and transactions are stored in your WordPress database, and emails go out through the WooCommerce mailer. It contains no licence checks, no update checks and no telemetry.
+Applications, balances, installments and transactions are stored in your WordPress database, and emails go out through the WooCommerce mailer. The plugin contains no licence checks, no update checks and no telemetry. It relies on the external services listed below.
 
 **1. Gravatar (avatar images)**
 
-* What it is: Gravatar, the avatar service operated by Automattic, used through WordPress core's `get_avatar_url()`.
-* What it is used for: Showing the administrator's and customers' avatars on the plugin dashboard and list screens. This is standard WordPress behaviour.
+* What it is: Gravatar (gravatar.com), the avatar service operated by Automattic. Images are loaded from secure.gravatar.com through WordPress core's `get_avatar()` and `get_avatar_url()` functions.
+* What it is used for: Showing the logged in administrator's avatar in the welcome header of the plugin dashboard, and customers' avatars on the dashboard, Customers, Installments and Transactions screens.
 * When data is sent: When those admin screens are viewed and avatars are enabled under **Settings > Discussion**. Turning avatars off there stops the requests.
-* What data is sent: A hash of each shown user's email address inside the image URL, plus the usual request data of the browser such as IP address and user agent.
+* What data is sent: A hash of each shown user's email address inside the image URL, plus the usual request data of the administrator's browser such as IP address and user agent. Nothing is sent from the storefront.
 * Terms of Service: https://automattic.com/terms/
 * Privacy Policy: https://automattic.com/privacy/
 
@@ -251,4 +251,4 @@ The build configuration is in `webpack.config.js` and `babel.config.js`. Two thi
 == Upgrade Notice ==
 
 = 1.0.0 =
-First release of Buy Now Pay Later for WooCommerce.
+First release of DevDiggers Buy Now Pay Later for WooCommerce.

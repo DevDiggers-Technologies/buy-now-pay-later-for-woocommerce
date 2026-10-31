@@ -95,15 +95,15 @@ if ( ! class_exists( 'DDWCPP_Dashboard_Helper' ) ) {
 						array_filter(
 							[
 								[
-									'label' => esc_html__( 'Active, nothing owed', 'buy-now-pay-later-for-woocommerce' ),
+									'label' => esc_html__( 'Active, nothing owed', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 									'value' => max( 0, $accounts['active'] - $accounts['owing'] ),
 								],
 								[
-									'label' => esc_html__( 'Owing, on time', 'buy-now-pay-later-for-woocommerce' ),
+									'label' => esc_html__( 'Owing, on time', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 									'value' => max( 0, $accounts['owing'] - $accounts['overdue'] ),
 								],
 								[
-									'label' => esc_html__( 'Overdue', 'buy-now-pay-later-for-woocommerce' ),
+									'label' => esc_html__( 'Overdue', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 									'value' => $accounts['overdue'],
 								],
 							],

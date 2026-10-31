@@ -88,7 +88,7 @@ if ( ! class_exists( 'DDWCPP_Plan_Schedule_Template' ) ) {
 			<section class="ddwcpp-schedule">
 				<?php if ( $show_head ) : ?>
 					<div class="ddwcpp-schedule-head">
-						<h2 class="ddwcpp-schedule-title"><?php esc_html_e( 'Payment schedule', 'buy-now-pay-later-for-woocommerce' ); ?></h2>
+						<h2 class="ddwcpp-schedule-title"><?php esc_html_e( 'Payment schedule', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></h2>
 						<span class="ddwcpp-schedule-plan"><?php echo esc_html( $rows[0]['plan_title'] ); ?></span>
 					</div>
 					<span class="ddwcpp-segments" aria-hidden="true">
@@ -109,10 +109,10 @@ if ( ! class_exists( 'DDWCPP_Plan_Schedule_Template' ) ) {
 						<?php
 						if ( $ended ) {
 							/* translators: %1$d: payments made, %2$d: payments the plan had. */
-							printf( esc_html__( 'Ended after %1$d of %2$d payments. The rest was cancelled with the order.', 'buy-now-pay-later-for-woocommerce' ), absint( $paid ), absint( $total ) );
+							printf( esc_html__( 'Ended after %1$d of %2$d payments. The rest was cancelled with the order.', 'devdiggers-buy-now-pay-later-for-woocommerce' ), absint( $paid ), absint( $total ) );
 						} else {
 							/* translators: %1$d: payments made, %2$d: number of payments. */
-							printf( esc_html__( '%1$d of %2$d payments made', 'buy-now-pay-later-for-woocommerce' ), absint( $paid ), absint( $total ) );
+							printf( esc_html__( '%1$d of %2$d payments made', 'devdiggers-buy-now-pay-later-for-woocommerce' ), absint( $paid ), absint( $total ) );
 						}
 						?>
 					</p>
@@ -134,19 +134,19 @@ if ( ! class_exists( 'DDWCPP_Plan_Schedule_Template' ) ) {
 								<span class="ddwcpp-timeline-label">
 									<?php
 									/* translators: %1$d: payment number, %2$d: number of payments. */
-									printf( esc_html__( 'Payment %1$d of %2$d', 'buy-now-pay-later-for-woocommerce' ), absint( $row['sequence'] ), absint( $row['total_count'] ) );
+									printf( esc_html__( 'Payment %1$d of %2$d', 'devdiggers-buy-now-pay-later-for-woocommerce' ), absint( $row['sequence'] ), absint( $row['total_count'] ) );
 									?>
 								</span>
 								<span class="ddwcpp-timeline-date">
 									<?php
 									if ( 'paid' === $row['status'] && $row['paid_date'] ) {
 										/* translators: %s: date. */
-										printf( esc_html__( 'Paid %s', 'buy-now-pay-later-for-woocommerce' ), esc_html( date_i18n( wc_date_format(), strtotime( $row['paid_date'] ) ) ) );
+										printf( esc_html__( 'Paid %s', 'devdiggers-buy-now-pay-later-for-woocommerce' ), esc_html( date_i18n( wc_date_format(), strtotime( $row['paid_date'] ) ) ) );
 									} elseif ( $row['due_date'] ) {
 										/* translators: %s: date. */
-										printf( esc_html__( 'Due %s', 'buy-now-pay-later-for-woocommerce' ), esc_html( date_i18n( wc_date_format(), strtotime( $row['due_date'] ) ) ) );
+										printf( esc_html__( 'Due %s', 'devdiggers-buy-now-pay-later-for-woocommerce' ), esc_html( date_i18n( wc_date_format(), strtotime( $row['due_date'] ) ) ) );
 									} else {
-										esc_html_e( 'No due date', 'buy-now-pay-later-for-woocommerce' );
+										esc_html_e( 'No due date', 'devdiggers-buy-now-pay-later-for-woocommerce' );
 									}
 									?>
 								</span>
@@ -157,7 +157,7 @@ if ( ! class_exists( 'DDWCPP_Plan_Schedule_Template' ) ) {
 									<small>
 										<?php
 										/* translators: %s: late fee. */
-										printf( esc_html__( 'incl. %s late fee', 'buy-now-pay-later-for-woocommerce' ), wp_kses_post( wc_price( $row['late_fee'], $currency ) ) );
+										printf( esc_html__( 'incl. %s late fee', 'devdiggers-buy-now-pay-later-for-woocommerce' ), wp_kses_post( wc_price( $row['late_fee'], $currency ) ) );
 										?>
 									</small>
 								<?php endif; ?>
@@ -203,7 +203,7 @@ if ( ! class_exists( 'DDWCPP_Plan_Schedule_Template' ) ) {
 				<button type="submit" class="button alt">
 					<?php
 					/* translators: %s: amount. */
-					printf( esc_html__( 'Pay %s now', 'buy-now-pay-later-for-woocommerce' ), wp_kses_post( wc_price( $amount ) ) );
+					printf( esc_html__( 'Pay %s now', 'devdiggers-buy-now-pay-later-for-woocommerce' ), wp_kses_post( wc_price( $amount ) ) );
 					?>
 				</button>
 				<?php
@@ -215,7 +215,7 @@ if ( ! class_exists( 'DDWCPP_Plan_Schedule_Template' ) ) {
 					<small class="ddwcpp-pay-note">
 						<?php
 						/* translators: %s: amount still owed on earlier installments. */
-						printf( esc_html__( 'Includes %s still owed on earlier payments.', 'buy-now-pay-later-for-woocommerce' ), wp_kses_post( wc_price( $earlier ) ) );
+						printf( esc_html__( 'Includes %s still owed on earlier payments.', 'devdiggers-buy-now-pay-later-for-woocommerce' ), wp_kses_post( wc_price( $earlier ) ) );
 						?>
 					</small>
 					<?php
@@ -264,7 +264,7 @@ if ( ! class_exists( 'DDWCPP_Plan_Schedule_Template' ) ) {
 			foreach ( $rows as $row ) {
 				$html .= '<tr><td style="' . esc_attr( $cell ) . '">' . sprintf(
 					/* translators: %1$d: payment number, %2$d: number of payments. */
-					esc_html__( 'Payment %1$d of %2$d', 'buy-now-pay-later-for-woocommerce' ),
+					esc_html__( 'Payment %1$d of %2$d', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					absint( $row['sequence'] ),
 					absint( $row['total_count'] )
 				) . '</td><td style="' . esc_attr( $cell ) . '">' . ( $row['due_date'] ? esc_html( date_i18n( wc_date_format(), strtotime( $row['due_date'] ) ) ) : '&mdash;' ) . '</td><td style="' . esc_attr( $cell ) . ' text-align: right;">' . wc_price( (float) $row['amount'] + (float) $row['late_fee'] ) . '</td></tr>';

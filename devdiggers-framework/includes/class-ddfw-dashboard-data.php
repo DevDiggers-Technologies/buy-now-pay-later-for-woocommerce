@@ -59,70 +59,70 @@ if ( ! class_exists( 'DDFW_Dashboard_Data' ) ) {
 					$data = [
 						'from'  => current_time( 'Y-m-d' ),
 						'to'    => current_time( 'Y-m-d' ),
-						'label' => esc_html__( 'Today', 'buy-now-pay-later-for-woocommerce' ),
+						'label' => esc_html__( 'Today', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					];
 					break;
 				case '7_days':
 					$data = [
 						'from'  => gmdate( 'Y-m-d', $week_start ),
 						'to'    => current_time( 'Y-m-d' ),
-						'label' => esc_html__( 'This Week', 'buy-now-pay-later-for-woocommerce' ),
+						'label' => esc_html__( 'This Week', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					];
 					break;
 				case 'last_week':
 					$data = [
 						'from'  => gmdate( 'Y-m-d', $week_start - 7 * DAY_IN_SECONDS ),
 						'to'    => gmdate( 'Y-m-d', $week_start - DAY_IN_SECONDS ),
-						'label' => esc_html__( 'Last Week', 'buy-now-pay-later-for-woocommerce' ),
+						'label' => esc_html__( 'Last Week', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					];
 					break;
 				case '30_days':
 					$data = [
 						'from'  => current_time( 'Y-m-01' ),
 						'to'    => current_time( 'Y-m-d' ),
-						'label' => esc_html__( 'This Month', 'buy-now-pay-later-for-woocommerce' ),
+						'label' => esc_html__( 'This Month', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					];
 					break;
 				case 'last_month':
 					$data = [
 						'from'  => gmdate( 'Y-m-01', strtotime( 'first day of last month', $now ) ),
 						'to'    => gmdate( 'Y-m-t', strtotime( 'last day of last month', $now ) ),
-						'label' => esc_html__( 'Last Month', 'buy-now-pay-later-for-woocommerce' ),
+						'label' => esc_html__( 'Last Month', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					];
 					break;
 				case '90_days':
 					$data = [
 						'from'  => gmdate( 'Y-m-d', strtotime( '-90 days', $now ) ),
 						'to'    => current_time( 'Y-m-d' ),
-						'label' => esc_html__( 'Last 3 Months', 'buy-now-pay-later-for-woocommerce' ),
+						'label' => esc_html__( 'Last 3 Months', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					];
 					break;
 				case '180_days':
 					$data = [
 						'from'  => gmdate( 'Y-m-d', strtotime( '-180 days', $now ) ),
 						'to'    => current_time( 'Y-m-d' ),
-						'label' => esc_html__( 'Last 6 Months', 'buy-now-pay-later-for-woocommerce' ),
+						'label' => esc_html__( 'Last 6 Months', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					];
 					break;
 				case 'year_to_date':
 					$data = [
 						'from'  => current_time( 'Y-01-01' ),
 						'to'    => current_time( 'Y-m-d' ),
-						'label' => esc_html__( 'Year to Date', 'buy-now-pay-later-for-woocommerce' ),
+						'label' => esc_html__( 'Year to Date', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					];
 					break;
 				case 'last_year':
 					$data = [
 						'from'  => gmdate( 'Y-01-01', strtotime( '-1 year', $now ) ),
 						'to'    => gmdate( 'Y-12-31', strtotime( '-1 year', $now ) ),
-						'label' => esc_html__( 'Last Year', 'buy-now-pay-later-for-woocommerce' ),
+						'label' => esc_html__( 'Last Year', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					];
 					break;
 				case 'all_time':
 					$data = [
 						'from'  => $all_time_start,
 						'to'    => current_time( 'Y-m-d' ),
-						'label' => esc_html__( 'All Time', 'buy-now-pay-later-for-woocommerce' ),
+						'label' => esc_html__( 'All Time', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					];
 					break;
 				case 'custom':
@@ -134,7 +134,7 @@ if ( ! class_exists( 'DDFW_Dashboard_Data' ) ) {
 						'from'  => $from,
 						'to'    => $to,
 						/* translators: 1: from date, 2: to date. */
-						'label' => sprintf( esc_html__( '%1$s – %2$s', 'buy-now-pay-later-for-woocommerce' ), date_i18n( 'j M Y', strtotime( $from ) ), date_i18n( 'j M Y', strtotime( $to ) ) ),
+						'label' => sprintf( esc_html__( '%1$s – %2$s', 'devdiggers-buy-now-pay-later-for-woocommerce' ), date_i18n( 'j M Y', strtotime( $from ) ), date_i18n( 'j M Y', strtotime( $to ) ) ),
 					];
 					break;
 				default:
@@ -142,7 +142,7 @@ if ( ! class_exists( 'DDFW_Dashboard_Data' ) ) {
 					$data  = [
 						'from'  => current_time( 'Y-m-01' ),
 						'to'    => current_time( 'Y-m-d' ),
-						'label' => esc_html__( 'This Month', 'buy-now-pay-later-for-woocommerce' ),
+						'label' => esc_html__( 'This Month', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					];
 					break;
 			}
@@ -281,16 +281,16 @@ if ( ! class_exists( 'DDFW_Dashboard_Data' ) ) {
 		public static function get_presets() {
 			// Order matters: get_preset_groups() splits this list into day, week, month, range and year.
 			return [
-				'today'        => esc_html__( 'Today', 'buy-now-pay-later-for-woocommerce' ),
-				'7_days'       => esc_html__( 'This Week', 'buy-now-pay-later-for-woocommerce' ),
-				'last_week'    => esc_html__( 'Last Week', 'buy-now-pay-later-for-woocommerce' ),
-				'30_days'      => esc_html__( 'This Month', 'buy-now-pay-later-for-woocommerce' ),
-				'last_month'   => esc_html__( 'Last Month', 'buy-now-pay-later-for-woocommerce' ),
-				'90_days'      => esc_html__( 'Last 3 Months', 'buy-now-pay-later-for-woocommerce' ),
-				'180_days'     => esc_html__( 'Last 6 Months', 'buy-now-pay-later-for-woocommerce' ),
-				'year_to_date' => esc_html__( 'Year to Date', 'buy-now-pay-later-for-woocommerce' ),
-				'last_year'    => esc_html__( 'Last Year', 'buy-now-pay-later-for-woocommerce' ),
-				'all_time'     => esc_html__( 'All Time', 'buy-now-pay-later-for-woocommerce' ),
+				'today'        => esc_html__( 'Today', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+				'7_days'       => esc_html__( 'This Week', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+				'last_week'    => esc_html__( 'Last Week', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+				'30_days'      => esc_html__( 'This Month', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+				'last_month'   => esc_html__( 'Last Month', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+				'90_days'      => esc_html__( 'Last 3 Months', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+				'180_days'     => esc_html__( 'Last 6 Months', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+				'year_to_date' => esc_html__( 'Year to Date', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+				'last_year'    => esc_html__( 'Last Year', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+				'all_time'     => esc_html__( 'All Time', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 			];
 		}
 

@@ -79,7 +79,7 @@ if ( ! class_exists( 'DDWCPP_File_Handler' ) ) {
 				'block_overdue'           => get_option( '_ddwcpp_block_overdue' ),
 
 				// Display.
-				'menu_title'              => ! empty( $menu_title ) ? $menu_title : esc_html__( 'Pay Later', 'buy-now-pay-later-for-woocommerce' ),
+				'menu_title'              => ! empty( $menu_title ) ? $menu_title : esc_html__( 'Pay Later', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 				'show_credit_at_checkout' => get_option( '_ddwcpp_show_credit_at_checkout', 'yes' ),
 
 				// My Account.

@@ -58,12 +58,12 @@ if ( ! class_exists( 'DDWCPP_Admin_Dashboard' ) ) {
 		public function ddwcpp_add_dashboard_menu() {
 			ob_start();
 			echo wp_kses( ddwcpp_get_brand_mark(), ddfw_kses_allowed_svg_tags() );
-			esc_html_e( 'Pay Later', 'buy-now-pay-later-for-woocommerce' );
+			esc_html_e( 'Pay Later', 'devdiggers-buy-now-pay-later-for-woocommerce' );
 			$plugin_name = ob_get_clean();
 
 			$args = [
-				'page_title'              => esc_html__( 'Pay Later', 'buy-now-pay-later-for-woocommerce' ),
-				'menu_title'              => esc_html__( 'Pay Later', 'buy-now-pay-later-for-woocommerce' ),
+				'page_title'              => esc_html__( 'Pay Later', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+				'menu_title'              => esc_html__( 'Pay Later', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 				'slug'                    => DDWCPP_DASHBOARD_PAGE,
 				'plugin_name'             => $plugin_name,
 				'capability'              => apply_filters( 'ddwcpp_modify_menu_capability', 'manage_woocommerce' ),
@@ -71,66 +71,66 @@ if ( ! class_exists( 'DDWCPP_Admin_Dashboard' ) ) {
 				'screen_options_callback' => [ $this, 'add_screen_options' ],
 				'menus'                   => [
 					'dashboard'     => [
-						'label'    => esc_html__( 'Dashboard', 'buy-now-pay-later-for-woocommerce' ),
+						'label'    => esc_html__( 'Dashboard', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 						'layout'   => 'full-width',
 						'callback' => [ $this, 'ddwcpp_get_dashboard_template' ],
 					],
 					'customers'     => [
-						'label'    => esc_html__( 'Customers', 'buy-now-pay-later-for-woocommerce' ),
+						'label'    => esc_html__( 'Customers', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 						'layout'   => 'full-width',
 						'callback' => [ $this, 'ddwcpp_get_customers_template' ],
 					],
 					'installments'  => [
-						'label'    => esc_html__( 'Installments', 'buy-now-pay-later-for-woocommerce' ),
+						'label'    => esc_html__( 'Installments', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 						'layout'   => 'full-width',
 						'callback' => [ $this, 'ddwcpp_get_installments_template' ],
 					],
 					'plans'         => [
-						'label'    => esc_html__( 'Plans', 'buy-now-pay-later-for-woocommerce' ),
+						'label'    => esc_html__( 'Plans', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 						'layout'   => 'full-width',
 						'callback' => [ $this, 'ddwcpp_get_plans_template' ],
 					],
 					'transactions'  => [
-						'label'    => esc_html__( 'Transactions', 'buy-now-pay-later-for-woocommerce' ),
+						'label'    => esc_html__( 'Transactions', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 						'layout'   => 'full-width',
 						'callback' => [ $this, 'ddwcpp_get_transactions_template' ],
 					],
 					'configuration' => [
-						'label'  => esc_html__( 'Configuration', 'buy-now-pay-later-for-woocommerce' ),
+						'label'  => esc_html__( 'Configuration', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 						'layout' => 'sidebar',
 						'tabs'   => [
 							'general'    => [
-								'label'    => esc_html__( 'General', 'buy-now-pay-later-for-woocommerce' ),
+								'label'    => esc_html__( 'General', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 								'icon'     => DDFW_SVG::get_svg_icon( 'general', true, [ 'size' => 18 ] ),
 								'callback' => [ $this, 'ddwcpp_get_configuration_template' ],
 							],
 							'approval'   => [
-								'label'    => esc_html__( 'Credit & Approval', 'buy-now-pay-later-for-woocommerce' ),
+								'label'    => esc_html__( 'Credit & Approval', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 								'icon'     => DDFW_SVG::get_svg_icon( 'eligibility', true, [ 'size' => 18 ] ),
 								'callback' => [ $this, 'ddwcpp_get_configuration_template' ],
 							],
 							'repayment'  => [
-								'label'    => esc_html__( 'Repayments', 'buy-now-pay-later-for-woocommerce' ),
+								'label'    => esc_html__( 'Repayments', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 								'icon'     => DDFW_SVG::get_svg_icon( 'repayment', true, [ 'size' => 18 ] ),
 								'callback' => [ $this, 'ddwcpp_get_repayment_template' ],
 							],
 							'reminders'  => [
-								'label'    => esc_html__( 'Reminders & Fees', 'buy-now-pay-later-for-woocommerce' ),
+								'label'    => esc_html__( 'Reminders & Fees', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 								'icon'     => DDFW_SVG::get_svg_icon( 'payment-terms', true, [ 'size' => 18 ] ),
 								'callback' => [ $this, 'ddwcpp_get_configuration_template' ],
 							],
 							'messaging'  => [
-								'label'    => esc_html__( 'Messaging', 'buy-now-pay-later-for-woocommerce' ),
+								'label'    => esc_html__( 'Messaging', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 								'icon'     => DDFW_SVG::get_svg_icon( 'messaging', true, [ 'size' => 18 ] ),
 								'callback' => [ $this, 'ddwcpp_get_configuration_template' ],
 							],
 							'appearance' => [
-								'label'    => esc_html__( 'Appearance', 'buy-now-pay-later-for-woocommerce' ),
+								'label'    => esc_html__( 'Appearance', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 								'icon'     => DDFW_SVG::get_svg_icon( 'appearance', true, [ 'size' => 18 ] ),
 								'callback' => [ $this, 'ddwcpp_get_appearance_template' ],
 							],
 							'emails'     => [
-								'label'    => esc_html__( 'Emails', 'buy-now-pay-later-for-woocommerce' ),
+								'label'    => esc_html__( 'Emails', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 								'icon'     => DDFW_SVG::get_svg_icon( 'emails', true, [ 'size' => 18 ] ),
 								'callback' => [ $this, 'ddwcpp_get_configuration_template' ],
 							],
@@ -167,7 +167,7 @@ if ( ! class_exists( 'DDWCPP_Admin_Dashboard' ) ) {
 				add_screen_option(
 					'per_page',
 					[
-						'label'   => esc_html__( 'Customers Per Page', 'buy-now-pay-later-for-woocommerce' ),
+						'label'   => esc_html__( 'Customers Per Page', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 						'default' => 20,
 						'option'  => 'ddwcpp_customers_per_page',
 					]
@@ -178,7 +178,7 @@ if ( ! class_exists( 'DDWCPP_Admin_Dashboard' ) ) {
 				add_screen_option(
 					'per_page',
 					[
-						'label'   => esc_html__( 'Installments Per Page', 'buy-now-pay-later-for-woocommerce' ),
+						'label'   => esc_html__( 'Installments Per Page', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 						'default' => 20,
 						'option'  => 'ddwcpp_installments_per_page',
 					]
@@ -189,7 +189,7 @@ if ( ! class_exists( 'DDWCPP_Admin_Dashboard' ) ) {
 				add_screen_option(
 					'per_page',
 					[
-						'label'   => esc_html__( 'Transactions Per Page', 'buy-now-pay-later-for-woocommerce' ),
+						'label'   => esc_html__( 'Transactions Per Page', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 						'default' => 20,
 						'option'  => 'ddwcpp_transactions_per_page',
 					]
@@ -216,7 +216,7 @@ if ( ! class_exists( 'DDWCPP_Admin_Dashboard' ) ) {
 
 			$this->ddwcpp_print_notice();
 			?>
-			<h1 class="wp-heading-inline"><?php esc_html_e( 'Pay Later Customers', 'buy-now-pay-later-for-woocommerce' ); ?></h1>
+			<h1 class="wp-heading-inline"><?php esc_html_e( 'Pay Later Customers', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></h1>
 			<hr class="wp-header-end" />
 			<?php $list_table->views(); ?>
 			<form method="get">
@@ -229,7 +229,7 @@ if ( ! class_exists( 'DDWCPP_Admin_Dashboard' ) ) {
 				<input type="hidden" name="status" value="<?php echo esc_attr( $status ); ?>" />
 				<?php
 				$list_table->prepare_items();
-				$list_table->search_box( esc_html__( 'Search Customers', 'buy-now-pay-later-for-woocommerce' ), 'ddwcpp-customer-search' );
+				$list_table->search_box( esc_html__( 'Search Customers', 'devdiggers-buy-now-pay-later-for-woocommerce' ), 'ddwcpp-customer-search' );
 				$list_table->display();
 				?>
 			</form>
@@ -247,7 +247,7 @@ if ( ! class_exists( 'DDWCPP_Admin_Dashboard' ) ) {
 
 			$this->ddwcpp_print_notice();
 			?>
-			<h1 class="wp-heading-inline"><?php esc_html_e( 'Installments', 'buy-now-pay-later-for-woocommerce' ); ?></h1>
+			<h1 class="wp-heading-inline"><?php esc_html_e( 'Installments', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></h1>
 			<?php $this->ddwcpp_locked_export_button(); ?>
 			<hr class="wp-header-end" />
 			<?php $list_table->views(); ?>
@@ -263,7 +263,7 @@ if ( ! class_exists( 'DDWCPP_Admin_Dashboard' ) ) {
 				<?php endif; ?>
 				<?php
 				$list_table->prepare_items();
-				$list_table->search_box( esc_html__( 'Search by order', 'buy-now-pay-later-for-woocommerce' ), 'ddwcpp-installment-search' );
+				$list_table->search_box( esc_html__( 'Search by order', 'devdiggers-buy-now-pay-later-for-woocommerce' ), 'ddwcpp-installment-search' );
 				$list_table->display();
 				?>
 			</form>
@@ -281,14 +281,14 @@ if ( ! class_exists( 'DDWCPP_Admin_Dashboard' ) ) {
 				ddwcpp_get_upgrade_card(
 					'plans',
 					[
-						'heading'       => esc_html__( 'Build the payment plans your customers ask for', 'buy-now-pay-later-for-woocommerce' ),
-						'description'   => esc_html__( 'Create your own plans with their own schedules, terms, fees and order limits, and offer exactly the terms that fit your store and your margins. Pay in 4 and Pay in 30 days are switched on or off under Configuration > General.', 'buy-now-pay-later-for-woocommerce' ),
+						'heading'       => esc_html__( 'Build the payment plans your customers ask for', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+						'description'   => esc_html__( 'Create your own plans with their own schedules, terms, fees and order limits, and offer exactly the terms that fit your store and your margins. Pay in 4 and Pay in 30 days are switched on or off under Configuration > General.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 						'list_features' => [
-							esc_html__( 'Unlimited plans: 3, 6 or 12 monthly payments, weekly or custom schedules', 'buy-now-pay-later-for-woocommerce' ),
-							esc_html__( 'Your own payment terms: Net 15, Net 45, Net 60 or any number of days', 'buy-now-pay-later-for-woocommerce' ),
-							esc_html__( 'Plan fees, fixed or a percentage, shown before the customer chooses', 'buy-now-pay-later-for-woocommerce' ),
-							esc_html__( 'Minimum and maximum order amount per plan', 'buy-now-pay-later-for-woocommerce' ),
-							esc_html__( 'Rename plans, switch them on and off, and choose which one the product page advertises', 'buy-now-pay-later-for-woocommerce' ),
+							esc_html__( 'Unlimited plans: 3, 6 or 12 monthly payments, weekly or custom schedules', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+							esc_html__( 'Your own payment terms: Net 15, Net 45, Net 60 or any number of days', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+							esc_html__( 'Plan fees, fixed or a percentage, shown before the customer chooses', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+							esc_html__( 'Minimum and maximum order amount per plan', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+							esc_html__( 'Rename plans, switch them on and off, and choose which one the product page advertises', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 						],
 					]
 				)
@@ -304,31 +304,31 @@ if ( ! class_exists( 'DDWCPP_Admin_Dashboard' ) ) {
 			?>
 			<dialog id="ddwcpp-adjust-dialog" class="ddwcpp-dialog">
 				<form method="dialog" class="ddwcpp-dialog-form">
-					<h2><?php esc_html_e( 'Adjust Pay Later balance', 'buy-now-pay-later-for-woocommerce' ); ?></h2>
+					<h2><?php esc_html_e( 'Adjust Pay Later balance', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></h2>
 					<p class="ddwcpp-dialog-customer"></p>
 					<p>
-						<input type="radio" name="ddwcpp_adjust_type" id="ddwcpp-adjust-credit" value="credit" checked /><label for="ddwcpp-adjust-credit"><?php esc_html_e( 'Reduce dues (credit the customer)', 'buy-now-pay-later-for-woocommerce' ); ?></label><br />
-						<input type="radio" name="ddwcpp_adjust_type" id="ddwcpp-adjust-debit" value="debit" /><label for="ddwcpp-adjust-debit"><?php esc_html_e( 'Increase dues (debit the customer)', 'buy-now-pay-later-for-woocommerce' ); ?></label>
+						<input type="radio" name="ddwcpp_adjust_type" id="ddwcpp-adjust-credit" value="credit" checked /><label for="ddwcpp-adjust-credit"><?php esc_html_e( 'Reduce dues (credit the customer)', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></label><br />
+						<input type="radio" name="ddwcpp_adjust_type" id="ddwcpp-adjust-debit" value="debit" /><label for="ddwcpp-adjust-debit"><?php esc_html_e( 'Increase dues (debit the customer)', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></label>
 					</p>
 					<p>
-						<label for="ddwcpp-adjust-amount"><?php esc_html_e( 'Amount', 'buy-now-pay-later-for-woocommerce' ); ?></label>
+						<label for="ddwcpp-adjust-amount"><?php esc_html_e( 'Amount', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></label>
 						<input type="number" id="ddwcpp-adjust-amount" min="0.01" step="any" required class="regular-text" />
 					</p>
 					<p>
-						<label for="ddwcpp-adjust-note"><?php esc_html_e( 'Note (shown to the customer)', 'buy-now-pay-later-for-woocommerce' ); ?></label>
+						<label for="ddwcpp-adjust-note"><?php esc_html_e( 'Note (shown to the customer)', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></label>
 						<input type="text" id="ddwcpp-adjust-note" maxlength="250" class="regular-text" />
 					</p>
 					<p class="ddwcpp-adjust-due">
-						<label for="ddwcpp-adjust-due-days"><?php esc_html_e( 'Due in (days)', 'buy-now-pay-later-for-woocommerce' ); ?></label>
+						<label for="ddwcpp-adjust-due-days"><?php esc_html_e( 'Due in (days)', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></label>
 						<input type="number" id="ddwcpp-adjust-due-days" min="0" step="1" value="<?php echo esc_attr( $this->ddwcpp_configuration['charge_due_days'] ); ?>" class="small-text" />
-						<span class="description"><?php esc_html_e( 'Only for added dues. 0 means no due date.', 'buy-now-pay-later-for-woocommerce' ); ?></span>
+						<span class="description"><?php esc_html_e( 'Only for added dues. 0 means no due date.', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></span>
 					</p>
 					<p>
-						<label><input type="checkbox" id="ddwcpp-adjust-notify" checked /> <?php esc_html_e( 'Email the customer', 'buy-now-pay-later-for-woocommerce' ); ?></label>
+						<label><input type="checkbox" id="ddwcpp-adjust-notify" checked /> <?php esc_html_e( 'Email the customer', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></label>
 					</p>
 					<div class="ddwcpp-dialog-actions">
-						<button type="button" class="button ddwcpp-dialog-cancel"><?php esc_html_e( 'Cancel', 'buy-now-pay-later-for-woocommerce' ); ?></button>
-						<button type="submit" class="button button-primary ddwcpp-dialog-save"><?php esc_html_e( 'Save adjustment', 'buy-now-pay-later-for-woocommerce' ); ?></button>
+						<button type="button" class="button ddwcpp-dialog-cancel"><?php esc_html_e( 'Cancel', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></button>
+						<button type="submit" class="button button-primary ddwcpp-dialog-save"><?php esc_html_e( 'Save adjustment', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></button>
 					</div>
 				</form>
 			</dialog>
@@ -352,7 +352,7 @@ if ( ! class_exists( 'DDWCPP_Admin_Dashboard' ) ) {
 				if ( $transaction ) {
 					new Admin\Transactions\DDWCPP_Transaction_View_Template( $transaction );
 				} else {
-					ddfw_print_notification( esc_html__( 'Invalid transaction ID.', 'buy-now-pay-later-for-woocommerce' ), 'error' );
+					ddfw_print_notification( esc_html__( 'Invalid transaction ID.', 'devdiggers-buy-now-pay-later-for-woocommerce' ), 'error' );
 				}
 
 				return;
@@ -362,7 +362,7 @@ if ( ! class_exists( 'DDWCPP_Admin_Dashboard' ) ) {
 
 			$this->ddwcpp_print_notice();
 			?>
-			<h1 class="wp-heading-inline"><?php esc_html_e( 'Transactions', 'buy-now-pay-later-for-woocommerce' ); ?></h1>
+			<h1 class="wp-heading-inline"><?php esc_html_e( 'Transactions', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></h1>
 			<?php $this->ddwcpp_locked_export_button(); ?>
 			<hr class="wp-header-end" />
 			<form method="get">
@@ -370,7 +370,7 @@ if ( ! class_exists( 'DDWCPP_Admin_Dashboard' ) ) {
 				<input type="hidden" name="menu" value="transactions" />
 				<?php
 				$list_table->prepare_items();
-				$list_table->search_box( esc_html__( 'Search Transactions', 'buy-now-pay-later-for-woocommerce' ), 'ddwcpp-transaction-search' );
+				$list_table->search_box( esc_html__( 'Search Transactions', 'devdiggers-buy-now-pay-later-for-woocommerce' ), 'ddwcpp-transaction-search' );
 				$list_table->display();
 				?>
 			</form>
@@ -393,20 +393,20 @@ if ( ! class_exists( 'DDWCPP_Admin_Dashboard' ) ) {
 				case 'rejected':
 				case 'pending':
 					/* translators: %1$d: number of customers, %2$s: status. */
-					ddfw_print_notification( sprintf( _n( '%1$d customer moved to %2$s.', '%1$d customers moved to %2$s.', $count, 'buy-now-pay-later-for-woocommerce' ), $count, ddwcpp_get_translation( $notice ) ) );
+					ddfw_print_notification( sprintf( _n( '%1$d customer moved to %2$s.', '%1$d customers moved to %2$s.', $count, 'devdiggers-buy-now-pay-later-for-woocommerce' ), $count, ddwcpp_get_translation( $notice ) ) );
 					break;
 				case 'no-selection':
-					ddfw_print_notification( esc_html__( 'That item could not be found.', 'buy-now-pay-later-for-woocommerce' ), 'error' );
+					ddfw_print_notification( esc_html__( 'That item could not be found.', 'devdiggers-buy-now-pay-later-for-woocommerce' ), 'error' );
 					break;
 				case 'nothing-updated':
-					ddfw_print_notification( esc_html__( 'Nothing was updated.', 'buy-now-pay-later-for-woocommerce' ), 'error' );
+					ddfw_print_notification( esc_html__( 'Nothing was updated.', 'devdiggers-buy-now-pay-later-for-woocommerce' ), 'error' );
 					break;
 				case 'mark_paid':
 					/* translators: %d: number of installments. */
-					ddfw_print_notification( sprintf( _n( '%d payment recorded.', '%d payments recorded.', $count, 'buy-now-pay-later-for-woocommerce' ), $count ) );
+					ddfw_print_notification( sprintf( _n( '%d payment recorded.', '%d payments recorded.', $count, 'devdiggers-buy-now-pay-later-for-woocommerce' ), $count ) );
 					break;
 				case 'invalid-nonce':
-					ddfw_print_notification( esc_html__( 'Invalid nonce. Security check failed!', 'buy-now-pay-later-for-woocommerce' ), 'error' );
+					ddfw_print_notification( esc_html__( 'Invalid nonce. Security check failed!', 'devdiggers-buy-now-pay-later-for-woocommerce' ), 'error' );
 					break;
 			}
 		}
@@ -434,12 +434,12 @@ if ( ! class_exists( 'DDWCPP_Admin_Dashboard' ) ) {
 				ddwcpp_get_upgrade_card(
 					'repayments',
 					[
-						'heading'       => esc_html__( 'Let customers pay what suits them, and earn on credit', 'buy-now-pay-later-for-woocommerce' ),
-						'description'   => esc_html__( 'Customers already pay installment by installment. Pro adds flexible repayments and interest, so slower payers cover the cost of the credit you give.', 'buy-now-pay-later-for-woocommerce' ),
+						'heading'       => esc_html__( 'Let customers pay what suits them, and earn on credit', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+						'description'   => esc_html__( 'Customers already pay installment by installment. Pro adds flexible repayments and interest, so slower payers cover the cost of the credit you give.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 						'list_features' => [
-							esc_html__( 'Partial payments: customers pay any amount toward their dues', 'buy-now-pay-later-for-woocommerce' ),
-							esc_html__( 'Minimum repayment amount you control', 'buy-now-pay-later-for-woocommerce' ),
-							esc_html__( 'Interest on repayments, fixed or a percentage, shown before they pay', 'buy-now-pay-later-for-woocommerce' ),
+							esc_html__( 'Partial payments: customers pay any amount toward their dues', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+							esc_html__( 'Minimum repayment amount you control', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+							esc_html__( 'Interest on repayments, fixed or a percentage, shown before they pay', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 						],
 					]
 				)
@@ -457,13 +457,13 @@ if ( ! class_exists( 'DDWCPP_Admin_Dashboard' ) ) {
 				ddwcpp_get_upgrade_card(
 					'appearance',
 					[
-						'heading'       => esc_html__( 'Make the customer area look like your store', 'buy-now-pay-later-for-woocommerce' ),
-						'description'   => esc_html__( 'The My Account section ships with a clean default design. Pro lets you match it to your brand without touching code.', 'buy-now-pay-later-for-woocommerce' ),
+						'heading'       => esc_html__( 'Make the customer area look like your store', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+						'description'   => esc_html__( 'The My Account section ships with a clean default design. Pro lets you match it to your brand without touching code.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 						'list_features' => [
-							esc_html__( 'Credit card style balance or balance panel', 'buy-now-pay-later-for-woocommerce' ),
-							esc_html__( 'Segmented, underline or pill tabs, sharp, soft or round corners', 'buy-now-pay-later-for-woocommerce' ),
-							esc_html__( 'Eleven brand colors and your own tab labels', 'buy-now-pay-later-for-woocommerce' ),
-							esc_html__( 'Toggle icons, the credit usage bar and upcoming payments', 'buy-now-pay-later-for-woocommerce' ),
+							esc_html__( 'Credit card style balance or balance panel', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+							esc_html__( 'Segmented, underline or pill tabs, sharp, soft or round corners', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+							esc_html__( 'Eleven brand colors and your own tab labels', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+							esc_html__( 'Toggle icons, the credit usage bar and upcoming payments', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 						],
 					]
 				)
@@ -478,7 +478,7 @@ if ( ! class_exists( 'DDWCPP_Admin_Dashboard' ) ) {
 		protected function ddwcpp_locked_export_button() {
 			?>
 			<span class="ddfw-upgrade-to-pro-tag-wrapper ddwcpp-locked-action">
-				<button type="button" class="page-title-action button" disabled="disabled"><?php esc_html_e( 'Export CSV', 'buy-now-pay-later-for-woocommerce' ); ?></button>
+				<button type="button" class="page-title-action button" disabled="disabled"><?php esc_html_e( 'Export CSV', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></button>
 				<?php echo wp_kses_post( ddfw_get_pro_tag() ); ?>
 			</span>
 			<?php
@@ -513,11 +513,11 @@ if ( ! class_exists( 'DDWCPP_Admin_Dashboard' ) ) {
 						'ajaxNonce' => wp_create_nonce( 'ddwcpp-nonce' ),
 					],
 					'i18n' => [
-						'pleaseEnter'   => esc_html__( 'Please enter', 'buy-now-pay-later-for-woocommerce' ),
-						'moreCharacter' => esc_html__( 'or more characters', 'buy-now-pay-later-for-woocommerce' ),
-						'noResult'      => esc_html__( 'No results found', 'buy-now-pay-later-for-woocommerce' ),
-						'amountError'   => esc_html__( 'Enter an amount greater than zero.', 'buy-now-pay-later-for-woocommerce' ),
-						'error'         => esc_html__( 'Something went wrong. Please try again.', 'buy-now-pay-later-for-woocommerce' ),
+						'pleaseEnter'   => esc_html__( 'Please enter', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+						'moreCharacter' => esc_html__( 'or more characters', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+						'noResult'      => esc_html__( 'No results found', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+						'amountError'   => esc_html__( 'Enter an amount greater than zero.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+						'error'         => esc_html__( 'Something went wrong. Please try again.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					],
 				]
 			);
@@ -534,10 +534,10 @@ if ( ! class_exists( 'DDWCPP_Admin_Dashboard' ) ) {
 				return $footer_text;
 			}
 
-			$review_link = '<a href="' . esc_url( 'https://wordpress.org/support/plugin/buy-now-pay-later-for-woocommerce/reviews/#new-post' ) . '" target="_blank" title="' . esc_attr__( 'Review', 'buy-now-pay-later-for-woocommerce' ) . '" aria-label="' . esc_attr__( 'Review', 'buy-now-pay-later-for-woocommerce' ) . '">' . \DDWCPP_Free_Init::ddwcpp_get_review_stars_svg() . '</a>';
+			$review_link = '<a href="' . esc_url( 'https://wordpress.org/support/plugin/devdiggers-buy-now-pay-later-for-woocommerce/reviews/#new-post' ) . '" target="_blank" title="' . esc_attr__( 'Review', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '" aria-label="' . esc_attr__( 'Review', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '">' . \DDWCPP_Free_Init::ddwcpp_get_review_stars_svg() . '</a>';
 
 			/* translators: %s: star rating link. */
-			return sprintf( esc_html__( 'If Buy Now Pay Later for WooCommerce is working well for you, please leave us a %s rating. It really helps.', 'buy-now-pay-later-for-woocommerce' ), $review_link );
+			return wp_kses( sprintf( esc_html__( 'If DevDiggers Buy Now Pay Later for WooCommerce is working well for you, please leave us a %s rating. It really helps.', 'devdiggers-buy-now-pay-later-for-woocommerce' ), $review_link ), ddwcpp_get_allowed_html() );
 		}
 
 		/**

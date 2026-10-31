@@ -57,7 +57,7 @@ if ( ! function_exists( 'ddwcpp_get_default_message_text' ) ) {
 	 * @return string
 	 */
 	function ddwcpp_get_default_message_text( $single = false ) {
-		return $single ? esc_html__( 'or buy now and pay {amount} {interval}', 'buy-now-pay-later-for-woocommerce' ) : esc_html__( 'or {count} payments of {amount} {interval}', 'buy-now-pay-later-for-woocommerce' );
+		return $single ? esc_html__( 'or buy now and pay {amount} {interval}', 'devdiggers-buy-now-pay-later-for-woocommerce' ) : esc_html__( 'or {count} payments of {amount} {interval}', 'devdiggers-buy-now-pay-later-for-woocommerce' );
 	}
 }
 
@@ -69,9 +69,9 @@ if ( ! function_exists( 'ddwcpp_get_default_dialog_steps' ) ) {
 	 */
 	function ddwcpp_get_default_dialog_steps() {
 		return [
-			esc_html__( 'Choose Pay Later at checkout and pick the plan that suits you.', 'buy-now-pay-later-for-woocommerce' ),
-			esc_html__( 'Get your order. No card or bank details needed today.', 'buy-now-pay-later-for-woocommerce' ),
-			esc_html__( 'Pay each installment from your account. We remind you before every due date.', 'buy-now-pay-later-for-woocommerce' ),
+			esc_html__( 'Choose Pay Later at checkout and pick the plan that suits you.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+			esc_html__( 'Get your order. No card or bank details needed today.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+			esc_html__( 'Pay each installment from your account. We remind you before every due date.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 		];
 	}
 }
@@ -84,8 +84,8 @@ if ( ! function_exists( 'ddwcpp_get_verification_mode_options' ) ) {
 	 */
 	function ddwcpp_get_verification_mode_options() {
 		return [
-			'manual' => esc_html__( 'Administrator approves without a document', 'buy-now-pay-later-for-woocommerce' ),
-			'none'   => esc_html__( 'No verification, every customer is eligible', 'buy-now-pay-later-for-woocommerce' ),
+			'manual' => esc_html__( 'Administrator approves without a document', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+			'none'   => esc_html__( 'No verification, every customer is eligible', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 		];
 	}
 }
@@ -98,9 +98,9 @@ if ( ! function_exists( 'ddwcpp_get_message_location_options' ) ) {
 	 */
 	function ddwcpp_get_message_location_options() {
 		return [
-			'product' => esc_html__( 'Product page, under the price', 'buy-now-pay-later-for-woocommerce' ),
-			'loop'    => esc_html__( 'Shop and category pages', 'buy-now-pay-later-for-woocommerce' ),
-			'cart'    => esc_html__( 'Cart, under the total', 'buy-now-pay-later-for-woocommerce' ),
+			'product' => esc_html__( 'Product page, under the price', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+			'loop'    => esc_html__( 'Shop and category pages', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+			'cart'    => esc_html__( 'Cart, under the total', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 		];
 	}
 }
@@ -115,30 +115,30 @@ if ( ! function_exists( 'ddwcpp_get_translation' ) ) {
 	function ddwcpp_get_translation( $key ) {
 		$strings = [
 			// Transaction types.
-			'credit'          => esc_html__( 'Credit', 'buy-now-pay-later-for-woocommerce' ),
-			'debit'           => esc_html__( 'Debit', 'buy-now-pay-later-for-woocommerce' ),
+			'credit'          => esc_html__( 'Credit', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+			'debit'           => esc_html__( 'Debit', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 			// Transaction references.
-			'order_debit'     => esc_html__( 'Order Purchase', 'buy-now-pay-later-for-woocommerce' ),
-			'order_refund'    => esc_html__( 'Order Refund', 'buy-now-pay-later-for-woocommerce' ),
-			'order_cancelled' => esc_html__( 'Order Cancelled', 'buy-now-pay-later-for-woocommerce' ),
-			'cleared_dues'    => esc_html__( 'Dues Repayment', 'buy-now-pay-later-for-woocommerce' ),
-			'manual_credit'   => esc_html__( 'Manual Credit', 'buy-now-pay-later-for-woocommerce' ),
-			'manual_debit'    => esc_html__( 'Manual Debit', 'buy-now-pay-later-for-woocommerce' ),
-			'late_fee'        => esc_html__( 'Late Fee', 'buy-now-pay-later-for-woocommerce' ),
-			'plan_fee'        => esc_html__( 'Plan Fee', 'buy-now-pay-later-for-woocommerce' ),
-			'manual_payment'  => esc_html__( 'Payment Recorded', 'buy-now-pay-later-for-woocommerce' ),
+			'order_debit'     => esc_html__( 'Order Purchase', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+			'order_refund'    => esc_html__( 'Order Refund', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+			'order_cancelled' => esc_html__( 'Order Cancelled', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+			'cleared_dues'    => esc_html__( 'Dues Repayment', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+			'manual_credit'   => esc_html__( 'Manual Credit', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+			'manual_debit'    => esc_html__( 'Manual Debit', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+			'late_fee'        => esc_html__( 'Late Fee', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+			'plan_fee'        => esc_html__( 'Plan Fee', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+			'manual_payment'  => esc_html__( 'Payment Recorded', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 			// Installment statuses.
-			'paid'            => esc_html__( 'Paid', 'buy-now-pay-later-for-woocommerce' ),
-			'active'          => esc_html__( 'Active', 'buy-now-pay-later-for-woocommerce' ),
-			'cancelled'       => esc_html__( 'Cancelled', 'buy-now-pay-later-for-woocommerce' ),
-			'upcoming'        => esc_html__( 'Upcoming', 'buy-now-pay-later-for-woocommerce' ),
-			'due_soon'        => esc_html__( 'Due Soon', 'buy-now-pay-later-for-woocommerce' ),
+			'paid'            => esc_html__( 'Paid', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+			'active'          => esc_html__( 'Active', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+			'cancelled'       => esc_html__( 'Cancelled', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+			'upcoming'        => esc_html__( 'Upcoming', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+			'due_soon'        => esc_html__( 'Due Soon', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 			// Verification statuses.
-			'pending'         => esc_html__( 'Pending', 'buy-now-pay-later-for-woocommerce' ),
-			'eligible'        => esc_html__( 'Approved', 'buy-now-pay-later-for-woocommerce' ),
-			'rejected'        => esc_html__( 'Rejected', 'buy-now-pay-later-for-woocommerce' ),
-			'not_applied'     => esc_html__( 'Not Applied', 'buy-now-pay-later-for-woocommerce' ),
-			'overdue'         => esc_html__( 'Overdue', 'buy-now-pay-later-for-woocommerce' ),
+			'pending'         => esc_html__( 'Pending', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+			'eligible'        => esc_html__( 'Approved', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+			'rejected'        => esc_html__( 'Rejected', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+			'not_applied'     => esc_html__( 'Not Applied', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+			'overdue'         => esc_html__( 'Overdue', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 		];
 
 		$strings = apply_filters( 'ddwcpp_modify_translations', $strings );
