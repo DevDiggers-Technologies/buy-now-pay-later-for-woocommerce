@@ -26,7 +26,7 @@ $screen_header = wp_parse_args(
 		'heading'         => '',
 		'description'     => '',
 		'back_button_url' => '',
-		'back_button_label' => __( 'Back', 'buy-now-pay-later-for-woocommerce' ),
+		'back_button_label' => __( 'Back', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 		'header_buttons'  => [],
 	]
 );

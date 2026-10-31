@@ -11,7 +11,7 @@ module.exports = function( grunt ) {
 					domainPath: '/i18n',
 					exclude: [ '\.git/*', 'bin/*', 'node_modules/*', 'tests/*', 'vendor/*', 'devdiggers-framework/*' ],
 					mainFile: 'functions.php',
-					potFilename: 'buy-now-pay-later-for-woocommerce.pot',
+					potFilename: 'devdiggers-buy-now-pay-later-for-woocommerce.pot',
 					potHeaders: {
 						poedit: true,
 						'x-poedit-keywordslist': true
@@ -24,7 +24,7 @@ module.exports = function( grunt ) {
 
 		checktextdomain: {
 			options:{
-				text_domain: 'buy-now-pay-later-for-woocommerce',
+				text_domain: 'devdiggers-buy-now-pay-later-for-woocommerce',
 				keywords: [
 					'__:1,2d',
 					'_e:1,2d',

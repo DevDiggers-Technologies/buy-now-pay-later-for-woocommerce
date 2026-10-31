@@ -100,20 +100,20 @@ if ( ! class_exists( 'DDWCPP_PostPaid_Blocks' ) ) {
 			$user_id = get_current_user_id();
 
 			return [
-				'title'       => $this->get_setting( 'title', esc_html__( 'Buy Now, Pay Later', 'buy-now-pay-later-for-woocommerce' ) ),
+				'title'       => $this->get_setting( 'title', esc_html__( 'Buy Now, Pay Later', 'devdiggers-buy-now-pay-later-for-woocommerce' ) ),
 				'description' => $this->get_setting( 'description' ),
 				'credit'      => $gateway && ! is_admin() ? wp_strip_all_tags( html_entity_decode( $gateway->ddwcpp_get_credit_notice() ) ) : '',
 				'balance'     => $user_id && ! is_admin() ? ( new \DDWCPostPaid\Helper\Users\DDWCPP_Users_Helper( $this->ddwcpp_configuration ) )->ddwcpp_get_balance( $user_id ) : 0,
 				'plans'       => $plans,
 				'i18n'        => [
-					'legend'   => esc_html__( 'Choose how to pay', 'buy-now-pay-later-for-woocommerce' ),
+					'legend'   => esc_html__( 'Choose how to pay', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					/* translators: %1$d: number of payments, %2$s: amount of each, %3$s: interval. */
-					'payments' => esc_html__( '%1$d payments of %2$s %3$s', 'buy-now-pay-later-for-woocommerce' ),
+					'payments' => esc_html__( '%1$d payments of %2$s %3$s', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					/* translators: %1$s: amount, %2$s: term, e.g. "in 30 days". */
-					'single'   => esc_html__( 'Pay %1$s %2$s', 'buy-now-pay-later-for-woocommerce' ),
+					'single'   => esc_html__( 'Pay %1$s %2$s', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					/* translators: %s: amount. */
-					'today'    => esc_html__( '%s due today', 'buy-now-pay-later-for-woocommerce' ),
-					'noFee'    => esc_html__( 'No fees', 'buy-now-pay-later-for-woocommerce' ),
+					'today'    => esc_html__( '%s due today', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'noFee'    => esc_html__( 'No fees', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 				],
 				'supports'    => [ 'products', 'refunds' ],
 			];

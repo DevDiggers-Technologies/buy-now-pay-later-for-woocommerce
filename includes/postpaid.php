@@ -65,8 +65,8 @@ if ( ! class_exists( 'DDWCPP_PostPaid' ) ) {
 
 			$this->id                 = 'ddwcpp_postpaid';
 			$this->icon               = apply_filters( 'ddwcpp_gateway_icon', '' );
-			$this->method_title       = esc_html__( 'Pay Later', 'buy-now-pay-later-for-woocommerce' );
-			$this->method_description = esc_html__( 'Let approved customers buy now and pay later in installments or on payment terms, on a store credit line you control.', 'buy-now-pay-later-for-woocommerce' );
+			$this->method_title       = esc_html__( 'Pay Later', 'devdiggers-buy-now-pay-later-for-woocommerce' );
+			$this->method_description = esc_html__( 'Let approved customers buy now and pay later in installments or on payment terms, on a store credit line you control.', 'devdiggers-buy-now-pay-later-for-woocommerce' );
 			$this->has_fields         = true;
 			$this->supports           = [ 'products', 'refunds' ];
 
@@ -101,47 +101,47 @@ if ( ! class_exists( 'DDWCPP_PostPaid' ) ) {
 
 			$this->form_fields = [
 				'enabled'            => [
-					'title'   => esc_html__( 'Enable/Disable', 'buy-now-pay-later-for-woocommerce' ),
-					'label'   => esc_html__( 'Enable Pay Later', 'buy-now-pay-later-for-woocommerce' ),
+					'title'   => esc_html__( 'Enable/Disable', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'label'   => esc_html__( 'Enable Pay Later', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					'type'    => 'checkbox',
 					'default' => 'yes',
 				],
 				'title'              => [
-					'title'       => esc_html__( 'Title', 'buy-now-pay-later-for-woocommerce' ),
+					'title'       => esc_html__( 'Title', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					'type'        => 'text',
-					'description' => esc_html__( 'Payment method title that the customer will see on your checkout.', 'buy-now-pay-later-for-woocommerce' ),
-					'default'     => esc_html__( 'Buy Now, Pay Later', 'buy-now-pay-later-for-woocommerce' ),
+					'description' => esc_html__( 'Payment method title that the customer will see on your checkout.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'default'     => esc_html__( 'Buy Now, Pay Later', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					'desc_tip'    => true,
 				],
 				'description'        => [
-					'title'       => esc_html__( 'Description', 'buy-now-pay-later-for-woocommerce' ),
+					'title'       => esc_html__( 'Description', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					'type'        => 'textarea',
-					'description' => esc_html__( 'Payment method description that the customer will see on your website.', 'buy-now-pay-later-for-woocommerce' ),
-					'default'     => esc_html__( 'Choose a payment plan and pay over time from your account. No card needed today.', 'buy-now-pay-later-for-woocommerce' ),
+					'description' => esc_html__( 'Payment method description that the customer will see on your website.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'default'     => esc_html__( 'Choose a payment plan and pay over time from your account. No card needed today.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					'desc_tip'    => true,
 				],
 				'instructions'       => [
-					'title'       => esc_html__( 'Instructions', 'buy-now-pay-later-for-woocommerce' ),
+					'title'       => esc_html__( 'Instructions', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					'type'        => 'textarea',
-					'description' => esc_html__( 'Instructions that will be added to the thank you page and emails.', 'buy-now-pay-later-for-woocommerce' ),
-					'default'     => esc_html__( 'Your order was placed with Pay Later. Your payment schedule is below, and you can pay any installment early from your account.', 'buy-now-pay-later-for-woocommerce' ),
+					'description' => esc_html__( 'Instructions that will be added to the thank you page and emails.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'default'     => esc_html__( 'Your order was placed with Pay Later. Your payment schedule is below, and you can pay any installment early from your account.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					'desc_tip'    => true,
 				],
 				'enable_for_methods' => [
-					'title'             => esc_html__( 'Enable for shipping methods', 'buy-now-pay-later-for-woocommerce' ),
+					'title'             => esc_html__( 'Enable for shipping methods', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					'type'              => 'multiselect',
 					'class'             => 'wc-enhanced-select',
 					'default'           => '',
-					'description'       => esc_html__( 'If Pay Later is only available for certain methods, set it up here. Leave blank to enable for all methods.', 'buy-now-pay-later-for-woocommerce' ),
+					'description'       => esc_html__( 'If Pay Later is only available for certain methods, set it up here. Leave blank to enable for all methods.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					'options'           => $shipping_methods,
 					'desc_tip'          => true,
 					'custom_attributes' => [
-						'data-placeholder' => esc_html__( 'Select shipping methods', 'buy-now-pay-later-for-woocommerce' ),
+						'data-placeholder' => esc_html__( 'Select shipping methods', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					],
 				],
 				'enable_for_virtual' => [
-					'title'   => esc_html__( 'Accept for virtual orders', 'buy-now-pay-later-for-woocommerce' ),
-					'label'   => esc_html__( 'Accept Pay Later if the order is virtual', 'buy-now-pay-later-for-woocommerce' ),
+					'title'   => esc_html__( 'Accept for virtual orders', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'label'   => esc_html__( 'Accept Pay Later if the order is virtual', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					'type'    => 'checkbox',
 					'default' => 'yes',
 				],
@@ -322,7 +322,7 @@ if ( ! class_exists( 'DDWCPP_PostPaid' ) ) {
 			}
 			?>
 			<fieldset class="ddwcpp-plan-options">
-				<legend><?php esc_html_e( 'Choose how to pay', 'buy-now-pay-later-for-woocommerce' ); ?></legend>
+				<legend><?php esc_html_e( 'Choose how to pay', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></legend>
 				<?php
 				$first = true;
 
@@ -338,14 +338,14 @@ if ( ! class_exists( 'DDWCPP_PostPaid' ) ) {
 								<?php
 								if ( ! empty( $plan['upfront'] ) && count( $schedule ) > 1 ) {
 									/* translators: %s: first payment amount. */
-									printf( esc_html__( '%s due today', 'buy-now-pay-later-for-woocommerce' ), wp_kses_post( wc_price( $schedule[0]['amount'] ) ) );
+									printf( esc_html__( '%s due today', 'devdiggers-buy-now-pay-later-for-woocommerce' ), wp_kses_post( wc_price( $schedule[0]['amount'] ) ) );
 								} else {
 									/* translators: %s: first due date. */
-									printf( esc_html__( 'First payment %s', 'buy-now-pay-later-for-woocommerce' ), esc_html( date_i18n( wc_date_format(), strtotime( $schedule[0]['due_date'] ) ) ) );
+									printf( esc_html__( 'First payment %s', 'devdiggers-buy-now-pay-later-for-woocommerce' ), esc_html( date_i18n( wc_date_format(), strtotime( $schedule[0]['due_date'] ) ) ) );
 								}
 
 								echo ' &middot; ';
-								esc_html_e( 'No fees', 'buy-now-pay-later-for-woocommerce' );
+								esc_html_e( 'No fees', 'devdiggers-buy-now-pay-later-for-woocommerce' );
 								?>
 							</span>
 						</span>
@@ -384,7 +384,7 @@ if ( ! class_exists( 'DDWCPP_PostPaid' ) ) {
 		 */
 		public function validate_fields() {
 			if ( ! $this->ddwcpp_get_chosen_plan( $this->ddwcpp_get_payable_total(), get_current_user_id() ) ) {
-				wc_add_notice( esc_html__( 'Choose one of the Pay Later payment plans to continue.', 'buy-now-pay-later-for-woocommerce' ), 'error' );
+				wc_add_notice( esc_html__( 'Choose one of the Pay Later payment plans to continue.', 'devdiggers-buy-now-pay-later-for-woocommerce' ), 'error' );
 				return false;
 			}
 
@@ -405,7 +405,7 @@ if ( ! class_exists( 'DDWCPP_PostPaid' ) ) {
 
 			return sprintf(
 				/* translators: %s: available credit. */
-				esc_html__( 'Available credit: %s', 'buy-now-pay-later-for-woocommerce' ),
+				esc_html__( 'Available credit: %s', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 				wc_price( $this->users_helper->ddwcpp_get_balance( $user_id ) )
 			);
 		}
@@ -423,7 +423,7 @@ if ( ! class_exists( 'DDWCPP_PostPaid' ) ) {
 			$plan    = $this->ddwcpp_get_chosen_plan( $total, $user_id );
 
 			// The availability check ran when the page loaded; the balance may have changed since.
-			$allowed = $plan ? $this->users_helper->ddwcpp_can_use( $user_id, $total ) : new \WP_Error( 'ddwcpp_plan', esc_html__( 'Choose one of the Pay Later payment plans to continue.', 'buy-now-pay-later-for-woocommerce' ) );
+			$allowed = $plan ? $this->users_helper->ddwcpp_can_use( $user_id, $total ) : new \WP_Error( 'ddwcpp_plan', esc_html__( 'Choose one of the Pay Later payment plans to continue.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) );
 
 			if ( is_wp_error( $allowed ) ) {
 				wc_add_notice( $allowed->get_error_message(), 'error' );
@@ -441,7 +441,7 @@ if ( ! class_exists( 'DDWCPP_PostPaid' ) ) {
 					'reference' => 'order_debit',
 					'order_id'  => $order_id,
 					/* translators: %s: plan title. */
-					'note'      => sprintf( esc_html__( 'Order paid with Pay Later, %s.', 'buy-now-pay-later-for-woocommerce' ), $plan['title'] ),
+					'note'      => sprintf( esc_html__( 'Order paid with Pay Later, %s.', 'devdiggers-buy-now-pay-later-for-woocommerce' ), $plan['title'] ),
 					'plan'      => $plan,
 					'schedule'  => $schedule,
 				]
@@ -464,12 +464,12 @@ if ( ! class_exists( 'DDWCPP_PostPaid' ) ) {
 			$order->update_meta_data( '_ddwcpp_plan_title', $plan['title'] );
 
 			/* translators: %1$s: plan title, %2$s: plan summary. */
-			$order->add_order_note( sprintf( esc_html__( 'Paid with Pay Later: %1$s, %2$s.', 'buy-now-pay-later-for-woocommerce' ), $plan['title'], $summary ) );
+			$order->add_order_note( sprintf( esc_html__( 'Paid with Pay Later: %1$s, %2$s.', 'devdiggers-buy-now-pay-later-for-woocommerce' ), $plan['title'], $summary ) );
 
 			if ( ! empty( $plan['upfront'] ) && count( $schedule ) > 1 ) {
 				// Held until the first installment comes in, then released by ddwcpp_on_installment_paid().
 				$order->update_meta_data( '_ddwcpp_awaiting_upfront', 'yes' );
-				$order->update_status( 'on-hold', esc_html__( 'Awaiting the first Pay Later installment.', 'buy-now-pay-later-for-woocommerce' ) );
+				$order->update_status( 'on-hold', esc_html__( 'Awaiting the first Pay Later installment.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) );
 				wc_maybe_reduce_stock_levels( $order_id );
 			} else {
 				$order->payment_complete();
@@ -497,7 +497,7 @@ if ( ! class_exists( 'DDWCPP_PostPaid' ) ) {
 			$order = wc_get_order( $order_id );
 
 			if ( ! $order || ! $order->get_customer_id() || (float) $amount <= 0 ) {
-				return new \WP_Error( 'ddwcpp_refund', esc_html__( 'This order cannot be refunded to Pay Later credit.', 'buy-now-pay-later-for-woocommerce' ) );
+				return new \WP_Error( 'ddwcpp_refund', esc_html__( 'This order cannot be refunded to Pay Later credit.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) );
 			}
 
 			$this->users_helper->ddwcpp_record(
@@ -507,9 +507,9 @@ if ( ! class_exists( 'DDWCPP_PostPaid' ) ) {
 					'amount'     => $amount,
 					'reference'  => 'order_refund',
 					'order_id'   => $order_id,
-					'note'       => $reason ? $reason : esc_html__( 'Refund returned to Pay Later credit.', 'buy-now-pay-later-for-woocommerce' ),
+					'note'       => $reason ? $reason : esc_html__( 'Refund returned to Pay Later credit.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					'email'      => 'credit_restored',
-					'email_vars' => [ 'reason' => esc_html__( 'refund', 'buy-now-pay-later-for-woocommerce' ) ],
+					'email_vars' => [ 'reason' => esc_html__( 'refund', 'devdiggers-buy-now-pay-later-for-woocommerce' ) ],
 				]
 			);
 

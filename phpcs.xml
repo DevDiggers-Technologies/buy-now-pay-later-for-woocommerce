@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="Buy Now Pay Later for WooCommerce">
+<ruleset name="DevDiggers Buy Now Pay Later for WooCommerce">
 	<description>WordPress Coding Standards for this plugin. The bundled devdiggers-framework is checked in its own repository, so it is excluded here.</description>
 
 	<file>.</file>
@@ -68,7 +68,7 @@
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<property name="text_domain" type="array">
-				<element value="buy-now-pay-later-for-woocommerce"/>
+				<element value="devdiggers-buy-now-pay-later-for-woocommerce"/>
 				<element value="woocommerce"/>
 			</property>
 		</properties>

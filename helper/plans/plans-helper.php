@@ -51,8 +51,8 @@ if ( ! class_exists( 'DDWCPP_Plans_Helper' ) ) {
 		public static function ddwcpp_get_presets() {
 			return [
 				'pay-in-4'  => [
-					'title'       => esc_html__( 'Pay in 4', 'buy-now-pay-later-for-woocommerce' ),
-					'description' => esc_html__( 'Four equal payments, one every two weeks. The first is due at purchase.', 'buy-now-pay-later-for-woocommerce' ),
+					'title'       => esc_html__( 'Pay in 4', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'description' => esc_html__( 'Four equal payments, one every two weeks. The first is due at purchase.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					'count'       => 4,
 					'interval'    => 2,
 					'unit'        => 'week',
@@ -60,8 +60,8 @@ if ( ! class_exists( 'DDWCPP_Plans_Helper' ) ) {
 					'position'    => 1,
 				],
 				'pay-in-30' => [
-					'title'       => esc_html__( 'Pay in 30 days', 'buy-now-pay-later-for-woocommerce' ),
-					'description' => esc_html__( 'Get it now, pay the full amount within 30 days.', 'buy-now-pay-later-for-woocommerce' ),
+					'title'       => esc_html__( 'Pay in 30 days', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'description' => esc_html__( 'Get it now, pay the full amount within 30 days.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					'count'       => 1,
 					'interval'    => 30,
 					'unit'        => 'day',
@@ -171,10 +171,10 @@ if ( ! class_exists( 'DDWCPP_Plans_Helper' ) ) {
 			switch ( $plan['unit'] ) {
 				case 'day':
 					/* translators: %d: number of days. */
-					return 1 === $interval ? esc_html__( 'every day', 'buy-now-pay-later-for-woocommerce' ) : sprintf( esc_html__( 'every %d days', 'buy-now-pay-later-for-woocommerce' ), $interval );
+					return 1 === $interval ? esc_html__( 'every day', 'devdiggers-buy-now-pay-later-for-woocommerce' ) : sprintf( esc_html__( 'every %d days', 'devdiggers-buy-now-pay-later-for-woocommerce' ), $interval );
 				default:
 					/* translators: %d: number of weeks. */
-					return 1 === $interval ? esc_html__( 'every week', 'buy-now-pay-later-for-woocommerce' ) : sprintf( esc_html__( 'every %d weeks', 'buy-now-pay-later-for-woocommerce' ), $interval );
+					return 1 === $interval ? esc_html__( 'every week', 'devdiggers-buy-now-pay-later-for-woocommerce' ) : sprintf( esc_html__( 'every %d weeks', 'devdiggers-buy-now-pay-later-for-woocommerce' ), $interval );
 			}
 		}
 
@@ -190,10 +190,10 @@ if ( ! class_exists( 'DDWCPP_Plans_Helper' ) ) {
 			switch ( $plan['unit'] ) {
 				case 'day':
 					/* translators: %d: number of days. */
-					return sprintf( _n( 'in %d day', 'in %d days', $interval, 'buy-now-pay-later-for-woocommerce' ), $interval );
+					return sprintf( _n( 'in %d day', 'in %d days', $interval, 'devdiggers-buy-now-pay-later-for-woocommerce' ), $interval );
 				default:
 					/* translators: %d: number of weeks. */
-					return sprintf( _n( 'in %d week', 'in %d weeks', $interval, 'buy-now-pay-later-for-woocommerce' ), $interval );
+					return sprintf( _n( 'in %d week', 'in %d weeks', $interval, 'devdiggers-buy-now-pay-later-for-woocommerce' ), $interval );
 			}
 		}
 
@@ -210,11 +210,11 @@ if ( ! class_exists( 'DDWCPP_Plans_Helper' ) ) {
 			if ( $amount <= 0 ) {
 				if ( 1 === $count ) {
 					/* translators: %s: term, e.g. "in 30 days". */
-					return sprintf( esc_html__( 'Pay the full amount %s', 'buy-now-pay-later-for-woocommerce' ), self::ddwcpp_get_term_label( $plan ) );
+					return sprintf( esc_html__( 'Pay the full amount %s', 'devdiggers-buy-now-pay-later-for-woocommerce' ), self::ddwcpp_get_term_label( $plan ) );
 				}
 
 				/* translators: %1$d: number of payments, %2$s: interval, e.g. "every 2 weeks". */
-				return sprintf( esc_html__( '%1$d payments %2$s', 'buy-now-pay-later-for-woocommerce' ), $count, self::ddwcpp_get_interval_label( $plan ) );
+				return sprintf( esc_html__( '%1$d payments %2$s', 'devdiggers-buy-now-pay-later-for-woocommerce' ), $count, self::ddwcpp_get_interval_label( $plan ) );
 			}
 
 			$total    = $amount;
@@ -222,11 +222,11 @@ if ( ! class_exists( 'DDWCPP_Plans_Helper' ) ) {
 
 			if ( 1 === $count ) {
 				/* translators: %1$s: amount, %2$s: term, e.g. "in 30 days". */
-				return sprintf( esc_html__( 'Pay %1$s %2$s', 'buy-now-pay-later-for-woocommerce' ), wc_price( $total ), self::ddwcpp_get_term_label( $plan ) );
+				return sprintf( esc_html__( 'Pay %1$s %2$s', 'devdiggers-buy-now-pay-later-for-woocommerce' ), wc_price( $total ), self::ddwcpp_get_term_label( $plan ) );
 			}
 
 			/* translators: %1$d: number of payments, %2$s: amount of each payment, %3$s: interval, e.g. "every 2 weeks". */
-			return sprintf( esc_html__( '%1$d payments of %2$s %3$s', 'buy-now-pay-later-for-woocommerce' ), $count, wc_price( end( $schedule )['amount'] ), self::ddwcpp_get_interval_label( $plan ) );
+			return sprintf( esc_html__( '%1$d payments of %2$s %3$s', 'devdiggers-buy-now-pay-later-for-woocommerce' ), $count, wc_price( end( $schedule )['amount'] ), self::ddwcpp_get_interval_label( $plan ) );
 		}
 	}
 }

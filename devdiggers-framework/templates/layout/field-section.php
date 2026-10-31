@@ -54,14 +54,14 @@ if ( ! empty( $args ) && is_array( $args ) ) {
 				?>
 				<p class="submit <?php echo esc_attr( $submit_button[ 'button_parent_class' ] ?? '' ); ?>">
 					<?php wp_nonce_field( "{$submit_button['name']}_nonce_action", "{$submit_button['name']}_nonce" ); ?>
-					<button type="submit" id="<?php echo esc_attr( $arg[ 'id' ] ?? '' ) ?>" name="<?php echo esc_attr( $submit_button['name'] ); ?>" class="button button-primary <?php echo esc_attr( $arg[ 'class' ] ?? '' ) ?>" value="<?php echo esc_attr( ! empty( $submit_button[ 'value' ] ? $submit_button[ 'value' ] : __( 'Save', 'buy-now-pay-later-for-woocommerce' ) ) ); ?>">
+					<button type="submit" id="<?php echo esc_attr( $arg[ 'id' ] ?? '' ) ?>" name="<?php echo esc_attr( $submit_button['name'] ); ?>" class="button button-primary <?php echo esc_attr( $arg[ 'class' ] ?? '' ) ?>" value="<?php echo esc_attr( ! empty( $submit_button[ 'value' ] ? $submit_button[ 'value' ] : __( 'Save', 'devdiggers-buy-now-pay-later-for-woocommerce' ) ) ); ?>">
 						<?php
 						DDFW_SVG::get_svg_icon(
 							'circle-check',
 							false,
 							[ 'size' => 15 ]
 						);
-						echo esc_html( ! empty( $submit_button[ 'value' ] ) ? $submit_button[ 'value' ] : __( 'Save', 'buy-now-pay-later-for-woocommerce' ) ); ?>
+						echo esc_html( ! empty( $submit_button[ 'value' ] ) ? $submit_button[ 'value' ] : __( 'Save', 'devdiggers-buy-now-pay-later-for-woocommerce' ) ); ?>
 					</button>
 				</p>
 				<?php

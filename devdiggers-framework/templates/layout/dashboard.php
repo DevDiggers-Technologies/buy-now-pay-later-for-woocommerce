@@ -39,51 +39,51 @@ $is_subscribed   = get_option( 'ddfw_newsletter_subscribed' );
 
 $stats = [
 	[
-		'label' => esc_html__( 'Installed Plugins', 'buy-now-pay-later-for-woocommerce' ),
+		'label' => esc_html__( 'Installed Plugins', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 		'value' => $total_installed,
 		'icon'  => '<path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/>',
 	],
 	[
-		'label' => esc_html__( 'Active Plugins', 'buy-now-pay-later-for-woocommerce' ),
+		'label' => esc_html__( 'Active Plugins', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 		'value' => $total_active,
 		'icon'  => '<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>',
 	],
 	[
-		'label' => esc_html__( 'Inactive Plugins', 'buy-now-pay-later-for-woocommerce' ),
+		'label' => esc_html__( 'Inactive Plugins', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 		'value' => $total_inactive,
 		'icon'  => '<circle cx="12" cy="12" r="10"/><path d="M8 12h8"/>',
 	],
 	[
-		'label' => esc_html__( 'Activation Rate', 'buy-now-pay-later-for-woocommerce' ),
+		'label' => esc_html__( 'Activation Rate', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 		'value' => ( $total_installed > 0 ? round( ( $total_active / $total_installed ) * 100 ) : 0 ) . '%',
 		'icon'  => '<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
 	],
 ];
 
 $system_info = [
-	esc_html__( 'WordPress', 'buy-now-pay-later-for-woocommerce' )          => get_bloginfo( 'version' ),
-	esc_html__( 'WooCommerce', 'buy-now-pay-later-for-woocommerce' )        => defined( 'WC_VERSION' ) ? WC_VERSION : esc_html__( 'Not active', 'buy-now-pay-later-for-woocommerce' ),
-	esc_html__( 'PHP', 'buy-now-pay-later-for-woocommerce' )                => PHP_VERSION,
-	esc_html__( 'Memory Limit', 'buy-now-pay-later-for-woocommerce' )       => ini_get( 'memory_limit' ),
-	esc_html__( 'Max Execution Time', 'buy-now-pay-later-for-woocommerce' ) => ini_get( 'max_execution_time' ) . 's',
+	esc_html__( 'WordPress', 'devdiggers-buy-now-pay-later-for-woocommerce' )          => get_bloginfo( 'version' ),
+	esc_html__( 'WooCommerce', 'devdiggers-buy-now-pay-later-for-woocommerce' )        => defined( 'WC_VERSION' ) ? WC_VERSION : esc_html__( 'Not active', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+	esc_html__( 'PHP', 'devdiggers-buy-now-pay-later-for-woocommerce' )                => PHP_VERSION,
+	esc_html__( 'Memory Limit', 'devdiggers-buy-now-pay-later-for-woocommerce' )       => ini_get( 'memory_limit' ),
+	esc_html__( 'Max Execution Time', 'devdiggers-buy-now-pay-later-for-woocommerce' ) => ini_get( 'max_execution_time' ) . 's',
 ];
 
 $resources = [
 	[
-		'title' => esc_html__( 'Documentation', 'buy-now-pay-later-for-woocommerce' ),
-		'text'  => esc_html__( 'Guides and tutorials for every plugin', 'buy-now-pay-later-for-woocommerce' ),
+		'title' => esc_html__( 'Documentation', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+		'text'  => esc_html__( 'Guides and tutorials for every plugin', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 		'url'   => 'https://docs.devdiggers.com/',
 		'icon'  => '<path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/>',
 	],
 	[
-		'title' => esc_html__( 'Support', 'buy-now-pay-later-for-woocommerce' ),
-		'text'  => esc_html__( 'Get help from our support team', 'buy-now-pay-later-for-woocommerce' ),
+		'title' => esc_html__( 'Support', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+		'text'  => esc_html__( 'Get help from our support team', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 		'url'   => 'https://devdiggers.com/contact/',
 		'icon'  => '<path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.8-.9L3 21l1.9-5.2a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 8.5-8.5h.5a8.5 8.5 0 0 1 8 8z"/>',
 	],
 	[
-		'title' => esc_html__( 'Custom Development', 'buy-now-pay-later-for-woocommerce' ),
-		'text'  => esc_html__( 'Need extra features? Hire us', 'buy-now-pay-later-for-woocommerce' ),
+		'title' => esc_html__( 'Custom Development', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+		'text'  => esc_html__( 'Need extra features? Hire us', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 		'url'   => 'https://devdiggers.com/contact/',
 		'icon'  => '<path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/>',
 	],
@@ -104,13 +104,13 @@ $svg_tags = ddfw_kses_allowed_svg_tags();
 				<h1>
 					<?php
 					/* translators: %s: current user display name */
-					printf( esc_html__( 'Welcome back, %s', 'buy-now-pay-later-for-woocommerce' ), esc_html( $current_user->display_name ) );
+					printf( esc_html__( 'Welcome back, %s', 'devdiggers-buy-now-pay-later-for-woocommerce' ), esc_html( $current_user->display_name ) );
 					?>
 				</h1>
-				<p><?php esc_html_e( 'Manage all your DevDiggers plugins from one place.', 'buy-now-pay-later-for-woocommerce' ); ?></p>
+				<p><?php esc_html_e( 'Manage all your DevDiggers plugins from one place.', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></p>
 			</div>
 			<a href="<?php echo esc_url( admin_url( 'admin.php?page=devdiggers-extensions' ) ); ?>" class="ddfw-button ddfw-button-secondary ddfw-dashboard-header-action">
-				<?php esc_html_e( 'Browse Extensions', 'buy-now-pay-later-for-woocommerce' ); ?>
+				<?php esc_html_e( 'Browse Extensions', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?>
 			</a>
 		</div>
 
@@ -128,12 +128,12 @@ $svg_tags = ddfw_kses_allowed_svg_tags();
 
 		<div class="ddfw-dashboard-section">
 			<div class="ddfw-section-header">
-				<h2><?php esc_html_e( 'Active Plugins', 'buy-now-pay-later-for-woocommerce' ); ?></h2>
-				<p><?php esc_html_e( 'Open a plugin to manage its settings and data.', 'buy-now-pay-later-for-woocommerce' ); ?></p>
+				<h2><?php esc_html_e( 'Active Plugins', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></h2>
+				<p><?php esc_html_e( 'Open a plugin to manage its settings and data.', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></p>
 			</div>
 
 			<?php if ( empty( $active_devdiggers_plugins ) ) : ?>
-				<p class="ddfw-hub-empty"><?php esc_html_e( 'No DevDiggers plugins are active yet.', 'buy-now-pay-later-for-woocommerce' ); ?></p>
+				<p class="ddfw-hub-empty"><?php esc_html_e( 'No DevDiggers plugins are active yet.', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></p>
 			<?php else : ?>
 				<div class="ddfw-plugins-grid">
 					<?php foreach ( $active_devdiggers_plugins as $plugin_file => $plugin_data ) : ?>
@@ -147,7 +147,7 @@ $svg_tags = ddfw_kses_allowed_svg_tags();
 								<div class="ddfw-plugin-icon">
 									<?php echo wp_kses( $svg_open . '<path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg>', $svg_tags ); ?>
 								</div>
-								<span class="ddfw-status-badge ddfw-status-active"><?php esc_html_e( 'Active', 'buy-now-pay-later-for-woocommerce' ); ?></span>
+								<span class="ddfw-status-badge ddfw-status-active"><?php esc_html_e( 'Active', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></span>
 							</div>
 							<div class="ddfw-plugin-content">
 								<h3><?php echo esc_html( $plugin_data['Name'] ); ?></h3>
@@ -159,7 +159,7 @@ $svg_tags = ddfw_kses_allowed_svg_tags();
 								<span class="ddfw-plugin-version">v<?php echo esc_html( $plugin_data['Version'] ); ?></span>
 								<?php if ( $admin_url ) : ?>
 									<a href="<?php echo esc_url( $admin_url ); ?>" class="ddfw-plugin-link">
-										<?php esc_html_e( 'Open', 'buy-now-pay-later-for-woocommerce' ); ?>
+										<?php esc_html_e( 'Open', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?>
 										<span aria-hidden="true">&rarr;</span>
 									</a>
 								<?php endif; ?>
@@ -174,7 +174,7 @@ $svg_tags = ddfw_kses_allowed_svg_tags();
 					<summary>
 						<?php
 						/* translators: %d: number of inactive plugins */
-						printf( esc_html__( 'Inactive plugins (%d)', 'buy-now-pay-later-for-woocommerce' ), (int) $total_inactive );
+						printf( esc_html__( 'Inactive plugins (%d)', 'devdiggers-buy-now-pay-later-for-woocommerce' ), (int) $total_inactive );
 						?>
 					</summary>
 					<ul class="ddfw-inactive-list">
@@ -182,7 +182,7 @@ $svg_tags = ddfw_kses_allowed_svg_tags();
 							<li>
 								<span class="ddfw-inactive-name"><?php echo esc_html( $plugin_data['Name'] ); ?></span>
 								<span class="ddfw-plugin-version">v<?php echo esc_html( $plugin_data['Version'] ); ?></span>
-								<a href="<?php echo esc_url( admin_url( 'plugins.php?plugin_status=inactive' ) ); ?>" class="ddfw-plugin-link"><?php esc_html_e( 'Activate', 'buy-now-pay-later-for-woocommerce' ); ?></a>
+								<a href="<?php echo esc_url( admin_url( 'plugins.php?plugin_status=inactive' ) ); ?>" class="ddfw-plugin-link"><?php esc_html_e( 'Activate', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></a>
 							</li>
 						<?php endforeach; ?>
 					</ul>
@@ -193,13 +193,13 @@ $svg_tags = ddfw_kses_allowed_svg_tags();
 		<?php if ( ! $is_subscribed ) : ?>
 			<div class="ddfw-dashboard-section ddfw-newsletter-section">
 				<div class="ddfw-newsletter-text">
-					<h2><?php esc_html_e( 'Stay updated with DevDiggers', 'buy-now-pay-later-for-woocommerce' ); ?></h2>
-					<p><?php esc_html_e( 'Product updates, WooCommerce tips and subscriber-only offers. No spam.', 'buy-now-pay-later-for-woocommerce' ); ?></p>
+					<h2><?php esc_html_e( 'Stay updated with DevDiggers', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></h2>
+					<p><?php esc_html_e( 'Product updates, WooCommerce tips and subscriber-only offers. No spam.', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></p>
 				</div>
 				<form class="ddfw-newsletter-form" method="post">
 					<div class="ddfw-form-row">
-						<input type="email" name="email" id="ddfw-newsletter-email" placeholder="<?php esc_attr_e( 'you@example.com', 'buy-now-pay-later-for-woocommerce' ); ?>" aria-label="<?php esc_attr_e( 'Email address', 'buy-now-pay-later-for-woocommerce' ); ?>" required />
-						<button type="submit" class="ddfw-button ddfw-button-primary" id="ddfw-newsletter-submit"><?php esc_html_e( 'Subscribe', 'buy-now-pay-later-for-woocommerce' ); ?></button>
+						<input type="email" name="email" id="ddfw-newsletter-email" placeholder="<?php esc_attr_e( 'you@example.com', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?>" aria-label="<?php esc_attr_e( 'Email address', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?>" required />
+						<button type="submit" class="ddfw-button ddfw-button-primary" id="ddfw-newsletter-submit"><?php esc_html_e( 'Subscribe', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></button>
 					</div>
 					<div id="ddfw-newsletter-message" class="ddfw-newsletter-message" role="status"></div>
 				</form>
@@ -209,7 +209,7 @@ $svg_tags = ddfw_kses_allowed_svg_tags();
 		<div class="ddfw-hub-columns">
 			<div class="ddfw-dashboard-section">
 				<div class="ddfw-section-header">
-					<h2><?php esc_html_e( 'System Information', 'buy-now-pay-later-for-woocommerce' ); ?></h2>
+					<h2><?php esc_html_e( 'System Information', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></h2>
 				</div>
 				<dl class="ddfw-info-list">
 					<?php foreach ( $system_info as $label => $value ) : ?>
@@ -223,7 +223,7 @@ $svg_tags = ddfw_kses_allowed_svg_tags();
 
 			<div class="ddfw-dashboard-section">
 				<div class="ddfw-section-header">
-					<h2><?php esc_html_e( 'Help & Resources', 'buy-now-pay-later-for-woocommerce' ); ?></h2>
+					<h2><?php esc_html_e( 'Help & Resources', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></h2>
 				</div>
 				<ul class="ddfw-resource-list">
 					<?php foreach ( $resources as $resource ) : ?>

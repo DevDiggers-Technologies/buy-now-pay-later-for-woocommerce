@@ -96,8 +96,8 @@ if ( ! class_exists( 'DDWCPP_Postpaid_Template' ) ) {
 					<div class="ddwcpp-alert" role="alert">
 						<?php $this->ddwcpp_print_icon( 'alert' ); ?>
 						<p>
-							<strong><?php esc_html_e( 'Pay Later is not available for new orders.', 'buy-now-pay-later-for-woocommerce' ); ?></strong>
-							<?php esc_html_e( 'You can still pay what you owe here.', 'buy-now-pay-later-for-woocommerce' ); ?>
+							<strong><?php esc_html_e( 'Pay Later is not available for new orders.', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></strong>
+							<?php esc_html_e( 'You can still pay what you owe here.', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?>
 						</p>
 					</div>
 					<?php
@@ -163,12 +163,12 @@ if ( ! class_exists( 'DDWCPP_Postpaid_Template' ) ) {
 		protected function ddwcpp_render_tabs( $section, $user_id ) {
 			$open = count( wp_list_filter( $this->installments_helper->ddwcpp_get_plans_summary( $user_id ), [ 'status' => 'pending' ] ) );
 			$tabs = [
-				'overview' => [ esc_html__( 'Overview', 'buy-now-pay-later-for-woocommerce' ), ddwcpp_get_account_url() ],
-				'plans'    => [ esc_html__( 'Payment Plans', 'buy-now-pay-later-for-woocommerce' ), ddwcpp_get_account_url( 'plans' ) ],
-				'history'  => [ esc_html__( 'History', 'buy-now-pay-later-for-woocommerce' ), ddwcpp_get_account_url( 'history' ) ],
+				'overview' => [ esc_html__( 'Overview', 'devdiggers-buy-now-pay-later-for-woocommerce' ), ddwcpp_get_account_url() ],
+				'plans'    => [ esc_html__( 'Payment Plans', 'devdiggers-buy-now-pay-later-for-woocommerce' ), ddwcpp_get_account_url( 'plans' ) ],
+				'history'  => [ esc_html__( 'History', 'devdiggers-buy-now-pay-later-for-woocommerce' ), ddwcpp_get_account_url( 'history' ) ],
 			];
 			?>
-			<nav class="ddwcpp-nav" aria-label="<?php esc_attr_e( 'Pay Later sections', 'buy-now-pay-later-for-woocommerce' ); ?>">
+			<nav class="ddwcpp-nav" aria-label="<?php esc_attr_e( 'Pay Later sections', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?>">
 				<?php foreach ( $tabs as $key => $tab ) : ?>
 					<a href="<?php echo esc_url( $tab[1] ); ?>" class="ddwcpp-nav-item<?php echo $key === $section ? ' is-active' : ''; ?>" <?php echo $key === $section ? 'aria-current="page"' : ''; ?>>
 						<?php echo esc_html( $tab[0] ); ?>
@@ -199,8 +199,8 @@ if ( ! class_exists( 'DDWCPP_Postpaid_Template' ) ) {
 				<div class="ddwcpp-alert" role="alert">
 					<?php $this->ddwcpp_print_icon( 'alert' ); ?>
 					<p>
-						<strong><?php esc_html_e( 'A payment is overdue.', 'buy-now-pay-later-for-woocommerce' ); ?></strong>
-						<?php echo ! empty( $this->ddwcpp_configuration['block_overdue'] ) ? esc_html__( 'Pay Later is paused until it is paid.', 'buy-now-pay-later-for-woocommerce' ) : esc_html__( 'Please pay it as soon as you can.', 'buy-now-pay-later-for-woocommerce' ); ?>
+						<strong><?php esc_html_e( 'A payment is overdue.', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></strong>
+						<?php echo ! empty( $this->ddwcpp_configuration['block_overdue'] ) ? esc_html__( 'Pay Later is paused until it is paid.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) : esc_html__( 'Please pay it as soon as you can.', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?>
 					</p>
 				</div>
 				<?php
@@ -218,8 +218,8 @@ if ( ! class_exists( 'DDWCPP_Postpaid_Template' ) ) {
 				?>
 				<section class="ddwcpp-section">
 					<div class="ddwcpp-section-head">
-						<h3><?php esc_html_e( 'Coming up', 'buy-now-pay-later-for-woocommerce' ); ?></h3>
-						<a href="<?php echo esc_url( ddwcpp_get_account_url( 'plans' ) ); ?>"><?php esc_html_e( 'All plans', 'buy-now-pay-later-for-woocommerce' ); ?></a>
+						<h3><?php esc_html_e( 'Coming up', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></h3>
+						<a href="<?php echo esc_url( ddwcpp_get_account_url( 'plans' ) ); ?>"><?php esc_html_e( 'All plans', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></a>
 					</div>
 					<?php $this->ddwcpp_render_installments_list( array_slice( $pending, 1, 5 ) ); ?>
 				</section>
@@ -236,23 +236,23 @@ if ( ! class_exists( 'DDWCPP_Postpaid_Template' ) ) {
 		 */
 		protected function ddwcpp_render_balance( $account, $used ) {
 			?>
-			<section class="ddwcpp-balance" aria-label="<?php esc_attr_e( 'Your balance', 'buy-now-pay-later-for-woocommerce' ); ?>">
-				<span class="ddwcpp-eyebrow"><?php esc_html_e( 'Available to spend', 'buy-now-pay-later-for-woocommerce' ); ?></span>
+			<section class="ddwcpp-balance" aria-label="<?php esc_attr_e( 'Your balance', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?>">
+				<span class="ddwcpp-eyebrow"><?php esc_html_e( 'Available to spend', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></span>
 				<strong class="ddwcpp-figure"><?php echo wp_kses_post( wc_price( max( 0, $account['balance'] ) ) ); ?></strong>
-				<div class="ddwcpp-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="<?php echo esc_attr( $used ); ?>" aria-label="<?php esc_attr_e( 'Spending limit in use', 'buy-now-pay-later-for-woocommerce' ); ?>">
+				<div class="ddwcpp-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="<?php echo esc_attr( $used ); ?>" aria-label="<?php esc_attr_e( 'Spending limit in use', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?>">
 					<span class="ddwcpp-meter-used" style="--ddwcpp-used: <?php echo esc_attr( $used ); ?>%;"></span>
 				</div>
 				<dl class="ddwcpp-legend">
 					<div class="ddwcpp-legend-owed">
-						<dt><?php esc_html_e( 'Owed', 'buy-now-pay-later-for-woocommerce' ); ?></dt>
+						<dt><?php esc_html_e( 'Owed', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></dt>
 						<dd><?php echo wp_kses_post( wc_price( $account['dues'] ) ); ?></dd>
 					</div>
 					<div class="ddwcpp-legend-free">
-						<dt><?php esc_html_e( 'Available', 'buy-now-pay-later-for-woocommerce' ); ?></dt>
+						<dt><?php esc_html_e( 'Available', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></dt>
 						<dd><?php echo wp_kses_post( wc_price( max( 0, $account['balance'] ) ) ); ?></dd>
 					</div>
 					<div>
-						<dt><?php esc_html_e( 'Limit', 'buy-now-pay-later-for-woocommerce' ); ?></dt>
+						<dt><?php esc_html_e( 'Limit', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></dt>
 						<dd><?php echo wp_kses_post( wc_price( $account['limit'] ) ); ?></dd>
 					</div>
 				</dl>
@@ -288,10 +288,10 @@ if ( ! class_exists( 'DDWCPP_Postpaid_Template' ) ) {
 				?>
 				<section class="ddwcpp-next is-clear">
 					<?php $this->ddwcpp_print_icon( 'check' ); ?>
-					<span class="ddwcpp-eyebrow"><?php esc_html_e( 'Next payment', 'buy-now-pay-later-for-woocommerce' ); ?></span>
-					<strong class="ddwcpp-next-title"><?php esc_html_e( 'You are all caught up', 'buy-now-pay-later-for-woocommerce' ); ?></strong>
-					<p class="ddwcpp-muted"><?php esc_html_e( 'Choose Pay Later at checkout to split your next order.', 'buy-now-pay-later-for-woocommerce' ); ?></p>
-					<a class="button" href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>"><?php esc_html_e( 'Start shopping', 'buy-now-pay-later-for-woocommerce' ); ?></a>
+					<span class="ddwcpp-eyebrow"><?php esc_html_e( 'Next payment', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></span>
+					<strong class="ddwcpp-next-title"><?php esc_html_e( 'You are all caught up', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></strong>
+					<p class="ddwcpp-muted"><?php esc_html_e( 'Choose Pay Later at checkout to split your next order.', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></p>
+					<a class="button" href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>"><?php esc_html_e( 'Start shopping', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></a>
 				</section>
 				<?php
 				return;
@@ -301,18 +301,18 @@ if ( ! class_exists( 'DDWCPP_Postpaid_Template' ) ) {
 			?>
 			<section class="ddwcpp-next<?php echo $account['overdue'] ? ' is-overdue' : ''; ?>">
 				<div class="ddwcpp-next-top">
-					<span class="ddwcpp-eyebrow"><?php echo $account['overdue'] ? esc_html__( 'Overdue', 'buy-now-pay-later-for-woocommerce' ) : esc_html__( 'Next payment', 'buy-now-pay-later-for-woocommerce' ); ?></span>
+					<span class="ddwcpp-eyebrow"><?php echo $account['overdue'] ? esc_html__( 'Overdue', 'devdiggers-buy-now-pay-later-for-woocommerce' ) : esc_html__( 'Next payment', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></span>
 					<?php if ( null !== $days ) : ?>
 						<span class="ddwcpp-countdown">
 							<?php
 							if ( $days < 0 ) {
 								/* translators: %s: number of days late. */
-								printf( esc_html( _n( '%s day late', '%s days late', abs( $days ), 'buy-now-pay-later-for-woocommerce' ) ), '<b>' . esc_html( number_format_i18n( abs( $days ) ) ) . '</b>' );
+								printf( esc_html( _n( '%s day late', '%s days late', abs( $days ), 'devdiggers-buy-now-pay-later-for-woocommerce' ) ), '<b>' . esc_html( number_format_i18n( abs( $days ) ) ) . '</b>' );
 							} elseif ( 0 === $days ) {
-								echo '<b>' . esc_html__( 'Today', 'buy-now-pay-later-for-woocommerce' ) . '</b>';
+								echo '<b>' . esc_html__( 'Today', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</b>';
 							} else {
 								/* translators: %s: number of days left. */
-								printf( esc_html( _n( 'in %s day', 'in %s days', $days, 'buy-now-pay-later-for-woocommerce' ) ), '<b>' . esc_html( number_format_i18n( $days ) ) . '</b>' );
+								printf( esc_html( _n( 'in %s day', 'in %s days', $days, 'devdiggers-buy-now-pay-later-for-woocommerce' ) ), '<b>' . esc_html( number_format_i18n( $days ) ) . '</b>' );
 							}
 							?>
 						</span>
@@ -324,8 +324,8 @@ if ( ! class_exists( 'DDWCPP_Postpaid_Template' ) ) {
 					echo esc_html(
 						$next['due_date']
 							/* translators: %s: due date. */
-							? sprintf( __( 'Due %s', 'buy-now-pay-later-for-woocommerce' ), date_i18n( wc_date_format(), strtotime( $next['due_date'] ) ) )
-							: __( 'No due date. Pay whenever you like.', 'buy-now-pay-later-for-woocommerce' )
+							? sprintf( __( 'Due %s', 'devdiggers-buy-now-pay-later-for-woocommerce' ), date_i18n( wc_date_format(), strtotime( $next['due_date'] ) ) )
+							: __( 'No due date. Pay whenever you like.', 'devdiggers-buy-now-pay-later-for-woocommerce' )
 					);
 					echo ' &middot; ' . esc_html( $next['plan_title'] );
 					?>
@@ -364,7 +364,7 @@ if ( ! class_exists( 'DDWCPP_Postpaid_Template' ) ) {
 							<span class="ddwcpp-cell-meta">
 								<?php
 								/* translators: %1$d: payment number, %2$d: number of payments. */
-								printf( esc_html__( 'Payment %1$d of %2$d', 'buy-now-pay-later-for-woocommerce' ), absint( $row['sequence'] ), absint( $row['total_count'] ) );
+								printf( esc_html__( 'Payment %1$d of %2$d', 'devdiggers-buy-now-pay-later-for-woocommerce' ), absint( $row['sequence'] ), absint( $row['total_count'] ) );
 
 								if ( $order ) {
 									echo ' &middot; <a href="' . esc_url( ddwcpp_get_account_url( 'plans/' . $order->get_id() ) ) . '">#' . esc_html( $order->get_order_number() ) . '</a>';
@@ -403,9 +403,9 @@ if ( ! class_exists( 'DDWCPP_Postpaid_Template' ) ) {
 				?>
 				<div class="ddwcpp-empty">
 					<?php $this->ddwcpp_print_icon( 'bag' ); ?>
-					<h3><?php esc_html_e( 'No payment plans yet', 'buy-now-pay-later-for-woocommerce' ); ?></h3>
-					<p><?php esc_html_e( 'Choose Pay Later at checkout and your payment plan will show up here.', 'buy-now-pay-later-for-woocommerce' ); ?></p>
-					<a class="button" href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>"><?php esc_html_e( 'Start shopping', 'buy-now-pay-later-for-woocommerce' ); ?></a>
+					<h3><?php esc_html_e( 'No payment plans yet', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></h3>
+					<p><?php esc_html_e( 'Choose Pay Later at checkout and your payment plan will show up here.', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></p>
+					<a class="button" href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>"><?php esc_html_e( 'Start shopping', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></a>
 				</div>
 				<?php
 				return;
@@ -426,14 +426,14 @@ if ( ! class_exists( 'DDWCPP_Postpaid_Template' ) ) {
 									<span class="ddwcpp-cell-meta">
 										<?php
 										/* translators: %1$s: order number, %2$s: date. */
-										printf( esc_html__( 'Order #%1$s, %2$s', 'buy-now-pay-later-for-woocommerce' ), esc_html( $order->get_order_number() ), esc_html( wc_format_datetime( $order->get_date_created() ) ) );
+										printf( esc_html__( 'Order #%1$s, %2$s', 'devdiggers-buy-now-pay-later-for-woocommerce' ), esc_html( $order->get_order_number() ), esc_html( wc_format_datetime( $order->get_date_created() ) ) );
 										?>
 									</span>
 								<?php endif; ?>
 							</span>
-							<span class="ddwcpp-badge ddwcpp-badge-<?php echo esc_attr( $status ); ?>"><?php echo 'paid' === $status ? esc_html__( 'Completed', 'buy-now-pay-later-for-woocommerce' ) : esc_html( ddwcpp_get_translation( 'pending' === $status ? 'active' : $status ) ); ?></span>
+							<span class="ddwcpp-badge ddwcpp-badge-<?php echo esc_attr( $status ); ?>"><?php echo 'paid' === $status ? esc_html__( 'Completed', 'devdiggers-buy-now-pay-later-for-woocommerce' ) : esc_html( ddwcpp_get_translation( 'pending' === $status ? 'active' : $status ) ); ?></span>
 						</span>
-						<span class="ddwcpp-segments" role="img" aria-label="<?php /* translators: %1$d: payments made, %2$d: payments in total. */ echo esc_attr( sprintf( __( '%1$d of %2$d payments made', 'buy-now-pay-later-for-woocommerce' ), $plan['paid_count'], $plan['count'] ) ); ?>">
+						<span class="ddwcpp-segments" role="img" aria-label="<?php /* translators: %1$d: payments made, %2$d: payments in total. */ echo esc_attr( sprintf( __( '%1$d of %2$d payments made', 'devdiggers-buy-now-pay-later-for-woocommerce' ), $plan['paid_count'], $plan['count'] ) ); ?>">
 							<?php
 							for ( $i = 0; $i < $plan['count'] + $plan['cancelled']; $i++ ) {
 								if ( $i >= $plan['count'] ) {
@@ -447,20 +447,20 @@ if ( ! class_exists( 'DDWCPP_Postpaid_Template' ) ) {
 						</span>
 						<span class="ddwcpp-plan-card-foot">
 							<span>
-								<span class="ddwcpp-eyebrow"><?php esc_html_e( 'Left to pay', 'buy-now-pay-later-for-woocommerce' ); ?></span>
+								<span class="ddwcpp-eyebrow"><?php esc_html_e( 'Left to pay', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></span>
 								<strong class="ddwcpp-amount"><?php echo wp_kses_post( wc_price( $plan['remaining'] ) ); ?></strong>
 							</span>
 							<span class="ddwcpp-plan-card-next">
 								<?php
 								if ( 'pending' === $plan['status'] && $plan['next_amount'] > 0 ) {
 									/* translators: %1$s: amount, %2$s: date. */
-									printf( esc_html__( 'Next %1$s on %2$s', 'buy-now-pay-later-for-woocommerce' ), wp_kses_post( wc_price( $plan['next_amount'] ) ), esc_html( $plan['next_due'] ? date_i18n( 'M j', strtotime( $plan['next_due'] ) ) : __( 'any day', 'buy-now-pay-later-for-woocommerce' ) ) );
+									printf( esc_html__( 'Next %1$s on %2$s', 'devdiggers-buy-now-pay-later-for-woocommerce' ), wp_kses_post( wc_price( $plan['next_amount'] ) ), esc_html( $plan['next_due'] ? date_i18n( 'M j', strtotime( $plan['next_due'] ) ) : __( 'any day', 'devdiggers-buy-now-pay-later-for-woocommerce' ) ) );
 								} elseif ( 'cancelled' === $plan['status'] ) {
 									/* translators: %d: number of payments made before the plan ended. */
-									printf( esc_html( _n( 'Ended after %d payment', 'Ended after %d payments', $plan['paid_count'], 'buy-now-pay-later-for-woocommerce' ) ), absint( $plan['paid_count'] ) );
+									printf( esc_html( _n( 'Ended after %d payment', 'Ended after %d payments', $plan['paid_count'], 'devdiggers-buy-now-pay-later-for-woocommerce' ) ), absint( $plan['paid_count'] ) );
 								} else {
 									/* translators: %d: number of payments. */
-									printf( esc_html( _n( '%d payment made', 'All %d payments made', $plan['count'], 'buy-now-pay-later-for-woocommerce' ) ), absint( $plan['count'] ) );
+									printf( esc_html( _n( '%d payment made', 'All %d payments made', $plan['count'], 'devdiggers-buy-now-pay-later-for-woocommerce' ) ), absint( $plan['count'] ) );
 								}
 								$this->ddwcpp_print_icon( 'chevron' );
 								?>
@@ -483,16 +483,16 @@ if ( ! class_exists( 'DDWCPP_Postpaid_Template' ) ) {
 			$order = wc_get_order( $order_id );
 
 			if ( ! $order || $order->get_customer_id() !== $user_id || ! DDWCPP_Plan_Schedule_Template::ddwcpp_get_rows( $order_id ) ) {
-				wc_print_notice( esc_html__( 'Payment plan not found.', 'buy-now-pay-later-for-woocommerce' ), 'error' );
+				wc_print_notice( esc_html__( 'Payment plan not found.', 'devdiggers-buy-now-pay-later-for-woocommerce' ), 'error' );
 				return;
 			}
 			?>
 			<div class="ddwcpp-back">
-				<a href="<?php echo esc_url( ddwcpp_get_account_url( 'plans' ) ); ?>">&larr; <?php esc_html_e( 'All payment plans', 'buy-now-pay-later-for-woocommerce' ); ?></a>
+				<a href="<?php echo esc_url( ddwcpp_get_account_url( 'plans' ) ); ?>">&larr; <?php esc_html_e( 'All payment plans', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></a>
 				<a href="<?php echo esc_url( $order->get_view_order_url() ); ?>">
 					<?php
 					/* translators: %s: order number. */
-					printf( esc_html__( 'View order #%s', 'buy-now-pay-later-for-woocommerce' ), esc_html( $order->get_order_number() ) );
+					printf( esc_html__( 'View order #%s', 'devdiggers-buy-now-pay-later-for-woocommerce' ), esc_html( $order->get_order_number() ) );
 					?>
 				</a>
 			</div>
@@ -514,18 +514,18 @@ if ( ! class_exists( 'DDWCPP_Postpaid_Template' ) ) {
 				<div class="ddwcpp-onboard-head">
 					<span class="ddwcpp-welcome-mark" aria-hidden="true"><?php echo wp_kses( str_replace( [ 'width="32"', 'height="32"' ], [ 'width="44"', 'height="44"' ], ddwcpp_get_brand_mark() ), ddwcpp_get_allowed_html() ); ?></span>
 					<div>
-						<h2><?php esc_html_e( 'Shop now, pay over time', 'buy-now-pay-later-for-woocommerce' ); ?></h2>
-						<p><?php esc_html_e( 'Your own credit line with this store. No bank card, no extra app.', 'buy-now-pay-later-for-woocommerce' ); ?></p>
+						<h2><?php esc_html_e( 'Shop now, pay over time', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></h2>
+						<p><?php esc_html_e( 'Your own credit line with this store. No bank card, no extra app.', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></p>
 					</div>
 				</div>
 				<ul class="ddwcpp-benefits">
-					<li><?php $this->ddwcpp_print_icon( 'split' ); ?><span><?php esc_html_e( 'Split purchases into easy installments', 'buy-now-pay-later-for-woocommerce' ); ?></span></li>
-					<li><?php $this->ddwcpp_print_icon( 'card' ); ?><span><?php esc_html_e( 'No card needed at checkout', 'buy-now-pay-later-for-woocommerce' ); ?></span></li>
-					<li><?php $this->ddwcpp_print_icon( 'bell' ); ?><span><?php esc_html_e( 'Reminders before every due date', 'buy-now-pay-later-for-woocommerce' ); ?></span></li>
+					<li><?php $this->ddwcpp_print_icon( 'split' ); ?><span><?php esc_html_e( 'Split purchases into easy installments', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></span></li>
+					<li><?php $this->ddwcpp_print_icon( 'card' ); ?><span><?php esc_html_e( 'No card needed at checkout', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></span></li>
+					<li><?php $this->ddwcpp_print_icon( 'bell' ); ?><span><?php esc_html_e( 'Reminders before every due date', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></span></li>
 				</ul>
 				<?php if ( $plans ) : ?>
 					<div class="ddwcpp-chips">
-						<span class="ddwcpp-chips-label"><?php esc_html_e( 'Plans', 'buy-now-pay-later-for-woocommerce' ); ?></span>
+						<span class="ddwcpp-chips-label"><?php esc_html_e( 'Plans', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></span>
 						<?php foreach ( $plans as $plan ) : ?>
 							<span class="ddwcpp-chip" title="<?php echo esc_attr( DDWCPP_Plans_Helper::ddwcpp_get_summary( $plan ) ); ?>"><?php echo esc_html( $plan['title'] ); ?></span>
 						<?php endforeach; ?>
@@ -546,46 +546,46 @@ if ( ! class_exists( 'DDWCPP_Postpaid_Template' ) ) {
 				switch ( $status ) {
 					case 'eligible':
 						?>
-						<h3><?php esc_html_e( 'You are approved', 'buy-now-pay-later-for-woocommerce' ); ?></h3>
+						<h3><?php esc_html_e( 'You are approved', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></h3>
 						<p>
 							<?php
 							/* translators: %s: credit limit. */
-							printf( esc_html__( 'Activate Pay Later to shop now and pay later, with a credit limit of %s.', 'buy-now-pay-later-for-woocommerce' ), wp_kses_post( wc_price( $account['limit'] ) ) );
+							printf( esc_html__( 'Activate Pay Later to shop now and pay later, with a credit limit of %s.', 'devdiggers-buy-now-pay-later-for-woocommerce' ), wp_kses_post( wc_price( $account['limit'] ) ) );
 							?>
 						</p>
 						<form method="post">
 							<?php $this->ddwcpp_form_fields( 'apply' ); ?>
-							<button type="submit" class="button alt"><?php esc_html_e( 'Activate Pay Later', 'buy-now-pay-later-for-woocommerce' ); ?></button>
+							<button type="submit" class="button alt"><?php esc_html_e( 'Activate Pay Later', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></button>
 						</form>
 						<?php
 						break;
 
 					case 'pending':
 						?>
-						<h3><?php esc_html_e( 'Application under review', 'buy-now-pay-later-for-woocommerce' ); ?></h3>
-						<p><?php esc_html_e( 'We are reviewing your application and will email you once it has been decided.', 'buy-now-pay-later-for-woocommerce' ); ?></p>
+						<h3><?php esc_html_e( 'Application under review', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></h3>
+						<p><?php esc_html_e( 'We are reviewing your application and will email you once it has been decided.', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></p>
 						<?php
 						break;
 
 					case 'rejected':
 						?>
-						<h3><?php esc_html_e( 'Application not approved', 'buy-now-pay-later-for-woocommerce' ); ?></h3>
-						<p><?php esc_html_e( 'Your Pay Later application was not approved. Contact us if you have any questions.', 'buy-now-pay-later-for-woocommerce' ); ?></p>
+						<h3><?php esc_html_e( 'Application not approved', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></h3>
+						<p><?php esc_html_e( 'Your Pay Later application was not approved. Contact us if you have any questions.', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></p>
 						<?php
 						break;
 
 					default:
 						?>
-						<h3><?php esc_html_e( 'Apply in a minute', 'buy-now-pay-later-for-woocommerce' ); ?></h3>
+						<h3><?php esc_html_e( 'Apply in a minute', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></h3>
 						<p>
 							<?php
 							/* translators: %s: credit limit. */
-							printf( esc_html__( 'Get a spending limit of up to %s and pay for your orders in installments.', 'buy-now-pay-later-for-woocommerce' ), wp_kses_post( wc_price( $account['limit'] ) ) );
+							printf( esc_html__( 'Get a spending limit of up to %s and pay for your orders in installments.', 'devdiggers-buy-now-pay-later-for-woocommerce' ), wp_kses_post( wc_price( $account['limit'] ) ) );
 							?>
 						</p>
 						<form method="post">
 							<?php $this->ddwcpp_form_fields( 'apply' ); ?>
-							<button type="submit" class="button alt"><?php esc_html_e( 'Apply for Pay Later', 'buy-now-pay-later-for-woocommerce' ); ?></button>
+							<button type="submit" class="button alt"><?php esc_html_e( 'Apply for Pay Later', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></button>
 						</form>
 						<?php
 				}
@@ -622,36 +622,36 @@ if ( ! class_exists( 'DDWCPP_Postpaid_Template' ) ) {
 			<table class="shop_table shop_table_responsive ddwcpp-table ddwcpp-transactions-table">
 				<thead>
 					<tr>
-						<th><?php esc_html_e( 'Date', 'buy-now-pay-later-for-woocommerce' ); ?></th>
-						<th><?php esc_html_e( 'Description', 'buy-now-pay-later-for-woocommerce' ); ?></th>
-						<th><?php esc_html_e( 'Order', 'buy-now-pay-later-for-woocommerce' ); ?></th>
-						<th><?php esc_html_e( 'Amount', 'buy-now-pay-later-for-woocommerce' ); ?></th>
+						<th><?php esc_html_e( 'Date', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></th>
+						<th><?php esc_html_e( 'Description', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></th>
+						<th><?php esc_html_e( 'Order', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></th>
+						<th><?php esc_html_e( 'Amount', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php if ( empty( $transactions ) ) : ?>
-						<tr><td colspan="4" class="ddwcpp-table-empty"><?php esc_html_e( 'No activity yet.', 'buy-now-pay-later-for-woocommerce' ); ?></td></tr>
+						<tr><td colspan="4" class="ddwcpp-table-empty"><?php esc_html_e( 'No activity yet.', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></td></tr>
 					<?php endif; ?>
 					<?php
 					foreach ( $transactions as $transaction ) :
 						$order = $transaction['order_id'] ? wc_get_order( $transaction['order_id'] ) : null;
 						?>
 						<tr>
-							<td data-title="<?php esc_attr_e( 'Date', 'buy-now-pay-later-for-woocommerce' ); ?>"><a href="<?php echo esc_url( ddwcpp_get_account_url( 'view/' . $transaction['id'] ) ); ?>"><?php echo esc_html( date_i18n( wc_date_format(), strtotime( $transaction['date'] ) ) ); ?></a></td>
-							<td data-title="<?php esc_attr_e( 'Description', 'buy-now-pay-later-for-woocommerce' ); ?>">
+							<td data-title="<?php esc_attr_e( 'Date', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?>"><a href="<?php echo esc_url( ddwcpp_get_account_url( 'view/' . $transaction['id'] ) ); ?>"><?php echo esc_html( date_i18n( wc_date_format(), strtotime( $transaction['date'] ) ) ); ?></a></td>
+							<td data-title="<?php esc_attr_e( 'Description', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?>">
 								<strong><?php echo esc_html( ddwcpp_get_translation( $transaction['reference'] ) ); ?></strong>
 								<?php if ( $transaction['note'] ) : ?>
 									<span class="ddwcpp-cell-meta"><?php echo esc_html( $transaction['note'] ); ?></span>
 								<?php endif; ?>
 							</td>
-							<td data-title="<?php esc_attr_e( 'Order', 'buy-now-pay-later-for-woocommerce' ); ?>">
+							<td data-title="<?php esc_attr_e( 'Order', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?>">
 								<?php if ( $order ) : ?>
 									<a href="<?php echo esc_url( $order->get_view_order_url() ); ?>">#<?php echo esc_html( $order->get_order_number() ); ?></a>
 								<?php else : ?>
 									<span class="ddwcpp-muted">&ndash;</span>
 								<?php endif; ?>
 							</td>
-							<td data-title="<?php esc_attr_e( 'Amount', 'buy-now-pay-later-for-woocommerce' ); ?>" class="<?php echo 'credit' === $transaction['type'] ? 'ddwcpp-positive' : 'ddwcpp-negative'; ?>">
+							<td data-title="<?php esc_attr_e( 'Amount', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?>" class="<?php echo 'credit' === $transaction['type'] ? 'ddwcpp-positive' : 'ddwcpp-negative'; ?>">
 								<?php echo ( 'credit' === $transaction['type'] ? '+' : '&minus;' ) . wp_kses_post( wc_price( $transaction['amount'], [ 'currency' => $order ? $order->get_currency() : '' ] ) ); ?>
 							</td>
 						</tr>
@@ -662,10 +662,10 @@ if ( ! class_exists( 'DDWCPP_Postpaid_Template' ) ) {
 			<?php if ( $total > self::PER_PAGE ) : ?>
 				<div class="woocommerce-pagination woocommerce-pagination--without-numbers woocommerce-Pagination">
 					<?php if ( $current_page > 1 ) : ?>
-						<a class="woocommerce-button woocommerce-button--previous woocommerce-Button woocommerce-Button--previous button" href="<?php echo esc_url( ddwcpp_get_account_url( 'history/' . ( $current_page - 1 ) ) ); ?>"><?php esc_html_e( 'Previous', 'buy-now-pay-later-for-woocommerce' ); ?></a>
+						<a class="woocommerce-button woocommerce-button--previous woocommerce-Button woocommerce-Button--previous button" href="<?php echo esc_url( ddwcpp_get_account_url( 'history/' . ( $current_page - 1 ) ) ); ?>"><?php esc_html_e( 'Previous', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></a>
 					<?php endif; ?>
 					<?php if ( ceil( $total / self::PER_PAGE ) > $current_page ) : ?>
-						<a class="woocommerce-button woocommerce-button--next woocommerce-Button woocommerce-Button--next button" href="<?php echo esc_url( ddwcpp_get_account_url( 'history/' . ( $current_page + 1 ) ) ); ?>"><?php esc_html_e( 'Next', 'buy-now-pay-later-for-woocommerce' ); ?></a>
+						<a class="woocommerce-button woocommerce-button--next woocommerce-Button woocommerce-Button--next button" href="<?php echo esc_url( ddwcpp_get_account_url( 'history/' . ( $current_page + 1 ) ) ); ?>"><?php esc_html_e( 'Next', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></a>
 					<?php endif; ?>
 				</div>
 			<?php endif; ?>

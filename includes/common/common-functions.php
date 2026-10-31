@@ -225,12 +225,12 @@ if ( ! class_exists( 'DDWCPP_Common_Functions' ) ) {
 					'amount'    => $amount,
 					'reference' => 'cleared_dues',
 					'order_id'  => $order_id,
-					'note'      => esc_html__( 'Pay Later dues repayment.', 'buy-now-pay-later-for-woocommerce' ),
+					'note'      => esc_html__( 'Pay Later dues repayment.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					'email'     => 'payment_received',
 				]
 			);
 
-			$order->add_order_note( esc_html__( 'Pay Later dues credited to the customer.', 'buy-now-pay-later-for-woocommerce' ) );
+			$order->add_order_note( esc_html__( 'Pay Later dues credited to the customer.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) );
 		}
 
 		/**
@@ -270,14 +270,14 @@ if ( ! class_exists( 'DDWCPP_Common_Functions' ) ) {
 					'amount'     => $amount,
 					'reference'  => 'order_cancelled',
 					'order_id'   => $order_id,
-					'note'       => esc_html__( 'Credit restored after the order was cancelled.', 'buy-now-pay-later-for-woocommerce' ),
+					'note'       => esc_html__( 'Credit restored after the order was cancelled.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					'email'      => 'credit_restored',
-					'email_vars' => [ 'reason' => esc_html__( 'order cancelled', 'buy-now-pay-later-for-woocommerce' ) ],
+					'email_vars' => [ 'reason' => esc_html__( 'order cancelled', 'devdiggers-buy-now-pay-later-for-woocommerce' ) ],
 				]
 			);
 
 			/* translators: %s: amount. */
-			$order->add_order_note( sprintf( esc_html__( 'Pay Later credit of %s restored to the customer.', 'buy-now-pay-later-for-woocommerce' ), wc_price( $amount ) ) );
+			$order->add_order_note( sprintf( esc_html__( 'Pay Later credit of %s restored to the customer.', 'devdiggers-buy-now-pay-later-for-woocommerce' ), wc_price( $amount ) ) );
 		}
 
 		/**
@@ -360,15 +360,15 @@ if ( ! class_exists( 'DDWCPP_Common_Functions' ) ) {
 
 			if ( $order && (int) $row['total_count'] > 1 ) {
 				/* translators: %1$d: payment number, %2$d: number of payments, %3$s: order number. */
-				return sprintf( esc_html__( 'payment %1$d of %2$d for order #%3$s', 'buy-now-pay-later-for-woocommerce' ), $row['sequence'], $row['total_count'], $order->get_order_number() );
+				return sprintf( esc_html__( 'payment %1$d of %2$d for order #%3$s', 'devdiggers-buy-now-pay-later-for-woocommerce' ), $row['sequence'], $row['total_count'], $order->get_order_number() );
 			}
 
 			if ( $order ) {
 				/* translators: %s: order number. */
-				return sprintf( esc_html__( 'the payment for order #%s', 'buy-now-pay-later-for-woocommerce' ), $order->get_order_number() );
+				return sprintf( esc_html__( 'the payment for order #%s', 'devdiggers-buy-now-pay-later-for-woocommerce' ), $order->get_order_number() );
 			}
 
-			return esc_html__( 'your Pay Later payment', 'buy-now-pay-later-for-woocommerce' );
+			return esc_html__( 'your Pay Later payment', 'devdiggers-buy-now-pay-later-for-woocommerce' );
 		}
 
 		/**
@@ -386,7 +386,7 @@ if ( ! class_exists( 'DDWCPP_Common_Functions' ) ) {
 
 			if ( $order->get_meta( '_ddwcpp_awaiting_upfront' ) ) {
 				$order->delete_meta_data( '_ddwcpp_awaiting_upfront' );
-				$order->add_order_note( esc_html__( 'First Pay Later installment received.', 'buy-now-pay-later-for-woocommerce' ) );
+				$order->add_order_note( esc_html__( 'First Pay Later installment received.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) );
 				$order->payment_complete();
 			}
 
@@ -398,7 +398,7 @@ if ( ! class_exists( 'DDWCPP_Common_Functions' ) ) {
 			);
 
 			if ( ! $open && (int) $row['total_count'] > 1 ) {
-				$order->add_order_note( esc_html__( 'Pay Later payment plan completed. Every installment is paid.', 'buy-now-pay-later-for-woocommerce' ) );
+				$order->add_order_note( esc_html__( 'Pay Later payment plan completed. Every installment is paid.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) );
 				do_action( 'ddwcpp_plan_completed', $order, $row );
 			}
 		}
@@ -410,8 +410,8 @@ if ( ! class_exists( 'DDWCPP_Common_Functions' ) ) {
 		 * @return array
 		 */
 		public function ddwcpp_register_privacy_exporter( $exporters ) {
-			$exporters['buy-now-pay-later-for-woocommerce'] = [
-				'exporter_friendly_name' => esc_html__( 'Pay Later Account', 'buy-now-pay-later-for-woocommerce' ),
+			$exporters['devdiggers-buy-now-pay-later-for-woocommerce'] = [
+				'exporter_friendly_name' => esc_html__( 'Pay Later Account', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 				'callback'               => [ $this, 'ddwcpp_export_personal_data' ],
 			];
 
@@ -444,23 +444,23 @@ if ( ! class_exists( 'DDWCPP_Common_Functions' ) ) {
 				$account = $this->users_helper->ddwcpp_get_account( $user->ID );
 				$items[] = [
 					'group_id'    => 'ddwcpp-account',
-					'group_label' => esc_html__( 'Pay Later Account', 'buy-now-pay-later-for-woocommerce' ),
+					'group_label' => esc_html__( 'Pay Later Account', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					'item_id'     => 'ddwcpp-account-' . $user->ID,
 					'data'        => [
 						[
-							'name'  => esc_html__( 'Status', 'buy-now-pay-later-for-woocommerce' ),
+							'name'  => esc_html__( 'Status', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 							'value' => $account['status'],
 						],
 						[
-							'name'  => esc_html__( 'Credit limit', 'buy-now-pay-later-for-woocommerce' ),
+							'name'  => esc_html__( 'Credit limit', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 							'value' => wc_format_decimal( $account['limit'], wc_get_price_decimals() ),
 						],
 						[
-							'name'  => esc_html__( 'Available credit', 'buy-now-pay-later-for-woocommerce' ),
+							'name'  => esc_html__( 'Available credit', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 							'value' => wc_format_decimal( $account['balance'], wc_get_price_decimals() ),
 						],
 						[
-							'name'  => esc_html__( 'Owed', 'buy-now-pay-later-for-woocommerce' ),
+							'name'  => esc_html__( 'Owed', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 							'value' => wc_format_decimal( $account['dues'], wc_get_price_decimals() ),
 						],
 					],
@@ -478,27 +478,27 @@ if ( ! class_exists( 'DDWCPP_Common_Functions' ) ) {
 			foreach ( $rows as $row ) {
 				$items[] = [
 					'group_id'    => 'ddwcpp-transactions',
-					'group_label' => esc_html__( 'Pay Later Transactions', 'buy-now-pay-later-for-woocommerce' ),
+					'group_label' => esc_html__( 'Pay Later Transactions', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					'item_id'     => 'ddwcpp-transaction-' . $row['id'],
 					'data'        => [
 						[
-							'name'  => esc_html__( 'Date', 'buy-now-pay-later-for-woocommerce' ),
+							'name'  => esc_html__( 'Date', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 							'value' => $row['date'],
 						],
 						[
-							'name'  => esc_html__( 'Type', 'buy-now-pay-later-for-woocommerce' ),
+							'name'  => esc_html__( 'Type', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 							'value' => $row['type'],
 						],
 						[
-							'name'  => esc_html__( 'Amount', 'buy-now-pay-later-for-woocommerce' ),
+							'name'  => esc_html__( 'Amount', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 							'value' => $row['amount'],
 						],
 						[
-							'name'  => esc_html__( 'Order', 'buy-now-pay-later-for-woocommerce' ),
+							'name'  => esc_html__( 'Order', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 							'value' => $row['order_id'],
 						],
 						[
-							'name'  => esc_html__( 'Note', 'buy-now-pay-later-for-woocommerce' ),
+							'name'  => esc_html__( 'Note', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 							'value' => $row['note'],
 						],
 					],

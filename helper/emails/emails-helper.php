@@ -33,90 +33,90 @@ if ( ! class_exists( 'DDWCPP_Emails_Helper' ) ) {
 		 * @return array event => [ label, description, recipient, placeholders, enabled, subject, heading, message ].
 		 */
 		public static function ddwcpp_get_events() {
-			$thanks  = '<p>' . esc_html__( 'Thanks,', 'buy-now-pay-later-for-woocommerce' ) . '<br>{site_title}</p>';
-			$account = '<p><a href="{account_url}">' . esc_html__( 'Go to my Pay Later account', 'buy-now-pay-later-for-woocommerce' ) . '</a></p>';
+			$thanks  = '<p>' . esc_html__( 'Thanks,', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '<br>{site_title}</p>';
+			$account = '<p><a href="{account_url}">' . esc_html__( 'Go to my Pay Later account', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</a></p>';
 
 			return [
 				'plan_confirmation'    => [
-					'label'        => esc_html__( 'Payment Plan Confirmation', 'buy-now-pay-later-for-woocommerce' ),
-					'description'  => esc_html__( 'Sent when a customer checks out with Pay Later, with the full payment schedule.', 'buy-now-pay-later-for-woocommerce' ),
+					'label'        => esc_html__( 'Payment Plan Confirmation', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'description'  => esc_html__( 'Sent when a customer checks out with Pay Later, with the full payment schedule.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					'recipient'    => 'customer',
 					'placeholders' => [ '{order_number}', '{plan_title}', '{plan_summary}', '{amount}', '{schedule}' ],
-					'subject'      => esc_html__( 'Your payment plan for order #{order_number}', 'buy-now-pay-later-for-woocommerce' ),
-					'heading'      => esc_html__( 'Your payment plan is set', 'buy-now-pay-later-for-woocommerce' ),
-					'message'      => '<p>' . esc_html__( 'Hi {customer_name},', 'buy-now-pay-later-for-woocommerce' ) . '</p><p>' . esc_html__( 'Thank you for order #{order_number}. You are paying {amount} with {plan_title}: {plan_summary}.', 'buy-now-pay-later-for-woocommerce' ) . '</p>{schedule}<p>' . esc_html__( 'We will remind you before every payment. You can also pay early at any time.', 'buy-now-pay-later-for-woocommerce' ) . '</p>' . $account . $thanks,
+					'subject'      => esc_html__( 'Your payment plan for order #{order_number}', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'heading'      => esc_html__( 'Your payment plan is set', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'message'      => '<p>' . esc_html__( 'Hi {customer_name},', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</p><p>' . esc_html__( 'Thank you for order #{order_number}. You are paying {amount} with {plan_title}: {plan_summary}.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</p>{schedule}<p>' . esc_html__( 'We will remind you before every payment. You can also pay early at any time.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</p>' . $account . $thanks,
 				],
 				'payment_reminder'     => [
-					'label'        => esc_html__( 'Payment Reminder', 'buy-now-pay-later-for-woocommerce' ),
-					'description'  => esc_html__( 'Sent before an installment is due. The timing is set under Reminders & Fees.', 'buy-now-pay-later-for-woocommerce' ),
+					'label'        => esc_html__( 'Payment Reminder', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'description'  => esc_html__( 'Sent before an installment is due. The timing is set under Reminders & Fees.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					'recipient'    => 'customer',
 					'placeholders' => [ '{amount}', '{due_date}', '{payment_label}', '{order_number}', '{plan_title}', '{pay_url}' ],
-					'subject'      => esc_html__( 'Your payment of {amount} is due on {due_date}', 'buy-now-pay-later-for-woocommerce' ),
-					'heading'      => esc_html__( 'Your payment is due soon', 'buy-now-pay-later-for-woocommerce' ),
-					'message'      => '<p>' . esc_html__( 'Hi {customer_name},', 'buy-now-pay-later-for-woocommerce' ) . '</p><p>' . esc_html__( 'Friendly reminder: {payment_label} of {amount} is due on {due_date}.', 'buy-now-pay-later-for-woocommerce' ) . '</p><p><a href="{pay_url}">' . esc_html__( 'Pay now', 'buy-now-pay-later-for-woocommerce' ) . '</a></p>' . $thanks,
+					'subject'      => esc_html__( 'Your payment of {amount} is due on {due_date}', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'heading'      => esc_html__( 'Your payment is due soon', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'message'      => '<p>' . esc_html__( 'Hi {customer_name},', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</p><p>' . esc_html__( 'Friendly reminder: {payment_label} of {amount} is due on {due_date}.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</p><p><a href="{pay_url}">' . esc_html__( 'Pay now', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</a></p>' . $thanks,
 				],
 				'payment_overdue'      => [
-					'label'        => esc_html__( 'Overdue Payment', 'buy-now-pay-later-for-woocommerce' ),
-					'description'  => esc_html__( 'Sent once, the day after a missed installment was due.', 'buy-now-pay-later-for-woocommerce' ),
+					'label'        => esc_html__( 'Overdue Payment', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'description'  => esc_html__( 'Sent once, the day after a missed installment was due.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					'recipient'    => 'customer',
 					'placeholders' => [ '{amount}', '{due_date}', '{payment_label}', '{order_number}', '{pay_url}' ],
-					'subject'      => esc_html__( 'Your payment of {amount} is overdue', 'buy-now-pay-later-for-woocommerce' ),
-					'heading'      => esc_html__( 'Your payment is overdue', 'buy-now-pay-later-for-woocommerce' ),
-					'message'      => '<p>' . esc_html__( 'Hi {customer_name},', 'buy-now-pay-later-for-woocommerce' ) . '</p><p>' . esc_html__( '{payment_label} of {amount} was due on {due_date} and has not been paid yet.', 'buy-now-pay-later-for-woocommerce' ) . '</p><p>' . esc_html__( 'Please pay as soon as you can to keep using Pay Later.', 'buy-now-pay-later-for-woocommerce' ) . '</p><p><a href="{pay_url}">' . esc_html__( 'Pay now', 'buy-now-pay-later-for-woocommerce' ) . '</a></p>' . $thanks,
+					'subject'      => esc_html__( 'Your payment of {amount} is overdue', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'heading'      => esc_html__( 'Your payment is overdue', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'message'      => '<p>' . esc_html__( 'Hi {customer_name},', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</p><p>' . esc_html__( '{payment_label} of {amount} was due on {due_date} and has not been paid yet.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</p><p>' . esc_html__( 'Please pay as soon as you can to keep using Pay Later.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</p><p><a href="{pay_url}">' . esc_html__( 'Pay now', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</a></p>' . $thanks,
 				],
 				'payment_received'     => [
-					'label'        => esc_html__( 'Payment Received', 'buy-now-pay-later-for-woocommerce' ),
-					'description'  => esc_html__( 'Sent when a repayment is paid, or when the store records a payment.', 'buy-now-pay-later-for-woocommerce' ),
+					'label'        => esc_html__( 'Payment Received', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'description'  => esc_html__( 'Sent when a repayment is paid, or when the store records a payment.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					'recipient'    => 'customer',
 					'placeholders' => [ '{amount}', '{order_number}' ],
-					'subject'      => esc_html__( 'We received your payment of {amount}', 'buy-now-pay-later-for-woocommerce' ),
-					'heading'      => esc_html__( 'Thank you for your payment', 'buy-now-pay-later-for-woocommerce' ),
-					'message'      => '<p>' . esc_html__( 'Hi {customer_name},', 'buy-now-pay-later-for-woocommerce' ) . '</p><p>' . esc_html__( 'We received your payment of {amount}. Thank you!', 'buy-now-pay-later-for-woocommerce' ) . '</p><p>' . esc_html__( 'You now owe {amount_owed} and have {available_credit} available to spend. {next_payment_notice}', 'buy-now-pay-later-for-woocommerce' ) . '</p>' . $account . $thanks,
+					'subject'      => esc_html__( 'We received your payment of {amount}', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'heading'      => esc_html__( 'Thank you for your payment', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'message'      => '<p>' . esc_html__( 'Hi {customer_name},', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</p><p>' . esc_html__( 'We received your payment of {amount}. Thank you!', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</p><p>' . esc_html__( 'You now owe {amount_owed} and have {available_credit} available to spend. {next_payment_notice}', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</p>' . $account . $thanks,
 				],
 				'credit_restored'      => [
-					'label'        => esc_html__( 'Refund or Cancellation', 'buy-now-pay-later-for-woocommerce' ),
-					'description'  => esc_html__( 'Sent when a Pay Later order is refunded or cancelled and the amount comes off what the customer owes.', 'buy-now-pay-later-for-woocommerce' ),
+					'label'        => esc_html__( 'Refund or Cancellation', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'description'  => esc_html__( 'Sent when a Pay Later order is refunded or cancelled and the amount comes off what the customer owes.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					'recipient'    => 'customer',
 					'placeholders' => [ '{amount}', '{order_number}', '{reason}' ],
-					'subject'      => esc_html__( 'Your Pay Later balance was updated for order #{order_number}', 'buy-now-pay-later-for-woocommerce' ),
-					'heading'      => esc_html__( 'Your balance was updated', 'buy-now-pay-later-for-woocommerce' ),
-					'message'      => '<p>' . esc_html__( 'Hi {customer_name},', 'buy-now-pay-later-for-woocommerce' ) . '</p><p>' . esc_html__( '{amount} for order #{order_number} was returned to your Pay Later credit ({reason}).', 'buy-now-pay-later-for-woocommerce' ) . '</p><p>' . esc_html__( 'You now owe {amount_owed} and have {available_credit} available to spend.', 'buy-now-pay-later-for-woocommerce' ) . '</p>' . $account . $thanks,
+					'subject'      => esc_html__( 'Your Pay Later balance was updated for order #{order_number}', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'heading'      => esc_html__( 'Your balance was updated', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'message'      => '<p>' . esc_html__( 'Hi {customer_name},', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</p><p>' . esc_html__( '{amount} for order #{order_number} was returned to your Pay Later credit ({reason}).', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</p><p>' . esc_html__( 'You now owe {amount_owed} and have {available_credit} available to spend.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</p>' . $account . $thanks,
 				],
 				'credit_adjusted'      => [
-					'label'        => esc_html__( 'Balance Adjusted by the Store', 'buy-now-pay-later-for-woocommerce' ),
-					'description'  => esc_html__( 'Sent when you add or remove dues by hand and choose to email the customer.', 'buy-now-pay-later-for-woocommerce' ),
+					'label'        => esc_html__( 'Balance Adjusted by the Store', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'description'  => esc_html__( 'Sent when you add or remove dues by hand and choose to email the customer.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					'recipient'    => 'customer',
 					'placeholders' => [ '{amount}', '{adjustment}', '{note}' ],
-					'subject'      => esc_html__( 'Your Pay Later balance was adjusted', 'buy-now-pay-later-for-woocommerce' ),
-					'heading'      => esc_html__( 'Your balance was adjusted', 'buy-now-pay-later-for-woocommerce' ),
-					'message'      => '<p>' . esc_html__( 'Hi {customer_name},', 'buy-now-pay-later-for-woocommerce' ) . '</p><p>' . esc_html__( 'We {adjustment} {amount}: {note}', 'buy-now-pay-later-for-woocommerce' ) . '</p><p>' . esc_html__( 'You now owe {amount_owed} and have {available_credit} available to spend.', 'buy-now-pay-later-for-woocommerce' ) . '</p>' . $account . $thanks,
+					'subject'      => esc_html__( 'Your Pay Later balance was adjusted', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'heading'      => esc_html__( 'Your balance was adjusted', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'message'      => '<p>' . esc_html__( 'Hi {customer_name},', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</p><p>' . esc_html__( 'We {adjustment} {amount}: {note}', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</p><p>' . esc_html__( 'You now owe {amount_owed} and have {available_credit} available to spend.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</p>' . $account . $thanks,
 				],
 				'application_approved' => [
-					'label'        => esc_html__( 'Application Approved', 'buy-now-pay-later-for-woocommerce' ),
-					'description'  => esc_html__( 'Sent when you approve a customer.', 'buy-now-pay-later-for-woocommerce' ),
+					'label'        => esc_html__( 'Application Approved', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'description'  => esc_html__( 'Sent when you approve a customer.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					'recipient'    => 'customer',
 					'placeholders' => [ '{credit_limit}' ],
-					'subject'      => esc_html__( 'You are approved for Pay Later', 'buy-now-pay-later-for-woocommerce' ),
-					'heading'      => esc_html__( 'Welcome to Pay Later', 'buy-now-pay-later-for-woocommerce' ),
-					'message'      => '<p>' . esc_html__( 'Hi {customer_name},', 'buy-now-pay-later-for-woocommerce' ) . '</p><p>' . esc_html__( 'Good news: your Pay Later application is approved with a spending limit of {credit_limit}.', 'buy-now-pay-later-for-woocommerce' ) . '</p><p>' . esc_html__( 'Choose Pay Later at checkout to split your next order into easy payments.', 'buy-now-pay-later-for-woocommerce' ) . '</p>' . $account . $thanks,
+					'subject'      => esc_html__( 'You are approved for Pay Later', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'heading'      => esc_html__( 'Welcome to Pay Later', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'message'      => '<p>' . esc_html__( 'Hi {customer_name},', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</p><p>' . esc_html__( 'Good news: your Pay Later application is approved with a spending limit of {credit_limit}.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</p><p>' . esc_html__( 'Choose Pay Later at checkout to split your next order into easy payments.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</p>' . $account . $thanks,
 				],
 				'application_rejected' => [
-					'label'        => esc_html__( 'Application Not Approved', 'buy-now-pay-later-for-woocommerce' ),
-					'description'  => esc_html__( 'Sent when you reject a customer.', 'buy-now-pay-later-for-woocommerce' ),
+					'label'        => esc_html__( 'Application Not Approved', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'description'  => esc_html__( 'Sent when you reject a customer.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					'recipient'    => 'customer',
 					'placeholders' => [],
-					'subject'      => esc_html__( 'An update on your Pay Later application', 'buy-now-pay-later-for-woocommerce' ),
-					'heading'      => esc_html__( 'Application update', 'buy-now-pay-later-for-woocommerce' ),
-					'message'      => '<p>' . esc_html__( 'Hi {customer_name},', 'buy-now-pay-later-for-woocommerce' ) . '</p><p>' . esc_html__( 'Thank you for applying for Pay Later. We are not able to approve your application right now.', 'buy-now-pay-later-for-woocommerce' ) . '</p><p>' . esc_html__( 'If you have any questions, just reply to this email.', 'buy-now-pay-later-for-woocommerce' ) . '</p>' . $thanks,
+					'subject'      => esc_html__( 'An update on your Pay Later application', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'heading'      => esc_html__( 'Application update', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'message'      => '<p>' . esc_html__( 'Hi {customer_name},', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</p><p>' . esc_html__( 'Thank you for applying for Pay Later. We are not able to approve your application right now.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</p><p>' . esc_html__( 'If you have any questions, just reply to this email.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</p>' . $thanks,
 				],
 				'new_application'      => [
-					'label'        => esc_html__( 'New Application (Store)', 'buy-now-pay-later-for-woocommerce' ),
-					'description'  => esc_html__( 'Sent to the store when a customer applies for Pay Later.', 'buy-now-pay-later-for-woocommerce' ),
+					'label'        => esc_html__( 'New Application (Store)', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'description'  => esc_html__( 'Sent to the store when a customer applies for Pay Later.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					'recipient'    => 'admin',
 					'placeholders' => [ '{customer_email}', '{review_url}' ],
-					'subject'      => esc_html__( 'New Pay Later application from {customer_name}', 'buy-now-pay-later-for-woocommerce' ),
-					'heading'      => esc_html__( 'New Pay Later application', 'buy-now-pay-later-for-woocommerce' ),
-					'message'      => '<p>' . esc_html__( '{customer_name} ({customer_email}) applied for Pay Later.', 'buy-now-pay-later-for-woocommerce' ) . '</p><p><a href="{review_url}">' . esc_html__( 'Review applications', 'buy-now-pay-later-for-woocommerce' ) . '</a></p>',
+					'subject'      => esc_html__( 'New Pay Later application from {customer_name}', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'heading'      => esc_html__( 'New Pay Later application', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+					'message'      => '<p>' . esc_html__( '{customer_name} ({customer_email}) applied for Pay Later.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</p><p><a href="{review_url}">' . esc_html__( 'Review applications', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</a></p>',
 				],
 			];
 		}
@@ -233,7 +233,7 @@ if ( ! class_exists( 'DDWCPP_Emails_Helper' ) ) {
 
 			if ( $account['due_date'] && $account['next_amount'] > 0 ) {
 				/* translators: %1$s: amount, %2$s: date. */
-				$next = sprintf( esc_html__( 'Your next payment is %1$s on %2$s.', 'buy-now-pay-later-for-woocommerce' ), wc_price( $account['next_amount'] ), date_i18n( wc_date_format(), strtotime( $account['due_date'] ) ) );
+				$next = sprintf( esc_html__( 'Your next payment is %1$s on %2$s.', 'devdiggers-buy-now-pay-later-for-woocommerce' ), wc_price( $account['next_amount'] ), date_i18n( wc_date_format(), strtotime( $account['due_date'] ) ) );
 			}
 
 			$values = array_merge(

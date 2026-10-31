@@ -2,7 +2,7 @@
 /**
  * Activation handler. This is the first release, so there is nothing to upgrade or migrate.
  *
- * @package Buy Now Pay Later for WooCommerce
+ * @package DevDiggers Buy Now Pay Later for WooCommerce
  * @version 1.0.0
  */
 
@@ -147,7 +147,7 @@ if ( ! class_exists( 'DDWCPP_Install' ) ) {
 			if ( $product_id ) {
 				// Older stores named it "PostPaid Dues"; bring it in line with the plugin name.
 				$product = wc_get_product( $product_id );
-				$name    = esc_html__( 'Pay Later Dues', 'buy-now-pay-later-for-woocommerce' );
+				$name    = esc_html__( 'Pay Later Dues', 'devdiggers-buy-now-pay-later-for-woocommerce' );
 
 				if ( $product && $name !== $product->get_name() ) {
 					$product->set_name( $name );
@@ -159,7 +159,7 @@ if ( ! class_exists( 'DDWCPP_Install' ) ) {
 			}
 
 			$product = new WC_Product_Simple();
-			$product->set_name( esc_html__( 'Pay Later Dues', 'buy-now-pay-later-for-woocommerce' ) );
+			$product->set_name( esc_html__( 'Pay Later Dues', 'devdiggers-buy-now-pay-later-for-woocommerce' ) );
 			$product->set_slug( 'ddwcpp-postpaid-dues' );
 			$product->set_status( 'publish' );
 			$product->set_catalog_visibility( 'hidden' );

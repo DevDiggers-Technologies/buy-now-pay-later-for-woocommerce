@@ -23,7 +23,7 @@ if ( empty( $edit_screen_submit['name'] ) && empty( $setting_field_name ) ) {
 	<?php
 	if ( ! empty( $edit_screen_submit['name'] ) ) {
 		wp_nonce_field( "{$edit_screen_submit['name']}_nonce_action", "{$edit_screen_submit['name']}_nonce" );
-		$edit_screen_submit_label = ! empty( $edit_screen_submit['value'] ) ? $edit_screen_submit['value'] : __( 'Save', 'buy-now-pay-later-for-woocommerce' );
+		$edit_screen_submit_label = ! empty( $edit_screen_submit['value'] ) ? $edit_screen_submit['value'] : __( 'Save', 'devdiggers-buy-now-pay-later-for-woocommerce' );
 		?>
 		<button type="submit" name="<?php echo esc_attr( $edit_screen_submit['name'] ); ?>" class="button button-primary" value="<?php echo esc_attr( $edit_screen_submit_label ); ?>">
 			<?php
@@ -37,7 +37,7 @@ if ( empty( $edit_screen_submit['name'] ) && empty( $setting_field_name ) ) {
 		<button type="submit" name="submit" id="submit" class="button button-primary">
 			<?php
 			DDFW_SVG::get_svg_icon( 'circle-check', false, [ 'size' => 15 ] );
-			esc_html_e( 'Save Changes', 'buy-now-pay-later-for-woocommerce' );
+			esc_html_e( 'Save Changes', 'devdiggers-buy-now-pay-later-for-woocommerce' );
 			?>
 		</button>
 		<?php

@@ -303,7 +303,7 @@ if ( ! function_exists( 'ddfw_pro_tag' ) ) {
 	 */
 	function ddfw_pro_tag() {
 		?>
-		<span class="ddfw-pro-tag"><span class="dashicons dashicons-lock"></span> <?php esc_html_e( 'PRO', 'buy-now-pay-later-for-woocommerce' ); ?></span>
+		<span class="ddfw-pro-tag"><span class="dashicons dashicons-lock"></span> <?php esc_html_e( 'PRO', 'devdiggers-buy-now-pay-later-for-woocommerce' ); ?></span>
 		<?php
 	}
 }
@@ -354,7 +354,7 @@ if ( ! function_exists( 'ddfw_print_empty_state' ) ) {
 		$args = wp_parse_args(
 			$args,
 			[
-				'title'       => __( 'Nothing here yet', 'buy-now-pay-later-for-woocommerce' ),
+				'title'       => __( 'Nothing here yet', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 				'description' => '',
 				'icon'        => '',
 				'button_url'  => '',

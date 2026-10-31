@@ -1,4 +1,4 @@
-# Buy Now Pay Later for WooCommerce
+# DevDiggers Buy Now Pay Later for WooCommerce
 
 Run your own buy now, pay later program in WooCommerce. Approved customers get a credit limit, choose Pay in 4 or Pay in 30 days at checkout, and pay each installment later from My Account with any payment method the store accepts.
 
@@ -7,7 +7,7 @@ Run your own buy now, pay later program in WooCommerce. Approved customers get a
 - **License:** GPLv3 or later
 - **Requires:** WordPress 6.5+, WooCommerce 9.0+, PHP 7.4+
 - **Compatible with:** HPOS, WooCommerce Cart and Checkout blocks
-- **Pro:** [Buy Now Pay Later for WooCommerce Pro](https://devdiggers.com/product/woocommerce-buy-now-pay-later/)
+- **Pro:** [DevDiggers Buy Now Pay Later for WooCommerce Pro](https://devdiggers.com/product/woocommerce-buy-now-pay-later/)
 
 The WordPress.org listing text lives in `readme.txt`.
 
@@ -64,7 +64,7 @@ Useful hooks:
 ## Support
 
 - [Documentation](https://docs.devdiggers.com/woocommerce-postpaid/)
-- [Support forum](https://wordpress.org/support/plugin/buy-now-pay-later-for-woocommerce/)
+- [Support forum](https://wordpress.org/support/plugin/devdiggers-buy-now-pay-later-for-woocommerce/)
 
 ## Changelog
 

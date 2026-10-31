@@ -211,7 +211,7 @@ if ( ! class_exists( 'DDWCPP_Admin_Functions' ) ) {
 			}
 
 			if ( ! current_user_can( $this->ddwcpp_get_capability() ) ) {
-				wp_die( esc_html__( 'You are not allowed to manage Pay Later customers.', 'buy-now-pay-later-for-woocommerce' ), 403 );
+				wp_die( esc_html__( 'You are not allowed to manage Pay Later customers.', 'devdiggers-buy-now-pay-later-for-woocommerce' ), 403 );
 			}
 
 			$nonce = isset( $_GET['ddwcpp_nonce'] ) ? sanitize_text_field( wp_unslash( $_GET['ddwcpp_nonce'] ) ) : '';
@@ -249,7 +249,7 @@ if ( ! class_exists( 'DDWCPP_Admin_Functions' ) ) {
 			}
 
 			if ( ! current_user_can( $this->ddwcpp_get_capability() ) ) {
-				wp_die( esc_html__( 'You are not allowed to manage Pay Later installments.', 'buy-now-pay-later-for-woocommerce' ), 403 );
+				wp_die( esc_html__( 'You are not allowed to manage Pay Later installments.', 'devdiggers-buy-now-pay-later-for-woocommerce' ), 403 );
 			}
 
 			$nonce = isset( $_GET['ddwcpp_nonce'] ) ? sanitize_text_field( wp_unslash( $_GET['ddwcpp_nonce'] ) ) : '';
@@ -274,7 +274,7 @@ if ( ! class_exists( 'DDWCPP_Admin_Functions' ) ) {
 					'order_id'       => $row['order_id'] ? $row['order_id'] : null,
 					'installment_id' => $row['id'],
 					/* translators: %1$d: payment number, %2$d: number of payments. */
-					'note'           => sprintf( esc_html__( 'Payment %1$d of %2$d recorded by the store.', 'buy-now-pay-later-for-woocommerce' ), $row['sequence'], $row['total_count'] ),
+					'note'           => sprintf( esc_html__( 'Payment %1$d of %2$d recorded by the store.', 'devdiggers-buy-now-pay-later-for-woocommerce' ), $row['sequence'], $row['total_count'] ),
 					'email'          => 'payment_received',
 				]
 			);
@@ -337,11 +337,11 @@ if ( ! class_exists( 'DDWCPP_Admin_Functions' ) ) {
 		 */
 		public function ddwcpp_ajax_get_users_list() {
 			if ( ! current_user_can( $this->ddwcpp_get_capability() ) ) {
-				wp_send_json_error( [ 'message' => esc_html__( 'Permission denied.', 'buy-now-pay-later-for-woocommerce' ) ], 403 );
+				wp_send_json_error( [ 'message' => esc_html__( 'Permission denied.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) ], 403 );
 			}
 
 			if ( ! check_ajax_referer( 'ddwcpp-nonce', 'nonce', false ) ) {
-				wp_send_json_error( [ 'message' => esc_html__( 'Security check failed!', 'buy-now-pay-later-for-woocommerce' ) ], 403 );
+				wp_send_json_error( [ 'message' => esc_html__( 'Security check failed!', 'devdiggers-buy-now-pay-later-for-woocommerce' ) ], 403 );
 			}
 
 			$term  = isset( $_POST['query'] ) ? sanitize_text_field( wp_unslash( $_POST['query'] ) ) : '';
@@ -364,11 +364,11 @@ if ( ! class_exists( 'DDWCPP_Admin_Functions' ) ) {
 		 */
 		public function ddwcpp_ajax_adjust_balance() {
 			if ( ! current_user_can( $this->ddwcpp_get_capability() ) ) {
-				wp_send_json_error( [ 'message' => esc_html__( 'Permission denied.', 'buy-now-pay-later-for-woocommerce' ) ], 403 );
+				wp_send_json_error( [ 'message' => esc_html__( 'Permission denied.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) ], 403 );
 			}
 
 			if ( ! check_ajax_referer( 'ddwcpp-nonce', 'nonce', false ) ) {
-				wp_send_json_error( [ 'message' => esc_html__( 'Security check failed!', 'buy-now-pay-later-for-woocommerce' ) ], 403 );
+				wp_send_json_error( [ 'message' => esc_html__( 'Security check failed!', 'devdiggers-buy-now-pay-later-for-woocommerce' ) ], 403 );
 			}
 
 			$user_id = isset( $_POST['user_id'] ) ? absint( wp_unslash( $_POST['user_id'] ) ) : 0;
@@ -379,13 +379,13 @@ if ( ! class_exists( 'DDWCPP_Admin_Functions' ) ) {
 			$due     = isset( $_POST['due_days'] ) && '' !== sanitize_text_field( wp_unslash( $_POST['due_days'] ) ) ? absint( wp_unslash( $_POST['due_days'] ) ) : null;
 
 			if ( ! $user_id || ! get_userdata( $user_id ) || $amount <= 0 ) {
-				wp_send_json_error( [ 'message' => esc_html__( 'Enter a valid customer and amount.', 'buy-now-pay-later-for-woocommerce' ) ] );
+				wp_send_json_error( [ 'message' => esc_html__( 'Enter a valid customer and amount.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) ] );
 			}
 
 			// An adjustment needs a credit line to adjust.
 			$this->users_helper->ddwcpp_allot( $user_id );
 
-			$note = $note ? $note : ( 'credit' === $type ? esc_html__( 'Dues reduced by the store.', 'buy-now-pay-later-for-woocommerce' ) : esc_html__( 'Dues added by the store.', 'buy-now-pay-later-for-woocommerce' ) );
+			$note = $note ? $note : ( 'credit' === $type ? esc_html__( 'Dues reduced by the store.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) : esc_html__( 'Dues added by the store.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) );
 
 			$this->users_helper->ddwcpp_record(
 				$user_id,
@@ -395,12 +395,12 @@ if ( ! class_exists( 'DDWCPP_Admin_Functions' ) ) {
 					'reference'  => 'manual_' . $type,
 					'note'       => $note,
 					'email'      => $notify ? 'credit_adjusted' : '',
-					'email_vars' => [ 'adjustment' => 'credit' === $type ? esc_html__( 'reduced your dues by', 'buy-now-pay-later-for-woocommerce' ) : esc_html__( 'added to your dues', 'buy-now-pay-later-for-woocommerce' ) ],
+					'email_vars' => [ 'adjustment' => 'credit' === $type ? esc_html__( 'reduced your dues by', 'devdiggers-buy-now-pay-later-for-woocommerce' ) : esc_html__( 'added to your dues', 'devdiggers-buy-now-pay-later-for-woocommerce' ) ],
 					'due_days'   => $due,
 				]
 			);
 
-			wp_send_json_success( $this->ddwcpp_get_row_values( $user_id, esc_html__( 'Balance adjusted.', 'buy-now-pay-later-for-woocommerce' ) ) );
+			wp_send_json_success( $this->ddwcpp_get_row_values( $user_id, esc_html__( 'Balance adjusted.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) ) );
 		}
 
 		/**
@@ -419,12 +419,12 @@ if ( ! class_exists( 'DDWCPP_Admin_Functions' ) ) {
 
 			add_meta_box(
 				'ddwcpp-order-schedule',
-				esc_html__( 'Pay Later Payment Plan', 'buy-now-pay-later-for-woocommerce' ),
+				esc_html__( 'Pay Later Payment Plan', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 				function () use ( $order ) {
 					$rows = \DDWCPostPaid\Templates\Front\DDWCPP_Plan_Schedule_Template::ddwcpp_get_rows( $order->get_id() );
 
 					if ( ! $rows ) {
-						echo '<p>' . esc_html__( 'No installments for this order.', 'buy-now-pay-later-for-woocommerce' ) . '</p>';
+						echo '<p>' . esc_html__( 'No installments for this order.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</p>';
 						return;
 					}
 
@@ -438,7 +438,7 @@ if ( ! class_exists( 'DDWCPP_Admin_Functions' ) ) {
 								's'    => $order->get_id(),
 							]
 						)
-					) . '">' . esc_html__( 'Manage installments', 'buy-now-pay-later-for-woocommerce' ) . '</a></p>';
+					) . '">' . esc_html__( 'Manage installments', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</a></p>';
 				},
 				$screen_id,
 				'side',

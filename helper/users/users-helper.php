@@ -269,32 +269,32 @@ if ( ! class_exists( 'DDWCPP_Users_Helper' ) ) {
 			$config = $this->ddwcpp_configuration;
 
 			if ( ! $user_id ) {
-				return new \WP_Error( 'ddwcpp_guest', esc_html__( 'Log in to pay with Pay Later.', 'buy-now-pay-later-for-woocommerce' ) );
+				return new \WP_Error( 'ddwcpp_guest', esc_html__( 'Log in to pay with Pay Later.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) );
 			}
 
 			$this->ddwcpp_maybe_auto_activate( $user_id );
 
 			if ( 'eligible' !== $this->ddwcpp_get_verification_status( $user_id ) || ! $this->ddwcpp_is_allotted( $user_id ) ) {
-				return new \WP_Error( 'ddwcpp_not_active', esc_html__( 'Activate Pay Later from your account before using it.', 'buy-now-pay-later-for-woocommerce' ) );
+				return new \WP_Error( 'ddwcpp_not_active', esc_html__( 'Activate Pay Later from your account before using it.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) );
 			}
 
 			if ( ! empty( $config['block_overdue'] ) && $this->ddwcpp_is_overdue( $user_id ) ) {
-				return new \WP_Error( 'ddwcpp_overdue', esc_html__( 'Your Pay Later dues are overdue. Clear them to use Pay Later again.', 'buy-now-pay-later-for-woocommerce' ) );
+				return new \WP_Error( 'ddwcpp_overdue', esc_html__( 'Your Pay Later dues are overdue. Clear them to use Pay Later again.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) );
 			}
 
 			if ( (float) $config['min_order_amount'] > 0 && $amount < (float) $config['min_order_amount'] ) {
 				/* translators: %s: minimum order amount. */
-				return new \WP_Error( 'ddwcpp_min', sprintf( esc_html__( 'Pay Later needs an order total of at least %s.', 'buy-now-pay-later-for-woocommerce' ), wc_price( $config['min_order_amount'] ) ) );
+				return new \WP_Error( 'ddwcpp_min', sprintf( esc_html__( 'Pay Later needs an order total of at least %s.', 'devdiggers-buy-now-pay-later-for-woocommerce' ), wc_price( $config['min_order_amount'] ) ) );
 			}
 
 			if ( (float) $config['max_order_amount'] > 0 && $amount > (float) $config['max_order_amount'] ) {
 				/* translators: %s: maximum order amount. */
-				return new \WP_Error( 'ddwcpp_max', sprintf( esc_html__( 'Pay Later can be used for orders up to %s.', 'buy-now-pay-later-for-woocommerce' ), wc_price( $config['max_order_amount'] ) ) );
+				return new \WP_Error( 'ddwcpp_max', sprintf( esc_html__( 'Pay Later can be used for orders up to %s.', 'devdiggers-buy-now-pay-later-for-woocommerce' ), wc_price( $config['max_order_amount'] ) ) );
 			}
 
 			if ( $amount > $this->ddwcpp_get_balance( $user_id ) ) {
 				/* translators: %s: available credit. */
-				return new \WP_Error( 'ddwcpp_balance', sprintf( esc_html__( 'Your available Pay Later credit is %s, which does not cover this order.', 'buy-now-pay-later-for-woocommerce' ), wc_price( $this->ddwcpp_get_balance( $user_id ) ) ) );
+				return new \WP_Error( 'ddwcpp_balance', sprintf( esc_html__( 'Your available Pay Later credit is %s, which does not cover this order.', 'devdiggers-buy-now-pay-later-for-woocommerce' ), wc_price( $this->ddwcpp_get_balance( $user_id ) ) ) );
 			}
 
 			return apply_filters( 'ddwcpp_can_use_postpaid', true, $user_id, $amount );

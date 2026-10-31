@@ -71,12 +71,12 @@ if ( ! class_exists( 'DDWCPP_Installments_List_Template' ) ) {
 		 */
 		protected function ddwcpp_get_view_labels() {
 			return [
-				'upcoming'  => esc_html__( 'Upcoming', 'buy-now-pay-later-for-woocommerce' ),
-				'due_soon'  => esc_html__( 'Due in 7 Days', 'buy-now-pay-later-for-woocommerce' ),
-				'overdue'   => esc_html__( 'Overdue', 'buy-now-pay-later-for-woocommerce' ),
-				'paid'      => esc_html__( 'Paid', 'buy-now-pay-later-for-woocommerce' ),
-				'cancelled' => esc_html__( 'Cancelled', 'buy-now-pay-later-for-woocommerce' ),
-				'all'       => esc_html__( 'All', 'buy-now-pay-later-for-woocommerce' ),
+				'upcoming'  => esc_html__( 'Upcoming', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+				'due_soon'  => esc_html__( 'Due in 7 Days', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+				'overdue'   => esc_html__( 'Overdue', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+				'paid'      => esc_html__( 'Paid', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+				'cancelled' => esc_html__( 'Cancelled', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+				'all'       => esc_html__( 'All', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 			];
 		}
 
@@ -155,12 +155,12 @@ if ( ! class_exists( 'DDWCPP_Installments_List_Template' ) ) {
 		 */
 		public function get_columns() {
 			return [
-				'customer' => esc_html__( 'Customer', 'buy-now-pay-later-for-woocommerce' ),
-				'plan'     => esc_html__( 'Plan', 'buy-now-pay-later-for-woocommerce' ),
-				'amount'   => esc_html__( 'Amount', 'buy-now-pay-later-for-woocommerce' ),
-				'due_date' => esc_html__( 'Due Date', 'buy-now-pay-later-for-woocommerce' ),
-				'status'   => esc_html__( 'Status', 'buy-now-pay-later-for-woocommerce' ),
-				'actions'  => esc_html__( 'Actions', 'buy-now-pay-later-for-woocommerce' ),
+				'customer' => esc_html__( 'Customer', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+				'plan'     => esc_html__( 'Plan', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+				'amount'   => esc_html__( 'Amount', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+				'due_date' => esc_html__( 'Due Date', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+				'status'   => esc_html__( 'Status', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+				'actions'  => esc_html__( 'Actions', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 			];
 		}
 
@@ -195,7 +195,7 @@ if ( ! class_exists( 'DDWCPP_Installments_List_Template' ) ) {
 			$user = get_userdata( $item['user_id'] );
 
 			if ( ! $user ) {
-				return esc_html__( 'Deleted customer', 'buy-now-pay-later-for-woocommerce' );
+				return esc_html__( 'Deleted customer', 'devdiggers-buy-now-pay-later-for-woocommerce' );
 			}
 
 			$filter = ddwcpp_get_dashboard_url(
@@ -206,7 +206,7 @@ if ( ! class_exists( 'DDWCPP_Installments_List_Template' ) ) {
 				]
 			);
 
-			return get_avatar( $user->ID, 32, '', '', [ 'class' => 'ddwcpp-avatar' ] ) . '<strong><a href="' . esc_url( $filter ) . '">' . esc_html( $user->display_name ) . '</a></strong><br /><span class="ddwcpp-muted">' . esc_html( $user->user_email ) . '</span>';
+			return wp_kses( get_avatar( $user->ID, 32, '', '', [ 'class' => 'ddwcpp-avatar' ] ) . '<strong><a href="' . esc_url( $filter ) . '">' . esc_html( $user->display_name ) . '</a></strong><br /><span class="ddwcpp-muted">' . esc_html( $user->user_email ) . '</span>', ddwcpp_get_allowed_html() );
 		}
 
 		/**
@@ -220,7 +220,7 @@ if ( ! class_exists( 'DDWCPP_Installments_List_Template' ) ) {
 			$html  = '<strong>' . esc_html( $item['plan_title'] ) . '</strong><br /><span class="ddwcpp-muted">';
 
 			/* translators: %1$d: payment number, %2$d: number of payments. */
-			$html .= sprintf( esc_html__( 'Payment %1$d of %2$d', 'buy-now-pay-later-for-woocommerce' ), absint( $item['sequence'] ), absint( $item['total_count'] ) );
+			$html .= sprintf( esc_html__( 'Payment %1$d of %2$d', 'devdiggers-buy-now-pay-later-for-woocommerce' ), absint( $item['sequence'] ), absint( $item['total_count'] ) );
 
 			if ( $order ) {
 				$html .= ' &middot; <a href="' . esc_url( $order->get_edit_order_url() ) . '">#' . esc_html( $order->get_order_number() ) . '</a>';
@@ -242,15 +242,15 @@ if ( ! class_exists( 'DDWCPP_Installments_List_Template' ) ) {
 
 			if ( (float) $item['late_fee'] > 0 ) {
 				/* translators: %s: late fee. */
-				$html .= '<br /><small class="ddwcpp-overdue">' . sprintf( esc_html__( 'incl. %s late fee', 'buy-now-pay-later-for-woocommerce' ), wc_price( $item['late_fee'] ) ) . '</small>';
+				$html .= '<br /><small class="ddwcpp-overdue">' . sprintf( esc_html__( 'incl. %s late fee', 'devdiggers-buy-now-pay-later-for-woocommerce' ), wc_price( $item['late_fee'] ) ) . '</small>';
 			}
 
 			if ( 'pending' === $item['status'] && $remaining < $total ) {
 				/* translators: %s: amount still owed. */
-				$html .= '<br /><small class="ddwcpp-muted">' . sprintf( esc_html__( '%s left', 'buy-now-pay-later-for-woocommerce' ), wc_price( $remaining ) ) . '</small>';
+				$html .= '<br /><small class="ddwcpp-muted">' . sprintf( esc_html__( '%s left', 'devdiggers-buy-now-pay-later-for-woocommerce' ), wc_price( $remaining ) ) . '</small>';
 			}
 
-			return $html;
+			return wp_kses( $html, ddwcpp_get_allowed_html() );
 		}
 
 		/**
@@ -262,11 +262,11 @@ if ( ! class_exists( 'DDWCPP_Installments_List_Template' ) ) {
 		public function column_due_date( $item ) {
 			if ( 'paid' === $item['status'] && $item['paid_date'] ) {
 				/* translators: %s: date. */
-				return esc_html( sprintf( __( 'Paid %s', 'buy-now-pay-later-for-woocommerce' ), date_i18n( wc_date_format(), strtotime( $item['paid_date'] ) ) ) );
+				return esc_html( sprintf( __( 'Paid %s', 'devdiggers-buy-now-pay-later-for-woocommerce' ), date_i18n( wc_date_format(), strtotime( $item['paid_date'] ) ) ) );
 			}
 
 			if ( ! $item['due_date'] ) {
-				return '<span class="ddwcpp-muted">' . esc_html__( 'No due date', 'buy-now-pay-later-for-woocommerce' ) . '</span>';
+				return '<span class="ddwcpp-muted">' . esc_html__( 'No due date', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</span>';
 			}
 
 			$timestamp = strtotime( $item['due_date'] );
@@ -278,13 +278,13 @@ if ( ! class_exists( 'DDWCPP_Installments_List_Template' ) ) {
 				$days = (int) round( ( strtotime( substr( $item['due_date'], 0, 10 ) ) - strtotime( current_time( 'Y-m-d' ) ) ) / DAY_IN_SECONDS );
 
 				if ( 0 === $days ) {
-					$label = __( 'Due today', 'buy-now-pay-later-for-woocommerce' );
+					$label = __( 'Due today', 'devdiggers-buy-now-pay-later-for-woocommerce' );
 				} elseif ( $days < 0 ) {
 					/* translators: %s: number of days. */
-					$label = sprintf( _n( '%s day late', '%s days late', abs( $days ), 'buy-now-pay-later-for-woocommerce' ), number_format_i18n( abs( $days ) ) );
+					$label = sprintf( _n( '%s day late', '%s days late', abs( $days ), 'devdiggers-buy-now-pay-later-for-woocommerce' ), number_format_i18n( abs( $days ) ) );
 				} else {
 					/* translators: %s: number of days. */
-					$label = sprintf( _n( 'in %s day', 'in %s days', $days, 'buy-now-pay-later-for-woocommerce' ), number_format_i18n( $days ) );
+					$label = sprintf( _n( 'in %s day', 'in %s days', $days, 'devdiggers-buy-now-pay-later-for-woocommerce' ), number_format_i18n( $days ) );
 				}
 
 				$html .= '<br /><small class="' . ( $timestamp < $now ? 'ddwcpp-overdue' : 'ddwcpp-muted' ) . '">' . esc_html( $label ) . '</small>';
@@ -334,8 +334,8 @@ if ( ! class_exists( 'DDWCPP_Installments_List_Template' ) ) {
 				);
 			};
 
-			return '<a class="button button-small ddwcpp-confirm" data-confirm="' . esc_attr__( 'Record this payment as received? Use it for payments made outside the store, such as a bank transfer.', 'buy-now-pay-later-for-woocommerce' ) . '" href="' . esc_url( $url( 'mark_paid' ) ) . '">' . esc_html__( 'Mark paid', 'buy-now-pay-later-for-woocommerce' ) . '</a> '
-				. '<span class="ddfw-upgrade-to-pro-tag-wrapper ddwcpp-locked-action"><button type="button" class="button button-small" disabled="disabled">' . esc_html__( 'Remind', 'buy-now-pay-later-for-woocommerce' ) . '</button>' . ddfw_get_pro_tag() . '</span>';
+			return wp_kses( '<a class="button button-small ddwcpp-confirm" data-confirm="' . esc_attr__( 'Record this payment as received? Use it for payments made outside the store, such as a bank transfer.', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '" href="' . esc_url( $url( 'mark_paid' ) ) . '">' . esc_html__( 'Mark paid', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</a> '
+				. '<span class="ddfw-upgrade-to-pro-tag-wrapper ddwcpp-locked-action"><button type="button" class="button button-small" disabled="disabled">' . esc_html__( 'Remind', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</button>' . ddfw_get_pro_tag() . '</span>', ddwcpp_get_allowed_html() );
 		}
 
 		/**
@@ -354,7 +354,7 @@ if ( ! class_exists( 'DDWCPP_Installments_List_Template' ) ) {
 
 			if ( $total > 0 ) {
 				/* translators: %s: amount. */
-				echo '<div class="alignleft actions ddwcpp-tablenav-total">' . wp_kses_post( sprintf( __( 'Outstanding in this view: %s', 'buy-now-pay-later-for-woocommerce' ), '<strong>' . wc_price( $total ) . '</strong>' ) ) . '</div>';
+				echo '<div class="alignleft actions ddwcpp-tablenav-total">' . wp_kses_post( sprintf( __( 'Outstanding in this view: %s', 'devdiggers-buy-now-pay-later-for-woocommerce' ), '<strong>' . wc_price( $total ) . '</strong>' ) ) . '</div>';
 			}
 
 			if ( $filters['user_id'] ) {
@@ -366,7 +366,7 @@ if ( ! class_exists( 'DDWCPP_Installments_List_Template' ) ) {
 							'view' => $this->ddwcpp_get_view(),
 						]
 					)
-				) . '">' . esc_html__( 'Show all customers', 'buy-now-pay-later-for-woocommerce' ) . '</a></div>';
+				) . '">' . esc_html__( 'Show all customers', 'devdiggers-buy-now-pay-later-for-woocommerce' ) . '</a></div>';
 			}
 		}
 
@@ -377,8 +377,8 @@ if ( ! class_exists( 'DDWCPP_Installments_List_Template' ) ) {
 		 */
 		public function no_items() {
 			$args = [
-				'title'       => esc_html__( 'Nothing here', 'buy-now-pay-later-for-woocommerce' ),
-				'description' => esc_html__( 'Installments appear once customers check out with Pay Later. Each payment of a plan is listed with its due date, so you can see what is coming in and chase what is late.', 'buy-now-pay-later-for-woocommerce' ),
+				'title'       => esc_html__( 'Nothing here', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+				'description' => esc_html__( 'Installments appear once customers check out with Pay Later. Each payment of a plan is listed with its due date, so you can see what is coming in and chase what is late.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 			];
 
 			// A search or filter that matches nothing is not an empty store.
@@ -386,8 +386,8 @@ if ( ! class_exists( 'DDWCPP_Installments_List_Template' ) ) {
 				// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only list filter.
 				if ( ! empty( $_GET[ $filter ] ) ) {
 					$args = [
-						'title'       => esc_html__( 'No matches', 'buy-now-pay-later-for-woocommerce' ),
-						'description' => esc_html__( 'Nothing matches this search or these filters. Try different terms or reset the filters.', 'buy-now-pay-later-for-woocommerce' ),
+						'title'       => esc_html__( 'No matches', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
+						'description' => esc_html__( 'Nothing matches this search or these filters. Try different terms or reset the filters.', 'devdiggers-buy-now-pay-later-for-woocommerce' ),
 					];
 					break;
 				}
