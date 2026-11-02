@@ -1,9 +1,9 @@
-=== DevDiggers Buy Now Pay Later for WooCommerce ===
+=== Buy Now Pay Later for WooCommerce – BNPL, Pay in 4, Installments & Net 30 ===
 Contributors: devdiggers
 Plugin URI: https://devdiggers.com/product/woocommerce-buy-now-pay-later/
 Author: DevDiggers
 Author URI: https://devdiggers.com/
-Tags: buy now pay later, pay in 4, installments, net 30, store credit
+Tags: buy now pay later, bnpl, pay in 4, installments, net 30
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 7.4
@@ -13,21 +13,23 @@ Stable tag: 1.0.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Run your own buy now, pay later program. Offer Pay in 4 and Pay in 30 days on store credit you control. No lender, no fees per order.
+Offer buy now pay later (BNPL) on your own credit: Pay in 4 installments or Net 30 terms, with credit limits and due date reminders. No lender.
 
 == Description ==
 
 Plenty of stores already let trusted customers pay later. They just do it with spreadsheets, invoices and reminder emails written by hand.
 
-**[DevDiggers Buy Now Pay Later for WooCommerce](https://devdiggers.com/product/woocommerce-buy-now-pay-later/)** turns that into a proper checkout option. You approve the customers you trust and give each one a credit limit. They pick **Pay in 4** or **Pay in 30 days** at checkout, and the plugin tracks every installment, sends the reminders and lets them pay from My Account with any payment method you already accept.
+Buy Now Pay Later for WooCommerce is a free **[WooCommerce buy now pay later plugin](https://devdiggers.com/product/woocommerce-buy-now-pay-later/)** (BNPL) that turns that into a proper checkout option with installment payments and Net 30 terms. You approve the customers you trust and give each one a credit limit. They pick **Pay in 4** or **Pay in 30 days** at checkout, and the plugin tracks every installment, sends the reminders and lets them pay from My Account with any payment method you already accept.
 
 The credit is yours. There is no third party lender, no API key, no account to sign up for and no cut taken from your orders. Everything runs inside WooCommerce on your own server.
 
 = Quick links =
 
+* [Free Demo](https://demo.devdiggers.com/buy-now-pay-later-for-woocommerce/)
 * [Pro Demo](https://demo.devdiggers.com/woocommerce-postpaid/)
 * [Documentation](https://docs.devdiggers.com/woocommerce-postpaid/)
 * [Support](https://wordpress.org/support/plugin/devdiggers-buy-now-pay-later-for-woocommerce/)
+* [Free vs Pro Comparison](https://devdiggers.com/product/woocommerce-buy-now-pay-later/#free-vs-pro)
 * [Upgrade to Pro](https://devdiggers.com/product/woocommerce-buy-now-pay-later/)
 
 = How it works =
@@ -104,27 +106,43 @@ Customers get their own page under My Account, with tabs that switch without rel
 * Compatible with High-Performance Order Storage (HPOS)
 * Setup wizard that gets you running in a couple of minutes
 
-=== Make more from credit with Pro ===
+= Free vs Pro =
 
-[DevDiggers Buy Now Pay Later for WooCommerce Pro](https://devdiggers.com/product/woocommerce-buy-now-pay-later/) adds the controls stores ask for once credit sales take off. You can see every Pro setting in the free plugin, marked with a PRO tag.
+The free plugin gives every approved customer one store credit line, the Pay in 4 and Pay in 30 days plans, reminders and the full admin. [Buy Now Pay Later Pro](https://devdiggers.com/product/woocommerce-buy-now-pay-later/) adds the controls stores ask for once credit sales take off. You can see every Pro setting in the free plugin, marked with a PRO tag.
 
-* **Plan builder**: create and rename plans with their own number of payments, schedule, fee and order amount limits
-* **Unlimited payment plans**: 3, 6 or 12 monthly payments, weekly schedules, up to 60 installments
-* **Your own payment terms**: Net 15, Net 45, Net 60 or any number of days
-* **Credit limits per customer**: give wholesale and trusted buyers a bigger line, edited inline on the Customers screen
-* **Plan fees**: a fixed or percentage fee per plan, shown before the customer chooses
-* **Late fees and a grace period**: charge once per missed payment, fixed or a percentage
-* **Interest on repayments** and **partial payments** with a minimum amount
-* **Document verification**: customers upload an ID or business licence when they apply, stored in a private folder, with re-upload after a rejection
-* **Allowed user roles**: offer credit to wholesale or B2B customers only
-* **Excluded products and categories**: keep gift cards or low margin items cash only
-* **Message controls**: show the installment price to approved customers only, pick which plan it advertises, and rewrite the Learn more explainer with your logo
-* **Appearance**: credit card style balance, tab styles, corners, eleven brand colors and your own labels
-* **Bulk actions** for customers and installments, **CSV export** of installments and transactions, and one click payment reminders
+=== Plans and terms (Pro) ===
+
+* Plan builder: create and rename plans with their own number of payments, schedule, fee and order amount limits
+* 3, 6 or 12 monthly payments, weekly schedules, up to 60 installments
+* Net 15, Net 45, Net 60 or any number of days
+* A fixed or percentage fee per plan, shown before the customer chooses
+
+=== Credit and risk (Pro) ===
+
+* A different credit limit per customer, edited inline on the Customers screen
+* Late fees and a grace period, fixed or a percentage, charged once per missed payment
+* Interest on repayments and partial payments with a minimum amount
+* Document verification: customers upload an ID or business licence when they apply, stored in a private folder
+* Offer credit to chosen user roles only, such as wholesale or B2B customers
+* Keep chosen products and categories cash only
+
+=== Messaging and design (Pro) ===
+
+* Show the installment price to approved customers only and pick which plan it advertises
+* Rewrite the Learn more explainer with your own logo, steps and footnote
+* Credit card style balance, tab styles, corners, eleven brand colors and your own labels
+
+=== Admin tools (Pro) ===
+
+* Bulk actions for customers and installments
+* CSV export of installments and transactions
+* One click payment reminders
+
+Every customer, balance and installment from the free plugin carries over when you upgrade.
 
 == Installation ==
 
-1. In your WordPress admin go to Plugins > Add New and search for "DevDiggers Buy Now Pay Later for WooCommerce".
+1. In your WordPress admin go to Plugins > Add New and search for "Buy Now Pay Later for WooCommerce DevDiggers".
 2. Click Install Now, then Activate. WooCommerce must be active.
 3. The setup wizard opens. Turn the program on, set the default credit limit, pick your plans and set the reminder.
 4. Go to WooCommerce > Settings > Payments and make sure the Pay Later method is enabled. You can change its title and description there.
@@ -251,4 +269,4 @@ The build configuration is in `webpack.config.js` and `babel.config.js`. Two thi
 == Upgrade Notice ==
 
 = 1.0.0 =
-First release of DevDiggers Buy Now Pay Later for WooCommerce.
+First release of Buy Now Pay Later for WooCommerce.

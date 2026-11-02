@@ -7,6 +7,7 @@ Run your own buy now, pay later program in WooCommerce. Approved customers get a
 - **License:** GPLv3 or later
 - **Requires:** WordPress 6.5+, WooCommerce 9.0+, PHP 7.4+
 - **Compatible with:** HPOS, WooCommerce Cart and Checkout blocks
+- **Live Demo:** [Free](https://demo.devdiggers.com/buy-now-pay-later-for-woocommerce/) · [Pro](https://demo.devdiggers.com/woocommerce-postpaid/)
 - **Pro:** [DevDiggers Buy Now Pay Later for WooCommerce Pro](https://devdiggers.com/product/woocommerce-buy-now-pay-later/)
 
 The WordPress.org listing text lives in `readme.txt`.
