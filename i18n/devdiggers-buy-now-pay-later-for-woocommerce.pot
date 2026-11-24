@@ -2,11 +2,11 @@
 # This file is distributed under the GPLv3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: DevDiggers Buy Now Pay Later for WooCommerce 1.0.0\n"
+"Project-Id-Version: DevDiggers Buy Now Pay Later for WooCommerce 1.1.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/devdiggers-buy-now-pay-later-for-"
 "woocommerce\n"
-"POT-Creation-Date: 2026-10-31 12:54:22+00:00\n"
+"POT-Creation-Date: 2026-11-24 18:08:17+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -435,6 +435,7 @@ msgid "You are not allowed to manage Pay Later installments."
 msgstr ""
 
 #: includes/admin/admin-functions.php:277
+#: includes/integrations/mcp-integration.php:1145
 #. translators: %1$d: payment number, %2$d: number of payments.
 msgid "Payment %1$d of %2$d recorded by the store."
 msgstr ""
@@ -487,7 +488,7 @@ msgstr ""
 
 #: includes/admin/setup-wizard.php:45 includes/admin-dashboard.php:61
 #: includes/admin-dashboard.php:65 includes/admin-dashboard.php:66
-#: includes/file-handler.php:82 includes/postpaid.php:68
+#: includes/file-handler.php:85 includes/postpaid.php:68
 msgid "Pay Later"
 msgstr ""
 
@@ -1233,6 +1234,234 @@ msgstr ""
 
 #: includes/install.php:150 includes/install.php:162
 msgid "Pay Later Dues"
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:87
+#: includes/integrations/mcp-integration.php:110
+msgid "Buy Now Pay Later"
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:88
+msgid ""
+"Ask who owes you what: outstanding and overdue Pay Later credit, what is "
+"due this week, customers and their limits, their installments and payments."
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:111
+msgid ""
+"Store credit, installments, repayments and collections of the Pay Later "
+"payment method."
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:221
+msgid "Pay Later credit overview"
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:222
+msgid ""
+"The state of the Pay Later book, as on the Pay Later dashboard: total owed, "
+"available credit and utilization, accounts owing and overdue with the "
+"overdue amount, missed installments, what falls due in the next 7 days, "
+"applications waiting for review, the customers who owe the most, and credit "
+"used / repaid / orders for a date range compared with the period before. "
+"Start here for \"how much am I owed\" or \"what is overdue\"."
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:226
+msgid ""
+"First day of the activity period, Y-m-d. Defaults to 29 days before "
+"\"before\"."
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:227
+msgid "Last day of the activity period, Y-m-d. Defaults to today."
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:243
+msgid "List Pay Later customers"
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:244
+msgid ""
+"Customers on Pay Later with their approval status, credit limit, available "
+"credit, what they owe, next due date and amount, and whether they are "
+"overdue, largest balance first. Filter by status: owing (has a balance), "
+"overdue, pending (waiting for approval), active (credit line activated), "
+"rejected, or postpaid (everyone who applied or activated). Use the "
+"customer_id with bnpl-get-customer for details."
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:256
+msgid "Part of the name, username or email, or a user ID."
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:266
+msgid "Get a Pay Later customer"
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:267
+msgid ""
+"One customer's Pay Later account: approval status, credit limit, available "
+"credit, what they owe and when, every Pay Later order with its plan and "
+"progress (store charges without an order have order_id 0), their open "
+"installments and latest transactions. Give customer_id (from "
+"bnpl-list-customers) or email."
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:290
+msgid "List installments"
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:291
+msgid ""
+"Scheduled Pay Later payments, as on Pay Later > Installments, soonest due "
+"first, with the customer, order, plan, payment number, amount, late fee, "
+"paid, remaining, due date and days overdue, plus the total still owed for "
+"the filter. view: overdue (missed), due_soon (due within \"days\", default "
+"7: \"what is due this week\"), upcoming (not yet due), pending (every "
+"unpaid one), paid, cancelled or all. Filter by customer_id or order_id."
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:306
+msgid "Window of the due_soon view in days."
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:318
+msgid "List Pay Later transactions"
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:319
+msgid ""
+"The Pay Later ledger, newest first, as on Pay Later > Transactions: "
+"purchases on credit, repayments, payments recorded by the store, refunds, "
+"cancellations and manual adjustments, with the customer, amount, order and "
+"note. A debit lowers the customer's available credit (they owe more), a "
+"credit raises it."
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:331
+msgid ""
+"What the transaction was, e.g. order_debit (purchase), cleared_dues "
+"(customer repayment), manual_payment (payment recorded by the store), "
+"order_refund, order_cancelled, manual_credit, manual_debit."
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:334
+msgid "From this day, Y-m-d."
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:335
+msgid "Up to this day, Y-m-d."
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:338
+msgid "Transaction ID, order ID or part of the note."
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:348
+msgid "Pay Later settings"
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:349
+msgid ""
+"How Pay Later is set up: whether it is on, the default credit limit, how "
+"customers are approved, order amount limits, when single charges fall due, "
+"reminder timing, whether overdue customers are blocked, and the payment "
+"plans offered."
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:362
+#: includes/integrations/mcp-integration.php:1220
+msgid "Collections review"
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:363
+msgid ""
+"Review what customers owe on Pay Later: overdue payments and who to chase "
+"first, what falls due soon, customers close to their limit and applications "
+"waiting, ending with a prioritized follow up list."
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:369
+msgid "How many days ahead count as due soon. Defaults to 7."
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:381
+msgid "Mark an installment paid"
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:382
+msgid ""
+"Record that the store received the remaining amount of one unpaid "
+"installment (cash, bank transfer...), exactly like \"Mark paid\" on Pay "
+"Later > Installments: the customer's dues go down, a \"Payment Recorded\" "
+"transaction is logged and the customer gets the payment received email. "
+"Pass the installment_id from bnpl-list-installments and its remaining "
+"amount as \"amount\" to confirm."
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:390
+msgid ""
+"The installment's remaining amount, as bnpl-list-installments shows it. A "
+"different amount is refused."
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:550
+msgid "Customer not found. Use bnpl-list-customers to find the customer ID."
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:746
+#: includes/integrations/mcp-integration.php:1045
+msgid "The start date must be before the end date."
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:1120
+msgid ""
+"Installment not found. Use bnpl-list-installments to find the installment "
+"ID."
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:1125
+#. translators: %s: installment status.
+msgid "This installment is %s, so there is nothing to record."
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:1132
+#. translators: %s: remaining amount.
+msgid ""
+"The remaining amount of this installment is %s. Pass it as \"amount\" to "
+"confirm."
+msgstr ""
+
+#: includes/integrations/mcp-integration.php:1198
+#. translators: %d: number of days ahead.
+msgid ""
+"Review my Buy Now Pay Later collections.\n"
+"\n"
+"Use the Buy Now Pay Later tools:\n"
+"1. bnpl-credit-overview for the total owed, overdue accounts, missed "
+"installments and pending applications.\n"
+"2. bnpl-list-installments with view overdue, every page: who missed which "
+"payment, by how much and for how long.\n"
+"3. bnpl-list-installments with view due_soon and days %1$d: what falls due "
+"next.\n"
+"4. bnpl-list-customers with status owing: balances against credit limits.\n"
+"5. bnpl-get-customer for the three customers who owe the most overdue, to "
+"see their orders and recent payments.\n"
+"\n"
+"Then write a short collections report for the store owner:\n"
+"- Headline: total owed, how much of it is overdue and in how many accounts, "
+"and the repayment trend.\n"
+"- Overdue: each customer with the amount, days late, the order and whether "
+"a reminder went out, worst first.\n"
+"- Due in the next %1$d days: total and the largest payments.\n"
+"- Risk: customers using more than 80 percent of their limit, and "
+"applications waiting for review.\n"
+"- A prioritized follow up list (who to contact and about which "
+"installment).\n"
+"Use the store currency, round money to 2 decimals and keep it under 300 "
+"words. Do not change anything; only suggest. Say plainly when nothing is "
+"overdue."
 msgstr ""
 
 #: includes/postpaid.php:69

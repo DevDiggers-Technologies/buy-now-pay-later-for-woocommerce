@@ -9,7 +9,7 @@ Tested up to: 7.1
 Requires PHP: 7.4
 WC requires at least: 9.0
 WC tested up to: 11.2
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -106,6 +106,17 @@ Customers get their own page under My Account, with tabs that switch without rel
 * Compatible with High-Performance Order Storage (HPOS)
 * Setup wizard that gets you running in a couple of minutes
 
+=== AI assistants (MCP) ===
+
+Ask Claude, ChatGPT, Cursor, VS Code or any MCP client about your Pay Later book in plain words, such as "How much am I owed and how much is overdue?" or "What is due this week?".
+
+* Tools for the credit overview, customers with their limits and balances, one customer's orders and installments, the installments list (overdue, due soon, upcoming, paid), the transactions ledger and a settings summary
+* A Collections review prompt
+* Optional: let the assistant mark an installment paid, exactly like Mark paid on the Installments screen, logged under WooCommerce > Status > Logs
+* Store managers only; customers and visitors are refused
+* Managed in DevDiggers Plugins > AI & MCP, with an on / off switch per plugin and per write tool (write tools start off), a Try panel and an activity log
+* Needs WordPress 6.9 or later and the MCP Adapter, which WooCommerce 10.3 and later bundles
+
 = Free vs Pro =
 
 The free plugin gives every approved customer one store credit line, the Pay in 4 and Pay in 30 days plans, reminders and the full admin. [Buy Now Pay Later Pro](https://devdiggers.com/product/woocommerce-buy-now-pay-later/) adds the controls stores ask for once credit sales take off. You can see every Pro setting in the free plugin, marked with a PRO tag.
@@ -137,6 +148,7 @@ The free plugin gives every approved customer one store credit line, the Pay in 
 * Bulk actions for customers and installments
 * CSV export of installments and transactions
 * One click payment reminders
+* AI assistants can also set a customer's credit limit and send a payment reminder
 
 Every customer, balance and installment from the free plugin carries over when you upgrade.
 
@@ -255,6 +267,11 @@ The build configuration is in `webpack.config.js` and `babel.config.js`. Two thi
 
 == Changelog ==
 
+= 1.1.0 - 2026-11-24 =
+* New: AI assistants (MCP). Ask Claude, ChatGPT, Cursor, VS Code or any MCP client how much you are owed, what is overdue or due this week, and about a customer's Pay Later orders, installments and history. An optional tool marks an installment paid, exactly like Mark paid on the Installments screen; it stays off until you allow changes.
+* New: DevDiggers Plugins > AI & MCP page. Connect Claude, ChatGPT, Claude Code, Codex, Cursor, VS Code or any MCP client by signing in and clicking Allow in WordPress, with nothing to copy. Switch each plugin and each write tool on or off, test tools in the Try panel and review every call in the activity log.
+* Improved: Updated the bundled DevDiggers framework to 1.3.0. The title bar with the Save button now stays visible on desktop while you scroll an edit screen, and admin charts and pickers no longer break when another theme or plugin replaces the shared select2 script.
+
 = 1.0.0 - 2026-10-21 =
 * New: Pay Later payment method for the classic checkout and the Checkout block, with a plan choice and the customer's available credit.
 * New: Pay in 4 (first payment at purchase, order held until it is paid) and Pay in 30 days plans, each with its own on/off switch.
@@ -267,6 +284,9 @@ The build configuration is in `webpack.config.js` and `babel.config.js`. Two thi
 * New: Customers, Installments, Plans and Transactions screens, a setup wizard, HPOS support and nine editable customer and store emails.
 
 == Upgrade Notice ==
+
+= 1.1.0 =
+Adds AI assistant (MCP) support through the new DevDiggers AI & MCP page.
 
 = 1.0.0 =
 First release of Buy Now Pay Later for WooCommerce.

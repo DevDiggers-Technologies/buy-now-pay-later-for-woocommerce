@@ -39,6 +39,9 @@ if ( ! class_exists( 'DDWCPP_File_Handler' ) ) {
 			// a refund or cancellation from the admin must move the balance just like a checkout.
 			new Common\DDWCPP_Common_Hooks( $this->ddwcpp_configuration );
 
+			// AI assistants (MCP) through the DevDiggers AI & MCP hub.
+			new Integrations\DDWCPP_MCP_Integration( $this->ddwcpp_configuration );
+
 			if ( ! is_admin() || wp_doing_ajax() ) {
 				new Front\DDWCPP_Front_Hooks( $this->ddwcpp_configuration );
 			}
