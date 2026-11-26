@@ -4,7 +4,7 @@ Plugin URI: https://devdiggers.com/product/woocommerce-buy-now-pay-later/
 Author: DevDiggers
 Author URI: https://devdiggers.com/
 Tags: buy now pay later, bnpl, pay in 4, installments, net 30
-Requires at least: 6.5
+Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.4
 WC requires at least: 9.0
